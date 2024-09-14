@@ -14,7 +14,7 @@ import logoDark from "../../assets/logo-bg-removed.png";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 // import { deleteUserData } from "../../redux/user/userSlice";
-import { deleteUserData1 } from "../../redux/user/userSlice";
+import { deleteUserData1 } from "../../Redux/user/userSlice";
 import MobNavbar from "./MobNavbar";
 import Logo from "./Logo";
 

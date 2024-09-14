@@ -295,7 +295,7 @@ const ProfileManage = ({ userInfo, setUserInfo }) => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/* LinkedIn */}
             <div>
-              {!isEditable.socialLinks ? <label className="block py-1 px-4">{userInfo.socialLinks.linkedIn}</label> :
+              {!isEditable.socialLinks ? <label className="block py-1 px-4">{userInfo.socialLinks?.linkedIn}</label> :
                 <input
                   type="url"
                   className="py-1 px-2 block w-full border-gray-300 rounded-md shadow-sm"
@@ -307,7 +307,7 @@ const ProfileManage = ({ userInfo, setUserInfo }) => {
             </div>
             {/* GitHub */}
             <div>
-              {!isEditable.socialLinks ? <label className="block py-1 px-4">{userInfo.socialLinks.gitHub}</label> :
+              {!isEditable.socialLinks ? <label className="block py-1 px-4">{userInfo.socialLinks?.gitHub}</label> :
                 <input
                   type="url"
                   className="py-1 px-2 block w-full border-gray-300 rounded-md shadow-sm"
@@ -319,7 +319,7 @@ const ProfileManage = ({ userInfo, setUserInfo }) => {
             </div>
             {/* LeetCode */}
             <div>
-              {!isEditable.socialLinks ? <label className="block py-1 px-4">{userInfo.socialLinks.leetCode}</label> :
+              {!isEditable.socialLinks ? <label className="block py-1 px-4">{userInfo.socialLinks?.leetCode}</label> :
                 <input
                   type="url"
                   className="py-1 px-2 block w-full border-gray-300 rounded-md shadow-sm"
