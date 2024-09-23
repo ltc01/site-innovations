@@ -10,7 +10,7 @@ import { School } from "../../Data";
 import {categories} from "../../assets/swiper-imgs/categories"; // Import JSON data
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProgramCourses } from '../../redux/slices/courseSlice'; // Adjust the import path as necessary
+import { fetchProgramCourses } from '../../Redux/slices/courseSlice'; // Adjust the import path as necessary
 import { BeatLoader } from "react-spinners";
 
 
