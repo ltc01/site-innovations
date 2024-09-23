@@ -20,7 +20,7 @@ import Logo from "./Logo";
 import CourseNav from "./CourseNav";
 import { CollegeCourseData, OtherCourseData, School } from "../../Data";
 import College from "../../Pages/College";
-import { fetchAllCourses } from "../../redux/slices/courseSlice";
+import { fetchAllCourses } from "../../Redux/slices/courseSlice";
 import { BeatLoader } from "react-spinners";
 import Enroll from "./EnrollNow";
 
