@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchOrders } from '../../redux/slices/orderSlice';
+import { fetchOrders } from '../../Redux/slices/orderSlice';
 import BeatLoader from 'react-spinners/BeatLoader'; // Import the spinner
 
 const AllBuys = () => {

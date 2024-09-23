@@ -15,7 +15,7 @@ import HeroDp from "../../assets/Images/dp.jpg";
 import { SiLeetcode } from "react-icons/si";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-// import { setProfile } from "../../redux/user/userSlice.js";
+// import { setProfile } from "../../Redux/user/userSlice.js";
 
 function Profile({ userInfo }) {
   console.log(userInfo, 'user profile')
