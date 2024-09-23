@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCourseDetails } from '../redux/slices/courseDetailSlice';
+import { fetchCourseDetails } from '../Redux/slices/courseDetailSlice';
 import { FaRupeeSign, FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
 import { FiBookOpen } from 'react-icons/fi';
 import { useNavigate, useParams } from 'react-router-dom';

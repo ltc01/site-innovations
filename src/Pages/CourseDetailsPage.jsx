@@ -9,7 +9,7 @@ import Brochure from "../Brochure.txt";
 import { CollegeCourseData, OtherCourseData, School } from "../Data";
 import Testimonials from "../Components/Testmonials/Testimonials";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCourseDetails } from "../redux/slices/courseDetailSlice";
+import { fetchCourseDetails } from "../Redux/slices/courseDetailSlice";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BeatLoader } from "react-spinners";
