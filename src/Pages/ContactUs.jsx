@@ -68,13 +68,20 @@ const ContactUs = () => {
       // toast.success("Form submitted successfully");
       setShowPopup(true);
       setLoading(false);
+      setFormData({
+        Name: "",
+        Email: "",
+        Phone: "",
+        CountryCode: "+91",
+        Course: "",
+        Consent: false,
+      });
     } catch (error) {
       setLoading(false);
       toast.error("An error occurred");
       console.error("Error submitting form", error);
     }
   };
-
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prev) => ({
@@ -170,6 +177,7 @@ const ContactUs = () => {
                   id="fullname"
                   type="text"
                   name="Name"
+                  value={formData.Name}
                   className="w-full p-3 dark:bg-slate-800 border border-gray-300 rounded-md"
                   placeholder="Enter your full name"
                   onChange={handleChange}
@@ -189,6 +197,7 @@ const ContactUs = () => {
                   id="email"
                   type="email"
                   name="Email"
+                  value={formData.Email}
                   className="w-full p-3 dark:bg-slate-800 border border-gray-300 rounded-md"
                   placeholder="Enter your E-mail"
                   onChange={handleChange}
@@ -229,6 +238,7 @@ const ContactUs = () => {
                     id="phone"
                     name="Phone"
                     type="tel"
+                    value={formData.Phone}
                     className="w-full p-3 dark:bg-slate-800 border border-gray-300 rounded-md"
                     placeholder="Enter your phone number"
                     pattern="[0-9]{10}"
@@ -247,6 +257,7 @@ const ContactUs = () => {
                   name="Course"
                   className="border p-3 pr-10 dark:bg-slate-800 rounded focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer"
                   required
+                  value={formData.Course}
                   onChange={handleChange}
                 >
                   <option value="">Select Course</option>
@@ -313,6 +324,7 @@ const ContactUs = () => {
                 <input
                   id="consent"
                   name="Consent"
+                  checked={formData.Consent}
                   type="checkbox"
                   className="mr-2 h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
                   onChange={handleChange}

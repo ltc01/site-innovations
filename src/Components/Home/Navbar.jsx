@@ -162,22 +162,11 @@ const Navbar = ({ theme }) => {
           <li
             className={`mx-2 xl:mx-4 cursor-pointer flex gap-2 items-center hover:text-indigo-500`}
           >
-            {/* <Link to="/courses">Courses</Link> */}
-            <Link to="/Maintenance">Courses</Link>
+            <Link to="/courses">Courses</Link>
             {show ? (
-              <IoIosArrowUp
-                onClick={() => {
-                  // setShow(!show)
-                  navigate("/Maintenance");
-                }}
-              />
+              <IoIosArrowUp onClick={() => setShow(!show)} />
             ) : (
-              <IoIosArrowDown
-                onClick={() => {
-                  // setShow(!show)
-                  navigate("/Maintenance");
-                }}
-              />
+              <IoIosArrowDown onClick={() => setShow(!show)} />
             )}
           </li>
 
@@ -283,11 +272,11 @@ const Navbar = ({ theme }) => {
               {isDark ? <BsSun /> : <BsMoonStars />}
             </span>
 
-            <Enroll />
+            {/* <Enroll /> */}
             <Link to={"/gcep"} className="relative group">
               <button
                 type="button"
-                className="hidden sm:flex text-black bg-gradient-to-br from-green-400 via-teal-500 to-blue-500  hover:bg-gradient-to-br focus:outline-none focus:ring-amber-300 dark:focus:ring-amber-800 shadow-base shadow-amber-500/50 dark:shadow-base dark:shadow-amber-800/80 font-semibold rounded-lg text-sm px-0.5 py-0.5 text-center"
+                className="hidden z-10 sm:flex text-black bg-gradient-to-br from-green-400 via-teal-500 to-blue-500  hover:bg-gradient-to-br focus:outline-none focus:ring-amber-300 dark:focus:ring-amber-800 shadow-base shadow-amber-500/50 dark:shadow-base dark:shadow-amber-800/80 font-semibold rounded-lg text-sm px-0.5 py-0.5 text-center"
               >
                 <span className="flex items-center justify-center w-full h-full bg-white rounded-md px-8 py-1.5 ">
                   GCEP

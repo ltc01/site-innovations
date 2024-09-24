@@ -4,12 +4,12 @@ import { useLocation } from "react-router-dom";
 // import ContactFormComponent from '../../Components/Co'
 import { ContactFormComponent } from "../../Components/Contact/ContactForm";
 const EnrollNow = () => {
-  const [showPopup, setShowPopup] = useState(false);
+  const [showForm, setShowForm] = useState(false);
   const [animatePing, setAnimatePing] = useState(false);
 
   // Function to toggle the popup
   const togglePopup = () => {
-    setShowPopup(true);
+    setShowForm(true);
     setAnimatePing(true);
 
     // Remove ping animation after a short duration
@@ -22,14 +22,6 @@ const EnrollNow = () => {
     return (
       <div className="hidden sm:block">
         {/* Enroll Now Button */}
-        {/* <button
-        type="button"
-        onClick={togglePopup}
-        className="hidden sm:flex text-white bg-gradient-to-r from-green-400 via-green-600 to-green-700 hover:bg-gradient-to-br focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-base shadow-indgo-500/50 dark:shadow-base dark:shadow-indigo-800/80 font-semibold rounded-lg text-sm px-4 py-2 text-center"
-      >
-        Enroll Now
-      </button> */}
-
         <button
           type="button"
           onClick={togglePopup}
@@ -40,8 +32,8 @@ const EnrollNow = () => {
         </button>
 
         {/* Popup Modal */}
-        {showPopup && (
-          <ContactFormComponent />
+        {showForm && (
+          <ContactFormComponent showForm={showForm} setShowForm={setShowForm} />
           // <div className="fixed inset-0 flex items-center justify-center z-50">
           //   {/* Overlay */}
           //   <div
