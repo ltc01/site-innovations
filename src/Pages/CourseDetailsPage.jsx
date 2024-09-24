@@ -170,8 +170,8 @@ const CourseDetailsPage = () => {
   return (
     <div>
       {/* Course Description */}
-      <div className="flex items-center flex-col md:flex-row gap-12 md:gap-4 lg:gap-24 justify-between px-4 lg:px-24 mt-32 mb-14">
-        <div className="flex flex-col gap-4 w-[60%]">
+      <div className="flex items-center flex-col md:flex-row md:gap-4 lg:gap-24 justify-between px-4 lg:px-24 mt-32 mb-14">
+        <div className="flex flex-col gap-4 w-full md:w-[60%]">
           <h3 className="text-[1.7rem] lg:text-4xl font-bold text-neutral-600 dark:text-white">
             {/* {courseDetails?.title} */}
             {course?.title}
@@ -211,13 +211,13 @@ const CourseDetailsPage = () => {
           </div>
         </div>
 
-        <div className="w-[40%] h-96 rounded-[2rem] overflow-hidden">
+        <div className="hidden md:block md:w-[40%] h-96 rounded-[2rem] overflow-hidden">
           <img
             src={
               course?.thumbnail_image ? course?.thumbnail_image : CourseDesc2
             }
             alt=""
-            className="hidden md:block w-full h-full object-cover shadow-2xl shadow-black"
+            className="w-full h-full object-cover shadow-2xl shadow-black"
           />
         </div>
       </div>
@@ -235,7 +235,7 @@ const CourseDetailsPage = () => {
           <div className="flex justify-start border border-gray-300 rounded-2xl overflow-hidden">
             <h3
               className={`xs:text-[16px] font-bold w-1/2 flex text-sm lg:text-xl cursor-pointer text-center py-3 justify-center items-center transition ${
-                showTab === 1 ? "text-black" : "text-white bg-orange-400"
+                showTab === 1 ? "text-white bg-orange-400" : "text-black"
               }`}
               onClick={() => setShowTab(1)}
             >
@@ -243,7 +243,7 @@ const CourseDetailsPage = () => {
             </h3>
             <h3
               className={`xs:text-[16px] font-bold w-1/2 flex text-sm lg:text-xl cursor-pointer text-center py-3 justify-center items-center transition ${
-                showTab === 2 ? "text-black" : "text-white bg-orange-400"
+                showTab === 2 ? "text-white bg-orange-400" : "text-black"
               }`}
               onClick={() => setShowTab(2)}
             >
