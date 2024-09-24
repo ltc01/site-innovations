@@ -3,18 +3,37 @@ import Profile from "./Profile";
 import Recommendations from "./Recommendations";
 import Notifications from "./Notifications";
 import CoursesMain from "./CoursesMain";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { BarLoader, BounceLoader, CircleLoader, ClimbingBoxLoader, DotLoader, FadeLoader, HashLoader } from "react-spinners";
+const apiUrl = import.meta.env.VITE_API_URL;
+
+import {
+  BarLoader,
+  BounceLoader,
+  CircleLoader,
+  ClimbingBoxLoader,
+  DotLoader,
+  FadeLoader,
+  HashLoader,
+} from "react-spinners";
+import axios from "axios";
+import { setProfile1 } from "../../Redux/user/userSlice";
 const ProfilePage = ({ userInfo }) => {
+  const dispatch = useDispatch();
   const userInfo2 = useSelector((state) => {
-    console.log("state is: ", state);
+    console.log("state is (updated): ", state);
     return state.user;
   });
   console.log("userinfo2: ", userInfo2);
   const navigate = useNavigate();
+
   useEffect(() => {
-    if (!localStorage.getItem("userInfo")) navigate("/login");
+    // if (
+    //   localStorage.getItem("userInfo") &&
+    //   Object.keys(JSON.parse(localStorage.getItem("userInfo"))).length <= 0
+    // )
+    //   navigate("/login");
+    if (userInfo2 == null) navigate("/login");
 
     return () => {};
   }, []);

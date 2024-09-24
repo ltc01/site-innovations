@@ -17,6 +17,9 @@ import { HiShieldCheck } from "react-icons/hi";
 import { useNavigate, useParams } from "react-router-dom";
 import { School, CollegeCourseData, OtherCourseData } from "../Data";
 import axios from "axios";
+import { GoProjectRoadmap } from "react-icons/go";
+import { MdOutlineClass, MdOutlineLiveHelp } from "react-icons/md";
+import { PiCertificate } from "react-icons/pi";
 const apiUrl = import.meta.env.VITE_API_URL;
 const razorpayKeyId = import.meta.env.RAZORPAY_KEY_ID;
 
@@ -35,29 +38,29 @@ const Checkout = () => {
     if (!localStorage.getItem("access_token")) navigate("/login");
     // alert('id is:',id , ' and plan is:',plan)
     else {
-      window.scrollTo(0, 0);
+      // window.scrollTo(0, 0);
       console.log(course, id, plan);
-      if (course == "school") {
-        const course = School[0].subCate.filter((item) => {
-          return item.id == id;
-        });
-        setEnrollingCourse(course[0]);
-        console.log("course is: ", course);
-      } else if (course == "college") {
-        const course = CollegeCourseData[0].subCate.filter((item) => {
-          return item.id == id;
-        });
-        setEnrollingCourse(course[0]);
-        console.log(course);
-      } else {
-        const course = OtherCourseData[0].subCate.filter((item) => {
-          return item.id == id;
-        });
-        setEnrollingCourse(course[0]);
-        console.log(course);
-      }
+      // if (course == "school") {
+      //   const course = School[0].subCate.filter((item) => {
+      //     return item.id == id;
+      //   });
+      //   setEnrollingCourse(course[0]);
+      //   console.log("course is: ", course);
+      // } else if (course == "college") {
+      //   const course = CollegeCourseData[0].subCate.filter((item) => {
+      //     return item.id == id;
+      //   });
+      //   setEnrollingCourse(course[0]);
+      //   console.log(course);
+      // } else {
+      //   const course = OtherCourseData[0].subCate.filter((item) => {
+      //     return item.id == id;
+      //   });
+      //   setEnrollingCourse(course[0]);
+      //   console.log(course);
+      // }
     }
-    return () => {};
+    return () => { };
   }, []);
 
 
@@ -144,48 +147,72 @@ const Checkout = () => {
   };
 
   document.title = `Baoiam - ${enrollingCourse?.course}`;
-  
+
 
   return (
-    <div className="flex flex-wrap dark:bg-black dark:text-white py-4 pb-12 px-4 sm:px-14">
+    <div className="flex flex-wrap dark:bg-black bg-slate-100 dark:text-white py-4 pb-8 px-2 md:px-12 lg:px-4">
       {/* left section */}
-      <div className="flex flex-col justify-between w-full lg:w-1/2 py-6 px-6 lg:px-20 ">
-        <div className="flex flex-col py-20">
-          <h2 className="font-semibold text-xl mb-4">
-            Enhance your programming journey by getting Certified
-          </h2>
-          <div className="w-full md:max-w-[80%] lg:max-w-[95%]">
-            <img
-              className="h-full w-full"
-              src={Certificate}
-              alt="Certificate"
-            />
+      <div className="w-full lg:w-[65%] py-6 px-2 xl:px-4">
+        {/* Course Content */}
+        <div className="w-full h-fit flex items-center flex-col md:flex-row justify-between gap-4 bg-white px-8 py-4 rounded-lg">
+          <div className="w-full md:w-[25%] h-full overflow-hidden rounded-xl">
+            <img className="w-full h-full object-cover" src="https://images.unsplash.com/flagged/photo-1556637640-2c80d3201be8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="" />
+          </div>
+          <div className="w-full md:w-[75%] h-full">
+            <h1 className="text-xl font-semibold bg-gradient-to-r from-pink-500  to-violet-600 bg-clip-text text-transparent">Art and Craft (DIY)</h1>
+            <p className="text-sm mt-2">Welcome to the Art and Craft Exploration course, a vibrant and imaginative journey designed for students. You will dive into</p>
+            <p className="text-sm mt-4 flex items-center gap-2">
+              <span>25 Lessons</span>
+              •
+              <span>52 Hours</span>
+            </p>
           </div>
         </div>
-        <div className="flex flex-col max-w-[90%]">
-          <div className="flex items-center mb-2">
+
+        {/* Points */}
+        <div className="w-full h-fit flex flex-col items-center justify-center gap-4 mt-4 py-4 bg-white rounded-lg">
+          <div className="grid grid-cols-1 gap-y-4 md:grid-cols-3">
+            <div className="flex text-nowrap tracking-tight justify-start text-sm xl:text-lg items-center gap-2">
+              <GoProjectRoadmap className="bg-gradient-to-r from-indigo-800 to-indigo-500 text-white text-4xl xl:text-6xl rounded-full p-2 xl:p-4" /> Interview Training
+            </div>
+            <div className="flex text-nowrap tracking-tight justify-start text-sm xl:text-lg items-center gap-2">
+              <MdOutlineClass className="bg-gradient-to-r from-indigo-800 to-indigo-500 text-white text-4xl xl:text-6xl rounded-full p-2 xl:p-4" /> Placement Assistance
+            </div>
+            <div className="flex text-nowrap tracking-tight justify-start text-sm xl:text-lg items-center gap-2">
+              <PiCertificate className="bg-gradient-to-r from-indigo-800 to-indigo-500 text-white text-4xl xl:text-6xl rounded-full p-2 xl:p-4" /> Certificate of completion
+            </div>
+          </div>
+
+          <p>and <span className="bg-gradient-to-r from-pink-500  to-violet-600 bg-clip-text text-transparent font-medium">Many More Benefits!</span></p>
+        </div>
+
+        {/* EMI & Payment */}
+        <div className="flex flex-col items-center mt-4 py-4 bg-white rounded-lg">
+          <div className="flex flex-col items-center mb-2">
             <PercentBadgeIcon className="h-8 w-8 mr-2" />
             <p className="text-lg font-semibold">No cost EMI</p>
+            <p className="text-slate-500 mb-6 px-10 text-center">
+              Easy on your wallet. Choose No cost EMI when paying with credit
+              cards.
+            </p>
           </div>
-          <p className="text-slate-500 mb-6 px-10">
-            Easy on your wallet. Choose No cost EMI when paying with credit
-            cards.
-          </p>
-          <div className="flex items-center">
+
+          <div className="flex flex-col items-center">
             <HiShieldCheck className="h-8 w-8 mr-2" />
             <p className="text-lg font-semibold">100% safe & secure payment</p>
-          </div>
-          <div className="flex justify-start px-8 w-full">
-            <img className="h-14 w-28 mr-4" src={secure} alt="secure img" />
-            <img className="h-16 w-28" src={razorpay} alt="razorpay img" />
+            <div className="flex justify-center px-8 w-full">
+              <img className="h-14 w-28 mr-4" src={secure} alt="secure img" />
+              <img className="h-16 w-28" src={razorpay} alt="razorpay img" />
+            </div>
           </div>
         </div>
+
       </div>
 
       {/* right section */}
-      <div className="flex flex-col w-full lg:w-1/2 dark:border-gray dark:border-[1.5px] border-slate-400 shadow-lg py-6 px-6 rounded-lg">
+      <div className="flex flex-col w-full lg:w-[35%] py-6 px-2">
         <h1 className="font-semibold text-2xl mb-4">Confirm your order</h1>
-        <div className="flex">
+        <div className="bg-white rounded-lg py-4 px-6">
           {/* <UserIcon className="h-8 w-8 mr-2 rounded-full border-[1.5px] border-emerald-500 text-white bg-gray-200" /> */}
           <div className="flex justify-between w-full items-center">
             <div>
@@ -202,65 +229,19 @@ const Checkout = () => {
             </div>
           </div>
         </div>
-        <hr className="border-t-1 border-gray-300 mt-4 mb-4" />
-        <div className="flex flex-col mb-10 sm:flex-row">
-          {/* <div className="h-38 w-38 mr-4">
-            <img
-              className="w-full h-full object-cover"
-              src={mern}
-              alt="course_logo"
-            />
-          </div> */}
-          <div className="flex justify-between items-center w-full">
-            <div className="flex flex-col">
-              <div className="rounded-md bg-green-200 p-1 w-fit">
-                <p></p>
-                <p className="text-green-700 px-1 font-medium text-xs">
-                  {plan} Plan
-                </p>
-              </div>
-
-              <h2 className="font-semibold text-lg mb-2">
-                {/* {plan} | MERN Stack | Java | English */}
-                {course == "school"
-                  ? enrollingCourse?.course
-                  : course == "college"
-                  ? enrollingCourse.courseName
-                  : enrollingCourse.course}
-              </h2>
-              {/* <button
-                className="text-[14px] px-3 py-1 rounded-sm ml-5 bg-[#F39B0B] w-[110px] mb-4"
-                onClick={() => setIsDescriptionVisible(!isDescriptionVisible)}
-              >
-                {isDescriptionVisible ? "Hide Info" : "View more"}
-              </button> */}
-              {isDescriptionVisible && (
-                <p className="w-3/4 mb-5 mt-1 p-3 border-gray-400 border-2 rounded">
-                  {enrollingCourse.desc.substring(0, 150) + "..."}
-                </p>
-              )}
-              <p className="text-slate-500 text-base dark:text-gray-400">
-                English • Batch Starts: 26 Sep 2024
-              </p>
-            </div>
-            <p className="text-slate-700 dark:text-white  font-medium text-lg">
-              ₹{plan == "Premium" ? 11999 : 2999}
-            </p>
-          </div>
-        </div>
-        <div className="mb-5 mx-auto">
-          <p className="text-gray-700 text-[12px] font-semibold dark:text-slate-400">
+        <div className="my-4 w-full bg-white rounded-lg p-4">
+          <p className="text-gray-700  font-semibold dark:text-slate-400">
             Have a referral code?
           </p>
-          <div className="flex mt-3 gap-5 justify-center items-center flex-wrap">
+          <div className="flex mt-3 gap-4 justify-between items-center w-full">
             <input
               value={referral}
               onChange={(e) => setReferral(e.target.value)}
-              className="border-2 flex-1 border-gray-400 text-black dark:text-white rounded-sm outline-none dark:border-white dark:bg-black dark:border-2  py-1 px-1"
+              className="border-2 flex-1 border-gray-400 text-black dark:text-white rounded-md outline-none dark:border-white dark:bg-black dark:border-2 w-40 xl:w-full py-1 px-1"
               type="text"
             />
             <button
-              className="px-5 flex-1 py-1 rounded border-indigo-600 hover:bg-indigo-600 hover:text-white transition border-2 w-full"
+              className="px-5 text-sm xl:text-base flex-1 py-1 rounded-md border-indigo-600 hover:bg-indigo-600 hover:text-white transition border-2 w-full"
               onClick={() => {
                 if (!referral) {
                   toast.error("Please enter a referral code");
@@ -272,26 +253,34 @@ const Checkout = () => {
             <ToastContainer />
           </div>
         </div>
-        <hr className="border-t-1 border-gray-300 mb-4" />
-        <div className="flex justify-between mb-5">
-          <h2 className="text-2xl text-black font-semibold dark:text-white">
-            Total
-          </h2>
-          <p className="text-black text-2xl font-semibold dark:text-white">
-            ₹{plan == "Premium" ? 11999 : 2999}
-          </p>
-        </div>
 
+        <div className="w-full bg-white rounded-lg mb-4 p-4">
+          <p className="text-xl font-semibold">Order Summary</p>
+          <div className="flex flex-col gap-2 w-full mt-4">
+            <p className="flex items-center justify-between w-full">Course: <span>₹999</span></p>
+            <p className="flex items-center justify-between w-full">Discount: <span>₹100</span></p>
+            <p className="flex items-center justify-between w-full">GST: <span>₹25</span></p>
+          </div>
+          <hr className="border-t-1 border-gray-300 my-4" />
+          <div className="flex items-center justify-between my-4">
+            <h2 className="text-lg text-black font-semibold dark:text-white">
+              Total
+            </h2>
+            <p className="text-black text-lg font-semibold dark:text-white">
+              ₹{plan == "Premium" ? 11999 : 2999}
+            </p>
+          </div>
+
+        </div>
         <button
           disabled={proceedButton === "Loading...."}
           onClick={handleCheckout}
-          className={`w-full flex  justify-center rounded-md font-bold text-lg p-2 text-white bg-gradient-to-r 
+          className={`w-full flex  justify-center rounded-md mt-4 font-semibold p-2 text-white bg-gradient-to-r 
            
                from-indigo-800 to-indigo-500
-                ${
-                  proceedButton === "Loading...." &&
-                  "from-slate-400 to-slate-400"
-                }
+                ${proceedButton === "Loading...." &&
+            "from-slate-400 to-slate-400"
+            }
           }`}
         >
           <HiShieldCheck className="h-6 w-6 text-white" />

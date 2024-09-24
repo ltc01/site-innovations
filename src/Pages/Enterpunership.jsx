@@ -21,7 +21,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import dummy1 from "../assets/ITIE&Entre/ITIE/dummy1.png";
 import dummy2 from "../assets/ITIE&Entre/ITIE/dummy2.png";
-import CourseHighlights from "../Components/CourseDetails/CourseHighlights"
+import CourseHighlights from "../Components/CourseDetails/CourseHighlights";
 import { PHero } from "../assets/assets";
 
 import * as MDIcons from "react-icons/md";
@@ -30,6 +30,7 @@ import * as GRIcons from "react-icons/gr";
 import * as SLIcons from "react-icons/sl";
 import * as GOIcons from "react-icons/go";
 import * as PiIcons from "react-icons/pi";
+import gsap from "gsap";
 
 const testimonials = [
   {
@@ -91,7 +92,7 @@ const cards = [
 ];
 
 const Enterpunership = () => {
-  document.title = 'Baoiam - Entrepreneurship'
+  document.title = "Baoiam - Entrepreneurship";
   useEffect(() => {
     window.scrollTo(0, 0);
 
@@ -132,44 +133,193 @@ const Enterpunership = () => {
     }
   };
 
+  useEffect(() => {
+    gsap.fromTo(
+      ".en1",
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        duration: 1,
+        y: 0,
+        ease: "back.inOut",
+        stagger: 0.3,
+      }
+    );
+
+    gsap.fromTo(
+      ".en2",
+      { opacity: 0, scale: 0.2 },
+      {
+        opacity: 1,
+        duration: 1,
+        scale: 1,
+        delay: 0.2,
+        ease: "power1.inOut",
+      }
+    );
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".endiv1",
+        start: "top 90%",
+        end: "bottom 80%",
+      },
+    });
+
+    tl.fromTo(
+      ".en3",
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "back.inOut",
+      }
+    );
+
+    tl.fromTo(
+      ".en4",
+      { opacity: 0, x: -50 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        ease: "back.inOut",
+      },
+      "-=0.5"
+    );
+
+    tl.fromTo(
+      ".en5",
+      { opacity: 0, x: 50 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        ease: "back.inOut",
+      },
+      "-=0.5"
+    );
+
+    gsap.fromTo(
+      ".en7",
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power1.inOut",
+        stagger: 0.3,
+        scrollTrigger: {
+          trigger: ".endiv3",
+          start: "top 90%",
+          end: "bottom 80%",
+        },
+      }
+    );
+
+    const te = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".endiv4",
+        start: "top 90%",
+        end: "bottom 80%",
+      },
+    });
+
+    te.fromTo(
+      ".en8",
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "back.inOut",
+      }
+    );
+
+    te.fromTo(
+      ".en9",
+      { opacity: 0, x: -50 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        ease: "back.inOut",
+      },
+      "-=0.5"
+    );
+
+    te.fromTo(
+      ".en10",
+      { opacity: 0, x: 50 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        ease: "back.inOut",
+      },
+      "-=0.5"
+    );
+
+    gsap.fromTo(
+      ".en11",
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power1.inOut",
+        stagger: 0.3,
+        scrollTrigger: {
+          trigger: ".endiv5",
+          start: "top 90%",
+          end: "bottom 80%",
+        },
+      }
+    );
+  }, []);
+
   return (
     <div>
       {/*//! Banner */}
       <div className="flex items-center flex-col gap-12 mt-8 md:mt-0 md:gap-8 lg:gap-0 md:flex-row px-8 md:px-20 w-full h-full md:h-[90vh]">
-  {/* Image Section */}
-  <div className="w-full md:w-[40%]">
-    <div className="w-full h-72 sm:h-80 md:h-96 lg:h-[30rem] rounded-3xl overflow-hidden">
-      <img
-        src="https://images.stockcake.com/public/7/e/0/7e0f0d57-b367-441d-9530-b81b5378344f_large/botanical-store-owner-stockcake.jpg"
-        className="w-full h-full object-cover"
-        alt="Entrepreneurship"
-      />
-    </div>
-  </div>
+        {/* Image Section */}
+        <div className="w-full md:w-[40%]">
+          <div className="en2 w-full h-72 sm:h-80 md:h-96 lg:h-[30rem] rounded-3xl overflow-hidden">
+            <img
+              src="https://images.stockcake.com/public/7/e/0/7e0f0d57-b367-441d-9530-b81b5378344f_large/botanical-store-owner-stockcake.jpg"
+              className="w-full h-full object-cover"
+              alt="Entrepreneurship"
+            />
+          </div>
+        </div>
 
-  {/* Text Section */}
-  <div className="w-full text-center md:text-left lg:text-center md:w-[60%]">
-    <h1 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold">
-      <span className="text-indigo-600">ENTREPRENEURSHIP</span> Course
-    </h1>
+        {/* Text Section */}
+        <div className="w-full text-center md:text-left lg:text-center md:w-[60%]">
+          <h2 className="text-3xl lg:text-5xl bg-gradient-to-r from-pink-500  to-violet-600 bg-clip-text text-transparent font-bold">
+            ENTREPRENEURSHIP{" "}
+            <span className="text-black dark:text-white">
+              Course
+            </span>
+          </h2>
 
-    <p className="mt-4 pb-5 text-sm sm:text-lg md:text-xl">
-      Welcome to <strong>BAOIAM</strong>, the premier learning platform
-      exclusively for women entrepreneurs! Ignite your entrepreneurial spirit
-      and embark on your journey to success. As a launchpad for aspiring
-      entrepreneurs, we empower you to learn, innovate, and achieve success.
-    </p>
+          <p className="mt-2 text-base text-slate-600 lg:text-xl">
+            Welcome to <strong>BAOIAM</strong>, the premier learning platform
+            exclusively for women entrepreneurs! Ignite your entrepreneurial
+            spirit and embark on your journey to success. As a launchpad for
+            aspiring entrepreneurs, we empower you to learn, innovate, and
+            achieve success.
+          </p>
 
-    <button className="relative inline-flex items-center bg-gradient-to-r from-indigo-700 to-indigo-500 px-8 sm:px-10 md:px-12 py-3 mt-8 lg:mt-16 text-sm sm:text-base dark:text-white dark:border-white overflow-hidden text-white font-medium border border-indigo-600 rounded-full hover:text-indigo-600 group">
-      <span className="absolute left-0 block w-full h-0 transition-all bg-white opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease-in-out"></span>
-      <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
-        <IoIosArrowRoundForward size={30} />
-      </span>
-      <span className="relative">Attend Info Session</span>
-    </button>
-  </div>
-</div>
-
+          <button onClick={()=> navigate('/Maintenance')}  className="en1 relative inline-flex items-center bg-gradient-to-r from-indigo-700 to-indigo-500 px-8 sm:px-10 md:px-12 py-3 mt-8 lg:mt-16 text-sm sm:text-base dark:text-white dark:border-white overflow-hidden text-white font-medium border border-indigo-600 rounded-full hover:text-indigo-600 group">
+            <span className="absolute left-0 block w-full h-0 transition-all bg-white opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease-in-out"></span>
+            <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
+              <IoIosArrowRoundForward size={30} />
+            </span>
+            <span className="relative">Attend Info Session</span>
+          </button>
+        </div>
+      </div>
       {/* <div className="relative h-auto md:h-screen   mx-10">
         <div className="hidden sm:block absolute inset-0">
           <img
@@ -197,143 +347,138 @@ const Enterpunership = () => {
           </div>
         </div>
       </div> */}
-
       {/*//! Program Overview */}
       <div className="p-6 md:p-10">
-  <div className="mx-auto max-w-7xl px-4 md:px-6">
-    {/* Heading Section */}
-    <div className="text-center my-10">
-      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-indigo-600">
-        Program <span className="text-black dark:text-white">Overview</span>
-      </h1>
-    </div>
+        <div className="endiv1 mx-auto max-w-7xl px-4 md:px-6">
+          {/* Heading Section */}
+          <div className="text-center my-10">
+            <h2 className="text-3xl md:text-4xl text-center mb-8 lg:mb-12 font-bold">
+            Program{" "}
+            <span className="bg-gradient-to-r from-pink-500  to-violet-600 bg-clip-text text-transparent">
+            Overview
+            </span>
+          </h2>
+          </div>
 
-    {/* Content Section */}
-    <div className="flex flex-col-reverse md:flex-row items-center justify-between">
-      {/* Image Section */}
-  
-      {/* Text Section */}
-      <div className="w-full md:w-1/2 lg:w-1/2 md:ml-8 lg:ml-10">
-        <p className="text-base sm:text-lg md:text-xl lg:text-xl font-light mb-10">
-          Our Entrepreneurship Courses are formulated in a way that can be
-          easily studied and comprehended. We offer a plethora of courses that
-          are skill-centric and are purely based on practical applications.
-          Students can learn new skills or even hone their existing skills. This
-          gives them a chance to build a strong skillset that can propel them to
-          a new level in their professional lives.
-        </p>
-        <div className="text-indigo-600 font-medium mt-4">
-          ⏳ Enrollment Deadline Approaching Soon!
-        </div>
-      </div>
-      <div className="w-full md:w-1/2 lg:w-1/2 mb-6 md:mb-0">
-        <div className="relative">
-          <img
-            src="https://images.stockcake.com/public/e/f/c/efc4e6ed-97e3-4349-b133-8c83211049e6_large/businesswomen-discussing-outdoors-stockcake.jpg"
-            alt="Person"
-            className="rounded-2xl w-full object-cover h-72 sm:h-96 md:h-full"
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+          {/* Content Section */}
+          <div className="flex flex-col-reverse md:flex-row items-center justify-between">
+            {/* Image Section */}
 
-
-      {/* //!Course Highlights */}
-      <CourseHighlights />
-
-      {/* //!Importance and Opportunities */}
-
-      <div className="py-16">
-  <div className="max-w-7xl mx-auto px-4 text-center">
-    {/* Title */}
-    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black dark:text-white mb-8">
-      Importance and <span className="text-indigo-600">Opportunities</span>
-    </h2>
-
-    {/* Cards Container */}
-    <div className="flex flex-col md:flex-row justify-center space-y-8 md:space-y-0 md:space-x-6 mt-10 md:mt-16">
-      {cards.map((card, index) => (
-        <div
-          key={index}
-          className="rounded-2xl shadow-xl border border-gray-200 bg-white hover:scale-105 hover:border-gray-500 hover:shadow-2xl transition-transform duration-300 ease-in-out p-6 sm:p-8 w-full md:w-1/3 lg:w-1/4 min-h-[300px] flex flex-col justify-between"
-        >
-          <div>
-            {/* Card Number */}
-            <h3 className="text-center text-2xl sm:text-3xl font-bold mb-4">
-              {card.number}
-            </h3>
-
-            {/* Card Title */}
-            <h4 className="text-xl sm:text-xl font-semibold text-indigo-600 mb-4">
-              {card.title}
-            </h4>
-
-            {/* Card Description */}
-            <p className="text-gray-700 mt-8 leading-relaxed text-justify text-sm sm:text-base">
-              {card.description}
-            </p>
+            {/* Text Section */}
+            <div className="en4 w-full md:w-1/2 lg:w-1/2 md:ml-8 lg:ml-10">
+              <p className="mt-2 text-base text-slate-600  lg:text-xl">
+                Our Entrepreneurship Courses are formulated in a way that can be
+                easily studied and comprehended. We offer a plethora of courses
+                that are skill-centric and are purely based on practical
+                applications. Students can learn new skills or even hone their
+                existing skills. This gives them a chance to build a strong
+                skillset that can propel them to a new level in their
+                professional lives.
+              </p>
+              {/* <div className="text-indigo-600 font-medium mt-4">
+                ⏳ Enrollment Deadline Approaching Soon!
+              </div> */}
+            </div>
+            <div className="en5 w-full md:w-1/2 lg:w-1/2 mb-6 md:mb-0">
+              <div className="relative">
+                <img
+                  src="https://images.stockcake.com/public/e/f/c/efc4e6ed-97e3-4349-b133-8c83211049e6_large/businesswomen-discussing-outdoors-stockcake.jpg"
+                  alt="Person"
+                  className="rounded-2xl w-full object-cover h-72 sm:h-96 md:h-full"
+                />
+              </div>
+            </div>
           </div>
         </div>
-      ))}
-    </div>
-  </div>
-</div>
+      </div>
+      {/* //!Course Highlights */}
+      <CourseHighlights />
+      {/* //!Importance and Opportunities */}
+      <div className="py-16">
+        <div className="endiv3 max-w-7xl mx-auto px-4 text-center">
+          {/* Title */}
+          <h2 className="text-3xl md:text-4xl text-center mb-8 lg:mb-12 font-bold">
+            Importance and{" "}
+            <span className="bg-gradient-to-r from-pink-500  to-violet-600 bg-clip-text text-transparent">Opportunities</span>
+          </h2>
 
+          {/* Cards Container */}
+          <div className="en7 flex flex-col md:flex-row justify-center space-y-8 md:space-y-0 md:space-x-6 mt-10 md:mt-16">
+            {cards.map((card, index) => (
+              <div
+                key={index}
+                className="rounded-2xl shadow-xl border border-gray-200 bg-white hover:scale-105 hover:border-gray-500 hover:shadow-2xl transition-transform duration-300 ease-in-out p-6 sm:p-8 w-full md:w-1/3 lg:w-1/4 min-h-[300px] flex flex-col justify-between"
+              >
+                <div>
+                  {/* Card Number */}
+                  <h3 className="text-center text-2xl sm:text-3xl font-bold mb-4">
+                    {card.number}
+                  </h3>
 
+                  {/* Card Title */}
+                  <h4 className="text-xl sm:text-xl font-semibold text-indigo-600 mb-4">
+                    {card.title}
+                  </h4>
+
+                  {/* Card Description */}
+                  <p className="text-gray-700 mt-8 leading-relaxed text-justify text-sm sm:text-base">
+                    {card.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
       {/* //!Women Entrepreneurship Program */}
       <div className="p-6 md:p-10">
-  <div className="mx-auto max-w-7xl px-4 md:px-6">
-    {/* Heading Section */}
-    <div className="text-center my-10">
-      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black dark:text-white mb-8">
-      <span className="text-indigo-600">Women</span>   Entrepreneurship
-      </h2>
-    </div>
+        <div className="endiv4 mx-auto max-w-7xl px-4 md:px-6">
+          {/* Heading Section */}
+          <div className="en8 text-center my-10">
+            <h2 className="text-3xl md:text-4xl text-center mb-8 lg:mb-12 font-bold">
+              <span className=" bg-gradient-to-r from-pink-500  to-violet-600 bg-clip-text text-transparent">Women</span> Entrepreneurship
+            </h2>
+          </div>
 
-    {/* Content Section: Image and Text */}
-    <div className="flex flex-col-reverse md:flex-row items-center justify-between">
-      {/* Text Section */}
-      <div className="w-full md:w-1/2 lg:w-1/2 md:ml-8 lg:ml-10">
-        <p className="text-base sm:text-lg md:text-xl font-light mb-8">
-          Our Women Entrepreneurship Program aims to support and empower women
-          in starting and growing their businesses. This program is specially
-          pieced together by our experts to guide our women entrepreneurs and to
-          teach them to build their strong business empires. It typically
-          includes mentorship, training, and resources to enhance skills, foster
-          networking, and overcome challenges women may face in the business
-          world. The goal is to promote economic independence and gender
-          equality.
-        </p>
-        <div className="text-black font-bold mt-4">
-          ⏳ Enrollment Deadline Approaching Soon!
+          {/* Content Section: Image and Text */}
+          <div className="flex flex-col-reverse md:flex-row items-center justify-between">
+            {/* Text Section */}
+            <div className="en9 w-full md:w-1/2 lg:w-1/2 md:ml-8 lg:ml-10">
+              <p className="mt-2 text-base text-slate-600  lg:text-xl">
+                Our Women Entrepreneurship Program aims to support and empower
+                women in starting and growing their businesses. This program is
+                specially pieced together by our experts to guide our women
+                entrepreneurs and to teach them to build their strong business
+                empires. It typically includes mentorship, training, and
+                resources to enhance skills, foster networking, and overcome
+                challenges women may face in the business world. The goal is to
+                promote economic independence and gender equality.
+              </p>
+              {/* <div className="text-black font-bold mt-4">
+                ⏳ Enrollment Deadline Approaching Soon!
+              </div> */}
+            </div>
+
+            {/* Image Section */}
+            <div className="en10 w-full md:w-1/2 lg:w-1/2 mb-6 md:mb-0">
+              <div className="relative">
+                <img
+                  src={img3}
+                  alt="Person"
+                  className="rounded-2xl w-full object-cover h-72 sm:h-96 md:h-full"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
-      {/* Image Section */}
-      <div className="w-full md:w-1/2 lg:w-1/2 mb-6 md:mb-0">
-        <div className="relative">
-          <img
-            src={img3}
-            alt="Person"
-            className="rounded-2xl w-full object-cover h-72 sm:h-96 md:h-full"
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
       {/*//! Testimonials */}
-      <div>
-        <h1 className="text-[2rem] md:text-5xl text-center font-semibold my-8 md:my-14">
-          Our <span className="text-indigo-600">Testimonials</span>
+      <div className="endiv5">
+        <h1 className="text-3xl md:text-4xl text-center mb-8 lg:mb-12 font-bold">
+          Our <span className="bg-gradient-to-r from-pink-500  to-violet-600 bg-clip-text text-transparent">Testimonials</span>
         </h1>
 
-        <div className="relative w-full px-4 md:px-10 pb-10 md:pb-20">
+        <div className="en11 relative w-full px-4 md:px-10 pb-10 md:pb-20">
           <Swiper
             navigation={{
               prevEl: ".swiper-button-prev",
@@ -373,9 +518,7 @@ const Enterpunership = () => {
           <div className="swiper-button-next md:p-2"></div>
         </div>
       </div>
-
       {/*//! Join with us */}
-
       {/* <div className="my-12 px-8 lg:px-24 w-full h-full">
         <div className="bg-white py-6 sm:py-8 lg:py-12">
           <div className="mx-auto max-w-screen-xl  md:px-8">
@@ -385,8 +528,7 @@ const Enterpunership = () => {
                 Right Course
               </span>
             </h2> */}
-
-            {/* <div className="mb-6 grid gap-6 sm:grid-cols-2 md:mb-8 lg:grid-cols-3 lg:gap-8">
+      {/* <div className="mb-6 grid gap-6 sm:grid-cols-2 md:mb-8 lg:grid-cols-3 lg:gap-8">
                         {subCourse.plans.map((p, i) => {
                             return (
                                 <div key={i} className={`flex flex-col rounded-lg border ${p.name === "Premium" ? "border-orange-500 relative" : ""} p-4 pt-6`}>
@@ -428,8 +570,7 @@ const Enterpunership = () => {
                             );
                         })}
                     </div> */}
-
-            {/* <div className="text-center text-sm text-gray-500 sm:text-base">
+      {/* <div className="text-center text-sm text-gray-500 sm:text-base">
               Need help deciding?{" "}
               <a
                 href="#"
@@ -437,12 +578,11 @@ const Enterpunership = () => {
               >
                 Get in touch
               </a> */}
-              .
-            {/* </div>
+      .
+      {/* </div>
           </div>
         </div>
       </div> */}
-
       {/*//! Emi & Placement */}
       {/* <div className="flex items-center flex-col md:flex-row gap-8 lg:justify-around px-8 lg:px-24 my-12 lg:my-32 ">
         <div className="border border-orange-500 rounded-3xl px-6 py-4 shadow-xl md:w-[35rem] ">
@@ -478,7 +618,6 @@ const Enterpunership = () => {
           </ul>
         </div>
       </div> */}
-
       {/*//! Amazing Career */}
       {/* <div className="py-8 px-8 lg:px-24 my-20 w-full h-full text-white bg-gradient-to-r from-orange-400 to-orange-600 text-center">
         <h4 className="text-[2rem] lg:text-4xl font-semibold mb-2 lg:mb-4">
@@ -509,7 +648,6 @@ const Enterpunership = () => {
           </div>
         </div>
       </div> */}
-
       {/*//! Faq */}
       <Faq />
     </div>

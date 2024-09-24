@@ -33,24 +33,23 @@ function CourseCard({ course }) {
           </div>
         </div>
         <h3 className="text-gray-800 text-xl font-bold overflow-hidden text-ellipsis line-clamp-2 hover:line-clamp-none">
-          {course.courseName}
+          {course.title}
         </h3>
         <p className="mt-4 text-sm text-gray-500 leading-relaxed">
-          Course Description Lorem ipsum dolor sit amet, consectetur adipiscing
-          elit. Sed auctor auctor arcu.
+          {course.description.split(".")[0]}.
         </p>
         <div className="absolute bottom-4 w-10/12 flex flex-col items-start gap-4">
           <div className="flex items-center text-gray-500 font-semibold space-x-4">
             <div className="flex items-center">
               <AiOutlineClockCircle className="mr-1" />
               <span className="text-nowrap text-xs">
-                {course.courseDuration}
+                {course?.duration}
               </span>
             </div>
             <div className="flex items-center">
               <FaGraduationCap className="mr-1" />
               <span className="text-nowrap text-xs">
-                {course.numberOfLearners} learners
+                {course?.numberOfLearners} learners
               </span>
             </div>
           </div>

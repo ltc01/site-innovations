@@ -5,23 +5,27 @@ const Phone = () => {
   const [inputValue, setInputValue] = useState("Email");
 
   return (
-    <div className="flex bg-amber-50 dark:bg-[#080529] dark:text-white items-center gap-8 lg:gap-12 justify-center flex-col md:flex-row mt-12 py-12 px-8 lg:px-20">
-      <div className="w-40 md:w-80 h-full lg:h-96">
-        <img src={App_phone} className="w-full h-full" alt="" />
+    <div className="flex w-full gap-8 pb-20 py-10 dark:bg-[#080529] dark:text-white items-center mx-auto justify-center flex-col md:flex-row">
+      <div className="w-40 md:w-[23%]">
+        <img src={App_phone} className="w-full" alt="Android app-Baoiam" />
       </div>
-      <div className="">
-        <p className="text-3xl lg:text-5xl font-semibold mb-2 lg:mb-4">
-          Enroll in Course!
+      <div className="md:w-1/3 w-[80%]">
+        <p className="text-3xl font-bold">
+          Take the Leap—Start{" "}
+          <span className="bg-gradient-to-r from-pink-500  to-violet-600 bg-clip-text text-transparent">
+            Learning
+          </span>{" "}
+          Now!
         </p>
-        <p className="text-sm lg:text-base">
-          Unlock your potential for success with our course.
+        <p className="font-medium mt-2 text-slate-600">
+          Unlock your potential for success with our courses.
         </p>
 
-        <form className="flex flex-col gap-4 mt-4 lg:mt-8">
-          <div className="flex items-center gap-4">
+        <form className="flex flex-col gap-4 mt-4">
+          {/* <div className="flex items-center gap-4">
             <div
               onClick={() => setInputValue("Email")}
-              className="flex items-center gap-2 text-sm lg:text-lg"
+              className="flex items-center gap-2 text-sm lg:text-lg "
             >
               <input
                 type="radio"
@@ -46,17 +50,17 @@ const Phone = () => {
             </div>
           </div>
 
-          <div className="flex items-center flex-col md:flex-row gap-4">
+          <div className="flex items-center flex-col md:flex-row gap-4 ">
             {inputValue === "Email" ? (
               <input
-                className="outline-none  border border-black px-2 py-1 lg:px-4 lg:py-2 w-60"
+                className="outline-none rounded-md border border-black px-2 py-1 lg:px-4 lg:py-2 w-60"
                 required
                 type="email"
                 placeholder="Email"
               />
             ) : (
               <input
-                className="outline-none rounded-md border border-black px-2 py-1 lg:px-4 lg:py-1 w-60"
+                className="outline-none rounded-md  border border-black px-2 py-1 lg:px-4 lg:py-1 w-60"
                 required
                 type="tel"
                 inputMode="numeric"
@@ -67,9 +71,23 @@ const Phone = () => {
 
             <button
               type="submit"
-              className="text-sm px-2 py-1 lg:px-4 lg:py-2 lg:text-base bg-gradient-to-r from-indigo-700 to-indigo-500 hover:bg-gradient-to-l transition-all ease-in-out duration-300 text-white"
+              className="text-sm rounded-md px-2 py-1 lg:px-4 lg:py-2 lg:text-base bg-gradient-to-r from-indigo-700 to-indigo-500 hover:bg-gradient-to-l transition-all ease-in-out duration-300 text-white"
             >
               Join now
+            </button>
+          </div> */}
+          <div className="w-fit flex p-1 rounded-full text-left border focus-within:border-gray-700">
+            <input
+              type="email"
+              placeholder="Enter your email..."
+              required
+              className="w-full outline-none bg-transparent text-sm text-gray-800 px-4 py-1"
+            />
+           <button
+    type="submit" // Change to 'submit'
+    className="bg-gradient-to-r from-indigo-700 to-indigo-500 hover:bg-gradient-to-l transition-all text-white tracking-wide text-sm rounded-full px-6 py-2"
+  >
+              Submit
             </button>
           </div>
         </form>

@@ -1,4 +1,3 @@
-// local
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 const apiUrl = import.meta.env.VITE_API_URL;
@@ -20,7 +19,8 @@ export const fetchCourseDetails = createAsyncThunk(
 const courseDetailSlice = createSlice({
   name: 'courseDetails',
   initialState: {
-    course: null,
+    courses: {}, // storing multiple courses by id rather than just single 
+    currentCourseId: null, // to be able to track current course by its ID
     status: 'idle',
     error: null,
   },
@@ -31,8 +31,10 @@ const courseDetailSlice = createSlice({
         state.status = 'loading';
       })
       .addCase(fetchCourseDetails.fulfilled, (state, action) => {
+        const courseId = action.meta.arg; //  id passed to the async thunk
+        state.courses[courseId] = action.payload; // caching the course by its id
+        state.currentCourseId = courseId; // update the current course id
         state.status = 'succeeded';
-        state.course = action.payload;
       })
       .addCase(fetchCourseDetails.rejected, (state, action) => {
         state.status = 'failed';

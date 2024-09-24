@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchEnrolledCourses } from '../../Redux/slices/courseSlice';
+import BeatLoader from 'react-spinners/BeatLoader'; // Import the spinner
 
 
 // const courses = [
@@ -19,22 +20,24 @@ const Courses = () => {
 
   const { enrolledCourses, status, error } = useSelector((state) => state.courses);
 
-  
+
   useEffect(() => {
     const token = localStorage.getItem('access_token');
     if (status === 'idle') {
       dispatch(fetchEnrolledCourses(token));
     }
   }, [dispatch, status]);
-  
+
   if (status === 'loading') {
-    return <div>Loading courses...</div>;
+    return  <div className="flex justify-center items-center">
+              <BeatLoader color="#4F46E5" loading={true} size={15} />
+            </div>;
   }
-  
+
   if (status === 'failed') {
     return <div>Error: {error}</div>;
   }
-  
+
   if (enrolledCourses.length === 0) {
     return <div>No enrolled courses found</div>;
   }
@@ -52,7 +55,7 @@ const Courses = () => {
             <div className="p-4">
               <h3 className="text-xl font-bold">{course.course_title}</h3>
               <span className='text-green-500'>{course.plan_type}</span>
-              <p> Enrolled on: {new Date(course.created_at).toLocaleDateString()} </p> 
+              <p> Enrolled on: {new Date(course.created_at).toLocaleDateString()} </p>
               <button className="mt-4 bg-gradient-to-r from-indigo-700 to-indigo-500 text-white py-2 px-4 rounded hover:bg-gradient-to-l">
                 View Course
               </button>

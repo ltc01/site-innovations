@@ -8,10 +8,10 @@ const WhyUs = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-extrabold sm:text-4xl">
-            Why Choose Us?
+            Why we stand out?
           </h2>
           <p className="mt-4 text-lg ">
-            We deliver the best service with the highest quality and commitment.
+            We furnish exceptional services with a superior standard quality.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -21,7 +21,7 @@ const WhyUs = () => {
             </div>
             <h3 className="text-xl font-bold">Quality</h3>
             <p className="mt-2 text-center">
-              We ensure the highest standards of quality in every project.
+              We provide the unmatched quality, our work speaks for itself.
             </p>
           </div>
 
@@ -31,7 +31,8 @@ const WhyUs = () => {
             </div>
             <h3 className="text-xl font-bold ">Innovation</h3>
             <p className="mt-2 text-center">
-              We bring cutting-edge technology and creativity to every project.
+              Our projects are fueled by latest technology and groundbreaking
+              Innovation.
             </p>
           </div>
 
@@ -41,7 +42,7 @@ const WhyUs = () => {
             </div>
             <h3 className="text-xl font-bold">Reliability</h3>
             <p className="mt-2 text-center">
-              Count on us to deliver on time, every time.
+              Expect on time delivery from us, every single time.
             </p>
           </div>
 
@@ -51,7 +52,7 @@ const WhyUs = () => {
             </div>
             <h3 className="text-xl font-bold">Support</h3>
             <p className="mt-2 text-center">
-              Our team is here to support you 24/7, every step of the way.
+              We're always on hand, ready to assist at any time.
             </p>
           </div>
         </div>

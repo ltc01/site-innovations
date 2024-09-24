@@ -7,27 +7,27 @@ gsap.registerPlugin(ScrollTrigger);
 const section2 = [
   {
     id: 1,
-    img: "https://images.stockcake.com/public/8/5/b/85b92d0b-f22b-47bb-af9f-98c6a4a4fc90_large/team-success-celebration-stockcake.jpg",
-    title: "Impact",
-    num: "75%",
-    subtitle: "say Baoiam has impacted their lives.",
-    desc: "We’re many things to many people: globally recognized storyteller, landmark events and conferences hub, and media powerhouse.",
+    img: "https://images.stockcake.com/public/1/c/f/1cf3248f-a7b3-42b9-b403-dcd6e581c864_large/global-collaboration-hub-stockcake.jpg",
+    title: "Global Collaboration ",
+    desc: "Join a global network of educators and institutions to share knowledge, research, and best practices.",
   },
   {
     id: 2,
-    img: "https://images.stockcake.com/public/9/8/1/981e49df-df7e-4611-8050-bc3273d91f00_large/formal-handshake-agreement-stockcake.jpg",
-    title: "Trust",
-    num: "9/10",
-    subtitle: "view Baoiam as a trusted brand.",
-    desc: "We uphold the highest editorial standards to continually earn our audience's trust and respect.",
+    img: "https://images.stockcake.com/public/9/9/3/9937c65f-bb06-4547-9543-42d779319201_large/virtual-reality-exploration-stockcake.jpg",
+    title: "Enhanced Learning Resources",
+    desc: "Access cutting-edge technology, digital platforms, and content designed to improve student engagement and learning outcomes.",
   },
   {
     id: 3,
-    img: "https://images.stockcake.com/public/1/3/1/13160f49-e156-462a-8938-8f8113757cf4_large/educational-global-event-stockcake.jpg",
-    title: "Value",
-    num: "2/3",
-    subtitle: "feel our partners share our values.",
-    desc: "Our value comes from a mission to share the best ideas from around the world.",
+    img: "https://images.stockcake.com/public/f/1/1/f1181b68-648d-4108-b82e-e06a4bbe8fc7_large/innovative-strategy-planning-stockcake.jpg",
+    title: "Tailored Solutions",
+    desc: "Collaborate with us to develop customized educational programs, courses, and curricula that address the specific needs of your institution.",
+  },
+  {
+    id: 4,
+    img: "https://images.stockcake.com/public/3/f/3/3f38fa3b-4a05-4b61-840c-97882c5b2a81_large/collaborative-workspace-aerial-stockcake.jpg",
+    title: "Continuous Support and Training",
+    desc: "Benefit from expert-led workshops, training sessions, and ongoing support to ensure the success of your programs.",
   },
 ];
 
@@ -65,9 +65,24 @@ const Cards = () => {
         },
       }
     );
-
     gsap.fromTo(
       ".card-3",
+      { y: "30%", opacity: 0 },
+      {
+        y: "0%",
+        opacity: 1,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".card-2",
+          start: "top 80%",
+          end: "top 60%",
+        },
+      }
+    );
+
+    gsap.fromTo(
+      ".card-4",
       { y: "0%", x: "-30%", opacity: 0 },
       {
         x: "0",
@@ -85,38 +100,49 @@ const Cards = () => {
   }, []);
 
   return (
-    <section className="w-full h-full grid grid-cols-3 gap-8 mt-24 px-24 items-center  max-xs:flex max-xs:flex-col max-xs:items-center max-xs:gap-6 max-xs:px-3 max-xs:m-auto">
-      {section2.map((info, index) => {
-        const cardClass =
-          index === 0 ? "card-1" : index === 1 ? "card-2" : "card-3";
-        return (
-          <div
-            key={index}
-            className={`group flex flex-col gap-8 relative max-xs:flex max-xs:flex-col max-xs:gap-4  max-xs:m-auto ${cardClass}`}
-          >
-            <img
-              className="w-full h-[32rem] max-xs:w-[35rem] max-xs:h-[15rem] object-cover"
-              src={info.img}
-              alt={`img${index + 1}`}
-            />
+    <section className="w-full h-full mt-24 px-6 md:px-12 lg:px-24">
+      {/* Heading wrapper */}
+      <div className="flex justify-center mb-8 lg:mb-5">
+        <h2 className="text-3xl md:text-4xl font-bold text-left">
+          Why{" "}
+          <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
+            Join GCEP
+          </span>{" "}
+          ?
+        </h2>
+      </div>
 
-            <div className="flex flex-col gap-4 opacity-0 group-hover:opacity-100 absolute top-0 left-0 right-0 bottom-0 z-10 bg-black/50 transition-all ease-linear text-center pt-24 text-white max-xs:pt-2">
-              <h3 className="text-5xl font-bold max-xs:text-4xl">
-                {info.title}.
-              </h3>
-              <h4 className="text-4xl font-bold text-red-600 max-xs:text-3xl">
-                {info.num}
-              </h4>
-              <h5 className="text-2xl font-semibold max-xs:text-xl">
-                {info.subtitle}
-              </h5>
-              <h6 className="text-lg tracking-tight max-xs:text-xs">
-                {info.desc}
-              </h6>
+      {/* Cards grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-center">
+        {section2.map((info, index) => {
+          const cardClass =
+            index === 0
+              ? "card-1"
+              : index === 1
+              ? "card-2"
+              : index === 2
+              ? "card-3"
+              : "card-4";
+          return (
+            <div
+              key={index}
+              className={`group flex flex-col h-auto w-full rounded-xl overflow-hidden md:h-[90%] md:w-[90%] cursor-pointer gap-6 relative ${cardClass}`}
+            >
+              <img
+                className="w-full h-full hover:opacity-10 object-cover"
+                src={info.img}
+                alt={`img${index + 1}`}
+              />
+              <div className="flex flex-col items-center justify-center px-4 gap-4 opacity-0 group-hover:opacity-100 absolute top-0 left-0 right-0 bottom-0 z-10 bg-black/70 transition-all ease-linear text-center text-white">
+                <h3 className="text-2xl md:text-3xl font-bold">{info.title}</h3>
+                <h6 className="text-sm md:text-base tracking-tight">
+                  {info.desc}
+                </h6>
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </section>
   );
 };

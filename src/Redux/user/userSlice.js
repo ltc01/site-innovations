@@ -8,7 +8,7 @@ const userSliceReducer = createSlice({
   initialState,
   reducers: {
     deleteUserData1(state) {
-      state.profile = null;
+      state = null;
     },
     setProfile1(state, action) {
       state.profile = action.payload;

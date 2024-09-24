@@ -8,9 +8,22 @@ import CourseCarousel from "../Components/College/CourseCarousel";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectCards } from "swiper/modules";
 import cards from "../Components/School/cards.json";
-import Testimonials from "../Components/College/Testimonials";
+import Testimonials from "../Components/Testmonials/Testimonials";
 import ExploreSubjects from "../Components/College/ExploreSubjects";
 import { CollegeCourseData } from "../Data";
+import axios from "axios";
+// import Col_AndroidDevelopment from '../assets/CollegeCourseImages/Col-AndroidDevelopment.png'
+import Col_DataAnalysis from '../assets/CollegeCoursesImages/Col-DataAnalysis.png'
+// import Col_DigitalMarketing from '../assets/CollegeCourseImages/Col-DigitalMarketing.png'
+// import Col_EntreprenurshipInnovation from '../assets/CollegeCourseImages/Col-EntreprenurshipInnovation.png'
+// import Col_GraphicDesigning from '../assets/CollegeCourseImages/Col-GraphicDesigning.png'
+// import Col_HumanResource from '../assets/CollegeCourseImages/Col-HumanResource.png'
+// import Col_MachineLearning from '../assets/CollegeCourseImages/Col-MachineLearning.png'
+// import Col_ProductManagement from '../assets/CollegeCourseImages/Col-ProductManagement.png'
+// import Col_SEO from '../assets/CollegeCourseImages/Col-SEO.png'
+// import Col_SoftwareTesting from '../assets/CollegeCourseImages/Col-SoftwareTesting.png'
+// import Col_UIUX from '../assets/CollegeCourseImages/UI-UX.png'
+// import Col_WebDevelopment from '../assets/CollegeCourseImages/Col-WebDevelopment.png'
 
 function College() {
   document.title = 'Baoiam - College'
@@ -24,8 +37,14 @@ function College() {
     className:
       "mySwiper w-full h-full sm:w-72 sm:h-80 md:w-80 md:h-96 lg:w-100 lg:h-120 xl:w-120 xl:h-144",
   };
+
+  // const slider = [Col_AndroidDevelopment, Col_DataAnalysis, Col_DigitalMarketing, Col_EntreprenurshipInnovation, Col_GraphicDesigning, Col_HumanResource, Col_MachineLearning, Col_ProductManagement, Col_SEO, Col_SoftwareTesting, Col_UIUX, Col_WebDevelopment]
+  const slider = [Col_DataAnalysis];
+
+
+  const [isLoading,setIsLoading]=useState(true);
   const params = useParams();
-  const allCourses = CollegeCourseData[0].subCate;
+  const [allCourses,setAllCourses] =useState([]);
   const [filteredCourses, setFilteredCourses] = useState([...allCourses]);
   const [duration, setDuration] = useState("");
   const [selectedCategory, setSelectedCategory] = useState([]);
@@ -42,10 +61,28 @@ function College() {
     return coursePrice !== "Free";
   };
 
+
+  const getData = async ()=>{
+    setIsLoading(true);
+    try {
+      const response =await axios.get("https://api.baoiam.com/api/courses?category=2");
+      console.log(response.data);
+      setAllCourses(response.data);
+    } catch (error) {
+      console.log("Some Error Occured:",error)
+    }finally{
+      setIsLoading(false);
+    }
+  }
+
+  useEffect(()=>{
+    getData();
+  },[])
+
   useEffect(() => {
     const applyFilters = () => {
       let updatedCourses = allCourses;
-
+      
       if (selectedCategory.length > 0) {
         updatedCourses = updatedCourses.filter((course) =>
           selectedCategory.includes(course.category)
@@ -101,14 +138,14 @@ function College() {
               autoplay={swiperSettings.autoplay}
               className={`mySwiper w-full h-full sm:w-72 sm:h-80 md:w-80 md:h-96 lg:w-100 lg:h-120 xl:w-120 xl:h-144`}
             >
-              {cards.map((card, index) => (
+              {slider.map((card, index) => (
                 <SwiperSlide
                   key={index}
                   className="flex items-center justify-center rounded-xl text-2xl font-bold text-white"
                   style={{
-                    backgroundColor: card.backgroundColor,
-                    backgroundImage: card.backgroundImage
-                      ? `url(${card.backgroundImage})`
+                    // backgroundColor: card.backgroundColor,
+                    backgroundImage: card
+                      ? `url(${card})`
                       : "none",
                     backgroundSize: "cover",
                     backgroundRepeat: "no-repeat",
@@ -159,22 +196,23 @@ function College() {
                 courses={filteredCourses}
               />
             </div>
-            {filteredCourses.length ? (
-              <div className="w-11/12 college-card-container grid grid-cols-[repeat(auto-fill,_minmax(252px,1fr))] mx-auto gap-4">
+            {!isLoading?(
+              filteredCourses.length?(<div className="w-11/12 college-card-container grid grid-cols-[repeat(auto-fill,_minmax(252px,1fr))] mx-auto gap-4">
                 {filteredCourses.map((course) => {
                   return <CourseCard course={course} />;
                 })}
-              </div>
+              </div>):<div>NoDataFound!!</div>
             ) : (
               <div className="text-center mx-2 w-full text-3xl flex items-center font-bold py-12 justify-center">
-                No data found!
+                Loading...
               </div>
             )}
           </div>
         </div>
       </div>
       <ExploreSubjects />
-      <Testimonials />
+      {/* <Testimonials /> */}
+      <Testimonials/>
     </div>
   );
 }

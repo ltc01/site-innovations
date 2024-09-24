@@ -12,12 +12,16 @@ const TypewriterText = () => {
             <Typewriter
               options={{
                 strings: [
-                  "Maths",
-                  "English",
-                  "Personality Development",
-                  "English",
-                  "Science",
-                  "Public Speaking",
+                  "Art and craft (DIY) ",
+"Life skills",
+
+"Creative writing",
+"Finance education",
+
+"Photography & editing skills",
+
+"Entrepreneurship & Innovation",
+"Social media & digital marketing"
                 ],
                 autoStart: true,
                 loop: true,
@@ -26,9 +30,9 @@ const TypewriterText = () => {
             />
           </span>
         </h1>
-        <p className="mt-4 text-lg sm:text-xl lg:text-2xl">
-          Learn and grow with the best courses available.
-        </p>
+        {/* <p className="mt-4 ">
+          Level up your skills with top-tier courses.
+        </p> */}
         <div className="relative mt-8 w-full max-w-md mx-auto">
           <input
             type="text"

@@ -9,7 +9,7 @@ const PrivacyPolicies = () => {
   }, []);
 
   return (
-    <div className="bg-white text-black p-4 sm:p-8 max-w-7xl mx-auto">
+    <div className="bg-white text-black p-4 sm:p-8 max-w-4xl mx-auto">
       <h1 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-center">
         BAOIAM PRIVACY POLICIES
       </h1>

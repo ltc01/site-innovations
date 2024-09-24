@@ -11,9 +11,14 @@ import CommonComp from "./CommonComp";
 export const Advertiseteam = () => {
   const [advTeam, setAdvTeam] = useState(AdverseTeam);
   return (
-        
-        <>
-        <CommonComp heading={'Advertistment Team'} dataArray={advTeam}/>
-      </>
+    <>
+      <CommonComp
+        heading={"Marketing masters"}
+        para={
+          "Our advertising team blends bold creativity with smart strategy to connect with learners and highlight the true value of our educational solutions. By crafting innovative campaigns and leveraging data-driven insights, we reach the right audience at the right moment—sparking curiosity and inspiring them to take the next leap in their learning journey."
+        }
+        dataArray={advTeam}
+      />
+    </>
   );
 };

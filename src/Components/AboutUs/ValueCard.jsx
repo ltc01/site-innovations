@@ -2,12 +2,12 @@ import React from "react";
 
 const ValueCard = ({ Icon, title, description }) => {
   return (
-    <div className="flex justify-center px-4 py-8 gap-4 bg-white shadow-lg rounded-lg max-w-xs">
-      <Icon size={48} className="text-indigo-700 mb-4" />
-      <div className="flex flex-col w-full">
-        <h3 className="text-lg font-semibold mb-2">{title}</h3>
-        <p className="text-slate-500">{description}</p>
+    <div className="flex flex-col bg-gradient-to-r from-teal-50  to-indigo-100  shadow-lg justify-center h-48 w-64 items-center p-4 gap-4 border rounded-lg">
+      <div className="flex flex-col gap-1 justify-start items-center w-full">
+      <Icon size={30} className="w-1/4 text-indigo-500 " />
+        <h3 className="font-semibold text-xl text-nowrap">{title}</h3>
       </div>
+        <p className="text-slate-500 text-center px-5 dark:text-slate-300  h-1/2 text-sm">{description}</p>
     </div>
   );
 };

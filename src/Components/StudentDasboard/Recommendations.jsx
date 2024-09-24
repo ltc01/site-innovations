@@ -55,20 +55,20 @@ function Recommendations() {
   };
 
   return (
-    <div className="h-screen overflow-scroll backdrop-filter bg-indigo-500 shadow-border backdrop-blur-lg text-white dark:bg-black dark:text-white relative dark:border dark:border-white flex flex-col items-center px-4 rounded-lg">
+    <div className="h-screen overflow-scroll backdrop-filter bg-indigo-100 shadow-border backdrop-blur-lg dark:bg-black dark:text-white relative dark:border dark:border-white flex flex-col items-center rounded-lg text-black">
       {/* Sticky Heading */}
-      <div className="sticky top-0 w-full left-0 right-0 z-20 dark:bg-black py-4">
-        <h2 className="text-xl lg:text-2xl font-bold text-center w-full md:text-base">
+      <div className="sticky top-0 w-full backdrop-blur-sm left-0 right-0 z-20 dark:bg-black p-4">
+        <h2 className="text-xl lg:text-2xl font-bold w-full md:text-base">
           Recommended Courses
         </h2>
       </div>
 
       {/* Course List */}
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6 px-4 mt-2">
         {recommendedCourses.map((course) => (
           <div
             key={course.id}
-            className="w-full flex bg-indigo-700 flex-col xl:flex-row hover:shadow-md hover:shadow-black duration-100 ease-in dark:border dark:border-white items-center gap-4 shadow-lg rounded-lg p-4 md:p-6"
+            className="w-full flex bg-indigo-600 flex-col xl:flex-row hover:shadow-md duration-100 ease-in dark:border dark:border-white items-center gap-4 shadow-lg rounded-lg p-4 md:p-6"
           >
             {/* Course Image */}
             <div className="w-full xl:w-fit">

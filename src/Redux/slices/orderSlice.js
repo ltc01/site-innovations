@@ -12,7 +12,6 @@ export const fetchOrders = createAsyncThunk('orders/fetchOrders', async (accessT
     return response.data;
   });
   
-
 const initialState = {
   orders: [],
   status: 'idle',

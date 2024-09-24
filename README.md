@@ -1,2 +1,8 @@
-# site-innovations
-The codebase for the Be A One In A Million (BAOIAM) website, designed to deliver cutting-edge educational experiences. Features modern web design and interactive elements to provide an engaging, responsive platform that empowers learners and enhances their educational journey.
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh

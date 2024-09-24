@@ -1,69 +1,100 @@
-import { useState, useEffect } from "react";
-import image3 from "../../assets/ITIE&Entre/teamwork10.webp";
-import image4 from "../../assets/ITIE&Entre/teamwork15.jpg";
-import image5 from "../../assets/ITIE&Entre/teamwork0.webp";
+import React, { useEffect, useRef } from "react";
+import work from "../../assets/Images/work7.jpg";
+import work1 from "../../assets/Images/work8.jpg";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// Register ScrollTrigger with GSAP
+gsap.registerPlugin(ScrollTrigger);
 
 export const CareerSection7 = () => {
-  const slides = [
-    {
-      image: image5,
-      content:
-        "The best part of working at Hubstaff will forever be the flexibility in my schedule that allows me to see my wife and kids throughout the day. Besides that, I have the opportunity to work with incredibly talented and unique people from all over the world. I love it here..",
-    },
-    {
-      image: image3,
-      content:
-        "The best part of working at Hubstaff will forever be the flexibility in my schedule that allows me to see my wife and kids throughout the day. Besides that, I have the opportunity to work with incredibly talented and unique people from all over the world. I love it here..",
-    },
-    {
-      image: image4,
-      content:
-        "The best part of working at Hubstaff will forever be the flexibility in my schedule that allows me to see my wife and kids throughout the day. Besides that, I have the opportunity to work with incredibly talented and unique people from all over the world. I love it here..",
-    },
-  ];
-
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const animRefs = useRef([]);
 
   useEffect(() => {
-    const slideInterval = setInterval(() => {
-      setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-    }, 3000); // Change slide every 3 seconds
+    animRefs.current.forEach((ref, index) => {
+      gsap.fromTo(
+        ref,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          delay: index * 0.2, // Stagger the animations
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ref,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+            markers: false,
+          },
+        }
+      );
+    });
+  }, []);
 
-    return () => clearInterval(slideInterval);
-  }, [slides.length]);
   return (
-    <>
+    <div className="mb-20 pt-0">
       {/* Slide Section */}
-      <div className=' dark:bg-black relative w-full overflow-hidden    items-center justify-center sm:p-6 md:p-10 m-0'>
+      <div className="animediv1 w-full px-4 my-8 lg:my-16">
         <div
-          className='flex transition-transform ease-in-out duration-1000'
-          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+          ref={(el) => (animRefs.current[0] = el)}
+          className="flex flex-col md:flex-row justify-center items-center w-full"
         >
-          {slides.map((slide, index) => (
-            <div
-              key={index}
-              className='w-full h-full flex-shrink-0 flex items-center justify-center'
-            >
-              <div className='flex flex-col sm:flex-row w-full max-w-screen-lg h-full border border-gray-200 shadow-2xl rounded-xl transform transition-transform hover:scale-105 hover:shadow-3xl bg-white m-5'>
-                {/* Left side - Content */}
-                <div className='flex-1 flex justify-center  m-0 sm:p-4'>
-                  <p className='text-base sm:text-sm md:text-lg lg:text-xl text-black text-center sm:text-left'>
-                    {slide.content}
-                  </p>
-                </div>
-                {/* Right side - Image */}
-                <div className='flex-1 h-full'>
-                  <img
-                    src={slide.image}
-                    alt={`Slide ${index + 1}`}
-                    className='w-full h-full object-cover'
-                  />
-                </div>
-              </div>
+          <div className="w-[100%] h-[200px] md:w-[20%] px-4 lg:px-0">
+            <img
+              src={work}
+              alt="mission-image"
+              className="w-full h-full rounded-tr-[40px] rounded-bl-[40px] object-cover shadow-[10px_-10px_#4338ca] sm:shadow-[15px_-15px_#4338ca] lg:shadow-[20px_-20px_#4338ca]"
+            />
+          </div>
+
+          <div className="md:w-[60%] h-full mt-8 lg:mt-0 px-4 md:px-12">
+            <h2 className="lg:text-3xl text-xl md:text-xl mb-2 pb-2 font-bold text-black">
+              Why{" "}
+              <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
+                Work With Us{" "}
+              </span>
+            </h2>
+            <p className="text-xs lg:text-base text-slate-600 mt-4 pb-4 mb-4">
+              At BAOIAM, we create pathways to success, offering limitless
+              opportunities where innovation and creativity thrive. Join our
+              dynamic, inclusive team dedicated to making a difference in your
+              career and the world.
+            </p>
+          </div>
+        </div>
+
+        <div className="animediv1 w-full mx-auto px-4 mt-10">
+          <div
+            ref={(el) => (animRefs.current[1] = el)}
+            className="flex flex-col mx-auto md:flex-row-reverse justify-center items-center w-full"
+          >
+            <div className="w-[80%] md:w-[25%]">
+              <img
+                src={work1}
+                alt="vision-image"
+                className="w-full h-full rounded-tr-3xl rounded-bl-3xl object-cover shadow-[-10px_-10px_#4338ca] sm:shadow-[-15px_-15px_#4338ca] lg:shadow-[-20px_-20px_#4338ca]"
+              />
             </div>
-          ))}
+
+            <div className="md:w-[60%] h-full mt-8 lg:mt-0 px-4 md:px-12">
+              <h2 className="lg:text-3xl text-xl md:text-xl lg:mb-5 font-bold text-black">
+                Work{" "}
+                <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
+                  Environment{" "}
+                </span>
+              </h2>
+              <p className="text-xs lg:text-base text-slate-600 mt-4">
+                At BAOIAM, we offer an inspiring environment where creativity
+                thrives and collaboration drives innovation. Our inclusive
+                culture celebrates diverse perspectives, fostering teamwork that
+                sparks fresh ideas. With flexible working options, a focus on
+                work-life balance, and a commitment to continuous learning.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };

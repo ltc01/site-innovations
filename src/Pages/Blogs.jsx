@@ -1,89 +1,74 @@
 import react, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import screen_time from "../assets/Blogs/screen_time.png";
 import ed_tech from "../assets/Blogs/ed_tech.png";
 import era_of_early_childhood from "../assets/Blogs/era_of_early_childhood.jpg";
-import ed_tech_enhances_critical_thinking from "../assets/Blogs/ed_tech_enhances_critical_thinking.png";
-import new_excited_tech_edu1 from "../assets/Blogs/new_excited_tech_edu1.jpg";
+import "./Blogs.css";
+import { StatupSlider } from "../Components/Blogs/StatupSlider";
+import { TechBlogSlider } from "../Components/Blogs/TechBlogSlider";
+import { BusSlider } from "../Components/Blogs/BusSlider";
+import { HeaderBlog } from "../Components/Blogs/HeaderBlog";
+import NewsletterBanner from "../Components/Home/Subcription";
+import gsap from "gsap";
 import web_dev1 from "../assets/Blogs/web_dev1.png";
+import new_excited_tech_edu1 from "../assets/Blogs/new_excited_tech_edu1.jpg";
 import financial_literacy from "../assets/Blogs/financial_literacy.jpg";
 import ed_tech_latest_trends from "../assets/Blogs/ed_tech_latest_trends.png";
-import software_testing from "../assets/Blogs/software_testing.png";
-import { StarIcon } from "@heroicons/react/16/solid";
-import "./Blogs.css";
-import { StatupSlider } from "../Components/Blog Components/StatupSlider";
-import { TechBlogSlider } from "../Components/Blog Components/TechBlogSlider";
-import { BusSlider } from "../Components/Blog Components/BusSlider";
 
 const blog_list = [
   {
-    title: "Akshay Saini",
+    title: "John Statham",
     titleColor: "blue-500",
-    imgSrc: screen_time,
-    text: "Balancing Screen Time: Healthy Technology Use In Education",
-    info: "Dec 22, 2022 • 10 mins read",
+    imgSrc: web_dev1,
+    text: "The path to a successful tech career: The Importance of web development skills",
+    info: "Sep 19, 2022 • 8 mins read",
+    des: "The tech industry is constantly growing and expanding , and web development is one of the most crucial skills for people who want to shape their career in this industry.",
+    category: "Science",
   },
+
   {
     title: "Amily Clarke",
     titleColor: "blue-500",
-
     imgSrc: ed_tech,
     text: "Challenges of Implementing Ed-Tech Companies And How  to Overcome Them.",
     info: "Nov 20, 2022 • 10 mins read",
+    des: "Technology change is very rapid. With the change in technology people's preference for content consumption is also changing. ",
+    category: "Education",
   },
   {
     title: "John Watson",
     titleColor: "blue-500",
-
     imgSrc: era_of_early_childhood,
-    text: "The era of early childhood education:  take up changes, block challenges and, exercise of strategic tools ",
+    text: "The era of early childhood education and exercise of strategic tools ",
     info: "Nov 13, 2022 • 3 mins read",
+    des: "Where your child is growing because this tools provide high enghamenet over learninga and fastest grasping content that enhance learning experience.",
+    category: "Education",
   },
   {
-    title: "Jason Adam",
+    title: "John Statham",
     titleColor: "blue-500",
-
-    imgSrc: ed_tech_enhances_critical_thinking,
-    text: "How Ed-Tech Enhances Critical Thinking Skills: Strategies and Future Prospects",
-    info: "Oct 17, 2022 • 5 mins read",
-  },
-  {
-    title: "Mary Smith",
-    titleColor: "blue-500",
-
     imgSrc: new_excited_tech_edu1,
-    text: "New and Exciting Technology in Education",
-    info: "Oct 10, 2022 • 10 mins read",
-  },
-  {
-    title: "John Statham",
-    titleColor: "blue-500",
-
-    imgSrc: web_dev1,
-    text: "The path to a successful tech career: The Importance of web development skills",
+    text: "The Rise of EdTech: How It’s Shaping Modern Education",
     info: "Sep 19, 2022 • 8 mins read",
+    des: "The tech industry is constantly growing and expanding , and web development is one of the most crucial skills for people who want to shape their career in this industry.",
+    category: "Science",
   },
   {
     title: "John Statham",
     titleColor: "blue-500",
-    info: "Sep 24, 2022 • 14 mins read",
     imgSrc: financial_literacy,
-    text: "Mastering Financial Literacy for All: Essential Skills for a Brighter Future",
+    text: "Mastering Financial Literacy for All: Essential Skills for a Future",
+    info: "Sep 19, 2022 • 8 mins read",
+    des: "The tech industry is constantly growing and expanding , and web development is one of the most crucial skills for people who want to shape their career in this industry.",
+    category: "Finance",
   },
   {
-    text: "Unlocking the Future of Education: Ed-Tech Latest Trends ",
-    info: "Oct 19, 2022 • 8 mins read",
+    title: "John Statham",
     titleColor: "blue-500",
-
     imgSrc: ed_tech_latest_trends,
-    title: "Akshay Saini",
-  },
-  {
-    info: "Sep 13, 2022 • 5 mins read",
-    text: "What is software testing and its importance?",
-    titleColor: "blue-500",
-    imgSrc: software_testing,
-    title: "Amily Clarke",
+    text: "Unlocking the Future of Education: Ed-Tech Latest Trends ",
+    info: "Sep 19, 2021 • 8 mins read",
+    des: "Financial literacy for all is no longer a luxury but a necessity in today's globalised speedy world.",
+    category: "Education",
   },
 ];
 
@@ -168,10 +153,40 @@ const authors_info = [
 ];
 
 const Blog = () => {
-  document.title = 'Baoiam - Blogs'
+  document.title = "Baoiam - Blogs";
+  const [searchQuery, setSearchQuery] = useState("");
+
   useEffect(() => {
     window.scrollTo(0, 0);
 
+    gsap.fromTo(
+      ".b1",
+      { opacity: 0, y: -60 },
+      {
+        opacity: 1,
+        duration: 1,
+        y: 0,
+        ease: "power1.inOut",
+        stagger: 0.3,
+      }
+    );
+
+    gsap.fromTo(
+      ".b2",
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        duration: 1,
+        y: 0,
+        ease: "back.inOut",
+        stagger: 0.3,
+        scrollTrigger: {
+          trigger: ".bdiv1",
+          start: "top 70%",
+          end: "bottom 80%",
+        },
+      }
+    );
     return () => {};
   }, []);
 
@@ -257,62 +272,69 @@ const Blog = () => {
 
   return (
     <div className='dark:bg-black dark:text-white'>
-      <div className='max-w-xll mx-8 py-8 dark:bg-black dark:text-white bg-white shadow-lg rounded-lg overflow-hidden'>
-        <div className='relative'>
-          <img
-            className='w-full h-80 object-cover'
-            src='https://images.unsplash.com/photo-1707157281599-d155d1da5b4c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-            alt='Blog Post Image'
-          />
-          <div className='absolute inset-0 '></div>
-          <div className='absolute bottom-0 left-0 p-6'>
-            <h2 className='text-2xl font-bold text-black'>
-              Tempor Consectetur Est Elit
-            </h2>
-            <p className='text-black'>Consequuntur ex co</p>
-          </div>
-        </div>
-      </div>
+      <HeaderBlog searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <div className='max-w-7xl dark:bg-black dark:text-white mx-auto py-8 px-4 sm:px-6 lg:px-8'>
         <h1 className='text-3xl font-bold text-center'>
           Our Latest Highlights
         </h1>
-        <h2 className='text-l  text-center mt-2 mb-6'>
+        <h2 className='b2 text-lg text-center mt-2 mb-6'>
           Dive into our latest blogs for fresh insights and trending topics{" "}
         </h2>
 
         <div className=' p-6'></div>
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10'>
-          {blog_list.map((item, i) => (
-            <Link key={i} to={`/Blog_detail/${i}`}>
-              <div className='bg-white flex flex-col h-full dark:bg-black dark:text-white shadow-lg dark:hover:shadow-gray-300 dark:hover:shadow-md rounded-lg overflow-hidden transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-300 '>
-                <img
-                  className='w-full h-48 object-cover'
-                  src={item.imgSrc}
-                  alt={`${item.title}`}
-                />
-                <div className='p-6 flex-grow'>
-                  <span
-                    className={`text-sm text-${item.titleColor} font-semibold`}
-                  >
-                    {item.title}
-                  </span>
-                  <h2 className='text-lg font-bold my-2 truncate'>
-                    {item.text}
-                  </h2>
-                  <p className='text-sm'>{item.info}</p>
+        <div className='px-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10'>
+          {blog_list
+            .filter(
+              (item) =>
+                item.text.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                item.title.toLowerCase().includes(searchQuery.toLowerCase())
+            )
+            .map((item, i) => (
+              <Link key={i} to={`/Blog_detail/${i}`}>
+                <div className='bg-white flex flex-col h-full dark:bg-black dark:text-white shadow-lg dark:hover:shadow-gray-300 dark:hover:shadow-md rounded-lg overflow-hidden transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-300 '>
+                  <div className='relative'>
+                    <img
+                      className='w-full h-48 object-cover'
+                      src={item.imgSrc}
+                      alt={`${item.title}`}
+                    />
+                    {/* Button positioned over the image */}
+                    <button
+                      type='button'
+                      className='absolute bottom-2 left-3  bg-slate-400 transition-all text-black text-xs font-medium rounded-full p-1'
+                    >
+                      {item.category}
+                    </button>
+                  </div>
+                  <div className='p-4 flex-grow '>
+                    <h2 className='text-lg font-bold my-2'>{item.text}</h2>
+                    <span
+                      className='text-sm text-slate-700 font-semibold'
+                      style={{
+                        display: "-webkit-box",
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden",
+                        WebkitLineClamp: 2, // Limit to 2 lines
+                      }}
+                    >
+                      {item.des}
+                    </span>
+                    <p className='text-xs text-slate-500 font-medium mt-2'>
+                      {item.info}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            ))}
         </div>
 
         {/* slider */}
 
-        <StatupSlider />
+        <StatupSlider blog_list={blog_list} />
         <TechBlogSlider />
         <BusSlider />
       </div>
+      <NewsletterBanner />
       {/* readers section */}
 
       {/* <div className="max-w-7xl dark:bg-black dark:text-white mx-auto py-8 px-4 sm:px-6 lg:px-8">

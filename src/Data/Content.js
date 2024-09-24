@@ -544,5 +544,251 @@ The more interesting the visuals, the more the engagement of students. Incorpora
       "Enhancing expertise in software testing is essential for software testers. Consider learning from authentic resources like Baioam pvt ltd that provide you courses on software testing at a very cost-effective price.",
     ],
   },
+  //  additional
+  {
+    heading1: "A Complete Guide to Graphic Designing: Career Paths, Tools, and Opportunities",
+    p1: "Graphic designing is among the most exciting and fulfilling careers you can pursue in the current world where technology is strongly emphasized. This field can excite any student with a zeal for creativity and a desire to bring stories alive through visuals. Whether you want to develop eye-catching designs for clients and companies, produce easy website and application interfaces, or generate captivating advertising images, the field of graphic designing can provide not only the satisfaction of realizing your creativity but also potentially high income.",
+    heading2: "What is software testing?",
+    p2: "Software testing is the process of evaluating and verifying the functionality of a software application works according to input. It checks the input and outcome expected. Good testing helps prevent bugs and improve performance with efficiency. It not only aims at fixing issues but also provides measures to improve them.",
+    heading3:
+      "Why Choose Graphic Designing?",
+    p3: [
+      {
+        head: "The employment rate in graphic designing careers is on the rise. Marketers in today’s businesses require highly skilled individuals to help develop appealing content in different industries.",
+      },
+      {
+        head: "From web designing to digital marketing, graphic designers are critical in developing brand identity and representation when it comes to advertising or even creating websites, interfaces, etc.",
+      },
+    ],
+    p4: [
+      {
+        head: "Functional testing",
+        desc: " Functional testing ensures that each function of a software application works in coherence with the requirements and specifications. Without focusing on the source code it ensures that the application performs as expected outcome. It also checks APIs, databases, security, user interface, and overall functionality of software",
+      },
+      {
+        head: "Non-functional testing",
+        desc: "Non-functional testing is a type of software testing that focuses on specified requirements beyond functionality such as performance, reliability, usability, value and more making sure that the behaviour of the system aligns with software development",
+      },
+    ],
+    heading4: "Goals of software testing",
+    p5: [
+      "Software testing is more of a goal-driven process:-",
+      {
+        head: "Bug detection and prevention",
+        desc: "A bug is a malfunction that prevents software from functioning. Software testers make sure that they detect it as soon as possible before users do.",
+      },
+      {
+        head: "Quality",
+        desc: "to make sure the software quality is up to the mark as it is also a product. The quality of the product helps users retain efficiency",
+      },
+      {
+        head: "Reliability",
+        desc: " preventing the software from failing. To ensure it functions according to the input leading to customer satisfaction and trust.",
+      },
+    ],
+    heading5: "Software testing tool",
+    p6: "Many software tools can be used like QA Wolf, Lambdatest, TestGrid, Aqua Cloud etc.",
+    heading6: "Career in software testing",
+    p7: [
+      "Software testing is an in-demand skill that you can learn and earn through providing your service to many IT companies and startups as software testers.",
+      "Enhancing expertise in software testing is essential for software testers. Consider learning from authentic resources like Baioam pvt ltd that provide you courses on software testing at a very cost-effective price.",
+    ],
+  },
+  {
+    heading1: "What is software testing and its importance?",
+    p1: "software testing is essential to assess the functionality of a software program while developing a product — it's crucial for ensuring quality and reliability in software development. By learning about software testing we can guarantee reliability, security, and safety for users",
+    heading2: "What is software testing?",
+    p2: "Software testing is the process of evaluating and verifying the functionality of a software application works according to input. It checks the input and outcome expected. Good testing helps prevent bugs and improve performance with efficiency. It not only aims at fixing issues but also provides measures to improve them.",
+    heading3:
+      "Type of software testing \nDifferent types of testing need to be performed to access the software before launching it in the market. Here are some of the types of software testing:- ",
+    p3: [
+      {
+        head: "Functional testing",
+      },
+      {
+        head: "Non-functional testing",
+      },
+    ],
+    p4: [
+      {
+        head: "Functional testing",
+        desc: " Functional testing ensures that each function of a software application works in coherence with the requirements and specifications. Without focusing on the source code it ensures that the application performs as expected outcome. It also checks APIs, databases, security, user interface, and overall functionality of software",
+      },
+      {
+        head: "Non-functional testing",
+        desc: "Non-functional testing is a type of software testing that focuses on specified requirements beyond functionality such as performance, reliability, usability, value and more making sure that the behaviour of the system aligns with software development",
+      },
+    ],
+    heading4: "Goals of software testing",
+    p5: [
+      "Software testing is more of a goal-driven process:-",
+      {
+        head: "Bug detection and prevention",
+        desc: "A bug is a malfunction that prevents software from functioning. Software testers make sure that they detect it as soon as possible before users do.",
+      },
+      {
+        head: "Quality",
+        desc: "to make sure the software quality is up to the mark as it is also a product. The quality of the product helps users retain efficiency",
+      },
+      {
+        head: "Reliability",
+        desc: " preventing the software from failing. To ensure it functions according to the input leading to customer satisfaction and trust.",
+      },
+    ],
+    heading5: "Software testing tool",
+    p6: "Many software tools can be used like QA Wolf, Lambdatest, TestGrid, Aqua Cloud etc.",
+    heading6: "Career in software testing",
+    p7: [
+      "Software testing is an in-demand skill that you can learn and earn through providing your service to many IT companies and startups as software testers.",
+      "Enhancing expertise in software testing is essential for software testers. Consider learning from authentic resources like Baioam pvt ltd that provide you courses on software testing at a very cost-effective price.",
+    ],
+  },
+  {
+    heading1: "The Role of Social Media and Digital Marketing in Shaping the Youth",
+    p1: "software testing is essential to assess the functionality of a software program while developing a product — it's crucial for ensuring quality and reliability in software development. By learning about software testing we can guarantee reliability, security, and safety for users",
+    heading2: "What is software testing?",
+    p2: "Software testing is the process of evaluating and verifying the functionality of a software application works according to input. It checks the input and outcome expected. Good testing helps prevent bugs and improve performance with efficiency. It not only aims at fixing issues but also provides measures to improve them.",
+    heading3:
+      "Type of software testing \nDifferent types of testing need to be performed to access the software before launching it in the market. Here are some of the types of software testing:- ",
+    p3: [
+      {
+        head: "Functional testing",
+      },
+      {
+        head: "Non-functional testing",
+      },
+    ],
+    p4: [
+      {
+        head: "Functional testing",
+        desc: " Functional testing ensures that each function of a software application works in coherence with the requirements and specifications. Without focusing on the source code it ensures that the application performs as expected outcome. It also checks APIs, databases, security, user interface, and overall functionality of software",
+      },
+      {
+        head: "Non-functional testing",
+        desc: "Non-functional testing is a type of software testing that focuses on specified requirements beyond functionality such as performance, reliability, usability, value and more making sure that the behaviour of the system aligns with software development",
+      },
+    ],
+    heading4: "Goals of software testing",
+    p5: [
+      "Software testing is more of a goal-driven process:-",
+      {
+        head: "Bug detection and prevention",
+        desc: "A bug is a malfunction that prevents software from functioning. Software testers make sure that they detect it as soon as possible before users do.",
+      },
+      {
+        head: "Quality",
+        desc: "to make sure the software quality is up to the mark as it is also a product. The quality of the product helps users retain efficiency",
+      },
+      {
+        head: "Reliability",
+        desc: " preventing the software from failing. To ensure it functions according to the input leading to customer satisfaction and trust.",
+      },
+    ],
+    heading5: "Software testing tool",
+    p6: "Many software tools can be used like QA Wolf, Lambdatest, TestGrid, Aqua Cloud etc.",
+    heading6: "Career in software testing",
+    p7: [
+      "Software testing is an in-demand skill that you can learn and earn through providing your service to many IT companies and startups as software testers.",
+      "Enhancing expertise in software testing is essential for software testers. Consider learning from authentic resources like Baioam pvt ltd that provide you courses on software testing at a very cost-effective price.",
+    ],
+  },
+  {
+    heading1: "",
+    p1: "software testing is essential to assess the functionality of a software program while developing a product — it's crucial for ensuring quality and reliability in software development. By learning about software testing we can guarantee reliability, security, and safety for users",
+    heading2: "What is software testing?",
+    p2: "Software testing is the process of evaluating and verifying the functionality of a software application works according to input. It checks the input and outcome expected. Good testing helps prevent bugs and improve performance with efficiency. It not only aims at fixing issues but also provides measures to improve them.",
+    heading3:
+      "Type of software testing \nDifferent types of testing need to be performed to access the software before launching it in the market. Here are some of the types of software testing:- ",
+    p3: [
+      {
+        head: "Functional testing",
+      },
+      {
+        head: "Non-functional testing",
+      },
+    ],
+    p4: [
+      {
+        head: "Functional testing",
+        desc: " Functional testing ensures that each function of a software application works in coherence with the requirements and specifications. Without focusing on the source code it ensures that the application performs as expected outcome. It also checks APIs, databases, security, user interface, and overall functionality of software",
+      },
+      {
+        head: "Non-functional testing",
+        desc: "Non-functional testing is a type of software testing that focuses on specified requirements beyond functionality such as performance, reliability, usability, value and more making sure that the behaviour of the system aligns with software development",
+      },
+    ],
+    heading4: "Goals of software testing",
+    p5: [
+      "Software testing is more of a goal-driven process:-",
+      {
+        head: "Bug detection and prevention",
+        desc: "A bug is a malfunction that prevents software from functioning. Software testers make sure that they detect it as soon as possible before users do.",
+      },
+      {
+        head: "Quality",
+        desc: "to make sure the software quality is up to the mark as it is also a product. The quality of the product helps users retain efficiency",
+      },
+      {
+        head: "Reliability",
+        desc: " preventing the software from failing. To ensure it functions according to the input leading to customer satisfaction and trust.",
+      },
+    ],
+    heading5: "Software testing tool",
+    p6: "Many software tools can be used like QA Wolf, Lambdatest, TestGrid, Aqua Cloud etc.",
+    heading6: "Career in software testing",
+    p7: [
+      "Software testing is an in-demand skill that you can learn and earn through providing your service to many IT companies and startups as software testers.",
+      "Enhancing expertise in software testing is essential for software testers. Consider learning from authentic resources like Baioam pvt ltd that provide you courses on software testing at a very cost-effective price.",
+    ],
+  },
+  {
+    heading1: "",
+    p1: "software testing is essential to assess the functionality of a software program while developing a product — it's crucial for ensuring quality and reliability in software development. By learning about software testing we can guarantee reliability, security, and safety for users",
+    heading2: "What is software testing?",
+    p2: "Software testing is the process of evaluating and verifying the functionality of a software application works according to input. It checks the input and outcome expected. Good testing helps prevent bugs and improve performance with efficiency. It not only aims at fixing issues but also provides measures to improve them.",
+    heading3:
+      "Type of software testing \nDifferent types of testing need to be performed to access the software before launching it in the market. Here are some of the types of software testing:- ",
+    p3: [
+      {
+        head: "Functional testing",
+      },
+      {
+        head: "Non-functional testing",
+      },
+    ],
+    p4: [
+      {
+        head: "Functional testing",
+        desc: " Functional testing ensures that each function of a software application works in coherence with the requirements and specifications. Without focusing on the source code it ensures that the application performs as expected outcome. It also checks APIs, databases, security, user interface, and overall functionality of software",
+      },
+      {
+        head: "Non-functional testing",
+        desc: "Non-functional testing is a type of software testing that focuses on specified requirements beyond functionality such as performance, reliability, usability, value and more making sure that the behaviour of the system aligns with software development",
+      },
+    ],
+    heading4: "Goals of software testing",
+    p5: [
+      "Software testing is more of a goal-driven process:-",
+      {
+        head: "Bug detection and prevention",
+        desc: "A bug is a malfunction that prevents software from functioning. Software testers make sure that they detect it as soon as possible before users do.",
+      },
+      {
+        head: "Quality",
+        desc: "to make sure the software quality is up to the mark as it is also a product. The quality of the product helps users retain efficiency",
+      },
+      {
+        head: "Reliability",
+        desc: " preventing the software from failing. To ensure it functions according to the input leading to customer satisfaction and trust.",
+      },
+    ],
+    heading5: "Software testing tool",
+    p6: "Many software tools can be used like QA Wolf, Lambdatest, TestGrid, Aqua Cloud etc.",
+    heading6: "Career in software testing",
+    p7: [
+      "Software testing is an in-demand skill that you can learn and earn through providing your service to many IT companies and startups as software testers.",
+      "Enhancing expertise in software testing is essential for software testers. Consider learning from authentic resources like Baioam pvt ltd that provide you courses on software testing at a very cost-effective price.",
+    ],
+  },
 ];
 export default blog_contents;

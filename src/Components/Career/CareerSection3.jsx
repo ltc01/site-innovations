@@ -9,9 +9,9 @@ export const CareerSection3 = () => {
   ];
   return (
     <>
-      <div className='flex flex-col md:flex-row items-center dark:bg-black bg-white px-4 sm:px-8 md:px-12 lg:px-20 xl:px-28 py-8 mx-0  lg:mt-2 w-full'>
+      <div className='flex flex-col md:flex-row gap-10 items-center dark:bg-black bg-white px-4 sm:px-8 md:px-12 lg:px-20 xl:px-28 py-8 mx-0  lg:mt-2 w-full'>
         {/* Left Section */}
-        <div className='md:w-1/2 text-left mb-8 md:mb-0 md:pr-8 lg:pr-16 xl:pr-20'>
+        <div className='md:w-1/2 text-left mb-8 md:mb-0 '>
           <h2 className='text-3xl dark:text-zinc-400 sm:text-4xl lg:text-5xl font-bold  text-[#0a0a0a] mb-4'>
             Why We Are Most Popular
           </h2>
@@ -36,7 +36,7 @@ export const CareerSection3 = () => {
         </div>
 
         {/* Image Section */}
-        <div className='md:w-1/2 flex justify-center items-center md:pl-8 lg:pl-16 xl:pl-20'>
+        <div className='md:w-1/2 flex justify-center items-center '>
           <div className='relative w-full max-w-md md:max-w-lg lg:max-w-full'>
             <img
               src={image1}

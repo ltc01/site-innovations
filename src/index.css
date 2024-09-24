@@ -8,7 +8,7 @@ html,
 body {
   scroll-behavior: smooth;
   ::-webkit-scrollbar {
-    width: 2px;
+    width: 1px;
   }
   ::-webkit-scrollbar-thumb {
     background-color: #747474;
@@ -83,4 +83,44 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+/* Styling for the next button */
+.swiper-button-next {
+  background-color: #cfcedc; /* Indigo */
+  color: black; /* Text color */
+  padding: 10px;
+  border-radius: 50%;
+  right: 10px; /* Adjust position */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+/* Styling for the previous button */
+.swiper-button-prev {
+  background-color: #cfcedc; /* Indigo */
+  color: black; /* Text color */
+  padding: 10px;
+  border-radius: 50%;
+  left: 10px; /* Adjust position */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  transform: translateY(-50%) scale(1.1); /* Slight scale on hover */
+  color: black;
 }

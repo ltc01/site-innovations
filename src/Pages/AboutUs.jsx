@@ -4,6 +4,7 @@ import ContentCard from "../Components/AboutUs/ContentCard";
 import ValueCard from "../Components/AboutUs/ValueCard";
 import HeroCard from "../Components/AboutUs/HeroCard";
 import ProgressBar from "../Components/AboutUs/ProgressBar";
+//import OurTeam from "./OurTeamSlide"
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -11,7 +12,12 @@ import "swiper/css/navigation";
 import { swiperData } from "../Components/OurTeam Components/teamData";
 import { FaLinkedin } from "react-icons/fa6";
 import { FaXTwitter } from "react-icons/fa6";
+import Subcription from "../Components/Home/Subcription";
 // import required modules
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 import {
   Autoplay,
   Pagination,
@@ -41,303 +47,401 @@ import { FaBusinessTime } from "react-icons/fa";
 import { AiOutlineCode, AiOutlineClockCircle } from "react-icons/ai";
 import { BiSupport } from "react-icons/bi";
 import { RiBarChartBoxLine } from "react-icons/ri";
-import ServicesTab from "../Components/AboutUs/ServicesTab";
+import OurTeam from "../Components/AboutUs/OurTeam";
+import { TeamSwiper } from "../Components/OurTeam Components/TeamSwiper";
+import Testimonials from "../Components/Testmonials/Testimonials";
+import Timeline from "../Components/AboutUs/Timeline";
+import { Mission, Vision } from "../assets/assets";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 const AboutUs = () => {
-  document.title = 'Baoiam - About Us'
+  document.title = "Baoiam - About Us";
   const [data, setData] = useState(swiperData);
+  
   useEffect(() => {
-    window.scrollTo(0, 0);
+    
+    gsap.fromTo(
+      ".image-container img",
+      { opacity: 0 },
+      { opacity: 1, duration: 1.5, ease: "power3.inOut" }
+    );
 
-    return () => { };
+   
+    gsap.fromTo(
+      ".content-overlay p",
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 1, delay: 0.3, ease: "power3.out" }
+    );
+
+    gsap.fromTo(
+      ".content-overlay h2",
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 1, delay: 0.6, ease: "power3.out" }
+    );
+
+    gsap.fromTo(
+      ".content-overlay .lg\\:text-lg",
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 1, delay: 0.9, ease: "power3.out" }
+    );
+    gsap.fromTo(
+      ".animediv1 h2",
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".animediv1 h2",
+          start: "top 80%", // Starts when the top of h2 is 80% of the viewport
+          toggleActions: "play none none reverse", // Play when entering, reverse when leaving
+        },
+      }
+    );
+
+    // Animate the image
+    gsap.fromTo(
+      ".animediv1 img",
+      { opacity: 0, x: -50 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1.2,
+        delay: 0.3,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".animediv1 img",
+          start: "top 80%", // Starts when the image comes into view
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    // Animate the text elements (h4, p, span) with stagger
+    gsap.fromTo(
+      ".animediv1 h4, .animediv1 p, .animediv1 span",
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.3,
+        ease: "power3.out",
+        stagger: 0.3,
+        scrollTrigger: {
+          trigger: ".animediv1 h4",
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+   
+    gsap.fromTo(
+      ".animediv1 img",
+      { opacity: 0, x: 50 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1.2,
+        delay: 0.3,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".animediv1 img",
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    gsap.fromTo(
+      ".animediv1 h4, .animediv1 p, .animediv1 span",
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.6,
+        ease: "power3.out",
+        stagger: 0.3,
+        scrollTrigger: {
+          trigger: ".animediv1 h4",
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    gsap.fromTo(
+      ".core-values-heading",
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".core-values-heading",
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+   
+    gsap.fromTo(
+      ".value-card-1",
+      { opacity: 0, x: -100 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".value-card-1",
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+    gsap.fromTo(
+      ".value-card-2",
+      { opacity: 0, y: 100 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".value-card-3",
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+    gsap.fromTo(
+      ".value-card-3",
+      { opacity: 0, y: 100 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".value-card-3",
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+    gsap.fromTo(
+      ".value-card-4",
+      { opacity: 0, x: 100 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".value-card-2",
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
   }, []);
+ 
 
   return (
     <div>
       {/* Section - 1 */}
-      <div className="mx-auto h-fit md:h-screen w-full text-white">
-        <div className="relative mx-auto h-fit md:h-screen w-full text-white">
-          <div className="h-[22rem] sm:h-[23rem] md:h-[70%] w-full image-container">
-            <img
-              className="w-full h-full object-cover"
-              src={aboutus4}
-              alt="image"
-            />
-          </div>
-          <div className="absolute inset-0 content-overlay bg-gradient-to-r from-black/30 via-black/20 to-black/10 flex flex-col gap-4 sm:gap-6 items-start pl-6 sm:px-8 md:px-24 lg:px-48 xl:px-72 w-[100%] h-[22rem] sm:h-[23rem] md:h-[70%] sm:pt-20  justify-center sm:justify-start text-white">
-            {/* bg-#2a272a/30 bg-gradient-to-tr from-gray-800/50 via-gray-600/30 to-black/10*/}
-            <div className="rounded-3xl py-2 px-4 w-fit bg-white z-10">
-              <h1 className="text-amber-600 font-medium">
-                We are an EdTech Organization ~
-              </h1>
-            </div>
-            <h2 className="text-2xl font-bold md:text-4xl sm:text-3xl">
-              Think Big. We make IT, possible!
-            </h2>
-            <p className="font-medium">
-              We place you at the centre of information networks to advance your
-              strategic interests.
-            </p>
-            <button className="flex justify-center items-center gap-1 bg-gradient-to-r from-indigo-700 to-indigo-500 hover:bg-gradient-to-l transition-all ease-in-out duration-300 px-6 md:px-8 py-2 dark:text-white dark:border-white overflow-hidden text-white font-medium border border-indigo-600 rounded-full">
-              Our Team
-              <FaArrowRight className="font-normal" size={18} />
-            </button>
-          </div>
-          <div className="relative -bottom-[20rem] mt-1 md:absolute mx-auto mb-40 sm:mt-3 md:mt-auto sm:-bottom-40 md:top-auto md:-bottom-48 md:-inset-x-0 sm:grid sm:grid-cols-3 md:grid-cols-5 justify-center transform -translate-y-1/2 w-full text-black font-bold text-center flex flex-col md:flex md:flex-row items-center sm:gap-4 md:gap-6 lg:gap-8 px-4 sm:px-6">
-
-            <div className="sm:col-span-3 grid grid-cols-2 sm:flex sm:justify-between sm:items-center gap-4 md:gap-6 lg:gap-8">
-              <HeroCard Icon={MdDesignServices} title="UI/UX Design Services" />
-              <HeroCard Icon={FaBusinessTime} title="Business Consultation" />
-              <HeroCard Icon={AiOutlineCode} title="Website Development" />
-              <HeroCard Icon={BiSupport} title="Support Management" />
-              <HeroCard Icon={RiBarChartBoxLine} title="Market Research" />
-            </div>
-          </div>
+      <div className="mx-auto w-full text-white">
+      <div className="relative mx-auto h-[20%] w-full text-white">
+        <div className="h-[100vh] md:h-[75vh] w-full image-container">
+          <img
+            className="w-full h-full opacity-90 object-cover"
+            src={aboutus4}
+            alt="image"
+          />
+        </div>
+        <div className="absolute inset-0 content-overlay bg-gradient-to-b from-black/60 via-black/50 md:px-48 to-black/25 flex flex-col gap-4 items-center sm:pt-20 md:pt-32 justify-center sm:justify-start text-white">
+          <p className="rounded-3xl md:py-1 px-4 w-fit bg-gradient-to-r from-pink-500 text-center to-violet-600 z-10">
+            <span className="text-[0.55rem] md:text-sm font-medium">
+            Redefining education with advance edtech learning 
+            </span>
+          </p>
+          <h2 className="text-3xl md:px-28 font-extrabold mb-3 text-center lg:text-5xl">
+            Join Us on a Journey to Be{" "}
+            <span className="bg-gradient-to-r from-teal-300 italic tracking-wider to-amber-300 bg-clip-text text-transparent">
+              One In A Million!
+            </span>
+          </h2>
+          <p className="font-medium text-sm px-8 lg:text-lg text-center">
+          Our platform is committed to delivering high standards  and skills sharpening courses. We believe in empowering every individual who connects with us on this industry driven journey, helping them stand out from millions. We are here to support them in achieving their  professional goals.
+          </p>
         </div>
       </div>
+    </div>
 
       {/* Section - 2 */}
-      <div className="flex flex-col md:flex-row gap-8 sm:mt-32 md:mt-0 px-4 sm:px-6 md:px-10 lg:px-20 pb-20 w-full items-stretch">
-        {/* Image Section */}
-        <div className="w-full md:w-1/2 h-full md:ml-6">
-          <div className="w-full h-64 sm:h-96 md:h-full rounded-b-3xl mb-2 px-2 border-slate-400">
+      <div className="animediv1 w-full px-4 my-12 lg:my-16">
+        <h2 className="text-3xl md:text-4xl text-center mb-8 lg:mb-12 font-bold">
+          Our{" "}
+          <span className="bg-gradient-to-r from-pink-500  to-violet-600 bg-clip-text text-transparent">
+            Mission
+          </span>
+        </h2>
+
+        <div className="flex flex-col md:flex-row justify-center items-center w-full">
+          <div className="w-[100%] md:w-[20%] px-4 lg:px-0">
             <img
-              src={aboutus5}
+              src={Mission}
               alt="image"
-              className="w-full h-full lg:w-[450px] lg:h-[400px] rounded-tl-2xl rounded-br-2xl object-cover shadow-[-10px_-15px_#4338ca] sm:shadow-[-15px_-20px_#4338ca] lg:shadow-[-20px_-25px_#4338ca]"
+              className="w-full h-full rounded-tl-2xl rounded-br-2xl object-cover shadow-[-10px_-10px_#4338ca] sm:shadow-[-15px_-15px_#4338ca] lg:shadow-[-20px_-25px_#4338ca]"
             />
           </div>
-        </div>
 
-        <div className="flex flex-col gap-8 justify-center items-start w-full md:w-1/2 lg:w-1/2 mr-0 lg:mr-8 px-4 sm:px-6 md:px-0">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold">
-            Students Success Is Our Focus
-          </h2>
-          <p className="text-base sm:text-lg">
-            Unlock your potential with our expertly designed courses, tailored
-            to provide you with the skills and knowledge needed for success.
-            From practical strategies to in-depth expertise, our courses are
-            crafted to empower your growth and help you achieve your goals with
-            confidence.
-          </p>
-          <button className="flex justify-center items-center bg-gradient-to-r from-indigo-700 to-indigo-500 hover:bg-gradient-to-l transition-all ease-in-out duration-300 px-4 sm:px-6 md:px-8 lg:px-8 py-2 lg:py-4 sm:py-3 text-white font-medium border border-indigo-600 rounded-full">
-            Collaborate with us
-          </button>
-        </div>
-      </div>
+          <div className="md:w-[60%] h-full mt-8 lg:mt-0 px-4 md:px-12">
+            <span className="text-indigo-600 font-medium text-xs lg:text-sm">
+            Inspiring Growth, one aim at a time
+            </span>
+            <h4 className="mt-2 text-lg lg:text-2xl font-semibold">
+            Providing access to exceptional Courses to help achieve greater success.
+            </h4>
 
-      {/* Section 3 */}
-      <div className="flex flex-col md:flex-row gap-8 p-4 sm:p-6 md:p-10 mb-16 justify-center items-center mx-auto">
-        {/* Text Section */}
-        <div className="flex flex-col items-start justify-center gap-4 w-full md:w-1/2 pr-0 md:pr-10 lg:pl-10 pl-4">
-          <h3 className="text-amber-600 text-xl sm:text-2xl font-semibold">
-            About Us
-          </h3>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold">
-            The Easiest Way to Manage Personal Finances
-          </h2>
-          <p className="text-base sm:text-lg text-slate-600">
-            Far far away, behind the word mountains, far from the countries
-            Vokalia and Consonantia, there live the blind texts. Separated they
-            live in Bookmarksgrove right at the coast of the Semantics, a large
-            language ocean.
-          </p>
-          <div className="flex gap-8">
-            <div className="flex gap-4 items-center">
-              <div className="text-indigo-700 p-4 bg-gray-200 rounded-xl">
-                <AiOutlineClockCircle className="w-4 h-4 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />
-              </div>
-              <div className="flex flex-col">
-                <h3 className="font-bold text-lg lg:text-xl md:text-2xl sm:text-2xl text-slate-600">
-                  5
-                </h3>
-                <p className="text-slate-500 text-xs lg:text-lg md:text-sm sm:text-base">
-                  Years of Experience
-                </p>
-              </div>
-            </div>
-            <div className="flex gap-4 items-center">
-              <div className="text-indigo-700 p-4 bg-gray-200 rounded-xl">
-                <FaUsers className="w-4 h-4 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />
-              </div>
-              <div className="flex flex-col">
-                <h3 className="font-bold text-lg lg:text-xl md:text-2xl sm:text-2xl text-slate-600">
-                  45
-                </h3>
-                <p className="text-slate-500 text-xs lg:text-lg md:text-sm sm:text-base">
-                  Team Members
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Image Section */}
-        <div className="w-full md:w-1/2 flex justify-center">
-          <div className="w-full md:w-[80%]">
-            <img
-              src={aboutus5}
-              alt="image"
-              className="w-full h-64 sm:h-72 md:h-96 rounded-tl-2xl rounded-br-2xl object-cover shadow-[10px_15px_#4338ca] sm:shadow-[15px_20px_#4338ca] lg:shadow-[20px_25px_#4338ca]"
-            />
+            <p className="text-xs lg:text-base text-slate-600 mt-4">
+            Every individual shines with their unique expertise. Discover your skills in depth with us. Our transformative courses will equip you either upgraded version of yourself, ensuring you never fall behind in life. 
+            </p>
           </div>
         </div>
       </div>
 
-      <ServicesTab />
+      <div className="animediv1 w-full mx-auto px-4 mt-20 ">
+        <h2 className="text-3xl md:text-4xl text-center mb-8 lg:mb-12 font-bold">
+          Our{" "}
+          <span className="bg-gradient-to-r from-pink-500  to-violet-600 bg-clip-text text-transparent">
+            Vision
+          </span>
+        </h2>
+
+        <div className="flex flex-col mx-auto md:flex-row-reverse justify-center items-center w-full">
+          <div className="w-[100%] md:w-[25%] px-4 lg:px-0">
+            <img
+              src={Vision}
+              alt="image"
+              className="w-full h-full rounded-tl-2xl rounded-br-2xl object-cover shadow-[-10px_-10px_#4338ca] sm:shadow-[-15px_-15px_#4338ca] md:shadow-[20px_25px_#4338ca]"
+            />
+          </div>
+
+          <div className="md:w-[60%] h-full mt-8 lg:mt-0 px-4 md:px-12">
+            <span className="text-indigo-600 font-medium text-xs lg:text-sm">
+            Future-focused education for Success
+            </span>
+            <h4 className="mt-2 text-lg lg:text-2xl font-semibold">
+              Preparing the next Gen to tackle upcoming challenges 
+            </h4>
+
+            <p className="text-xs lg:text-base text-slate-600 mt-4">
+              {" "}
+              We are not in the old generation; we are in modern Era where technology changes in minutes and trends shifts in seconds. Surviving here Without skills is nearly impossible, but baoiam has your back. In this modern landscape, baoaim is committed to preparing students to tackle upcoming challenges with high quality education.
+            </p>
+          </div>
+        </div>
+      </div>
 
       {/* Section 4 */}
-      <div className="flex flex-col lg:flex-row items-start gap-4 lg:py-10 mb-10  mx-auto p-8 lg:pl-20 lg:pr-20">
-        <div className="flex flex-col mt-6 gap-8 mb-10 max-w-full lg:max-w-xs ">
-          <h2 className="text-amber-600 font-medium text-xl">Our Values</h2>
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">
-            The Values We Maintain At Work
-          </h3>
-          <p className="text-base sm:text-lg text-slate-500">
-            We are a team with a variety of skills, each member contributes
-            their expertise, and works professionally among members and clients.
-          </p>
-          <button className="bg-gradient-to-r from-indigo-700 to-indigo-500 hover:bg-gradient-to-l transition-all ease-in-out duration-300 w-fit px-6 md:px-8 py-3 lg:py-4 dark:text-white dark:border-white overflow-hidden text-white font-medium border border-indigo-600 rounded-full">
-            Collaborate with us
-          </button>
-        </div>
+      <div className="flex flex-col items-center gap-4 mx-auto px-4 sm:px-16 py-20 xl:px-20">
+      <div className="w-full text-center core-values-heading">
+        <h2 className="text-3xl md:text-4xl text-center mb-8 lg:mb-12 font-bold">
+          Core{" "}
+          <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
+            Values
+          </span>
+        </h2>
+      </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8 w-full lg:ml-4">
+      <div className="flex flex-col md:flex-row gap-8">
+        <div className="value-card-1">
           <ValueCard
             Icon={FaHandsHelping}
-            title="Dedication"
-            description="Dedication at work is the key to sustained excellence and success."
+            title="Standard Education "
+            description="Delivering standardized quality through expert professors."
+          />
+        </div>
+        <div className="value-card-2">
+          <ValueCard
+            Icon={FaEye}
+            title="Acceptance"
+            description="Join us and enjoy lifetime access to out resources and educational benefits."
+          />
+        </div>
+        <div className="value-card-3">
+          <ValueCard
+            Icon={FaLightbulb}
+            title="Innovation with creativity"
+            description="Continuously delivering and adapting to meet industry demand with innovative courses."
+          />
+        </div>
+        <div className="value-card-4">
+          <ValueCard
+            Icon={FaChartLine}
+            title="Students accomplishment"
+            description="We are dedicated to students' success, providing it above all else to make it reality."
+          />
+        </div>
+      </div>
+    </div>
+
+      {/* how it started */}
+
+      <Timeline />
+
+      {/* team */}
+
+      {/* <TeamSwiper /> */}
+      <OurTeam />
+
+      {/* USP */}
+
+      {/* <div className="flex flex-col items-start gap-4 lg:py-10 mb-10 mx-auto p-8 lg:pl-20 lg:pr-20">
+        <div className="w-full text-center">
+          <h2 className="font-bold text-3xl lg:text-4xl">
+            What Makes Us Different
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 xl:gap-8 w-full">
+          <ValueCard
+            Icon={FaHandsHelping}
+            title="Expert-Led Learning"
+            description="Every course is designed and taught by industry leaders."
           />
           <ValueCard
             Icon={FaEye}
-            title="Clarity"
-            description="Clear objectives at work pave the way for strategic success."
+            title="Career-Focused Curriculum"
+            description="Our courses are tailored to equip you with the skills needed to land your dream job."
           />
           <ValueCard
             Icon={FaLightbulb}
-            title="Innovation"
-            description="Embracing innovation fosters creativity and growth."
+            title="Flexible Learning Paths"
+            description="Learn at your own pace, from anywhere, anytime"
           />
-          <ValueCard
-            Icon={GiTeamIdea}
-            title="Synergy"
-            description="Workplace synergy through teamwork cultivates a culture of collaboration."
-          />
+
           <ValueCard
             Icon={FaChartLine}
-            title="Improvement"
-            description="Commitment to improvement fuels a culture of continuous success."
-          />
-          <ValueCard
-            Icon={FaMedal}
-            title="Excellence"
-            description="Striving for the highest standards in everything we do."
+            title="Affordable Education"
+            description="High-quality courses without the heavy price tag."
           />
         </div>
-      </div>
+      </div> */}
 
-      {/* Section 5 */}
-      <div className="flex flex-col md:flex-row  lg:flex-row mx-auto gap-8 p-6 md:p-10 justify-center items-center max-w-7xl">
-        {/* Image Section */}
-        <div className="w-full lg:w-1/2  pl-0 lg:pl-20 mb-6 lg:mb-0">
-
-          <img
-            src={aboutus5}
-            alt="image"
-            className="w-full h-full sm:w-[750px] sm:h-[350px] md:w-[350px] md:h-[450px] lg:w-[450px] lg:h-[490px] rounded-tl-2xl rounded-br-2xl object-cover shadow-[-10px_-15px_#4338ca] lg:shadow-[-15px_-20px_#4338ca]"
-          />
-
-        </div>
-
-        {/* Text and Progress Bars Section */}
-        <div className="flex flex-col items-start justify-center gap-2 w-full lg:w-1/2">
-          <h3 className="text-amber-600 text-xl sm:text-2xl font-semibold">
-            Who We Are
-          </h3>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">
-            Get Expert Advice And Start Saving
-          </h2>
-          <p className="text-base sm:text-lg text-slate-600">
-            Far far away, behind the word mountains, far from the countries
-            Vokalia and Consonantia, there live the blind texts. Separated they
-            live in Bookmarksgrove right at the coast of the Semantics, a large
-            language ocean.
-          </p>
-
-          {/* Progress Bars */}
-          <div className="w-full text-slate-800 mx-auto mt-4 space-y-4">
-            <ProgressBar percentage={86} title="UI/UX Design" />
-            <ProgressBar percentage={80} title="Business Consultation" />
-            <ProgressBar percentage={78} title="Website Development" />
-            <ProgressBar percentage={83} title="Market Research" />
-          </div>
-        </div>
-      </div>
+      {/* testimonial */}
+      <Testimonials />
 
       {/* Section 6 */}
-      <div className="text-center text-xl md:text-4xl p-6 py-8 tracking-wide leading-4 font-bold">
-        Our Team
-      </div>
-
-      <div className="p-6">
-        <Swiper
-          keyboard={{
-            enabled: true,
-          }}
-          navigation={true}
-          scrollbar={{ draggable: true }}
-          modules={[Keyboard, Pagination, Navigation, Scrollbar]}
-          spaceBetween={24}
-          breakpoints={{
-            320: {
-              slidesPerView: 1, // 1 slide on small screens like mobile
-            },
-            640: {
-              slidesPerView: 2, // 2 slides on small tablets
-            },
-            768: {
-              slidesPerView: 3, // 3 slides on larger tablets
-            },
-            1024: {
-              slidesPerView: 4, // 4 slides on desktops
-            },
-          }}
-          onSlideChange={() => console.log("Slide changed")}
-          onSwiper={(swiper) => console.log("Swiper initialized")}
-          className="md:h-[350px] w-full md:w-[90%] m-auto rounded-lg flex flex-col justify-center items-center gap-4"
-        >
-          {data?.map((el) => (
-            <SwiperSlide key={el.id} className='group flip-card w-96 h-96'>
-              <div className='flip-card-inner'>
-                {/* Front Side (Image) */}
-                <div className='flip-card-front'>
-                  <img
-                    className='h-full w-full rounded-md object-cover'
-                    src={el.image}
-                    alt={el.name}
-                  />
-                </div>
-
-                {/* Back Side (Details) */}
-                <div className='flip-card-back bg-black/80 text-white rounded-md flex flex-col justify-center items-center'>
-                  <h3 className='text-center font-sans font-medium text-lg'>
-                    {el.name}
-                  </h3>
-                  <p className='text-center font-bold text-xs'>
-                    {el.role}
-                  </p>
-                  <div className='py-2 flex items-center justify-center gap-2'>
-                    <FaLinkedin className='text-xl' />
-                    <FaXTwitter className='' />
-                  </div>
-
-                  <p className="text-xs md:text-sm text-center px-4">{el.desc}</p>
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
+      {/* <OurTeam /> */}
+      <Subcription />
     </div>
   );
 };
