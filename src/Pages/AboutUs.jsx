@@ -58,16 +58,14 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 const AboutUs = () => {
   document.title = "Baoiam - About Us";
   const [data, setData] = useState(swiperData);
-  
+
   useEffect(() => {
-    
     gsap.fromTo(
       ".image-container img",
       { opacity: 0 },
       { opacity: 1, duration: 1.5, ease: "power3.inOut" }
     );
 
-   
     gsap.fromTo(
       ".content-overlay p",
       { opacity: 0, y: 30 },
@@ -138,7 +136,6 @@ const AboutUs = () => {
       }
     );
 
-   
     gsap.fromTo(
       ".animediv1 img",
       { opacity: 0, x: 50 },
@@ -190,7 +187,6 @@ const AboutUs = () => {
       }
     );
 
-   
     gsap.fromTo(
       ".value-card-1",
       { opacity: 0, x: -100 },
@@ -252,38 +248,41 @@ const AboutUs = () => {
       }
     );
   }, []);
- 
 
   return (
     <div>
       {/* Section - 1 */}
       <div className="mx-auto w-full text-white">
-      <div className="relative mx-auto h-[20%] w-full text-white">
-        <div className="h-[100vh] md:h-[75vh] w-full image-container">
-          <img
-            className="w-full h-full opacity-90 object-cover"
-            src={aboutus4}
-            alt="image"
-          />
-        </div>
-        <div className="absolute inset-0 content-overlay bg-gradient-to-b from-black/60 via-black/50 md:px-48 to-black/25 flex flex-col gap-4 items-center sm:pt-20 md:pt-32 justify-center sm:justify-start text-white">
-          <p className="rounded-3xl md:py-1 px-4 w-fit bg-gradient-to-r from-pink-500 text-center to-violet-600 z-10">
-            <span className="text-[0.55rem] md:text-sm font-medium">
-            Redefining education with advance edtech learning 
-            </span>
-          </p>
-          <h2 className="text-3xl md:px-28 font-extrabold mb-3 text-center lg:text-5xl">
-            Join Us on a Journey to Be{" "}
-            <span className="bg-gradient-to-r from-teal-300 italic tracking-wider to-amber-300 bg-clip-text text-transparent">
-              One In A Million!
-            </span>
-          </h2>
-          <p className="font-medium text-sm px-8 lg:text-lg text-center">
-          Our platform is committed to delivering high standards  and skills sharpening courses. We believe in empowering every individual who connects with us on this industry driven journey, helping them stand out from millions. We are here to support them in achieving their  professional goals.
-          </p>
+        <div className="relative mx-auto h-[20%] w-full text-white">
+          <div className="h-[100vh] md:h-[75vh] w-full image-container">
+            <img
+              className="w-full h-full opacity-90 object-cover"
+              src={aboutus4}
+              alt="image"
+            />
+          </div>
+          <div className="absolute inset-0 content-overlay bg-gradient-to-b from-black/60 via-black/50 md:px-48 to-black/25 flex flex-col gap-4 items-center sm:pt-20 md:pt-32 justify-center sm:justify-start text-white">
+            <p className="rounded-3xl md:py-1 px-4 w-fit bg-gradient-to-r from-pink-500 text-center to-violet-600 z-10">
+              <span className="text-[0.55rem] md:text-sm font-medium">
+                Redefining education with advance edtech learning
+              </span>
+            </p>
+            <h2 className="text-3xl md:px-28 font-extrabold mb-3 text-center lg:text-5xl">
+              Join Us on a Journey to Be{" "}
+              <span className="bg-gradient-to-r from-teal-300 italic tracking-wider to-amber-300 bg-clip-text text-transparent">
+                One In A Million!
+              </span>
+            </h2>
+            <p className="font-medium text-sm px-8 lg:text-lg text-center">
+              Our platform is committed to delivering high standards and skills
+              sharpening courses. We believe in empowering every individual who
+              connects with us on this industry driven journey, helping them
+              stand out from millions. We are here to support them in achieving
+              their professional goals.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
 
       {/* Section - 2 */}
       <div className="animediv1 w-full px-4 my-12 lg:my-16">
@@ -304,15 +303,19 @@ const AboutUs = () => {
           </div>
 
           <div className="md:w-[60%] h-full mt-8 lg:mt-0 px-4 md:px-12">
-            <span className="text-indigo-600 font-medium text-xs lg:text-sm">
-            Inspiring Growth, one aim at a time
+            <span className="text-indigo-600 dark:text-indigo-500 font-medium text-xs lg:text-sm">
+              Inspiring Growth, one aim at a time
             </span>
             <h4 className="mt-2 text-lg lg:text-2xl font-semibold">
-            Providing access to exceptional Courses to help achieve greater success.
+              Providing access to exceptional Courses to help achieve greater
+              success.
             </h4>
 
-            <p className="text-xs lg:text-base text-slate-600 mt-4">
-            Every individual shines with their unique expertise. Discover your skills in depth with us. Our transformative courses will equip you either upgraded version of yourself, ensuring you never fall behind in life. 
+            <p className="text-xs lg:text-base dark:text-slate-300 text-slate-600 mt-4">
+              Every individual shines with their unique expertise. Discover your
+              skills in depth with us. Our transformative courses will equip you
+              either upgraded version of yourself, ensuring you never fall
+              behind in life.
             </p>
           </div>
         </div>
@@ -336,16 +339,21 @@ const AboutUs = () => {
           </div>
 
           <div className="md:w-[60%] h-full mt-8 lg:mt-0 px-4 md:px-12">
-            <span className="text-indigo-600 font-medium text-xs lg:text-sm">
-            Future-focused education for Success
+            <span className="text-indigo-600 dark:text-indigo-500 font-medium text-xs lg:text-sm">
+              Future-focused education for Success
             </span>
             <h4 className="mt-2 text-lg lg:text-2xl font-semibold">
-              Preparing the next Gen to tackle upcoming challenges 
+              Preparing the next Gen to tackle upcoming challenges
             </h4>
 
-            <p className="text-xs lg:text-base text-slate-600 mt-4">
+            <p className="text-xs lg:text-base dark:text-slate-300 text-slate-600 mt-4">
               {" "}
-              We are not in the old generation; we are in modern Era where technology changes in minutes and trends shifts in seconds. Surviving here Without skills is nearly impossible, but baoiam has your back. In this modern landscape, baoaim is committed to preparing students to tackle upcoming challenges with high quality education.
+              We are not in the old generation; we are in modern Era where
+              technology changes in minutes and trends shifts in seconds.
+              Surviving here Without skills is nearly impossible, but baoiam has
+              your back. In this modern landscape, baoaim is committed to
+              preparing students to tackle upcoming challenges with high quality
+              education.
             </p>
           </div>
         </div>
@@ -353,46 +361,46 @@ const AboutUs = () => {
 
       {/* Section 4 */}
       <div className="flex flex-col items-center gap-4 mx-auto px-4 sm:px-16 py-20 xl:px-20">
-      <div className="w-full text-center core-values-heading">
-        <h2 className="text-3xl md:text-4xl text-center mb-8 lg:mb-12 font-bold">
-          Core{" "}
-          <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
-            Values
-          </span>
-        </h2>
-      </div>
+        <div className="w-full text-center core-values-heading">
+          <h2 className="text-3xl md:text-4xl text-center mb-8 lg:mb-12 font-bold">
+            Core{" "}
+            <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
+              Values
+            </span>
+          </h2>
+        </div>
 
-      <div className="flex flex-col md:flex-row gap-8">
-        <div className="value-card-1">
-          <ValueCard
-            Icon={FaHandsHelping}
-            title="Standard Education "
-            description="Delivering standardized quality through expert professors."
-          />
-        </div>
-        <div className="value-card-2">
-          <ValueCard
-            Icon={FaEye}
-            title="Acceptance"
-            description="Join us and enjoy lifetime access to out resources and educational benefits."
-          />
-        </div>
-        <div className="value-card-3">
-          <ValueCard
-            Icon={FaLightbulb}
-            title="Innovation with creativity"
-            description="Continuously delivering and adapting to meet industry demand with innovative courses."
-          />
-        </div>
-        <div className="value-card-4">
-          <ValueCard
-            Icon={FaChartLine}
-            title="Students accomplishment"
-            description="We are dedicated to students' success, providing it above all else to make it reality."
-          />
+        <div className="flex flex-col md:flex-row gap-8">
+          <div className="value-card-1">
+            <ValueCard
+              Icon={FaHandsHelping}
+              title="Standard Education "
+              description="Delivering standardized quality through expert professors."
+            />
+          </div>
+          <div className="value-card-2">
+            <ValueCard
+              Icon={FaEye}
+              title="Acceptance"
+              description="Join us and enjoy lifetime access to out resources and educational benefits."
+            />
+          </div>
+          <div className="value-card-3">
+            <ValueCard
+              Icon={FaLightbulb}
+              title="Innovation with creativity"
+              description="Continuously delivering and adapting to meet industry demand with innovative courses."
+            />
+          </div>
+          <div className="value-card-4">
+            <ValueCard
+              Icon={FaChartLine}
+              title="Students accomplishment"
+              description="We are dedicated to students' success, providing it above all else to make it reality."
+            />
+          </div>
         </div>
       </div>
-    </div>
 
       {/* how it started */}
 

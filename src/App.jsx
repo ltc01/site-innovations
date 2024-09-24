@@ -74,7 +74,7 @@ const App = () => {
   }
 
   return (
-    <div className="dark:bg-[#080529] w-full max-w-[1440px] mx-auto overflow-hidden h-full dark:text-white ">
+    <div className="dark:bg-black w-full max-w-[1440px] mx-auto overflow-hidden h-full dark:text-white ">
       <Navbar theme={theme} />
 
       <div className="mt-24">
