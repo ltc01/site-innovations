@@ -15,6 +15,7 @@ import {
 import { IoIosArrowDown } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import { RxCross2 } from "react-icons/rx";
 
 const ContactUs = () => {
   // const togglePopup = () => {
@@ -123,11 +124,10 @@ const ContactUs = () => {
   );
 };
 
-export const ContactFormComponent = () => {
+export const ContactFormComponent = ({ setShowForm, showForm }) => {
   const [loading, setLoading] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [animatePing, setAnimatePing] = useState(false);
-  const [showForm, setShowForm] = useState(true);
   const [formData, setFormData] = useState({
     Name: "",
     Email: "",
@@ -140,7 +140,6 @@ export const ContactFormComponent = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setShowPopup(true);
     // Prepare the data to be sent in the POST request
     console.log("formData: ", formData.Name);
     const data = {
@@ -153,25 +152,33 @@ export const ContactFormComponent = () => {
     };
 
     console.log("Form Data:", data);
+    setShowPopup(true)
+    setLoading(false);
+    try {
+      const response = await axios.post(
+        "https://script.google.com/macros/s/AKfycbyrM_x9q5m5qMwJ814X2g9rdKYWGne8bmZ5nzIZ0xY0ppGnzTOl5jsUGKlALnPgnEEI/exec",
+        data,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      );
 
-    // try {
-    //   const response = await axios.post(
-    //     "https://script.google.com/macros/s/AKfycbyrM_x9q5m5qMwJ814X2g9rdKYWGne8bmZ5nzIZ0xY0ppGnzTOl5jsUGKlALnPgnEEI/exec",
-    //     data,
-    //     {
-    //       headers: { "Content-Type": "multipart/form-data" },
-    //     }
-    //   );
-
-    //   console.log("Form successfully submitted:", response.data);
-    //   // toast.success("Form submitted successfully");
-    //   setShowPopup(true);
-    //   setLoading(false);
-    // } catch (error) {
-    //   setLoading(false);
-    //   toast.error("An error occurred");
-    //   console.error("Error submitting form", error);
-    // }
+      console.log("Form successfully submitted:", response.data);
+      // toast.success("Form submitted successfully");
+      setShowForm(false);
+      setFormData({
+        Name: "",
+        Email: "",
+        Phone: "",
+        CountryCode: "+91",
+        Course: "",
+        Consent: false,
+      });
+    } catch (error) {
+      setLoading(false);
+      toast.error("An error occurred");
+      console.error("Error submitting form", error);
+    }
   };
 
   const handleChange = (e) => {
@@ -184,11 +191,11 @@ export const ContactFormComponent = () => {
   return (
     <>
       {showPopup && (
-        <div className="fixed inset-0 flex items-center justify-center z-150">
+        <div className="fixed inset-0 flex items-center justify-center z-[100]">
           {/* Overlay */}
           <div
             className="fixed inset-0 bg-gray-600 bg-opacity-50 transition-opacity"
-            onClick={() => setShowPopup(false)} // Click outside to close
+          // Click outside to close
           ></div>
 
           {/* Modal Content */}
@@ -196,12 +203,11 @@ export const ContactFormComponent = () => {
             {/* Success Icon */}
             <FaCheckCircle
               size={50}
-              className={`text-green-500 mx-auto mb-4 ${
-                animatePing ? "animate-ping" : ""
-              }`}
+              className={`text-green-500 mx-auto mb-4 ${animatePing ? "animate-ping" : ""
+                }`}
             />
 
-            <h2 className="text-2xl font-bold text-indigo-600 mb-4 transition-all duration-300 ease-in-out">
+            <h2 className="md:text-2xl font-bold text-indigo-600 mb-4 transition-all duration-300 ease-in-out">
               Successfully Submitted Data
             </h2>
             {/* <p className="text-gray-700 mb-6">
@@ -215,7 +221,7 @@ export const ContactFormComponent = () => {
             {/* Close Button */}
             <button
               onClick={() => setShowPopup(false)}
-              className="bg-gradient-to-br from-purple-600 via-indigo-500 to-indigo-700 text-white px-6 py-2 rounded-full hover:bg-indigo-700 focus:outline-none transition-all"
+              className="bg-gradient-to-br from-purple-600 via-indigo-500 to-indigo-700 text-white px-6 py-2 rounded-full hover:bg-indigo-700 focus:outline-none transition-all text-sm md:text-base"
             >
               Close
             </button>
@@ -223,191 +229,188 @@ export const ContactFormComponent = () => {
         </div>
       )}
       {showForm && (
-        <div className="lg:w-2/5 bg-white p-4 md:p-6 lg:p-8 mx-auto  rounded-lg border fixed inset-0 flex flex-col items-center justify-center z-100">
-          <p
-            className="mb-5 py-1 px-2  rounded-sm cursor-pointer bg-red-500"
-            onClick={() => {
-              setShowForm(false);
-            }}
-          >
-            X
-          </p>
-          <h2 className="text-xl md:text-3xl text-center font-bold md:mb-8 mb-4">
-            Ready to enhance your skills?
-            <br />
-            <span className="text-base font-medium">
-              Share your details and hear from us soon
-            </span>
-          </h2>
-          <form
-            id="form1"
-            className="space-y-6"
-            onSubmit={(e) => {
-              handleSubmit(e);
-            }}
-          >
-            {/* Full Name */}
-            <div>
-              <label htmlFor="fullname" className="block text-gray-700 mb-2">
-                Full Name
-              </label>
-              <input
-                id="fullname"
-                type="text"
-                name="Name"
-                className="w-full p-3 border border-gray-300 rounded-md"
-                placeholder="Enter your full name"
-                onChange={handleChange}
-                required
-              />
-            </div>
-
-            {/* Email */}
-            <div>
-              <label htmlFor="email" className="block text-gray-700 mb-2">
-                Email
-              </label>
-              <input
-                id="email"
-                type="email"
-                name="Email"
-                className="w-full p-3 border border-gray-300 rounded-md"
-                placeholder="Enter your E-mail"
-                onChange={handleChange}
-                required
-              />
-            </div>
-
-            {/* Phone Number with Country Code */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="relative inline-block">
-                <label
-                  htmlFor="countryCode"
-                  className="block text-gray-700 mb-2"
-                >
-                  Country Code
+        <div className="cursor-pointer fixed inset-0 z-50 h-screen w-screen bg-black/20">
+          <div className="w-[90%] h-96 mt-32 md:w-3/5 lg:w-1/2 xl:w-2/5 bg-white p-4 mx-auto my-2 lg:my-24 md:h-fit xl:h-[90%] rounded-lg border relative flex flex-col items-center justify-center overflow-auto">
+            <span onClick={() => setShowForm(!showForm)} className="absolute top-2 right-2 text-2xl"><RxCross2 /></span>
+            <h2 className="text-xl md:text-2xl lg:text-3xl text-center font-bold mt-52 md:mt-0 md:mb-4">
+              Ready to enhance your skills?
+              <br />
+              <span className="text-xs md:text-sm lg:text-base font-medium">
+                Share your details and hear from us soon
+              </span>
+            </h2>
+            <form
+              id="form1"
+              className="space-y-4 mt-4 md:mt-0"
+              onSubmit={(e) => {
+                handleSubmit(e);
+              }}
+            >
+              {/* Full Name */}
+              <div>
+                <label htmlFor="fullname" className="block text-gray-700 mb-2 text-xs md:text-sm">
+                  Full Name
                 </label>
+                <input
+                  id="fullname"
+                  type="text"
+                  name="Name"
+                  className="w-full p-2 border border-gray-300 rounded-md text-xs md:text-sm"
+                  placeholder="Enter your full name"
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              {/* Email */}
+              <div>
+                <label htmlFor="email" className="block text-gray-700 mb-2 text-xs md:text-sm">
+                  Email
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  name="Email"
+                  className="w-full p-2 border border-gray-300 rounded-md text-xs md:text-sm"
+                  placeholder="Enter your E-mail"
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              {/* Phone Number with Country Code */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="relative inline-block">
+                  <label
+                    htmlFor="countryCode"
+                    className="block text-gray-700 mb-2 text-xs md:text-sm"
+                  >
+                    Country Code
+                  </label>
+                  <div className="flex items-center gap-4">
+                    <select
+                      id="countryCode"
+                      name="CountryCode"
+                      className="border p-2 pr-8 rounded focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer text-xs md:text-sm"
+                      onChange={handleChange}
+                    >
+                      <option value="+91">🇮🇳 +91 (India)</option>
+                    </select>
+                    <div className="absolute inset-y-0 right-0 flex items-center justify-center mt-5 pr-3 pointer-events-none">
+                      <IoIosArrowDown className="text-gray-500" />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="col-span-2">
+                  <label htmlFor="phone" className="block text-gray-700 mb-2 text-xs md:text-sm">
+                    Phone Number
+                  </label>
+                  <input
+                    id="phone"
+                    name="Phone"
+                    type="tel"
+                    className="w-full p-2 border border-gray-300 rounded-md text-xs md:text-sm"
+                    placeholder="Enter your phone number"
+                    pattern="[0-9]{10}"
+                    minLength="10"
+                    maxLength="10"
+                    required
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+
+              {/* Inquiry Type */}
+              <div className="relative inline-block w-full">
                 <select
-                  id="countryCode"
-                  name="CountryCode"
-                  className="border p-3 pr-8 rounded focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer"
+                  id="courses"
+                  name="Course"
+                  className="border p-2 pr-10 rounded focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer text-xs md:text-sm"
+                  required
                   onChange={handleChange}
                 >
-                  <option value="+91">🇮🇳 +91 (India)</option>
+                  <option value="">Select Course</option>
+                  <option value="Web Development">Web Development</option>
+                  <option value="English speaking/Public speaking">
+                    English speaking/Public speaking
+                  </option>
+                  <option value="Creative writing">Creative writing</option>
+                  <option value="Art and craft (DIY)">Art and craft (DIY)</option>
+                  <option value="Critical Thinking & Problem Solving">
+                    Critical Thinking & Problem Solving
+                  </option>
+                  <option value="Life Skills">Life Skills</option>
+                  <option value="Photography & Editing Skills">
+                    Photography & Editing Skills
+                  </option>
+                  <option value="Technology Development with AI & Coding">
+                    Technology Development with AI & Coding
+                  </option>
+                  <option value="Entrepreneurship & Innovation(Junior Program)">
+                    Entrepreneurship & Innovation(Junior Program)
+                  </option>
+                  <option value="Social Media and Digital Marketing">
+                    Social Media and Digital Marketing
+                  </option>
+                  <option value="Finance Education">Finance Education</option>
+                  <option value="Graphic Designing">Graphic Designing</option>
+                  <option value="Human Resource">Human Resource</option>
+                  <option value="Data Analytics">Data Analytics</option>
+                  <option value="Product Management">Product Management</option>
+                  <option value="Android Development">Android Development</option>
+                  <option value="Digital Marketing">Digital Marketing</option>
+                  <option value="UI/UX Design">UI/UX Design</option>
+                  <option value="Software Testing">Software Testing</option>
+                  <option value="Entrepreneurship & Innovation(Pre University)">
+                    Entrepreneurship & Innovation(Pre University)
+                  </option>
+                  <option value="SEO Development">SEO Development</option>
+                  <option value="Machine Learning with AI">
+                    Machine Learning with AI
+                  </option>
+                  <option value="International Business">
+                    International Business
+                  </option>
+                  <option value="Emotional Intelligence">
+                    Emotional Intelligence
+                  </option>
+                  <option value="Executive & Public Relations Content Writing">
+                    Executive & Public Relations Content Writing
+                  </option>
+                  <option value="Data Science">Data Science</option>
                 </select>
-                <div className="absolute inset-y-0 right-0 flex items-center justify-center mt-5 pr-3 pointer-events-none">
+                <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                   <IoIosArrowDown className="text-gray-500" />
                 </div>
               </div>
 
-              <div className="col-span-2">
-                <label htmlFor="phone" className="block text-gray-700 mb-2">
-                  Phone Number
-                </label>
+              {/* Consent Checkbox */}
+              <div className="flex items-center">
                 <input
-                  id="phone"
-                  name="Phone"
-                  type="tel"
-                  className="w-full p-3 border border-gray-300 rounded-md"
-                  placeholder="Enter your phone number"
-                  pattern="[0-9]{10}"
-                  minLength="10"
-                  maxLength="10"
-                  required
+                  id="consent"
+                  name="Consent"
+                  type="checkbox"
+                  className="mr-2 h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
                   onChange={handleChange}
+                  required
                 />
+                <label htmlFor="consent" className="text-gray-700 text-xs">
+                  I consent to receiving updates and notifications from online
+                  Baoiam and its affiliates via email, SMS, WhatsApp, and voice
+                  call, overriding any DNC/NDNC preference.
+                </label>
               </div>
-            </div>
 
-            {/* Inquiry Type */}
-            <div className="relative inline-block w-full">
-              <select
-                id="courses"
-                name="Course"
-                className="border p-3 pr-10 rounded focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer"
-                required
-                onChange={handleChange}
+              {/* Submit Button */}
+              <button
+                type="submit"
+                className="w-full bg-indigo-500 text-white text-xs md:text-base py-2 md:py-3 rounded-md hover:bg-indigo-600"
               >
-                <option value="">Select Course</option>
-                <option value="Web Development">Web Development</option>
-                <option value="English speaking/Public speaking">
-                  English speaking/Public speaking
-                </option>
-                <option value="Creative writing">Creative writing</option>
-                <option value="Art and craft (DIY)">Art and craft (DIY)</option>
-                <option value="Critical Thinking & Problem Solving">
-                  Critical Thinking & Problem Solving
-                </option>
-                <option value="Life Skills">Life Skills</option>
-                <option value="Photography & Editing Skills">
-                  Photography & Editing Skills
-                </option>
-                <option value="Technology Development with AI & Coding">
-                  Technology Development with AI & Coding
-                </option>
-                <option value="Entrepreneurship & Innovation(Junior Program)">
-                  Entrepreneurship & Innovation(Junior Program)
-                </option>
-                <option value="Social Media and Digital Marketing">
-                  Social Media and Digital Marketing
-                </option>
-                <option value="Finance Education">Finance Education</option>
-                <option value="Graphic Designing">Graphic Designing</option>
-                <option value="Human Resource">Human Resource</option>
-                <option value="Data Analytics">Data Analytics</option>
-                <option value="Product Management">Product Management</option>
-                <option value="Android Development">Android Development</option>
-                <option value="Digital Marketing">Digital Marketing</option>
-                <option value="UI/UX Design">UI/UX Design</option>
-                <option value="Software Testing">Software Testing</option>
-                <option value="Entrepreneurship & Innovation(Pre University)">
-                  Entrepreneurship & Innovation(Pre University)
-                </option>
-                <option value="SEO Development">SEO Development</option>
-                <option value="Machine Learning with AI">
-                  Machine Learning with AI
-                </option>
-                <option value="International Business">
-                  International Business
-                </option>
-                <option value="Emotional Intelligence">
-                  Emotional Intelligence
-                </option>
-                <option value="Executive & Public Relations Content Writing">
-                  Executive & Public Relations Content Writing
-                </option>
-                <option value="Data Science">Data Science</option>
-              </select>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                <IoIosArrowDown className="text-gray-500" />
-              </div>
-            </div>
-
-            {/* Consent Checkbox */}
-            <div className="flex items-center">
-              <input
-                id="consent"
-                name="Consent"
-                type="checkbox"
-                className="mr-2 h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
-                onChange={handleChange}
-                required
-              />
-              <label htmlFor="consent" className="text-gray-700">
-                I consent to receiving updates and notifications from online
-                Baoiam and its affiliates via email, SMS, WhatsApp, and voice
-                call, overriding any DNC/NDNC preference.
-              </label>
-            </div>
-
-            {/* Submit Button */}
-            <button
-              type="submit"
-              className="w-full bg-indigo-500 text-white py-3 rounded-md hover:bg-indigo-600"
-            >
-              {loading ? "Loading..." : "Submit"}
-            </button>
-          </form>
+                {loading ? "Loading..." : "Submit"}
+              </button>
+            </form>
+          </div>
         </div>
       )}
     </>

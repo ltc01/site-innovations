@@ -73,6 +73,16 @@ const App = () => {
     return <Loader />;
   }
 
+  if(location.pathname === "/profile"){
+    return <SideBar />
+  }
+  if(location.pathname === "/Login"){
+    return <Login />
+  }
+  if(location.pathname === "/Signup"){
+    return <SignUp />
+  }
+
   return (
     <div className="dark:bg-black w-full max-w-[1440px] mx-auto overflow-hidden h-full dark:text-white ">
       <Navbar theme={theme} />
