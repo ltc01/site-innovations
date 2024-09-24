@@ -76,12 +76,12 @@ const App = () => {
   if(location.pathname === "/profile"){
     return <SideBar />
   }
-  if(location.pathname === "/Login"){
-    return <Login />
-  }
-  if(location.pathname === "/Signup"){
-    return <SignUp />
-  }
+  // if(location.pathname === "/Login"){
+  //   return <Login />
+  // }
+  // if(location.pathname === "/Signup"){
+  //   return <SignUp />
+  // }
 
   return (
     <div className="dark:bg-[#080529] w-full max-w-[1440px] mx-auto overflow-hidden h-full dark:text-white ">
