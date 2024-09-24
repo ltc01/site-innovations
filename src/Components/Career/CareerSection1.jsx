@@ -50,6 +50,7 @@ export const CareerSection1 = () => {
   }, []);
 
   return (
+
     <div className="dark:bg-black dark:text-zinc-200 bg-[#fcfdff] px-6 py-12 flex flex-col items-center justify-center lg:flex-row w-full relative overflow-hidden">
       <main className="flex flex-col lg:flex-row items-center gap-4 justify-center w-11/12">
         {/* Text Section */}
@@ -63,7 +64,7 @@ export const CareerSection1 = () => {
           <p className="text-sm mt-2 sm:text-lg md:text-xl dark:text-gray-600 text-[#0a0a0a] pt-5">
             At BAOIAM, we're dedicated to transforming education through
             innovative solutions. Join our dynamic team and contribute to
-            shaping the future of learning.
+            shaping the future of learning testing.
           </p>
           {/* Search Bar */}
           <form className="relative" onSubmit={(e) => e.preventDefault()}>
