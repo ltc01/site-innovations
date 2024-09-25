@@ -50,13 +50,12 @@ const CourseNav = ({ setShow, course }) => {
                 activeTabIndex === i && "text-amber-600"
               }`}
             >
-              <Link
-                onClick={() => setShow(false)}
-                // to={`/${c.link}`}
+              <button
+                onClick={() => handleTabActiveState(c.id, i)}
                 className=" hover:text-amber-600 font-semibold flex items-center gap-2"
               >
                 {c.icon} {c.title}
-              </Link>
+              </button>
               <button
                 onClick={() => {
                   handleTabActiveState(c.id, i)

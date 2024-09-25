@@ -46,6 +46,7 @@ import { PopularBlogDetail } from "./Pages/PopularBlogDetail";
 import Courses from "./Pages/Courses";
 import NotFound from "./Pages/NotFound";
 import EnrollNowButton from "./Components/EnrollNowButton/EnrollNowButton";
+import Profile from "./Pages/Profile";
 
 const App = () => {
   const [dark, setDark] = useState(false);
@@ -74,13 +75,7 @@ const App = () => {
   }
 
   if(location.pathname === "/profile"){
-    return <SideBar />
-  }
-  if(location.pathname === "/Login"){
-    return <Login />
-  }
-  if(location.pathname === "/Signup"){
-    return <SignUp />
+    return <Profile />
   }
 
   return (
