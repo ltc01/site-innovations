@@ -157,7 +157,7 @@ const ProfileManage = () => {
   };
 
   return (
-    <section className="max-w-4xl dark:bg-black dark:text-white mx-auto p-6">
+    <section className="dark:bg-black dark:text-white mx-auto px-4">
       {showPopup && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
           {/* Overlay */}
@@ -197,9 +197,9 @@ const ProfileManage = () => {
           </div>
         </div>
       )}
-      <form className="space-y-8">
+      <form className="space-y-4">
         {/* Personal Information Section */}
-        <div className="dark:bg-black dark:text-white dark:border dark:border-white p-6 rounded-lg shadow-md relative bg-indigo-500 text-white">
+        <div className="dark:bg-black dark:text-white dark:border dark:border-white p-4 rounded-lg shadow-md relative bg-indigo-500 text-white">
           <h3 className="text-xl font-bold mb-4">Personal Information</h3>
           <button
             type="button"
@@ -267,7 +267,7 @@ const ProfileManage = () => {
         </div>
 
         {/* Other Information Section */}
-        <div className="dark:bg-black dark:text-white dark:border dark:border-white p-6 rounded-lg shadow-md relative bg-indigo-500 text-white">
+        <div className="dark:bg-black dark:text-white dark:border dark:border-white p-4 rounded-lg shadow-md relative bg-indigo-500 text-white">
           <h3 className="text-xl py-1 px-2 font-bold mb-4">
             Other Information
           </h3>
@@ -353,7 +353,7 @@ const ProfileManage = () => {
         </div>
 
         {/* Social Links Section */}
-        <div className="dark:bg-black dark:text-white dark:border dark:border-white p-6 rounded-lg shadow-md relative bg-indigo-500 text-white">
+        <div className="dark:bg-black dark:text-white dark:border dark:border-white p-4 rounded-lg shadow-md relative bg-indigo-500 text-white">
           <h3 className="text-xl font-bold mb-4">Social Links</h3>
           <button
             type="button"

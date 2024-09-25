@@ -284,7 +284,7 @@ const Blog = () => {
         <h1 className='text-3xl font-bold text-center'>
           Our Latest Highlights
         </h1>
-        <h2 className='b2 text-lg text-center mt-2 mb-6'>
+        <h2 className='b2 text-lg text-center dark:text-slate-300 mt-2 mb-6'>
           Dive into our latest blogs for fresh insights and trending topics{" "}
         </h2>
 
