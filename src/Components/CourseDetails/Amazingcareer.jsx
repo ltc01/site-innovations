@@ -3,7 +3,7 @@ import React from "react";
 const Amazingcareer = () => {
   return (
     <div>
-      <div className="py-8 px-8 lg:px-24 my-20 w-full h-full text-black bg-amber-50 dark:bg-gray-700 text-center">
+      <div className="py-8 px-8 lg:px-24 my-20 w-full h-full text-black bg-amber-50 dark:bg-[#080529] text-center">
         <h4 className="text-[2rem] lg:text-4xl dark:text-white font-bold mb-2 lg:mb-4">
           Amazing <span className="">Career</span>
         </h4>
