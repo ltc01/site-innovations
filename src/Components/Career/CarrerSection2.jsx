@@ -84,7 +84,7 @@ export const CarrerSection2 = () => {
   return (
     <div className="bg-white text-black dark:text-white dark:bg-black flex flex-col">
       <main className="flex flex-col items-center justify-center px-4 sm:px-8 md:px-15 lg:px-0 xl:px-0 m-4 md:m-8">
-        <h2 className="text-3xl md:text-4xl text-center mb-8 lg:mb-12 font-bold">
+        <h2 className="text-2xl md:text-4xl lg:text-3xl xl:text-4xl text-center mb-8 lg:mb-12 font-bold dark:font-semibold">
           Employee{" "}
           <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
             Benefits and Perks
@@ -95,7 +95,7 @@ export const CarrerSection2 = () => {
             <div
               key={index}
               ref={(el) => (benefitsRef.current[index] = el)}
-              className="p-4 md:p-6 flex flex-col items-center cursor-pointer hover:shadow-indigo-400 hover:shadow-lg duration-200 hover:scale-105 dark:bg-zinc-900 bg-white hover:bg-gray-100 transition border border-gray-300 rounded-lg shadow-sm lg:mt-0"
+              className="p-4 md:p-6 lg:px-2 flex flex-col items-center cursor-pointer hover:shadow-indigo-400 hover:shadow-lg duration-200 hover:scale-105 dark:bg-zinc-900 bg-white hover:bg-gray-100 transition border border-gray-300 rounded-lg shadow-sm lg:mt-0"
             >
               {/* Image Icon */}
               <img
@@ -104,11 +104,11 @@ export const CarrerSection2 = () => {
                 className="w-12 h-12 mb-4"
               />
               {/* Title */}
-              <h2 className="text-lg md:text-lg font-bold dark:text-zinc-400 text-gray-900 text-center mb-2">
+              <h2 className="text-lg md:text-lg font-bold dark:text-zinc-300 text-gray-900 text-center mb-2 ">
                 {benefit.title}
               </h2>
               {/* Description */}
-              <p className="text-sm text-gray-600 text-center">
+              <p className="text-sm text-gray-600 text-center dark:text-zinc-400">
                 {benefit.description}
               </p>
             </div>
