@@ -6,7 +6,6 @@ import "swiper/css/navigation";
 import ed_tech_enhances_critical_thinking from "../../assets/Blogs/ed_tech_enhances_critical_thinking.png";
 import gsap from "gsap";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import new_excited_tech_edu1 from "../../assets/Blogs/new_excited_tech_edu1.jpg";
 import screen_time from "../../assets/Blogs/screen_time.png";
 import { Link } from "react-router-dom";
@@ -89,11 +88,11 @@ export const BusSlider = () => {
     <div className='my-12'>
       <div>
         {" "}
-        <h1 className='m-8 text-3xl font-bold text-center'>
+        <h1 className='m-6 text-3xl font-bold text-center'>
           Popular or Most featured articles
         </h1>
       </div>
-      <div className='mb-6 mt-8 px-10'>
+      <div className='mb-6 md:px-10'>
         <Swiper
           ref={swiperRef}
           keyboard={{
@@ -131,7 +130,7 @@ export const BusSlider = () => {
                     {/* Button positioned over the image */}
                     <button
                       type='button'
-                      className='absolute bottom-2 left-3  bg-slate-400 transition-all text-black text-xs font-medium rounded-full p-1'
+                      className='absolute bottom-2 left-3  bg-slate-400 transition-all text-black text-xs font-medium rounded-lg p-2'
                     >
                       {item.category}
                     </button>

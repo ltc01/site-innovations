@@ -8,7 +8,6 @@ import b12 from "../../assets/Blogs/b12.png";
 import b14 from "../../assets/Blogs/b14.png";
 import { useEffect } from "react";
 import gsap from "gsap";
-import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useRef } from "react";
 
@@ -88,9 +87,9 @@ export const TechBlogSlider = () => {
     <div className='my-14'>
       <div>
         {" "}
-        <h1 className='m-8 text-3xl font-bold text-center'>Recent Blogs</h1>
+        <h1 className='m-6 text-3xl font-bold text-center'>Recent Blogs</h1>
       </div>
-      <div className='mb-6 mt-8 px-10'>
+      <div className='mb-6 md:px-10'>
         <Swiper
           keyboard={{
             enabled: true,
@@ -128,7 +127,7 @@ export const TechBlogSlider = () => {
                     {/* Button positioned over the image */}
                     <button
                       type='button'
-                      className='absolute bottom-2 left-3  bg-slate-400 transition-all text-black text-xs font-medium rounded-full p-1'
+                      className='absolute bottom-2 left-3  bg-slate-400 transition-all text-black text-xs font-medium rounded-lg p-2'
                     >
                       {item.category}
                     </button>

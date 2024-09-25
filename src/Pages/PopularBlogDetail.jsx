@@ -5,7 +5,7 @@ import datasc from "../assets/datasc.jpg";
 import business from "../assets/business.jpg";
 import tech from "../assets/tech.jpg";
 import critical from "../assets/critical.jpg";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { popularContent } from "../Data/Content2.js";
 import { toast } from "react-toastify";
 import {
@@ -61,13 +61,17 @@ export const PopularBlogDetail = () => {
 
   return (
     <>
-      <div className='h-[auto] w-[90%] sm:text-[1.6vw] mx-[5%] px-[2rem] py-[2.5rem] flex-col my-[2rem] bg-purple-100'>
-        <p className='font-bold text-sm dark:text-black'>
-          {" "}
-          HOME / ARTICLES / SINGLE ARTICLE{" "}
+      <div className='h-[auto] w-[90%] sm:text-[1.6vw] mx-[5%] px-4 py-4 flex-col my-[2rem] bg-purple-100'>
+        <p className='font-bold text-sm md:text-lg dark:text-black'>
+          <Link className='text-blue-600 hover:underline' to='/'>
+            HOME
+          </Link>{" "}
+          <Link className='text-blue-600 hover:underline' to='/blogs'>
+            / BLOGS
+          </Link>
         </p>
       </div>
-      <div className='w-[80%] lg:flex lg:flex-row  flex-col gap-[2rem] mx-[10%] mt-[10%]'>
+      <div className='w-[80%] lg:flex lg:flex-row  flex-col gap-[2rem] mx-[10%]'>
         <div className='w-[100%] lg:w-[70%] lg:flex lg:flex-col  flex-col'>
           <div>
             <div
@@ -79,7 +83,7 @@ export const PopularBlogDetail = () => {
           </div>
         </div>
         <div className='w-[100%] lg:w-[40%] mt-5'>
-          <div className='w-full bg-gray-100 dark:bg-gray-800 rounded-lg pb-5 lg:h-auto h-[45%] shadow-md shadow-[#00000081] dark:text-white flex flex-col gap-4'>
+          {/* <div className='w-full bg-gray-100 dark:bg-gray-800 rounded-lg pb-5 lg:h-auto h-[45%] shadow-md shadow-[#00000081] dark:text-white flex flex-col gap-4'>
             <h2 className='text-3xl xs:text-2xl py-5 font-bold text-center dark:text-white'>
               Categories
             </h2>
@@ -127,44 +131,44 @@ export const PopularBlogDetail = () => {
                 </span>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div className='w-[100%] mt-20 dark:text-white xs:px-1 rounded pb-5 lg:h-auto h-[45%]  dark:border-white dark:border-[1px] shadow-md shadow-[#00000081] flex flex-col gap-2 '>
             <h2 className='text-[2rem]  font-bold text-center xs:text-[23px] mt-5'>
               Related Blogs
             </h2>
 
-            <div className='flex items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 gap-10 mt-[2rem] px-4 shadow-md  dark:bg-[#374151] mx-4 py-4 cursor-pointer'>
+            <div className='flex flex-col gap-2 md:flex-row  border border-zinc-200 rounded-md hover:shadow-md items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 md:gap-10 mt-[2rem] px-4 dark:bg-[#374151] mx-4 py-4 cursor-pointer'>
               <img
-                className='w-[6rem] xs:w-[5.7rem] xs:h-[5.7rem]'
+                className='w-[8rem] xs:w-[5.7rem] xs:h-[5.7rem]'
                 src={tech}
               />
               <p
                 onClick={hanldenav1}
-                className='w-[60%] dark:text-white hover:underline text-indigo-600 xs:w-[90%] xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'
+                className='w-[95%] md:w-[60%] text-center dark:text-white hover:underline text-indigo-600 xs:w-[90%] xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'
               >
                 The Rise of EdTech: How It’s Shaping Modern Education{" "}
               </p>
             </div>
-            <div className='flex items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 gap-10 mt-[2rem] px-4 shadow-md  dark:bg-[#374151] mx-4 py-4 cursor-pointer'>
-              <img className='w-[6rem] xs:w-[5.7rem] xs:h-[5.7rem]' src={ai} />
+            <div className='flex flex-col gap-2 md:flex-row  border border-zinc-200 rounded-md hover:shadow-md items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 md:gap-10 mt-[2rem] px-4 dark:bg-[#374151] mx-4 py-4 cursor-pointer'>
+              <img className='w-[8rem] xs:w-[5.7rem] xs:h-[5.7rem]' src={ai} />
               <p
                 onClick={hanldenav2}
-                className='w-[60%] dark:text-white hover:underline xs:w-[90%] text-indigo-600 xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'
+                className='w-[95%] md:w-[60%] text-center dark:text-white hover:underline xs:w-[90%] text-indigo-600 xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'
               >
                 The Top Technical Skills All Employees Need in 2022
               </p>
             </div>
-            <div className='flex items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 gap-10 mt-[2rem] px-4 shadow-md  dark:bg-[#374151] mx-4 py-4 cursor-pointer'>
+            <div className='flex flex-col gap-2 md:flex-row  border border-zinc-200 rounded-md hover:shadow-md items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 md:gap-10 mt-[2rem] px-4 dark:bg-[#374151] mx-4 py-4 cursor-pointer'>
               <img
-                className='w-[6rem] xs:w-[5.7rem] xs:h-[5.7rem]'
+                className='w-[8rem] xs:w-[5.7rem] xs:h-[5.7rem]'
                 src={critical}
               />
               <p
                 onClick={hanldenav3}
-                className='w-[60%] text-indigo-600 dark:text-white hover:underline  xs:w-[90%] xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'
+                className='w-[95%] md:w-[60%] text-center text-indigo-600 dark:text-white hover:underline  xs:w-[90%] xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'
               >
-                Types Of Quantitative Research for Students and Researchers
+                How Ed-Tech Enhances Critical Thinking Skills
               </p>
             </div>
           </div>

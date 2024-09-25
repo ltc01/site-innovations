@@ -289,7 +289,7 @@ const Blog = () => {
         </h2>
 
         <div className=' p-6'></div>
-        <div className='px-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10'>
+        <div className='px-6 md:px-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10'>
           {searchResults.map((item, i) => (
             <Link key={i} to={`/Blog_detail/${i}`}>
               <div className='bg-white flex flex-col h-full dark:bg-black dark:text-white shadow-lg dark:hover:shadow-gray-300 dark:hover:shadow-md rounded-lg overflow-hidden transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-300 '>
@@ -302,7 +302,7 @@ const Blog = () => {
                   {/* Button positioned over the image */}
                   <button
                     type='button'
-                    className='absolute bottom-2 left-3  bg-slate-400 transition-all text-black text-xs font-medium rounded-full p-1'
+                    className='absolute bottom-2 left-3  bg-slate-400 transition-all text-black text-xs font-medium rounded-lg p-2'
                   >
                     {item.category}
                   </button>

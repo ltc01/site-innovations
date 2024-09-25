@@ -86,9 +86,9 @@ export const StatupSlider = () => {
     <div className='my-12'>
       <div>
         {" "}
-        <h1 className='m-8 text-3xl font-bold text-center'>Featured Blogs</h1>
+        <h1 className='m-6 text-3xl font-bold text-center'>Featured Blogs</h1>
       </div>
-      <div className='mb-6 mt-8 px-10'>
+      <div className='mb-6 md:px-10'>
         <Swiper
           keyboard={{
             enabled: true,
@@ -126,7 +126,7 @@ export const StatupSlider = () => {
                     {/* Button positioned over the image */}
                     <button
                       type='button'
-                      className='absolute bottom-2 left-3  bg-slate-400 transition-all text-black text-xs font-medium rounded-full p-1'
+                      className='absolute bottom-2 left-3  bg-slate-400 transition-all text-black text-xs font-medium rounded-lg p-2'
                     >
                       {item.category}
                     </button>
