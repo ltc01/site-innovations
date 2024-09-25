@@ -164,12 +164,12 @@ export const CareerSection7 = () => {
   }, []);
 
   return (
-    <div className="mb-0 pt-0">
+    <div className="mb-0 pt-0 ">
       {/* First Section */}
-      <div className="animediv1 w-full px-2 lg:px-0 my-4 lg:mt-10 lg:mb-0 bg-gray-50 rounded-lg  p-4 bg-white ">
+      <div className="animediv1 w-full px-2 lg:px-0  lg:pt-10 lg:mb-0 bg-gray-50 rounded-lg  p-4 bg-white dark:bg-black">
         <div
           ref={(el) => (animRefs.current[0] = el)}
-          className="flex flex-col md:flex-row justify-center items-center w-full lg:px-20"
+          className="flex flex-col md:flex-row justify-center items-center w-full lg:px-20 "
         >
           {/* Image Section: Right side in the first section */}
           <div className="w-full md:w-[40%] h-[250px] pl-8 pr-4 lg:pr-2">
@@ -182,13 +182,13 @@ export const CareerSection7 = () => {
 
           {/* Content Section: Left side in the first section */}
           <div className="w-full md:w-[60%] h-full mt-8 md:mt-0 px-4 md:px-4">
-            <h2 className="text-xl lg:text-2xl mb-2 font-bold text-black text-center md:text-left">
+            <h2 className="text-xl lg:text-2xl mb-2 font-bold text-black text-center md:text-left dark:text-white dark:font-semibold">
               Why{" "}
               <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
                 Work With Us{" "}
               </span>
             </h2>
-            <p className="text-sm lg:text-base text-slate-600 mt-4 mb-4 text-center md:text-left">
+            <p className="text-sm lg:text-base text-slate-600 mt-4 mb-4 text-center md:text-left dark:text-gray-400">
               At BAOIAM, we create pathways to success, offering limitless
               opportunities where innovation and creativity thrive. Join our
               dynamic, inclusive team dedicated to making a difference in your
@@ -198,10 +198,10 @@ export const CareerSection7 = () => {
         </div>
 
         {/* Second Section - Reverse Layout */}
-        <div className="w-full px-2 lg:px-0 mt-10 bg-gray-50 rounded-lg  p-4 bg-white">
+        <div className="w-full px-2 lg:px-0 mt-10 bg-gray-50 rounded-lg  p-4 bg-white dark:bg-black">
           <div
             ref={(el) => (animRefs.current[1] = el)}
-            className="flex flex-col md:flex-row-reverse justify-center items-center w-full lg:px-20"
+            className="flex flex-col md:flex-row-reverse justify-center items-center w-full lg:px-20 "
           >
             {/* Image Section: Left side in the second section */}
             <div className="w-full md:w-[40%] h-[250px] pl-6 mb-6 mt-8 md:mt-0 lg:pl-10 ">
@@ -214,13 +214,13 @@ export const CareerSection7 = () => {
 
             {/* Content Section: Right side in the second section */}
             <div className="w-full md:w-[60%] h-full px-4 md:px-4 ">
-              <h2 className="text-xl lg:text-2xl  mb-2 font-bold text-black text-center md:text-left lg:pl-2">
+              <h2 className="text-xl lg:text-2xl  mb-2 font-bold text-black text-center md:text-left lg:pl-2 dark:text-white dark:font-semibold">
                 Work{" "}
                 <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
                   Environment{" "}
                 </span>
               </h2>
-              <p className="text-sm lg:text-base text-slate-600 mt-4 text-center md:text-left lg:pl-2">
+              <p className="text-sm lg:text-base text-slate-600 mt-4 text-center md:text-left lg:pl-2 dark:text-gray-400">
                 At BAOIAM, we offer an inspiring environment where creativity
                 thrives and collaboration drives innovation. Our inclusive
                 culture celebrates diverse perspectives, fostering teamwork that

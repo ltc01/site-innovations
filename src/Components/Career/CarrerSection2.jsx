@@ -84,7 +84,7 @@ export const CarrerSection2 = () => {
   return (
     <div className="bg-white text-black dark:text-white dark:bg-black flex flex-col">
       <main className="flex flex-col items-center justify-center px-4 sm:px-8 md:px-15 lg:px-0 xl:px-0 m-4 md:m-8">
-        <h2 className="text-2xl md:text-4xl lg:text-3xl xl:text-4xl text-center mb-8 lg:mb-12 font-bold">
+        <h2 className="text-2xl md:text-4xl lg:text-3xl xl:text-4xl text-center mb-8 lg:mb-12 font-bold dark:font-semibold">
           Employee{" "}
           <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
             Benefits and Perks
@@ -104,11 +104,11 @@ export const CarrerSection2 = () => {
                 className="w-12 h-12 mb-4"
               />
               {/* Title */}
-              <h2 className="text-lg md:text-lg font-bold dark:text-zinc-400 text-gray-900 text-center mb-2 ">
+              <h2 className="text-lg md:text-lg font-bold dark:text-zinc-300 text-gray-900 text-center mb-2 ">
                 {benefit.title}
               </h2>
               {/* Description */}
-              <p className="text-sm text-gray-600 text-center">
+              <p className="text-sm text-gray-600 text-center dark:text-zinc-400">
                 {benefit.description}
               </p>
             </div>

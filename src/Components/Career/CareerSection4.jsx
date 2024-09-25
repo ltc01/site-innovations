@@ -55,13 +55,13 @@ export const CareerSection4 = () => {
     <>
       <div className="dark:bg-black bg-white w-full flex flex-col items-center justify-center p-4 lg:p-8 pt-0">
         {/* Title Section */}
-        <h1 className="text-2xl xl:text-4xl lg:text-3xl md:text-4xl sm:text-3xl font-bold mb-4 lg:mb-8 text-gray-900 text-center">
+        <h1 className="text-2xl xl:text-4xl lg:text-3xl md:text-4xl sm:text-3xl font-bold mb-4 lg:mb-8 text-gray-900 text-center dark:text-white dark:font-semibold">
           Current{" "}
           <span className="bg-gradient-to-r from-pink-500  to-violet-600 bg-clip-text text-transparent">
             Job Openings
           </span>
         </h1>
-        <p className="text-gray-600 mb-6 text-xs lg:text-base md:text-base sm:text-base text-center">
+        <p className="text-gray-600 mb-6 text-xs lg:text-base md:text-base sm:text-base text-center dark:text-gray-400">
           Hand-picked jobs featured depending on popularity and benefits
         </p>
 
