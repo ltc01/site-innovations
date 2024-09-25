@@ -46,6 +46,7 @@ import { PopularBlogDetail } from "./Pages/PopularBlogDetail";
 import Courses from "./Pages/Courses";
 import NotFound from "./Pages/NotFound";
 import EnrollNowButton from "./Components/EnrollNowButton/EnrollNowButton";
+import Profile from "./Pages/Profile";
 
 const App = () => {
   const [dark, setDark] = useState(false);
@@ -73,8 +74,12 @@ const App = () => {
     return <Loader />;
   }
 
+  if(location.pathname === "/profile"){
+    return <Profile />
+  }
+
   return (
-    <div className="dark:bg-[#080529] w-full max-w-[1440px] mx-auto overflow-hidden h-full dark:text-white ">
+    <div className="dark:bg-black w-full max-w-[1440px] mx-auto overflow-hidden h-full dark:text-white ">
       <Navbar theme={theme} />
 
       <div className="mt-24">
