@@ -16,6 +16,7 @@ import { FaCog, FaHome, FaSignOutAlt } from 'react-icons/fa';
 const apiUrl = import.meta.env.VITE_API_URL;
 
 const Profile = () => {
+    document.title = 'Baoiam — Profile'
     const sideBarLink = [
         { id: 1, name: 'Profile', tab: "profile", icon: <FaUser /> },
         { id: 2, name: 'Courses', tab: "courses", icon: <FaGraduationCap /> },
@@ -75,7 +76,7 @@ const Profile = () => {
 
                     <ul className='mt-4 lg:mt-12 pl-4'>
                         {sideBarLink.map((l, i) => {
-                            return <li onClick={() => setActiveTab(l.tab)} key={i} className={`flex items-center gap-2 py-3 px-4 my-2 rounded-l-xl cursor-pointer hover:bg-blue-50/40 hover:text-black ${activeTab === l.tab ? 'text-black bg-blue-100' : 'text-white'}`}>{l.icon} <span className='hidden lg:block'>{l.name}</span></li>
+                            return <li onClick={() => setActiveTab(l.tab)} key={i} className={`flex items-center gap-2 py-3 px-4 my-2 rounded-l-xl cursor-pointer ${activeTab === l.tab ? 'text-black bg-blue-100' : 'text-white hover:bg-blue-50/40 hover:text-black'}`}>{l.icon} <span className='hidden lg:block'>{l.name}</span></li>
                         })}
                         <li onClick={handleLogoutClick} className={`py-3 px-4 my-2 rounded-l-xl flex items-center gap-2 text-white cursor-pointer hover:bg-blue-50/40 hover:text-black`}><FaSignOutAlt /> <span className='hidden lg:block'>Logout</span></li>
                     </ul>
