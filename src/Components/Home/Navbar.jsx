@@ -23,6 +23,7 @@ import College from "../../Pages/College";
 import { fetchAllCourses } from "../../Redux/slices/courseSlice";
 import { BeatLoader } from "react-spinners";
 import Enroll from "./EnrollNow";
+import EnrollNow from "./EnrollNow";
 
 const Navbar = ({ theme }) => {
   const [show, setShow] = useState(false);
@@ -273,6 +274,7 @@ const Navbar = ({ theme }) => {
             </span>
 
             {/* <Enroll /> */}
+            <EnrollNow />
             <Link to={"/gcep"} className="relative group">
               <button
                 type="button"

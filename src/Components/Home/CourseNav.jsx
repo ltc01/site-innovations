@@ -46,22 +46,15 @@ const CourseNav = ({ setShow, course }) => {
           return (
             <div
               key={i}
-              className={`flex items-center justify-between py-3 w-64 ${
+              onClick={() => handleTabActiveState(c.id, i)}
+              className={`flex items-center hover:text-amber-600 justify-between py-3 w-64 ${
                 activeTabIndex === i && "text-amber-600"
               }`}
             >
-              <button
-                onClick={() => handleTabActiveState(c.id, i)}
-                className=" hover:text-amber-600 font-semibold flex items-center gap-2"
-              >
+              <div className="font-semibold flex items-center gap-2" >
                 {c.icon} {c.title}
-              </button>
-              <button
-                onClick={() => {
-                  handleTabActiveState(c.id, i)
-                }}
-                className={`hover:text-amber-600`}
-              >
+              </div>
+              <button className={``}>
                 <IoIosArrowDown
                   className={`${activeTabIndex === i && "-rotate-90"}`}
                 />

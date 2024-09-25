@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaCheckCircle } from "react-icons/fa";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 // import ContactFormComponent from '../../Components/Co'
 import { ContactFormComponent } from "../../Components/Contact/ContactForm";
 const EnrollNow = () => {
@@ -9,6 +9,7 @@ const EnrollNow = () => {
 
   // Function to toggle the popup
   const togglePopup = () => {
+    console.log(showForm)
     setShowForm(true);
     setAnimatePing(true);
 
@@ -22,14 +23,17 @@ const EnrollNow = () => {
     return (
       <div className="hidden sm:block">
         {/* Enroll Now Button */}
-        <button
-          type="button"
-          onClick={togglePopup}
-          className="relative w-fit rounded-lg px-5 py-1 md:py-2 overflow-hidden group bg-green-500 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300"
-        >
-          <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
-          <span className="relative text-xs md:text-sm"> Enroll Now</span>
-        </button>
+        <Link to={"#"} className="relative group">
+              <button
+                onClick={() =>togglePopup}
+                type="button"
+                className="hidden z-10 lg:flex group text-black bg-gradient-to-r from-pink-500 to-violet-600 hover:bg-gradient-to-br focus:outline-none focus:ring-amber-300 dark:focus:ring-amber-800 shadow-base shadow-amber-500/50 dark:shadow-base dark:shadow-amber-800/80 font-semibold rounded-lg text-sm px-0.5 py-0.5 text-center"
+              >
+                <span className="flex items-center dark:text-white dark:bg-black/70 group-hover:text-white transition-all group-hover:bg-black/30 text-nowrap justify-center w-full h-full bg-white rounded-md px-8 py-1.5 ">
+                  Enroll Now
+                </span>
+              </button>
+            </Link>
 
         {/* Popup Modal */}
         {showForm && (
