@@ -42,15 +42,18 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <div className="my-12 relative z-10">
+    <div className="mb-12 mt-3 relative z-10">
       <div className="text-center max-w-3xl mx-auto flex flex-col gap-2">
-        <h2 className="font-extrabold text-2xl md:text-4xl lg:text-4xl sm:text-4xl text-black p-3">
-          {data.title}
+        <h2 className="font-extrabold text-2xl md:text-4xl xl:text-4xl lg:text-3xl sm:text-4xl text-black p-3 ">
+          What Our{" "}
+          <span className="bg-gradient-to-r from-pink-500  to-violet-600 bg-clip-text text-transparent">
+            Employees Say
+          </span>{" "}
         </h2>
         {/* <p className="mt-4 leading-relaxed text-black">{data.description}</p> */}
       </div>
 
-      <div className="grid md:grid-cols-3 gap-6 max-w-6xl relative mx-auto mt-20 px-4">
+      <div className="grid md:grid-cols-3 gap-6 max-w-6xl relative mx-auto mt-20 px-6">
         {data.testimonials.map((testimonial, index) => (
           <div
             key={index}
