@@ -204,7 +204,7 @@ const Login = () => {
         // 3) Move Anime2 80% of the viewport width to the left
         x: "-80vw",
         // 4) Move Anime2 80% of the viewport height up
-        y: "-60vh",
+        y: "-62vh",
         duration: 1.5,
         ease: "power1.inOut",
         position: "absolute",
@@ -224,7 +224,7 @@ const Login = () => {
     <>
       <ToastContainer />
 
-      <div className="flex items-center justify-center py-2 bg-transparent relative overflow-hidden z-3 dark:text-black">
+      <div className="flex items-center justify-center h-screen w-screen py-2 bg-transparent relative overflow-hidden z-3 dark:text-black">
         <div
           ref={Anime1}
           className=" w-[600px] h-[600px] top-[-10%] left-[-5%]  rounded-full bg-[#1D64DD]  absolute "

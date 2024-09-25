@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from "react";
-import code from "../assets/code.jpg";
 import ai from "../assets/ai.webp";
-import marketing from "../assets/marketing.jpg";
 import carrer1 from "../assets/carrer1.jpg";
 import datasc from "../assets/datasc.jpg";
 import business from "../assets/business.jpg";
 import tech from "../assets/tech.jpg";
 import critical from "../assets/critical.jpg";
-import content_data from "../Data/Content.js";
-import { useParams } from "react-router-dom";
-import data2, { recentContent, startContent } from "../Data/Content2.js";
+import { useParams, useNavigate } from "react-router-dom";
+import { recentContent } from "../Data/Content2.js";
 import { toast } from "react-toastify";
 import {
   FaBullhorn,
@@ -25,7 +22,7 @@ export const RecentBlogDetail = () => {
   document.title = "Baoiam - Blog Detail";
   const [comment, setComment] = useState("");
   const [datacmmt, setDatacmmt] = useState([]);
-
+  const navigate = useNavigate();
   const { id } = useParams();
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -35,9 +32,22 @@ export const RecentBlogDetail = () => {
   }, []);
   document.title = "Baoiam - Blog Details";
 
+  const hanldenav1 = () => {
+    navigate("/Blog_detail/3");
+  };
+
+  const hanldenav2 = () => {
+    navigate("/Blogdetails/1");
+  };
+
+  const hanldenav3 = () => {
+    navigate("/Blogdetail/1");
+  };
+
   const handlePostSubmit = () => {
     if (comment === "") {
       toast.error("Please fill in all the fields");
+      return;
     }
     const payload = {
       title: comment,
@@ -47,18 +57,6 @@ export const RecentBlogDetail = () => {
     setDatacmmt([...datacmmt, payload]);
     setComment("");
     toast.success("Comment Added");
-    // axios
-    //   .post("", {
-    //     comment: comment,
-    //     name: name,
-    //     email: email,
-    //   })
-    //   .then((res) => {
-    //     console.log(res);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
   };
 
   return (
@@ -68,25 +66,9 @@ export const RecentBlogDetail = () => {
           {" "}
           HOME / ARTICLES / SINGLE ARTICLE{" "}
         </p>
-        {/* <h1 className='text-[1.3rem] sm:text-[3vw] pt-6 w-[100%] font-extrabold dark:text-black'>
-      {recentContent[id].heading1}
-    </h1> */}
       </div>
       <div className='w-[80%] lg:flex lg:flex-row  flex-col gap-[2rem] mx-[10%] mt-[10%]'>
         <div className='w-[100%] lg:w-[70%] lg:flex lg:flex-col  flex-col'>
-          {/* {data.map((d) => {
-        return (
-          <>
-            <div className="w-[100%] lg:w-[90%] flex flex-col">
-              <h2 className="text-[1.9rem] p-3 mt-[2rem] font-bold">
-                {d.heading}
-              </h2>
-              <p className="p-3">{d.data}</p>
-            </div>
-          </>
-        );
-      })} */}
-
           <div>
             <div
               dangerouslySetInnerHTML={{ __html: recentContent[id].head }}
@@ -155,26 +137,34 @@ export const RecentBlogDetail = () => {
             <div className='flex items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 gap-10 mt-[2rem] px-4 shadow-md  dark:bg-[#374151] mx-4 py-4 cursor-pointer'>
               <img
                 className='w-[6rem] xs:w-[5.7rem] xs:h-[5.7rem]'
-                src={code}
+                src={tech}
               />
-              <p className='w-[60%] dark:text-white  text-indigo-600 xs:w-[90%] xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'>
-                The Best Graphic Design Careers — for Beginners and
-                Professionals{" "}
+              <p
+                onClick={hanldenav1}
+                className='w-[60%] dark:text-white hover:underline text-indigo-600 xs:w-[90%] xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'
+              >
+                The Rise of EdTech: How It’s Shaping Modern Education{" "}
               </p>
             </div>
             <div className='flex items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 gap-10 mt-[2rem] px-4 shadow-md  dark:bg-[#374151] mx-4 py-4 cursor-pointer'>
               <img className='w-[6rem] xs:w-[5.7rem] xs:h-[5.7rem]' src={ai} />
-              <p className='w-[60%] dark:text-white  xs:w-[90%] text-indigo-600 xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'>
+              <p
+                onClick={hanldenav2}
+                className='w-[60%] dark:text-white hover:underline xs:w-[90%] text-indigo-600 xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'
+              >
                 The Top Technical Skills All Employees Need in 2022
               </p>
             </div>
             <div className='flex items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 gap-10 mt-[2rem] px-4 shadow-md  dark:bg-[#374151] mx-4 py-4 cursor-pointer'>
               <img
                 className='w-[6rem] xs:w-[5.7rem] xs:h-[5.7rem]'
-                src={marketing}
+                src={critical}
               />
-              <p className='w-[60%] text-indigo-600 dark:text-white   xs:w-[90%] xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'>
-                Types Of Quantitative Research for Students and Researchers
+              <p
+                onClick={hanldenav3}
+                className='w-[60%] text-indigo-600 dark:text-white hover:underline  xs:w-[90%] xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'
+              >
+                Enhancing your Graphics skill : free and paid resources
               </p>
             </div>
           </div>

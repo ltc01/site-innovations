@@ -68,13 +68,20 @@ const ContactUs = () => {
       // toast.success("Form submitted successfully");
       setShowPopup(true);
       setLoading(false);
+      setFormData({
+        Name: "",
+        Email: "",
+        Phone: "",
+        CountryCode: "+91",
+        Course: "",
+        Consent: false,
+      });
     } catch (error) {
       setLoading(false);
       toast.error("An error occurred");
       console.error("Error submitting form", error);
     }
   };
-
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prev) => ({
@@ -124,15 +131,15 @@ const ContactUs = () => {
           </div>
         </div>
       )}
-      <section className="relative bg-white px-4 py-8 md:py-10 z-10 mt-4 md:mt-14 mb-6 md:mb-6 overflow-hidden">
+      <section className="relative dark:bg-black px-4 py-8 md:py-10 z-10 mt-4 md:mt-14 mb-6 md:mb-6 overflow-hidden">
         <div className="relative max-w-5xl mx-auto text-center z-10">
-          <h1 className="text-3xl md:text-5xl font-semibold text-gray-900">
+          <h1 className="text-3xl md:text-5xl font-semibold dark:text-white text-gray-900">
             <span className="bg-gradient-to-r from-pink-500  to-violet-600 bg-clip-text text-transparent">
               Get in Touch
             </span>{" "}
             with Us
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 mt-4 md:mt-6">
+          <p className="text-lg md:text-xl dark:text-slate-300 text-gray-600 mt-4 md:mt-6">
             Have any questions, feedback, or need assistance? We're just a
             message away.
             <br /> Fill out the form below, and our team will get back to you
@@ -141,9 +148,9 @@ const ContactUs = () => {
         </div>
       </section>
 
-      <section className="py-2 px-4 md:px-6 bg-white rounded-xl">
+      <section className="py-2 px-4 md:px-6 dark:bg-black rounded-xl">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-6 lg:gap-12">
-          <div className="lg:w-2/5 bg-white p-4 md:p-6 lg:p-8 rounded-lg border">
+          <div className="lg:w-2/5 dark:text-white p-4 md:p-6 lg:p-8 rounded-lg border">
             <h2 className="text-xl md:text-3xl text-center font-bold md:mb-8 mb-4">
               Ready to enhance your skills?
               <br />
@@ -160,14 +167,18 @@ const ContactUs = () => {
             >
               {/* Full Name */}
               <div>
-                <label htmlFor="fullname" className="block text-gray-700 mb-2">
+                <label
+                  htmlFor="fullname"
+                  className="block text-gray-700 dark:text-slate-300 mb-2"
+                >
                   Full Name
                 </label>
                 <input
                   id="fullname"
                   type="text"
                   name="Name"
-                  className="w-full p-3 border border-gray-300 rounded-md"
+                  value={formData.Name}
+                  className="w-full p-3 dark:bg-slate-800 border border-gray-300 rounded-md"
                   placeholder="Enter your full name"
                   onChange={handleChange}
                   required
@@ -176,14 +187,18 @@ const ContactUs = () => {
 
               {/* Email */}
               <div>
-                <label htmlFor="email" className="block text-gray-700 mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-gray-700 dark:text-slate-300 mb-2"
+                >
                   Email
                 </label>
                 <input
                   id="email"
                   type="email"
                   name="Email"
-                  className="w-full p-3 border border-gray-300 rounded-md"
+                  value={formData.Email}
+                  className="w-full p-3 dark:bg-slate-800 border border-gray-300 rounded-md"
                   placeholder="Enter your E-mail"
                   onChange={handleChange}
                   required
@@ -195,14 +210,14 @@ const ContactUs = () => {
                 <div className="relative inline-block">
                   <label
                     htmlFor="countryCode"
-                    className="block text-gray-700 mb-2"
+                    className="block text-gray-700 dark:text-slate-300 mb-2"
                   >
                     Country Code
                   </label>
                   <select
                     id="countryCode"
                     name="CountryCode"
-                    className="border p-3 pr-8 rounded focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer"
+                    className="border p-3 pr-8 dark:bg-slate-800 rounded focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer"
                     onChange={handleChange}
                   >
                     <option value="+91">🇮🇳 +91 (India)</option>
@@ -213,14 +228,18 @@ const ContactUs = () => {
                 </div>
 
                 <div className="col-span-2">
-                  <label htmlFor="phone" className="block text-gray-700 mb-2">
+                  <label
+                    htmlFor="phone"
+                    className="block text-gray-700 dark:text-slate-300 mb-2"
+                  >
                     Phone Number
                   </label>
                   <input
                     id="phone"
                     name="Phone"
                     type="tel"
-                    className="w-full p-3 border border-gray-300 rounded-md"
+                    value={formData.Phone}
+                    className="w-full p-3 dark:bg-slate-800 border border-gray-300 rounded-md"
                     placeholder="Enter your phone number"
                     pattern="[0-9]{10}"
                     minLength="10"
@@ -236,8 +255,9 @@ const ContactUs = () => {
                 <select
                   id="courses"
                   name="Course"
-                  className="border p-3 pr-10 rounded focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer"
+                  className="border p-3 pr-10 dark:bg-slate-800 rounded focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer"
                   required
+                  value={formData.Course}
                   onChange={handleChange}
                 >
                   <option value="">Select Course</option>
@@ -304,12 +324,16 @@ const ContactUs = () => {
                 <input
                   id="consent"
                   name="Consent"
+                  checked={formData.Consent}
                   type="checkbox"
                   className="mr-2 h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
                   onChange={handleChange}
                   required
                 />
-                <label htmlFor="consent" className="text-gray-700">
+                <label
+                  htmlFor="consent"
+                  className="dark:text-slate-300 text-gray-700"
+                >
                   I consent to receiving updates and notifications from online
                   Baoiam and its affiliates via email, SMS, WhatsApp, and voice
                   call, overriding any DNC/NDNC preference.
@@ -327,7 +351,7 @@ const ContactUs = () => {
           </div>
 
           <div className="lg:w-3/5 space-y-4">
-            <div className="bg-white p-6 lg:p-8 rounded-lg border">
+            <div className="dark:bg-black p-6 lg:p-8 rounded-lg border">
               <h2 className="text-xl md:text-2xl font-bold mb-4">
                 Contact Information
               </h2>
