@@ -29,7 +29,7 @@ const EnrollNow = () => {
                 type="button"
                 className="hidden z-10 lg:flex group text-black bg-gradient-to-r from-pink-500 to-violet-600 hover:bg-gradient-to-br focus:outline-none focus:ring-amber-300 dark:focus:ring-amber-800 shadow-base shadow-amber-500/50 dark:shadow-base dark:shadow-amber-800/80 font-semibold rounded-lg text-sm px-0.5 py-0.5 text-center"
               >
-                <span className="flex items-center dark:text-white dark:bg-black/70 group-hover:text-white transition-all group-hover:bg-black/30 text-nowrap justify-center w-full h-full bg-white rounded-md px-8 py-1.5 ">
+                <span className="flex items-center dark:text-white dark:bg-black/70 group-hover:text-white transition-all group-hover:bg-black/30 text-nowrap justify-center w-full h-full bg-white rounded-md px-4 py-1.5 ">
                   Enroll Now
                 </span>
               </button>
