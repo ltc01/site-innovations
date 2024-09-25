@@ -57,10 +57,9 @@ const CourseNav = ({ setShow, course }) => {
               >
                 {c.icon} {c.title}
               </Link>
-              {/* Maintenance */}
               <button
                 onClick={() => {
-                  // handleTabActiveState(c.id, i)
+                  handleTabActiveState(c.id, i)
                 }}
                 className={`hover:text-amber-600`}
               >

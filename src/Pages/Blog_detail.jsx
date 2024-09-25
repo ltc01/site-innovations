@@ -6,12 +6,11 @@ import carrer1 from "../assets/carrer1.jpg";
 import datasc from "../assets/datasc.jpg";
 import business from "../assets/business.jpg";
 import tech from "../assets/tech.jpg";
-import critical from "../assets/critical.jpg";
+import new_excited_tech_edu1 from "../assets/Blogs/new_excited_tech_edu1.jpg";
 import content_data from "../Data/Content.js";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import data2 from "../Data/Content2.js";
 import { toast } from "react-toastify";
-import axios from "axios";
 import {
   FaBullhorn,
   FaClipboardList,
@@ -26,8 +25,8 @@ const Blog_detail = () => {
   document.title = "Baoiam - Blog Detail";
   const [comment, setComment] = useState("");
   const [datacmmt, setDatacmmt] = useState([]);
-
   const { id } = useParams();
+  const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo(0, 0);
     console.log(content_data);
@@ -36,32 +35,32 @@ const Blog_detail = () => {
   }, []);
   document.title = "Baoiam - Blog Details";
 
+  const hanldenav = () => {
+    navigate("/Blog-detail/0");
+  };
+  const hanldenav2 = () => {
+    navigate("/Blogdetails/1");
+  };
+  const hanldenav3 = () => {
+    navigate("/Blog_detail/3");
+  };
+
   const handlePostSubmit = () => {
     if (comment === "") {
       toast.error("Please fill in all the fields");
+      return;
+    } else {
+      const payload = {
+        title: comment,
+        id: Date.now(),
+        name: "user",
+      };
+      setDatacmmt([...datacmmt, payload]);
+      setComment("");
+      toast.success("Comment Added");
     }
-    const payload = {
-      title: comment,
-      id: Date.now(),
-      name: "user",
-    };
-    setDatacmmt([...datacmmt, payload]);
-    setComment("");
-    toast.success("Comment Added");
-    // axios
-    //   .post("", {
-    //     comment: comment,
-    //     name: name,
-    //     email: email,
-    //   })
-    //   .then((res) => {
-    //     console.log(res);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
   };
-  console.log(datacmmt, "cc");
+
   return (
     <>
       <div className='h-[auto] w-[90%] sm:text-[1.6vw] mx-[5%] px-[2rem] py-[2.5rem] flex-col my-[2rem] bg-purple-100'>
@@ -154,23 +153,33 @@ const Blog_detail = () => {
                 className='w-[6rem] xs:w-[5.7rem] xs:h-[5.7rem]'
                 src={code}
               />
-              <p className='w-[60%] dark:text-white  text-indigo-600 xs:w-[90%] xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'>
+
+              <p
+                onClick={hanldenav}
+                className='w-[60%] dark:text-white hover:underline  text-indigo-600 xs:w-[90%] xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'
+              >
                 The Best Graphic Design Careers — for Beginners and
                 Professionals{" "}
               </p>
             </div>
             <div className='flex items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 gap-10 mt-[2rem] px-4 shadow-md  dark:bg-[#374151] mx-4 py-4 cursor-pointer'>
               <img className='w-[6rem] xs:w-[5.7rem] xs:h-[5.7rem]' src={ai} />
-              <p className='w-[60%] dark:text-white  xs:w-[90%] text-indigo-600 xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'>
+              <p
+                onClick={hanldenav2}
+                className='w-[60%] dark:text-white hover:underline xs:w-[90%] text-indigo-600 xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'
+              >
                 The Top Technical Skills All Employees Need in 2022
               </p>
             </div>
             <div className='flex items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 gap-10 mt-[2rem] px-4 shadow-md  dark:bg-[#374151] mx-4 py-4 cursor-pointer'>
               <img
                 className='w-[6rem] xs:w-[5.7rem] xs:h-[5.7rem]'
-                src={marketing}
+                src={new_excited_tech_edu1}
               />
-              <p className='w-[60%] text-indigo-600 dark:text-white   xs:w-[90%] xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'>
+              <p
+                onClick={hanldenav3}
+                className='w-[60%] text-indigo-600 dark:text-white hover:underline  xs:w-[90%] xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'
+              >
                 Types Of Quantitative Research for Students and Researchers
               </p>
             </div>
