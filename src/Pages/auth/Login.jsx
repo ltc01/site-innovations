@@ -124,9 +124,10 @@ const Login = () => {
         { email, password },
         { withCredentials: true }
       );
-      console.log(response);
+      console.log("in login page: ", response);
       if (response.status === 200) {
         localStorage.setItem("access_token", response.data.access);
+        localStorage.setItem("refresh_token", response.data.refresh);
         toast.update(toastId, {
           render: "Login successful!",
           type: "success",
@@ -135,7 +136,7 @@ const Login = () => {
         });
 
         setTimeout(() => {
-          navigate("/profile");
+          // navigate("/profile");
         }, 2000);
       } else {
         throw new Error(response.data?.detail || "Login failed.");

@@ -1,6 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import img1 from "../../assets/img1.png";
-import { FaBars, FaMagnifyingGlass, FaRegUser } from "react-icons/fa6";
+import {
+  FaBars,
+  FaMagnifyingGlass,
+  FaRegUser,
+  FaUserPen,
+} from "react-icons/fa6";
 // import CoursesList from "../CoursesList";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 // import { CollegeCourseData, OtherCourseData, School } from "../../Data";
@@ -23,8 +28,12 @@ import College from "../../Pages/College";
 import { fetchAllCourses } from "../../Redux/slices/courseSlice";
 import { BeatLoader } from "react-spinners";
 import Enroll from "./EnrollNow";
-import EnrollNow from "./EnrollNow";
-import { BiLogIn } from "react-icons/bi";
+// import { IoLogIn } from "react-icons/io5";
+import { LuLogIn } from "react-icons/lu";
+import { FaUser } from "react-icons/fa";
+import { MdAccountCircle } from "react-icons/md";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = ({ theme,showForm,setShowForm }) => {
   const [show, setShow] = useState(false);
@@ -234,11 +243,21 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
                     </span>
                   </button>
                 </Link> */}
-                <BiLogIn
-                  onClick={() => navigate('/login')}
-                  size={20}
-                  className=" z-10 relative text-slate-500 cursor-pointer"
-                />
+                {!localStorage.getItem("access_token") ? (
+                  <LuLogIn
+                    onClick={() => navigate("/login")}
+                    size={20}
+                    className=" z-10 relative text-slate-500 cursor-pointer"
+                  />
+                ) : (
+                  <FontAwesomeIcon
+                    icon={faUserCircle}
+                    size="lg"
+                    style={{ marginRight: "8px" }}
+                    className=" z-10 dark:text-white relative text-black cursor-pointer"
+                    onClick={() => navigate("/profile")}
+                  />
+                )}
               </div>
 
               {userDrop && (
@@ -291,7 +310,11 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
               onClick={darkTheme}
               className="text-base hidden lg:block cursor-pointer "
             >
-              {isDark ? <BsSun className="text-slate-600" /> : <BsMoonStars lassName="text-slate-600"/>}
+              {isDark ? (
+                <BsSun className="text-slate-600" />
+              ) : (
+                <BsMoonStars lassName="text-slate-600" />
+              )}
             </span>
 
             {/* <Enroll /> */}
