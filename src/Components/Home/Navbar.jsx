@@ -25,7 +25,7 @@ import { BeatLoader } from "react-spinners";
 import Enroll from "./EnrollNow";
 import EnrollNow from "./EnrollNow";
 
-const Navbar = ({ theme }) => {
+const Navbar = ({ theme,showForm,setShowForm }) => {
   const [show, setShow] = useState(false);
   const [showmenu, setShowmenu] = useState(false);
   const [delayHide, setDelayHide] = useState(null);
@@ -274,7 +274,7 @@ const Navbar = ({ theme }) => {
             </span>
 
             {/* <Enroll /> */}
-            <EnrollNow />
+            <EnrollNow showForm={showForm} setShowForm={setShowForm}/>
             <Link to={"/gcep"} className="relative group">
               <button
                 type="button"
