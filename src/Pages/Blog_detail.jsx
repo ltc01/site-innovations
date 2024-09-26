@@ -30,7 +30,7 @@ const Blog_detail = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     console.log(content_data);
-    console.log(content_data[id].heading1);
+    console.log(content_data[id].Category);
     return () => {};
   }, []);
   document.title = "Baoiam - Blog Details";
@@ -69,8 +69,11 @@ const Blog_detail = () => {
             HOME
           </Link>{" "}
           <Link className='text-blue-600 hover:underline' to='/blogs'>
-            / BLOGS
+            / BLOGS /
           </Link>
+          <span className='text-blue-600 ml-2'>
+            {content_data[id]?.Category}
+          </span>
         </p>
       </div>
       <div className='w-[80%] lg:flex lg:flex-row  flex-col gap-[2rem] mx-[10%]'>
@@ -136,38 +139,38 @@ const Blog_detail = () => {
               Related Blogs
             </h2>
 
-            <div className='flex flex-col gap-2 md:flex-row  border border-zinc-200 rounded-md hover:shadow-md items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 md:gap-10 mt-[2rem] px-4  dark:bg-[#374151] mx-4 py-4 cursor-pointer'>
+            <div
+              onClick={hanldenav}
+              className='flex flex-col gap-2 md:flex-row hover:-translate-y-1 hover:scale-120  duration-150 shadow-md border-2 border-zinc-200 rounded-md hover:shadow-md items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 md:gap-10 mt-[2rem] px-4  dark:bg-[#374151] mx-4 py-4 cursor-pointer'
+            >
               <img
                 className='w-[8rem] xs:w-[5.7rem] xs:h-[5.7rem]'
                 src={code}
               />
 
-              <p
-                onClick={hanldenav}
-                className='w-[95%] md:w-[60%] dark:text-white hover:underline  text-indigo-600 xs:w-[90%] text-center xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'
-              >
+              <p className='w-[95%] md:w-[60%] dark:text-white hover:underline  text-indigo-600 xs:w-[90%] text-center xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'>
                 The Best Graphic Design Careers — for Beginners and
                 Professionals{" "}
               </p>
             </div>
-            <div className='flex flex-col gap-2 md:flex-row border border-zinc-200 rounded-md hover:shadow-md items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 md:gap-10 mt-[2rem] px-4 dark:bg-[#374151] mx-4 py-4 cursor-pointer'>
+            <div
+              onClick={hanldenav2}
+              className='flex flex-col gap-2 md:flex-row border-2 shadow-md border-zinc-200 rounded-md hover:shadow-md items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 md:gap-10 mt-[2rem] px-4 dark:bg-[#374151] mx-4 py-4 cursor-pointer'
+            >
               <img className='w-[8rem] xs:w-[5.7rem] xs:h-[5.7rem]' src={ai} />
-              <p
-                onClick={hanldenav2}
-                className='w-[95%] md:w-[60%] dark:text-white hover:underline xs:w-[90%] text-indigo-600 text-center xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'
-              >
+              <p className='w-[95%] md:w-[60%] dark:text-white hover:underline xs:w-[90%] text-indigo-600 text-center xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'>
                 The Top Technical Skills All Employees Need in 2022
               </p>
             </div>
-            <div className='flex flex-col gap-2 md:flex-row border border-zinc-200 rounded-md items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 md:gap-10 mt-[2rem] px-4 hover:shadow-md  dark:bg-[#374151] mx-4 py-4 cursor-pointer'>
+            <div
+              onClick={hanldenav3}
+              className='flex flex-col gap-2 md:flex-row border-2 shadow-md border-zinc-200 rounded-md items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 md:gap-10 mt-[2rem] px-4 hover:shadow-md  dark:bg-[#374151] mx-4 py-4 cursor-pointer'
+            >
               <img
                 className='w-[8rem] xs:w-[5.7rem] xs:h-[5.7rem]'
                 src={new_excited_tech_edu1}
               />
-              <p
-                onClick={hanldenav3}
-                className='w-[95%] md:w-[60%] text-indigo-600 dark:text-white hover:underline text-center xs:w-[90%] xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'
-              >
+              <p className='w-[95%] md:w-[60%] text-indigo-600 dark:text-white hover:underline text-center xs:w-[90%] xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'>
                 How Ed-Tech Enhances Critical Thinking Skills
               </p>
             </div>
@@ -209,7 +212,7 @@ const Blog_detail = () => {
       </div>
 
       {/* end here */}
-      <div className='mb-5 mx-[10%] w-[80%] lg:w-[50%] mt-[2rem]'>
+      <div className='mb-[10%] mx-[10%] w-[80%] lg:w-[50%] mt-[2rem]'>
         <h1 className='text-[1.3rem] font-bold'>Leave a Reply </h1>
         <p className='text-[1.02rem] my-[1.2rem]'>
           Your email address will not be published. Required fields are marked{" "}
@@ -234,7 +237,7 @@ const Blog_detail = () => {
         </div>
       </div>
 
-      <h2 className='text-[2rem] ml-[10%] font-bold mt-[4rem] xs:top-10 relative top-6 xs:text-[1.325rem]'>
+      {/* <h2 className='text-[2rem] ml-[10%] font-bold mt-[4rem] xs:top-10 relative top-6 xs:text-[1.325rem]'>
         Other Blogs
       </h2>
       <div className='mx-[10%]  mb-5 md:flex-row w-[80%] md:gap-[2rem] flex-col mt-[2rem] flex justify-evenly'>
@@ -279,7 +282,7 @@ const Blog_detail = () => {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
       <NewsletterBanner />
     </>
   );

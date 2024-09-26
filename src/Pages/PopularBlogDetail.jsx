@@ -8,6 +8,7 @@ import critical from "../assets/critical.jpg";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { popularContent } from "../Data/Content2.js";
 import { toast } from "react-toastify";
+import content_data from "../Data/Content.js";
 import {
   FaBullhorn,
   FaClipboardList,
@@ -27,7 +28,7 @@ export const PopularBlogDetail = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     console.log(popularContent);
-    console.log(popularContent[id].heading1);
+    console.log(content_data[id].Category);
     return () => {};
   }, []);
   document.title = "Baoiam - Blog Details";
@@ -67,8 +68,11 @@ export const PopularBlogDetail = () => {
             HOME
           </Link>{" "}
           <Link className='text-blue-600 hover:underline' to='/blogs'>
-            / BLOGS
+            / BLOGS /
           </Link>
+          <span className='text-blue-600 ml-2'>
+            {content_data[id]?.Category}
+          </span>
         </p>
       </div>
       <div className='w-[80%] lg:flex lg:flex-row  flex-col gap-[2rem] mx-[10%]'>
@@ -138,36 +142,36 @@ export const PopularBlogDetail = () => {
               Related Blogs
             </h2>
 
-            <div className='flex flex-col gap-2 md:flex-row  border border-zinc-200 rounded-md hover:shadow-md items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 md:gap-10 mt-[2rem] px-4 dark:bg-[#374151] mx-4 py-4 cursor-pointer'>
+            <div
+              onClick={hanldenav1}
+              className='flex flex-col gap-2 md:flex-row  border-2 shadow-md border-zinc-200 rounded-md hover:shadow-md items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 md:gap-10 mt-[2rem] px-4 dark:bg-[#374151] mx-4 py-4 cursor-pointer'
+            >
               <img
                 className='w-[8rem] xs:w-[5.7rem] xs:h-[5.7rem]'
                 src={tech}
               />
-              <p
-                onClick={hanldenav1}
-                className='w-[95%] md:w-[60%] text-center dark:text-white hover:underline text-indigo-600 xs:w-[90%] xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'
-              >
+              <p className='w-[95%] md:w-[60%] text-center dark:text-white hover:underline text-indigo-600 xs:w-[90%] xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'>
                 The Rise of EdTech: How It’s Shaping Modern Education{" "}
               </p>
             </div>
-            <div className='flex flex-col gap-2 md:flex-row  border border-zinc-200 rounded-md hover:shadow-md items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 md:gap-10 mt-[2rem] px-4 dark:bg-[#374151] mx-4 py-4 cursor-pointer'>
+            <div
+              onClick={hanldenav2}
+              className='flex flex-col gap-2 md:flex-row  border-2 shadow-md border-zinc-200 rounded-md hover:shadow-md items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 md:gap-10 mt-[2rem] px-4 dark:bg-[#374151] mx-4 py-4 cursor-pointer'
+            >
               <img className='w-[8rem] xs:w-[5.7rem] xs:h-[5.7rem]' src={ai} />
-              <p
-                onClick={hanldenav2}
-                className='w-[95%] md:w-[60%] text-center dark:text-white hover:underline xs:w-[90%] text-indigo-600 xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'
-              >
+              <p className='w-[95%] md:w-[60%] text-center dark:text-white hover:underline xs:w-[90%] text-indigo-600 xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'>
                 The Top Technical Skills All Employees Need in 2022
               </p>
             </div>
-            <div className='flex flex-col gap-2 md:flex-row  border border-zinc-200 rounded-md hover:shadow-md items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 md:gap-10 mt-[2rem] px-4 dark:bg-[#374151] mx-4 py-4 cursor-pointer'>
+            <div
+              onClick={hanldenav3}
+              className='flex flex-col gap-2 md:flex-row  border-2 shadow-md border-zinc-200 rounded-md hover:shadow-md items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 md:gap-10 mt-[2rem] px-4 dark:bg-[#374151] mx-4 py-4 cursor-pointer'
+            >
               <img
                 className='w-[8rem] xs:w-[5.7rem] xs:h-[5.7rem]'
                 src={critical}
               />
-              <p
-                onClick={hanldenav3}
-                className='w-[95%] md:w-[60%] text-center text-indigo-600 dark:text-white hover:underline  xs:w-[90%] xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'
-              >
+              <p className='w-[95%] md:w-[60%] text-center text-indigo-600 dark:text-white hover:underline  xs:w-[90%] xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'>
                 How Ed-Tech Enhances Critical Thinking Skills
               </p>
             </div>
