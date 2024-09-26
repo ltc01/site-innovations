@@ -427,8 +427,8 @@ const CourseDetailsPage = () => {
                                 `/checkout/${id}/${
                                   p.name == "premium" ? "Premium" : "Plus"
                                 }`
-                              );
-                            else navigate("/login");
+                              ,{ state: { course: course, price:p.price } });
+                            else navigate("/login",{ state: { course: course } });
                           }}
                           className={`block  rounded-lg ${
                             p.name === "premium"
