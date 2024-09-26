@@ -59,9 +59,9 @@ const CourseHero = ({course, downloadBrochure, enrollNowScroll}) => {
                     <div className="absolute left-1/2 -translate-x-1/2 bottom-4">
                         <button
                             onClick={() => downloadBrochure(course?.brochure_file)}
-                            className="relative inline-flex items-center bg-white/50 backdrop-blur-sm px-8 md:px-12 py-2 md:py-3 text-xs md:text-sm dark:text-white dark:border-white overflow-hidden text-orange-600 font-medium border border-orange-400 rounded-lg hover:text-white group"
+                            className="relative inline-flex items-center bg-green-500 px-8 md:px-12 py-2 md:py-3 text-xs md:text-sm dark:text-white dark:border-white overflow-hidden text-white font-medium border border-green-400 rounded-lg hover:text-green-500 group"
                         >
-                            <span className="absolute left-0 block w-full h-0 transition-all bg-orange-400 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease-in-out"></span>
+                            <span className="absolute left-0 block w-full h-0 transition-all bg-white opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease-in-out"></span>
                             <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
                                 <FaDownload size={18} />
                             </span>
