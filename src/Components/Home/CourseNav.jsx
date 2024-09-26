@@ -78,7 +78,7 @@ const CourseNav = ({ setShow, course }) => {
               <div key={index} className="px-6 py-2 hover:bg-amber-50">
                 <Link
                   onClick={() => setShow(false)}
-                  to={`/course/${sub.title}/${sub.id}`}
+                  to={`/course/${sub.slug}/${sub.id}`}
                   className="text-sm"
                 >
                   {sub.title}
@@ -95,7 +95,7 @@ const CourseNav = ({ setShow, course }) => {
               <div key={index} className="px-6 py-2 hover:bg-amber-50">
                 <Link
                   onClick={() => setShow(false)}
-                  to={`/course/${sub.title}/${sub.id}`}
+                  to={`/course/${sub.slug}/${sub.id}`}
                   className="text-sm"
                 >
                   {sub.title}
@@ -112,7 +112,7 @@ const CourseNav = ({ setShow, course }) => {
               <div key={index} className="px-6 py-2 hover:bg-amber-50">
                 <Link
                   onClick={() => setShow(false)}
-                  to={`/course/${sub.title}/${sub.id}`}
+                  to={`/course/${sub.slug}/${sub.id}`}
                   className="text-sm"
                 >
                   {sub.title}

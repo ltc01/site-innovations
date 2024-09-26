@@ -13,7 +13,7 @@ import { fetchCourseDetails } from "../Redux/slices/courseDetailSlice";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BeatLoader } from "react-spinners";
-import { IoIosArrowRoundForward } from "react-icons/io";
+import { IoIosArrowRoundForward, IoIosArrowForward } from "react-icons/io";
 
 const CourseDetailsPage = () => {
   const { id } = useParams();
@@ -166,14 +166,86 @@ const CourseDetailsPage = () => {
     }
   };
 
-  // I am Fetching all the course data through subcategory of course
   return (
     <div>
+
+      {/* Hero Section */}
+      <div className="pb-12 pt-4 px-4 lg:px-24 bg-gradient-to-t from-orange-100 to-transparent">
+        <div className="flex items-center gap-2 text-xs">
+          <Link to={`/courses`}>Courses</Link>
+          <span><IoIosArrowForward /></span>
+          <span>School</span>
+          <span><IoIosArrowForward /></span>
+          <Link to={`/course/${course.slug}/${course.id}`}>{course?.title}</Link>
+        </div>
+
+        <div className="flex justify-between items-center mt-4">
+          <div className="w-[60%]">
+            <div className="mt-4 w-3/4">
+              <h1 className="text-6xl font-bold mb-4">{course?.title}</h1>
+              <p>Many online courses are self-paced, allowing learners to complete coursework at their own convenience.</p>
+              <div className="mt-8 flex items-center justify-between w-full">
+                <div className="flex gap-2">
+                  <Link
+                    to={`/book-a-demo/${course?.title}/${course?.id}`}
+                    className="relative inline-flex items-center bg-orange-400 px-6 py-2 md:py-3 text-xs md:text-sm dark:text-white dark:border-white overflow-hidden text-white font-medium border border-orange-400 rounded-lg hover:text-orange-500 group"
+                  >
+                    <span className="absolute left-0 block w-full h-0 transition-all bg-white opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease-in-out"></span>
+                    <span className="relative">Book a Demo</span>
+                  </Link>
+                  <button
+                    onClick={enrollNowScroll}
+                    className="relative inline-flex items-center bg-orange-400 px-8 md:px-12 py-2 md:py-3 text-xs md:text-sm dark:text-white dark:border-white overflow-hidden text-white font-medium border border-orange-400 rounded-lg hover:text-orange-500 group"
+                  >
+                    <span className="absolute left-0 block w-full h-0 transition-all bg-white opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease-in-out"></span>
+                    <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
+                      <IoIosArrowRoundForward size={30} />
+                    </span>
+                    <span className="relative">Enroll Now</span>
+                  </button>
+                </div>
+                <span>6,000 Students</span>
+              </div>
+            </div>
+
+          </div>
+          <div className="hidden md:block md:w-[40%] h-96 rounded-[2rem] relative overflow-hidden">
+            <img
+              src={
+                course?.thumbnail_image ? course?.thumbnail_image : CourseDesc2
+              }
+              alt=""
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute left-1/2 -translate-x-1/2 bottom-4">
+              <button
+                onClick={() => downloadBrochure(course?.brochure_file)}
+                className="relative inline-flex items-center bg-white/50 backdrop-blur-sm px-8 md:px-12 py-2 md:py-3 text-xs md:text-sm dark:text-white dark:border-white overflow-hidden text-orange-600 font-medium border border-orange-400 rounded-lg hover:text-white group"
+              >
+                <span className="absolute left-0 block w-full h-0 transition-all bg-orange-400 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease-in-out"></span>
+                <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
+                  <FaDownload size={18} />
+                </span>
+                <span className="relative">Download Brochure</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Course Details */}
+      <div className="grid grid-cols-3 gap-4 mt-8 px-4 lg:px-24">
+        <div className="col-span-2 p-6"></div>
+        <div className="col-span-1 bg-indigo-400 p-6"></div>
+        <div className="col-span-2 bg-indigo-400 p-6"></div>
+        <div className="col-span-2 bg-indigo-400 p-6"></div>
+        <div className="col-span-2 bg-indigo-400 p-6"></div>
+      </div>
+
       {/* Course Description */}
-      <div className="flex items-center flex-col md:flex-row md:gap-4 lg:gap-24 justify-between px-4 lg:px-24 mt-32 mb-14">
+      {/* <div className="flex items-center flex-col md:flex-row md:gap-4 lg:gap-24 justify-between px-4 lg:px-24 mt-32 mb-14">
         <div className="flex flex-col gap-4 w-full md:w-[60%]">
           <h3 className="text-[1.7rem] lg:text-4xl font-bold text-neutral-600 dark:text-white">
-            {/* {courseDetails?.title} */}
             {course?.title}
           </h3>
           <Link
@@ -183,7 +255,6 @@ const CourseDetailsPage = () => {
             <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
             <span className="relative">Book a Demo</span>
           </Link>
-          {/* <p className="text-[0.8rem] lg:text-base">{courseDetails.description}</p> */}
           <p className="text-[0.8rem] lg:text-base">{course?.description}</p>
 
           <div className="flex gap-2 mt-4">
@@ -220,7 +291,7 @@ const CourseDetailsPage = () => {
             className="w-full h-full object-cover shadow-2xl shadow-black"
           />
         </div>
-      </div>
+      </div> */}
 
       {/* Changes */}
       <div className="px-8 lg:px-24 my-12 py-12 flex items-center justify-between flex-col md:flex-row gap-12 md:gap-8 lg:gap-12 w-full">
@@ -234,17 +305,15 @@ const CourseDetailsPage = () => {
         <div className="w-full flex h-[400px] xs:p-2 rounded flex-col justify-center md:p-5 md:w-[60%]">
           <div className="flex justify-start border border-gray-300 rounded-2xl overflow-hidden">
             <h3
-              className={`xs:text-[16px] font-bold w-1/2 flex text-sm lg:text-xl cursor-pointer text-center py-3 justify-center items-center transition ${
-                showTab === 1 ? "text-white bg-orange-400" : "text-black"
-              }`}
+              className={`xs:text-[16px] font-bold w-1/2 flex text-sm lg:text-xl cursor-pointer text-center py-3 justify-center items-center transition ${showTab === 1 ? "text-white bg-orange-400" : "text-black"
+                }`}
               onClick={() => setShowTab(1)}
             >
               Course Overview
             </h3>
             <h3
-              className={`xs:text-[16px] font-bold w-1/2 flex text-sm lg:text-xl cursor-pointer text-center py-3 justify-center items-center transition ${
-                showTab === 2 ? "text-white bg-orange-400" : "text-black"
-              }`}
+              className={`xs:text-[16px] font-bold w-1/2 flex text-sm lg:text-xl cursor-pointer text-center py-3 justify-center items-center transition ${showTab === 2 ? "text-white bg-orange-400" : "text-black"
+                }`}
               onClick={() => setShowTab(2)}
             >
               Curriculum
@@ -351,9 +420,8 @@ const CourseDetailsPage = () => {
                   return (
                     <div
                       key={i}
-                      className={`flex flex-col rounded-lg lg:w-80 border ${
-                        p.name === "premium" ? "border-orange-500 relative" : ""
-                      } p-4 pt-6`}
+                      className={`flex flex-col rounded-lg lg:w-80 border ${p.name === "premium" ? "border-orange-500 relative" : ""
+                        } p-4 pt-6`}
                     >
                       <div className="mb-8">
                         {p.name === "premium" ? (
@@ -424,17 +492,15 @@ const CourseDetailsPage = () => {
                           onClick={() => {
                             if (localStorage.getItem("access_token"))
                               navigate(
-                                `/checkout/${id}/${
-                                  p.name == "premium" ? "Premium" : "Plus"
+                                `/checkout/${id}/${p.name == "premium" ? "Premium" : "Plus"
                                 }`
                               );
                             else navigate("/login");
                           }}
-                          className={`block  rounded-lg ${
-                            p.name === "premium"
-                              ? "bg-orange-500 text-white"
-                              : "bg-gray-500"
-                          } px-8 py-3 text-center text-sm font-semibold text-gray-200 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 hover:text-gray-500 focus-visible:ring active:text-gray-700 md:text-base`}
+                          className={`block  rounded-lg ${p.name === "premium"
+                            ? "bg-orange-500 text-white"
+                            : "bg-gray-500"
+                            } px-8 py-3 text-center text-sm font-semibold text-gray-200 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 hover:text-gray-500 focus-visible:ring active:text-gray-700 md:text-base`}
                         >
                           Enroll Now
                         </button>
