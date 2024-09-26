@@ -229,8 +229,8 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
         </div>
       )}
       {showForm && (
-        <div className="cursor-pointer fixed inset-0 z-50 h-screen w-screen bg-black/20">
-          <div className="w-[90%] h-96 mt-32 md:w-3/5 lg:w-1/2 xl:w-2/5 bg-white p-4 mx-auto my-2 lg:my-24 md:h-fit xl:h-[90%] rounded-lg border relative flex flex-col items-center justify-center overflow-auto">
+        <div className="cursor-pointer fixed inset-0 z-50 h-screen w-screen bg-black/50 backdrop-blur-sm">
+          <div className="w-[90%] p-10 h-96 mt-32 md:w-3/5 lg:w-1/2 xl:w-2/5 bg-white mx-auto my-2 lg:my-24 md:h-fit rounded-lg border relative flex flex-col items-center justify-center overflow-y-scroll">
             <span onClick={() => setShowForm(!showForm)} className="absolute top-2 right-2 text-2xl"><RxCross2 /></span>
             <h2 className="text-xl md:text-2xl lg:text-3xl text-center font-bold mt-52 md:mt-0 md:mb-4">
               Ready to enhance your skills?
@@ -239,6 +239,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
                 Share your details and hear from us soon
               </span>
             </h2>
+           
             <form
               id="form1"
               className="space-y-4 mt-4 md:mt-0"
