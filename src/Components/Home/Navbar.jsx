@@ -34,6 +34,7 @@ import { FaUser } from "react-icons/fa";
 import { MdAccountCircle } from "react-icons/md";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
+import EnrollNow from "./EnrollNow";
 
 const Navbar = ({ theme,showForm,setShowForm }) => {
   const [show, setShow] = useState(false);
