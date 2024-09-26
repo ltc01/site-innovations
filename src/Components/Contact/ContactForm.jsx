@@ -30,7 +30,7 @@ const ContactUs = () => {
 
   return (
     <div className="ContactUs my-8">
-      <section className="relative bg-white px-4 py-8 md:py-10 z-10 mt-4 md:mt-14 mb-6 md:mb-6 overflow-hidden">
+      <section className="relative bg-white px-4 py-8 md:py-10 z-10 mt-4 md:mt-14 mb-6 overflow-hidden">
         <div className="relative max-w-5xl mx-auto text-center z-10">
           <h1 className="text-3xl md:text-5xl font-semibold text-gray-900">
             <span className="bg-gradient-to-r from-pink-500  to-violet-600 bg-clip-text text-transparent">
@@ -124,6 +124,8 @@ const ContactUs = () => {
   );
 };
 
+export default ContactUs;
+
 export const ContactFormComponent = ({ setShowForm, showForm }) => {
   const [loading, setLoading] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
@@ -191,7 +193,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
   return (
     <>
       {showPopup && (
-        <div className="fixed inset-0 flex items-center justify-center z-[100]">
+        <div className="fixed inset-0 flex items-center justify-center z-[201]">
           {/* Overlay */}
           <div
             className="fixed inset-0 bg-gray-600 bg-opacity-50 transition-opacity"
@@ -208,7 +210,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
             />
 
             <h2 className="md:text-2xl font-bold text-indigo-600 mb-4 transition-all duration-300 ease-in-out">
-              Successfully Submitted Data
+              Data submitted successfully
             </h2>
             {/* <p className="text-gray-700 mb-6">
               Your enrollment was successful. We’re excited to have you on
@@ -228,21 +230,19 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
           </div>
         </div>
       )}
-      {showForm && (
-        <div className="cursor-pointer fixed inset-0 z-50 h-screen w-screen bg-black/50 backdrop-blur-sm">
-          <div className="w-[90%] p-10 h-96 mt-32 md:w-3/5 lg:w-1/2 xl:w-2/5 bg-white mx-auto my-2 lg:my-24 md:h-fit rounded-lg border relative flex flex-col items-center justify-center overflow-y-scroll">
-            <span onClick={() => setShowForm(!showForm)} className="absolute top-2 right-2 text-2xl"><RxCross2 /></span>
-            <h2 className="text-xl md:text-2xl lg:text-3xl text-center font-bold mt-52 md:mt-0 md:mb-4">
-              Ready to enhance your skills?
-              <br />
+      {(
+        <div className="cursor-pointer fixed inset-0 flex justify-center h-screen items-center z-[200] w-screen bg-black/20">
+          <div  className="w-[90%] md:w-3/5 lg:max-w-xl lg:h-[37rem] h-[500px] bg-white p-4 md:px-12 md:py-8 rounded-lg border relative flex flex-col items-center justify-center overflow-y-auto ">
+            <span onClick={() => setShowForm(false)} className="absolute top-3 right-3 text-2xl"><RxCross2 /></span>
+            <div className="text-lg md:text-2xl lg:text-3xl mt-4 pt-2 pb-2 md:pb-4 text-center font-bold">
+              <div>Ready to enhance your skills?</div> 
               <span className="text-xs md:text-sm lg:text-base font-medium">
                 Share your details and hear from us soon
               </span>
-            </h2>
-           
+            </div>
             <form
               id="form1"
-              className="space-y-4 mt-4 md:mt-0"
+              className="space-y-2 md:space-y-4"
               onSubmit={(e) => {
                 handleSubmit(e);
               }}
@@ -256,7 +256,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
                   id="fullname"
                   type="text"
                   name="Name"
-                  className="w-full p-2 border border-gray-300 rounded-md text-xs md:text-sm"
+                  className="w-full py-1 md:px-2 lg:py-2 border border-gray-300 rounded-md text-xs md:text-sm"
                   placeholder="Enter your full name"
                   onChange={handleChange}
                   required
@@ -272,7 +272,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
                   id="email"
                   type="email"
                   name="Email"
-                  className="w-full p-2 border border-gray-300 rounded-md text-xs md:text-sm"
+                  className="w-full py-1 md:px-2 lg:py-2 border border-gray-300 rounded-md text-xs md:text-sm"
                   placeholder="Enter your E-mail"
                   onChange={handleChange}
                   required
@@ -292,12 +292,12 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
                     <select
                       id="countryCode"
                       name="CountryCode"
-                      className="border p-2 pr-8 rounded focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer text-xs md:text-sm"
+                      className="border py-1 md:px-2 lg:py-2 pr-8 rounded focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer text-xs md:text-sm"
                       onChange={handleChange}
                     >
                       <option value="+91">🇮🇳 +91 (India)</option>
                     </select>
-                    <div className="absolute inset-y-0 right-0 flex items-center justify-center mt-5 pr-3 pointer-events-none">
+                    <div className="absolute right-3 flex items-center justify-center pointer-events-none">
                       <IoIosArrowDown className="text-gray-500" />
                     </div>
                   </div>
@@ -311,7 +311,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
                     id="phone"
                     name="Phone"
                     type="tel"
-                    className="w-full p-2 border border-gray-300 rounded-md text-xs md:text-sm"
+                    className="w-full py-1 md:px-2 lg:py-2 border border-gray-300 rounded-md text-xs md:text-sm"
                     placeholder="Enter your phone number"
                     pattern="[0-9]{10}"
                     minLength="10"
@@ -327,7 +327,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
                 <select
                   id="courses"
                   name="Course"
-                  className="border p-2 pr-10 rounded focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer text-xs md:text-sm"
+                  className="border py-1 md:px-2 lg:py-2 pr-10 rounded focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer text-xs md:text-sm"
                   required
                   onChange={handleChange}
                 >
@@ -381,7 +381,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
                   </option>
                   <option value="Data Science">Data Science</option>
                 </select>
-                <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
                   <IoIosArrowDown className="text-gray-500" />
                 </div>
               </div>
@@ -406,7 +406,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-indigo-500 text-white text-xs md:text-base py-2 md:py-3 rounded-md hover:bg-indigo-600"
+                className="w-full bg-indigo-500 text-white text-xs md:text-base py-2 lg:py-3 rounded-md hover:bg-indigo-600"
               >
                 {loading ? "Loading..." : "Submit"}
               </button>
@@ -418,4 +418,3 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
   );
 };
 
-export default ContactUs;

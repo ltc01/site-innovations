@@ -36,6 +36,7 @@ import Program from "../Components/School/Program";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useSelector } from "react-redux";
+import Testimonials from "../Components/Testmonials/Testimonials";
 
 const Courses = () => {
   const { allCourses, status, error } = useSelector((state) => state.courses);
@@ -329,7 +330,7 @@ const Courses = () => {
           </div>
         </div>
       </section>
-      {/* <Testimonials /> */}
+      <Testimonials />
       {/* Call to Action */}
       <div className="w-full h-52 md:h-80 my-6 relative ">
         <div className="absolute w-full h-full hover:opacity-100 backdrop-blur-sm bg-black/80"></div>
