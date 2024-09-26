@@ -23,10 +23,10 @@ import College from "../../Pages/College";
 import { fetchAllCourses } from "../../Redux/slices/courseSlice";
 import { BeatLoader } from "react-spinners";
 import Enroll from "./EnrollNow";
-// import { IoLogIn } from "react-icons/io5";
-import { LuLogIn } from "react-icons/lu";
+import EnrollNow from "./EnrollNow";
+import { BiLogIn } from "react-icons/bi";
 
-const Navbar = ({ theme }) => {
+const Navbar = ({ theme,showForm,setShowForm }) => {
   const [show, setShow] = useState(false);
   const [showmenu, setShowmenu] = useState(false);
   const [delayHide, setDelayHide] = useState(null);
@@ -197,7 +197,7 @@ const Navbar = ({ theme }) => {
           <Link
             to={"/contact"}
             onClick={() => handleLinkClick("Contact Us")}
-            className={`mx-2 xl:mx-4 hover:text-indigo-500 ${
+            className={`mx-2 xl:mx-4 text-nowrap hover:text-indigo-500 ${
               location.pathname === "/contact" && linkActive === "Contact Us"
                 ? "text-indigo-600"
                 : ""
@@ -234,7 +234,7 @@ const Navbar = ({ theme }) => {
                     </span>
                   </button>
                 </Link> */}
-                <LuLogIn
+                <BiLogIn
                   onClick={() => navigate('/login')}
                   size={20}
                   className=" z-10 relative text-slate-500 cursor-pointer"
@@ -294,13 +294,14 @@ const Navbar = ({ theme }) => {
               {isDark ? <BsSun className="text-slate-600" /> : <BsMoonStars lassName="text-slate-600"/>}
             </span>
 
-            <Enroll />
+            {/* <Enroll /> */}
+            <EnrollNow showForm={showForm} setShowForm={setShowForm}/>
             <Link to={"/gcep"} className="relative group">
               <button
                 type="button"
-                className="hidden z-10 sm:flex text-black bg-gradient-to-br from-green-400 via-teal-500 to-blue-500  hover:bg-gradient-to-br focus:outline-none focus:ring-amber-300 dark:focus:ring-amber-800 shadow-base shadow-amber-500/50 dark:shadow-base dark:shadow-amber-800/80 font-semibold rounded-lg text-sm px-0.5 py-0.5 text-center"
+                className="hidden group z-10 sm:flex text-black bg-gradient-to-br from-green-400 via-teal-500 to-blue-500  hover:bg-gradient-to-br focus:outline-none focus:ring-amber-300 dark:focus:ring-amber-800 shadow-base shadow-amber-500/50 dark:shadow-base dark:shadow-amber-800/80 font-semibold rounded-lg text-sm px-0.5 py-0.5 text-center"
               >
-                <span className="flex items-center justify-center w-full h-full bg-white rounded-md px-8 py-1.5 ">
+                <span className="flex items-center justify-center h-full group-hover:text-white group-hover:bg-black/20 bg-white rounded-md px-4 w-24 py-1.5 ">
                   GCEP
                 </span>
               </button>

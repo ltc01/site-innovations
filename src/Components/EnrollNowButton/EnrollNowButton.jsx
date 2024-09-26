@@ -3,10 +3,9 @@ import "animate.css";
 import { useLocation, useParams } from "react-router-dom";
 import { ContactFormComponent } from "../Contact/ContactForm";
 
-const EnrollNowButton = () => {
+const EnrollNowButton = ({showForm,setShowForm}) => {
   const buttonRef = useRef(null);
   const location = useLocation();
-  const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
     const triggerAnimation = () => {
@@ -40,14 +39,11 @@ const EnrollNowButton = () => {
       <div>
         {showForm ? null : <button
           ref={buttonRef}
-          onClick={() => setShowForm(!showForm)}
-          className="fixed md:hidden bottom-28 right-0 z-[100] inline-flex items-center justify-center text-base font-medium disabled:opacity-50 border  rounded-l-3xl w-35 px-5 py-3 bg-gradient-to-r from-pink-500 to-violet-600 m-0 cursor-pointer border-gray-200 text-white normal-case"
+          onClick={() => setShowForm(old=>!old)}
+          className="fixed bottom-28 right-0 z-[100] inline-flex lg:hidden items-center justify-center text-base font-medium disabled:opacity-50 border  rounded-l-3xl w-35 px-5 py-3 bg-gradient-to-r from-pink-500 to-violet-600 m-0 cursor-pointer border-gray-200 text-white normal-case"
         >
           Enroll Now
         </button>}
-        {showForm && (
-          <ContactFormComponent showForm={showForm} setShowForm={setShowForm} />
-        )}
       </div>
     );
 };
