@@ -120,7 +120,7 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
         ></div>
       )}
       <div
-        className={`flex z-[90] h-24 items-center max-w-[1440px] justify-between px-4 py-1 w-full fixed top-0 ${
+        className={`flex z-[90] text-slate-600 h-24 items-center max-w-[1440px] justify-between px-4 py-1 w-full fixed top-0 ${
           isTransparent
             ? "bg-white dark:bg-black"
             : "bg-white/70 backdrop-blur dark:bg-black/30 "
@@ -213,10 +213,30 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
               <SearchBox courses={courses} />
 
               <div ref={userhandleDropDownRef}>
-                <FaRegUser
+                {/* <LuLogIn
+                  onClick={() => setUserDrop(!userDrop)}
+                  size={20}
+                  className=" z-10 relative cursor-pointer"
+                /> */}
+                {/* <p
                   onClick={() => setUserDrop(!userDrop)}
                   size={15}
-                  className="z-10 relative cursor-pointer"
+                  className="hidden md:block relative cursor-pointer"
+                >Login</p> */}
+                {/* <Link to={"/login"} className="relative group">
+                  <button
+                    type="button"
+                    className="hidden z-10 sm:flex text-black border-2 border-black  hover:bg-gradient-to-br focus:outline-none focus:ring-amber-300 dark:focus:ring-amber-800 shadow-base shadow-amber-500/50 dark:shadow-base dark:shadow-amber-800/80 font-semibold rounded-lg text-sm px-0.5 py-0.5 text-center"
+                  >
+                    <span className="flex items-center justify-center w-full h-full bg-white rounded-md px-8 py-1.5 ">
+                      Login
+                    </span>
+                  </button>
+                </Link> */}
+                <LuLogIn
+                  onClick={() => navigate('/login')}
+                  size={20}
+                  className=" z-10 relative text-slate-500 cursor-pointer"
                 />
               </div>
 
@@ -270,7 +290,7 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
               onClick={darkTheme}
               className="text-base hidden lg:block cursor-pointer "
             >
-              {isDark ? <BsSun /> : <BsMoonStars />}
+              {isDark ? <BsSun className="text-slate-600" /> : <BsMoonStars lassName="text-slate-600"/>}
             </span>
 
             {/* <Enroll /> */}
