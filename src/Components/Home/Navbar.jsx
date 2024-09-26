@@ -24,6 +24,7 @@ import { fetchAllCourses } from "../../Redux/slices/courseSlice";
 import { BeatLoader } from "react-spinners";
 import Enroll from "./EnrollNow";
 import EnrollNow from "./EnrollNow";
+import { BiLogIn } from "react-icons/bi";
 
 const Navbar = ({ theme,showForm,setShowForm }) => {
   const [show, setShow] = useState(false);
@@ -233,7 +234,7 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
                     </span>
                   </button>
                 </Link> */}
-                <LuLogIn
+                <BiLogIn
                   onClick={() => navigate('/login')}
                   size={20}
                   className=" z-10 relative text-slate-500 cursor-pointer"
