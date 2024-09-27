@@ -100,7 +100,7 @@ const Enterpunership = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    return () => {};
+    return () => { };
   }, []);
 
   const { id } = useParams();
@@ -325,7 +325,7 @@ const Enterpunership = () => {
           </button>
         </div>
       </div>
-     
+
       {/*//! Program Overview */}
       <div className="p-6 md:p-10">
         <div className="endiv1 mx-auto max-w-7xl px-4 md:px-6">
@@ -388,9 +388,8 @@ const Enterpunership = () => {
             {cards.map((card, index) => (
               <div
                 key={index}
-                className={`relative rounded-2xl  shadow-xl border border-gray-200 bg-white hover:scale-105 hover:border-gray-500 hover:shadow-2xl transition-transform duration-300 ease-in-out p-6 sm:p-8 w-full md:w-1/2 lg:w-1/2 flex flex-col justify-between ${
-                  index === 1 ? "top-20" : index === 2 ? "top-40" : ""
-                }`}
+                className={`relative rounded-2xl  shadow-xl border border-gray-200 bg-white hover:scale-105 hover:border-gray-500 hover:shadow-2xl transition-transform duration-300 ease-in-out p-6 sm:p-8 w-full md:w-1/2 lg:w-1/2 flex flex-col justify-between ${index === 1 ? "top-20" : index === 2 ? "top-40" : ""
+                  }`}
               >
                 <div>
                   {/* Card icon */}
@@ -568,7 +567,7 @@ const Enterpunership = () => {
           </div>
         </div>
       </div> */}
-      
+
       {/*//! Faq */}
       {/* <Faq /> */}
       {/* <div>

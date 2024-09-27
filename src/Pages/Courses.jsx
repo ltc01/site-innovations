@@ -36,7 +36,6 @@ import Program from "../Components/School/Program";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useSelector } from "react-redux";
-import Testimonials from "../Components/Testmonials/Testimonials";
 
 const Courses = () => {
   const { allCourses, status, error } = useSelector((state) => state.courses);
@@ -138,27 +137,9 @@ const Courses = () => {
   //     </span>
   //   </Link>,
   // ];
-  const static_data = allCourses[0]?.courses.map((course) => (
-    <Link to={`/course/${course.title}/${course.id}`}>
-      <span className="relative z-10 flex items-center gap-4 ">
-        <span className="">{course.title}</span>
-      </span>
-    </Link>
-  ));
-  const static_data2 = allCourses[1]?.courses.map((course) => (
-    <Link to={`/course/${course.title}/${course.id}`}>
-      <span className="relative z-10 flex items-center gap-4 ">
-        <span className="">{course.title}</span>
-      </span>
-    </Link>
-  ));
-  const static_data3 = allCourses[2]?.courses.map((course) => (
-    <Link to={`/course/${course.title}/${course.id}`}>
-      <span className="relative z-10 flex items-center gap-4 ">
-        <span className="">{course.title}</span>
-      </span>
-    </Link>
-  ));
+  const static_data = allCourses[0]?.courses;
+  const static_data2 = allCourses[1]?.courses;
+  const static_data3 = allCourses[2]?.courses;
 
   const textRef = useRef(null);
   const sliderRef = useRef(null);
@@ -263,12 +244,12 @@ const Courses = () => {
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold mb-4">
             Explore Our Range of Courses for Schools and Colleges
           </h1>
-          <p className="text-base text-slate-600 sm:text-lg md:text-xl mb-6">
+          <p className="text-base text-slate-600 dark:text-slate-300  sm:text-lg md:text-xl mb-6">
             At BAOIAM, we offer a wide range of courses designed for students
             from schools and colleges. Whether you're preparing for board exams
             or pursuing a degree, our courses provide comprehensive, engaging
             content to help you succeed academically.
-          </p>
+          </p> 
         </div>
         <div ref={sliderRef} className="h-96 md:h-full md:w-[40%] pt-8 md:pt-0">
           <SliderHero />
@@ -330,7 +311,7 @@ const Courses = () => {
           </div>
         </div>
       </section>
-      <Testimonials />
+      {/* <Testimonials /> */}
       {/* Call to Action */}
       <div className="w-full h-52 md:h-80 my-6 relative ">
         <div className="absolute w-full h-full hover:opacity-100 backdrop-blur-sm bg-black/80"></div>
