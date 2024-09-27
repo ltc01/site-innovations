@@ -72,9 +72,8 @@ const ContactForm = () => {
             {/* Success Icon */}
             <FaCheckCircle
               size={50}
-              className={`text-green-500 mx-auto mb-4 ${
-                animatePing ? "animate-ping" : ""
-              }`}
+              className={`text-green-500 mx-auto mb-4 ${animatePing ? "animate-ping" : ""
+                }`}
             />
 
             <h2 className="text-2xl font-bold text-indigo-600 mb-4 transition-all duration-300 ease-in-out">
