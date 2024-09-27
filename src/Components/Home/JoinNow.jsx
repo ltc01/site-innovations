@@ -109,7 +109,7 @@ const Home = () => {
       >
         Your <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">Future</span> starts here
       </h2>
-      <div className="dark:bg-[#080529] w-full rounded-3xl overflow-hidden dark:text-white flex flex-col md:flex-row justify-center items-center my-12">
+      <div className="dark:bg-[#010203] w-full rounded-3xl overflow-hidden dark:text-white flex flex-col md:flex-row justify-center items-center my-12">
         {/* Container for the image */}
         <div ref={imageRef} className="md:w-[25%] w-[70%]">
           <img

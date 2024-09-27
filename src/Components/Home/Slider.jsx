@@ -61,26 +61,9 @@ export default function SliderSection() {
   // redux end
 
   return (
-    <div className="slider-section dark:bg-[#080529] w-full relative py-20 overflow-hidden ">
+    <div className="slider-section dark:bg-[#010203] w-full relative py-20 overflow-hidden ">
       <div className="text-center mb-0 lg:mb-8">
         <h2 className="text-4xl font-extrabold mb-8">Featured <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent" >Courses</span></h2>
-        {/* <div className="flex gap-3 items-center justify-center mt-8 md:mt-0">
-          {.map(
-            (category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-4 border-2 py-2 w-fit text-xs md:text-sm rounded-lg ${
-                  selectedCategory === category
-                    ? "dark:bg-indigo-900 bg-black text-white rounded-xl text-sm transition-all ease-in-out duration-300"
-                    : "bg-white text-black"
-                } hover:bg-gradient-to-l hover:scale-105 transition`}
-              >
-                {category}
-              </button>
-            )
-          )}
-        </div> */}
       </div>
 
       <div className="mx-4 mt-8 md:mx-14">
@@ -118,7 +101,7 @@ export default function SliderSection() {
         >
            {status === 'failed' ? categories[selectedCategory]?.map((slide, index) => (
             <SwiperSlide key={index}>
-              <div className="h-[22.5rem] overflow-hidden dark:bg-indigo-900 dark:border shadow-md rounded-3xl m-2">
+              <div className="h-[22.5rem] overflow-hidden dark:bg-white/20 dark:border shadow-md rounded-3xl m-2">
                 <div className="relative h-[50%]">
                   <img
                     src={slide.banner}
@@ -153,7 +136,7 @@ export default function SliderSection() {
           ))
           :  programCourses?.map((slide, index) => (
             <SwiperSlide key={index}>
-              <div className="h-[22.5rem] overflow-hidden dark:bg-indigo-900 dark:border shadow-md rounded-3xl m-2">
+              <div className="h-[22.5rem] overflow-hidden dark:bg-white/10 dark:border shadow-md rounded-3xl m-2">
                 {/* Image Container */}
                 <div className="relative h-[50%]">
                   <img
@@ -177,7 +160,7 @@ export default function SliderSection() {
                   {/* Title */}
                   <div className="">
                     <h3 className="text-xl font-semibold my-2 text-nowrap">{ slide.title.slice(0, 20) + "..." } </h3>
-                    <p className="text-sm pr-3 text-slate-600">{slide.description.slice(0, 60) + "..."}</p>
+                    <p className="text-sm pr-3 text-slate-600 dark:text-slate-200">{slide.description.slice(0, 60) + "..."}</p>
                     
                   </div>
                   {/* Button */}

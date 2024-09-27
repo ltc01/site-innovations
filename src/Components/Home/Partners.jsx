@@ -56,7 +56,7 @@ const Partners = () => {
   }, []);
 
   return (
-    <div className="dark:bg-[#080529]">
+    <div className="dark:bg-[#010203]">
       <div className="my-20">
         <h2
           className="text-3xl px-2 text-center sm:text-4xl dark:text-white font-bold text-gray-900"

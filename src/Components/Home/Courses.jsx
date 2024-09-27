@@ -59,7 +59,7 @@ const Courses = () => {
   }, []);
 
   return (
-    <div className="px-10 md:px-20 dark:bg-[#080529] pb-5">
+    <div className="px-10 md:px-20 dark:bg-[#010203] pb-5">
       <div className="text-center mb-10 md:mb-12">
         <h2 className="text-3xl sm:text-4xl dark:text-white font-extrabold text-gray-900 mb-3">
           What Sets Us{" "}
@@ -74,7 +74,7 @@ const Courses = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {data.map((stat, i) => {
-          return <div className="shadow-[20px_25px_#515050] hover:shadow-[10px_15px_#515050] border border-[#515050] p-4 rounded-xl">
+          return <div className="shadow-[15px_20px_#515050] border border-[#515050] p-4 rounded-xl">
             <div className="flex items-center gap-4 mb-2">
               <span className="border border-[#515050] rounded-lg p-2">{stat.icon}</span>
               <h2 className="text-xl font-semibold text-gray-800 dark:text-white">

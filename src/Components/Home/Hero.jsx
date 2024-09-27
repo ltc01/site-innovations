@@ -26,7 +26,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-[#080529] dark:text-white flex flex-col-reverse md:flex-row px-8 lg:px-20 lg:-mt-16 items-center">
+    <div className="bg-white dark:bg-[#010203] dark:text-white flex flex-col-reverse md:flex-row px-8 lg:px-20 lg:-mt-16 items-center">
       {/* Left Side: Heading and Content */}
       <div
         ref={leftRef}
@@ -43,7 +43,7 @@ const Hero = () => {
         </p>
         <div className="mt-6 flex justify-center md:justify-normal lg:justify-start space-x-4">
           <button
-            onClick={() => navigate("/courses/college")}
+            onClick={() => navigate("/courses")}
             className="relative inline-flex items-center bg-gradient-to-r from-indigo-700 to-indigo-500 px-10 py-2 overflow-hidden text-white font-semibold border border-indigo-600 rounded-full hover:text-indigo-600 group"
           >
             <span className="absolute left-0 block w-full h-0 transition-all bg-white opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease-in-out"></span>

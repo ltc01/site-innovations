@@ -51,7 +51,7 @@ const Phone = () => {
           </div>
         </div>
       )}
-      <div className="flex w-full gap-8 pb-20 py-10 dark:bg-[#080529] dark:text-white items-center mx-auto justify-center flex-col md:flex-row">
+      <div className="flex w-full gap-8 pb-20 py-10 dark:bg-[#010203] dark:text-white items-center mx-auto justify-center flex-col md:flex-row">
         <div className="w-40 md:w-[23%]">
           <img src={App_phone} className="w-full" alt="Android app-Baoiam" />
         </div>
@@ -63,7 +63,7 @@ const Phone = () => {
             </span>{" "}
             Your Journey Now!
           </p>
-          <p className="font-medium mt-2 text-slate-600">
+          <p className="font-medium mt-2 text-slate-600 dark:text-slate-300">
             Maximize your growth with our transformative courses
           </p>
 
