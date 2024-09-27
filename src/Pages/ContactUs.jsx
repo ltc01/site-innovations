@@ -139,7 +139,7 @@ const ContactUs = () => {
             </span>{" "}
             with Us
           </h1>
-          <p className="text-sm md:text-lg lg:text-lg dark:text-slate-300 text-gray-600 mt-4 md:mt-6">
+          <p className="text-sm md:text-base lg:text-lg dark:text-slate-300 text-gray-600 mt-4 md:mt-6">
             Have any questions, feedback, or need assistance? We're just a
             message away.
             <br /> Fill out the form below, and our team will get back to you
@@ -148,8 +148,8 @@ const ContactUs = () => {
         </div>
       </section>
 
-      <section className="py-2 px-4 md:px-6 lg:pl-16 lg:pr-16 xl:pl-24 xl:pr-6   dark:bg-black rounded-xl">
-        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-6 lg:gap-10">
+      <section className="py-2 px-4 md:px-24   dark:bg-black rounded-xl">
+        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-6 lg:gap-10 justify-center">
           <div className="lg:w-2/4 xl:w-2/5 dark:text-white p-4 md:p-6 lg:p-8 rounded-lg border lg:py-6  ">
             <h2 className="text-xl md:text-3xl lg:text-2xl text-center font-bold md:mb-8 mb-4">
               Ready to enhance your skills?
@@ -332,7 +332,7 @@ const ContactUs = () => {
                 />
                 <label
                   htmlFor="consent"
-                  className="dark:text-slate-300 text-gray-700 text-sm"
+                  className="dark:text-slate-300 text-gray-700 text-xs"
                 >
                   I consent to receiving updates and notifications from online
                   Baoiam and its affiliates via email, SMS, WhatsApp, and voice
@@ -350,8 +350,8 @@ const ContactUs = () => {
             </form>
           </div>
 
-          <div className="lg:w-2/4 space-y-4">
-            <div className="dark:bg-black p-6 lg:p-8 lg:py-6 rounded-lg border">
+          <div className="lg:w-1/3 space-y-4 ">
+            <div className="dark:bg-black p-6 lg:p-8 lg:py-6 ">
               <h2 className="text-xl md:text-2xl lg:text-xl font-bold mb-4">
                 Contact Information
               </h2>
