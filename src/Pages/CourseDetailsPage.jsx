@@ -13,7 +13,6 @@ import courseDetailSlice, { fetchCourseDetails } from "../Redux/slices/courseDet
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BeatLoader } from "react-spinners";
-import { IoIosArrowRoundForward, IoIosArrowForward } from "react-icons/io";
 import CourseHero from "../Components/CourseDetails/CourseHero";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -25,7 +24,7 @@ const apiUrl = import.meta.env.VITE_API_URL;
 const CourseDetailsPage = () => {
   const { id } = useParams();
   const [courseDetails, setCourseDetails] = useState({});
-  const [showTab, setShowTab] = useState('plus');
+  const [showTab, setShowTab] = useState('premium');
   const [otherCourses, setOtherCourses] = useState()
   const [fixed, setFixed] = useState(false)
   const [coursePlusContent, setCoursePlusContent] = useState([
@@ -201,73 +200,10 @@ const CourseDetailsPage = () => {
     <div>
 
       {/* Hero Section */}
-      {/* <div className="pb-12 pt-4 px-4 lg:px-24 bg-gradient-to-t from-orange-100 to-transparent">
-        <div className="flex items-center gap-2 text-xs">
-          <Link to={`/courses`}>Courses</Link>
-          <span><IoIosArrowForward /></span>
-          <span>School</span>
-          <span><IoIosArrowForward /></span>
-          <Link to={`/course/${course.slug}/${course.id}`}>{course?.title}</Link>
-        </div>
-
-        <div className="flex justify-between items-center mt-4">
-          <div className="w-[60%]">
-            <div className="mt-4 w-3/4">
-              <h1 className="text-6xl font-bold mb-4">{course?.title}</h1>
-              <p>Many online courses are self-paced, allowing learners to complete coursework at their own convenience.</p>
-              <div className="mt-8 flex items-center justify-between w-full">
-                <div className="flex gap-2">
-                  <button
-                    onClick={enrollNowScroll}
-                    className="relative inline-flex items-center bg-orange-400 px-8 md:px-12 py-2 md:py-3 text-xs md:text-sm dark:text-white dark:border-white overflow-hidden text-white font-medium border border-orange-400 rounded-lg hover:text-orange-500 group"
-                  >
-                    <span className="absolute left-0 block w-full h-0 transition-all bg-white opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease-in-out"></span>
-                    <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
-                      <IoIosArrowRoundForward size={30} />
-                    </span>
-                    <span className="relative">Enroll Now</span>
-                  </button>
-                  <Link
-                    to={`/book-a-demo/${course?.title}/${course?.id}`}
-                    className="relative inline-flex items-center bg-orange-400 px-6 py-2 md:py-3 text-xs md:text-sm dark:text-white dark:border-white overflow-hidden text-white font-medium border border-orange-400 rounded-lg hover:text-orange-500 group"
-                  >
-                    <span className="absolute left-0 block w-full h-0 transition-all bg-white opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease-in-out"></span>
-                    <span className="relative">Book a Demo</span>
-                  </Link>
-                </div>
-                <span>6,000 Students</span>
-              </div>
-            </div>
-
-          </div>
-          <div className="hidden md:block md:w-[40%] h-96 rounded-[2rem] relative overflow-hidden">
-            <img
-              src={
-                course?.thumbnail_image ? course?.thumbnail_image : CourseDesc2
-              }
-              alt=""
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute left-1/2 -translate-x-1/2 bottom-4">
-              <button
-                onClick={() => downloadBrochure(course?.brochure_file)}
-                className="relative inline-flex items-center bg-white/50 backdrop-blur-sm px-8 md:px-12 py-2 md:py-3 text-xs md:text-sm dark:text-white dark:border-white overflow-hidden text-orange-600 font-medium border border-orange-400 rounded-lg hover:text-white group"
-              >
-                <span className="absolute left-0 block w-full h-0 transition-all bg-orange-400 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease-in-out"></span>
-                <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
-                  <FaDownload size={18} />
-                </span>
-                <span className="relative">Download Brochure</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
       <CourseHero course={course} downloadBrochure={downloadBrochure} enrollNowScroll={enrollNowScroll} />
 
       {/* Course Details */}
-      <div className="grid grid-cols-3 gap-4 mt-8 px-4 lg:px-24 relative">
+      <div className="grid grid-cols-3 gap-4 mt-8 px-4 md:px-8 xl:px-24 relative">
 
         <div className="col-span-2 h-fit p-6 shadow-xl rounded-xl mb-4">
           <h2 className="text-2xl font-semibold">Course <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">Details</span></h2>
@@ -278,7 +214,7 @@ const CourseDetailsPage = () => {
         </div>
 
         {/* Plans */}
-        <div className={`col-span-1 bg-white ${fixed ? "fixed top-28 right-24" : "absolute top-0 right-24 "} shadow-xl rounded-xl p-6`}>
+        <div className={`col-span-1 bg-white ${fixed ? "fixed top-28 right-8 xl:right-24" : "absolute top-0 right-8 xl:right-24"} shadow-xl rounded-xl p-6`}>
           <div className="flex items-center w-full justify-around mb-4">
             {course?.plans?.map((p, i) => {
               return <p key={i} onClick={() => setShowTab(p.name)} className={`capitalize text-xl cursor-pointer ${showTab === p.name ? "text-orange-500" : ""}`}>{p.name}</p>
@@ -290,7 +226,7 @@ const CourseDetailsPage = () => {
               return <>
                 <div
                   key={i}
-                  className={`flex flex-col rounded-lg lg:w-80 border ${p.name === "premium" ? "border-orange-500" : "border-stone-500"} relative p-4 pt-6`}
+                  className={`flex flex-col rounded-lg lg:w-64 xl:w-80 border ${p.name === "premium" ? "border-orange-500" : "border-stone-500"} relative p-4 pt-6`}
                 >
                   {p.name === "premium" && (
                     <div className="absolute inset-x-0 -top-3 flex justify-center">
@@ -307,19 +243,19 @@ const CourseDetailsPage = () => {
                   <p className="mx-auto mb-2 px-8 text-center text-lg text-gray-500 font-medium dark:text-white">
                     {course.title}
                   </p>
-                  <p className="mx-auto mb-2 px-8 text-gray-500 font-medium text-center dark:text-white">
+                  <p className="text-sm xl:text-base mx-auto mb-2 px-8 text-gray-500 font-medium text-center dark:text-white">
                     All Contents of Plus
                   </p>
-                  <p className="mx-auto mb-2 px-8 text-center text-gray-500 font-medium dark:text-white">
+                  <p className="text-sm xl:text-base mx-auto mb-2 px-8 text-center text-gray-500 font-medium dark:text-white">
                     Personal Mentorship
                   </p>
-                  <p className="mx-auto mb-2 px-8 text-center text-gray-500 font-medium dark:text-white">
+                  <p className="text-sm xl:text-base mx-auto mb-2 px-8 text-center text-gray-500 font-medium dark:text-white">
                     Experts councelling
                   </p>
-                  <p className="mx-auto mb-2 px-8 text-center text-gray-500 font-medium dark:text-white">
+                  <p className="text-sm xl:text-base mx-auto mb-2 px-8 text-center text-gray-500 font-medium dark:text-white">
                     Live Projects
                   </p>
-                  <p className="mx-auto mb-2 px-8 text-center text-gray-500 font-medium dark:text-white">
+                  <p className="text-sm xl:text-base mx-auto mb-2 px-8 text-center text-gray-500 font-medium dark:text-white">
                     Dedicated Placement cell
                   </p>
                   <div className="mt-auto flex flex-col gap-8">
@@ -327,10 +263,10 @@ const CourseDetailsPage = () => {
                       <span className="self-start text-gray-600 dark:text-white">
                         ₹
                       </span>
-                      <span className="text-4xl font-bold text-gray-800 dark:text-white">
+                      <span className="lg:text-2xl xl:text-4xl font-bold text-gray-800 dark:text-white">
                         {p.price}
                       </span>
-                      <span className="text-gray-500 dark:text-white">
+                      <span className="text-gray-500 text-xs md:text-sm dark:text-white">
                         /{p.name != "premium" ? p.duration : "Unlimited"}
                       </span>
                     </div>
@@ -358,7 +294,7 @@ const CourseDetailsPage = () => {
               return <>
                 <div
                   key={i}
-                  className={`flex flex-col rounded-lg lg:w-80 relative p-4 pt-6`}
+                  className={`flex flex-col rounded-lg lg:w-64 xl:w-80 relative p-4 pt-6`}
                 >
                   <div className="mb-2 text-center capitalize text-2xl font-bold text-gray-800 dark:text-white">
                     Plus
@@ -369,7 +305,7 @@ const CourseDetailsPage = () => {
                   {coursePlusContent.map((content, i) => (
                     <p
                       key={i}
-                      className="mx-auto mb-2 px-8 text-center text-gray-500 font-medium dark:text-white"
+                      className="text-sm xl:text-base mx-auto mb-2 px-8 text-center text-gray-500 font-medium dark:text-white"
                     >
                       {content}
                     </p>
@@ -379,7 +315,7 @@ const CourseDetailsPage = () => {
                       <span className="self-start text-gray-600 dark:text-white">
                         ₹
                       </span>
-                      <span className="text-4xl font-bold text-gray-800 dark:text-white">
+                      <span className="lg:text-2xl xl:text-4xl font-bold text-gray-800 dark:text-white">
                         {p.price}
                       </span>
                       <span className="text-gray-500 dark:text-white">
@@ -456,73 +392,75 @@ const CourseDetailsPage = () => {
       {/* <Testimonials /> */}
 
       {/* Related Courses */}
-      <div className="my-8 px-4 lg:px-24 w-full h-full">
-        <h2 className="text-3xl font-semibold text-center">Related <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">Courses</span></h2>
-        <Swiper
-          modules={[Navigation]}
-          spaceBetween={0} // Adjust the space between cards
-          slidesPerView={1} // Default number of slides per view
-          dot={false}
-          navigation={{
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          }}
-          pagination={{ clickable: true }}
-          className="swiper-container lg:px-6 mt-4 relative"
-          breakpoints={{
-            320: {
-              slidesPerView: 1,
-              spaceBetween: 10,
-            },
-            620: {
-              slidesPerView: 2,
-              spaceBetween: 10,
-            },
-            740: {
-              slidesPerView: 3,
-              spaceBetween: 20,
-            },
-            1024: {
-              slidesPerView: 4,
-              spaceBetween: 10,
-            },
-          }}
-        >
-          {otherCou.map((o, i) => {
-            return <SwiperSlide key={i}>
-              <div className="h-80 overflow-hidden dark:bg-indigo-900 dark:border shadow-md rounded-xl m-2">
-                <div className="relative h-[50%]">
-                  <img
-                    src={o.thumbnail_image}
-                    alt={o.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute top-3 left-4 flex">
+      {otherCou && (
+        <div className="my-8 px-4 lg:px-8 xl:px-24 w-full h-full relative">
+          <h2 className="text-3xl font-semibold text-center">Related <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">Courses</span></h2>
+          <Swiper
+            modules={[Navigation]}
+            spaceBetween={0} // Adjust the space between cards
+            slidesPerView={1} // Default number of slides per view
+            dot={false}
+            navigation={{
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            }}
+            pagination={{ clickable: true }}
+            className="swiper-container lg:px-6 mt-4"
+            breakpoints={{
+              320: {
+                slidesPerView: 1,
+                spaceBetween: 10,
+              },
+              620: {
+                slidesPerView: 2,
+                spaceBetween: 10,
+              },
+              740: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+              },
+              1024: {
+                slidesPerView: 4,
+                spaceBetween: 10,
+              },
+            }}
+          >
+            {otherCou.map((o, i) => {
+              return <SwiperSlide key={i}>
+                <div className="h-80 overflow-hidden dark:bg-indigo-900 dark:border shadow-md rounded-xl m-2">
+                  <div className="relative h-[50%]">
+                    <img
+                      src={o.thumbnail_image}
+                      alt={o.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute top-3 left-4 flex">
 
-                    <span className="text-xs mr-3 bg-gradient-to-r from-orange-600 to-amber-500 text-white rounded-lg px-3 py-1">
-                      Premium
-                    </span>
-                    <span className="bg-slate-200 text-gray-800 rounded-lg text-xs px-3 py-1">
-                      Plus
-                    </span>
+                      <span className="text-xs mr-3 bg-gradient-to-r from-orange-600 to-amber-500 text-white rounded-lg px-3 py-1">
+                        Premium
+                      </span>
+                      <span className="bg-slate-200 text-gray-800 rounded-lg text-xs px-3 py-1">
+                        Plus
+                      </span>
+                    </div>
+                  </div>
+                  <div className="h-fit flex flex-col justify-between px-4">
+                    <Link to={`/course/${o?.slug}/${o?.id}`} className="text-lg font-semibold my-2">{o.title} </Link>
+                    <p className="text-sm pr-3 text-slate-600">{o.description.slice(0, 60) + "..."}</p>
+
                   </div>
                 </div>
-                <div className="h-fit flex flex-col justify-between px-4">
-                  <h3 className="text-lg font-semibold my-2">{o.title} </h3>
-                  <p className="text-sm pr-3 text-slate-600">{o.description.slice(0, 60) + "..."}</p>
-                  
-                </div>
-              </div>
-            </SwiperSlide>
-          })}
-        </Swiper>
-        <div className="absolute top-[60%] left-2 transform z-10">
-          <button className="swiper-button-prev text-indigo-600 hover:text-white transition"></button>
+              </SwiperSlide>
+            })}
+          </Swiper>
+          <div className="absolute top-[60%] left-14 transform z-10">
+            <button className="swiper-button-prev text-indigo-600 bg-white transition"></button>
+          </div>
+          <div className="absolute top-[60%] right-14 transform z-10">
+            <button className="swiper-button-next text-indigo-500 bg-white transition"></button>
+          </div>
         </div>
-        <div className="absolute top-[60%] right-2 transform z-10">
-          <button className="swiper-button-next text-indigo-500 hover:text-white transition"></button>
-        </div>
-      </div>
+      )}
 
       <ToastContainer />
     </div >

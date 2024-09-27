@@ -220,7 +220,7 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
         {/* Last */}
         <div>
           <div className="flex items-center gap-2 md:gap-4 text-black dark:text-white">
-            <div className="flex items-center gap-6 xl:gap-14 ">
+            <div className="flex items-center gap-6">
               <SearchBox courses={courses} />
 
               <div ref={userhandleDropDownRef}>

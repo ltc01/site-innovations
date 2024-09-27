@@ -52,7 +52,7 @@ const CourseHighlights = () => {
   };
 
   return (
-    <div className="py-8 px-8 lg:px-24 w-full h-full">
+    <div className="py-8 px-8 xl:px-24 w-full h-full">
       <h4 className="mb-8 text-3xl md:text-4xl text-center lg:mb-12 font-bold">
         Course{" "}
         <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
