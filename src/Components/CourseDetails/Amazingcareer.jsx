@@ -12,19 +12,19 @@ const Amazingcareer = () => {
         </p>
 
         <div className="flex items-center flex-col md:flex-row gap-5 md:gap-20 justify-center w-full mt-8">
-          <div className="bg-white w-72 rounded-3xl px-6 py-4 shadow-xl dark:bg-gray-600 ">
+          <div className="bg-white w-72 dark:bg-black rounded-3xl px-6 py-4 shadow-xl">
             <p className="text-center font-semibold text-gray-600 text-[1rem] dark:text-white lg:text-xl mb-2">
               BUY 2 COURSES & GET
             </p>
             <p className="mb-2 text-2xl font-bold text-orange-500">15% OFF</p>
           </div>
-          <div className="bg-white w-72 rounded-3xl px-6 py-4 shadow-xl dark:bg-gray-500 ">
+          <div className="bg-white w-72 rounded-3xl px-6 py-4 shadow-xl dark:bg-black ">
             <p className="text-center font-semibold text-gray-600 text-[1rem] dark:text-white lg:text-xl mb-2">
               BUY 3 COURSES & GET
             </p>
             <p className="mb-2 text-2xl font-bold text-orange-500">20% OFF</p>
           </div>
-          <div className="bg-white w-72 rounded-3xl px-6 py-4 shadow-xl dark:bg-gray-500 ">
+          <div className="bg-white w-72 rounded-3xl px-6 py-4 shadow-xl dark:bg-black ">
             <p className="text-center font-semibold text-gray-600 text-[1rem] dark:text-white lg:text-xl mb-2">
               BUY 4 COURSES & GET
             </p>
