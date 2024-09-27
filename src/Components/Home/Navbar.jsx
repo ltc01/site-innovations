@@ -1,6 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import img1 from "../../assets/img1.png";
-import { FaBars, FaMagnifyingGlass, FaRegUser } from "react-icons/fa6";
+import {
+  FaBars,
+  FaMagnifyingGlass,
+  FaRegUser,
+  FaUserPen,
+} from "react-icons/fa6";
 // import CoursesList from "../CoursesList";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 // import { CollegeCourseData, OtherCourseData, School } from "../../Data";
@@ -23,8 +28,15 @@ import College from "../../Pages/College";
 import { fetchAllCourses } from "../../Redux/slices/courseSlice";
 import { BeatLoader } from "react-spinners";
 import Enroll from "./EnrollNow";
+// import { IoLogIn } from "react-icons/io5";
+import { LuLogIn } from "react-icons/lu";
+import { FaUser } from "react-icons/fa";
+import { MdAccountCircle } from "react-icons/md";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
+import EnrollNow from "./EnrollNow";
 
-const Navbar = ({ theme }) => {
+const Navbar = ({ theme,showForm,setShowForm }) => {
   const [show, setShow] = useState(false);
   const [showmenu, setShowmenu] = useState(false);
   const [delayHide, setDelayHide] = useState(null);
@@ -119,7 +131,7 @@ const Navbar = ({ theme }) => {
         ></div>
       )}
       <div
-        className={`flex z-[90] h-24 items-center max-w-[1440px] justify-between px-4 py-1 w-full fixed top-0 ${
+        className={`flex z-[90] text-slate-600 h-24 items-center max-w-[1440px] justify-between px-4 py-1 w-full fixed top-0 ${
           isTransparent
             ? "bg-white dark:bg-black"
             : "bg-white/70 backdrop-blur dark:bg-black/30 "
@@ -195,7 +207,7 @@ const Navbar = ({ theme }) => {
           <Link
             to={"/contact"}
             onClick={() => handleLinkClick("Contact Us")}
-            className={`mx-2 xl:mx-4 hover:text-indigo-500 ${
+            className={`mx-2 xl:mx-4 text-nowrap hover:text-indigo-500 ${
               location.pathname === "/contact" && linkActive === "Contact Us"
                 ? "text-indigo-600"
                 : ""
@@ -212,11 +224,41 @@ const Navbar = ({ theme }) => {
               <SearchBox courses={courses} />
 
               <div ref={userhandleDropDownRef}>
-                <FaRegUser
+                {/* <LuLogIn
+                  onClick={() => setUserDrop(!userDrop)}
+                  size={20}
+                  className=" z-10 relative cursor-pointer"
+                /> */}
+                {/* <p
                   onClick={() => setUserDrop(!userDrop)}
                   size={15}
-                  className="z-10 relative cursor-pointer"
-                />
+                  className="hidden md:block relative cursor-pointer"
+                >Login</p> */}
+                {/* <Link to={"/login"} className="relative group">
+                  <button
+                    type="button"
+                    className="hidden z-10 sm:flex text-black border-2 border-black  hover:bg-gradient-to-br focus:outline-none focus:ring-amber-300 dark:focus:ring-amber-800 shadow-base shadow-amber-500/50 dark:shadow-base dark:shadow-amber-800/80 font-semibold rounded-lg text-sm px-0.5 py-0.5 text-center"
+                  >
+                    <span className="flex items-center justify-center w-full h-full bg-white rounded-md px-8 py-1.5 ">
+                      Login
+                    </span>
+                  </button>
+                </Link> */}
+                {!localStorage.getItem("access_token") ? (
+                  <LuLogIn
+                    onClick={() => navigate("/login")}
+                    size={20}
+                    className=" z-10 relative text-slate-500 cursor-pointer"
+                  />
+                ) : (
+                  <FontAwesomeIcon
+                    icon={faUserCircle}
+                    size="lg"
+                    style={{ marginRight: "8px" }}
+                    className=" z-10 dark:text-white relative text-black cursor-pointer"
+                    onClick={() => navigate("/profile")}
+                  />
+                )}
               </div>
 
               {userDrop && (
@@ -269,16 +311,21 @@ const Navbar = ({ theme }) => {
               onClick={darkTheme}
               className="text-base hidden lg:block cursor-pointer "
             >
-              {isDark ? <BsSun /> : <BsMoonStars />}
+              {isDark ? (
+                <BsSun className="text-slate-600" />
+              ) : (
+                <BsMoonStars lassName="text-slate-600" />
+              )}
             </span>
 
             {/* <Enroll /> */}
+            <EnrollNow showForm={showForm} setShowForm={setShowForm}/>
             <Link to={"/gcep"} className="relative group">
               <button
                 type="button"
-                className="hidden z-10 sm:flex text-black bg-gradient-to-br from-green-400 via-teal-500 to-blue-500  hover:bg-gradient-to-br focus:outline-none focus:ring-amber-300 dark:focus:ring-amber-800 shadow-base shadow-amber-500/50 dark:shadow-base dark:shadow-amber-800/80 font-semibold rounded-lg text-sm px-0.5 py-0.5 text-center"
+                className="hidden group z-10 sm:flex text-black bg-gradient-to-br from-green-400 via-teal-500 to-blue-500  hover:bg-gradient-to-br focus:outline-none focus:ring-amber-300 dark:focus:ring-amber-800 shadow-base shadow-amber-500/50 dark:shadow-base dark:shadow-amber-800/80 font-semibold rounded-lg text-sm px-0.5 py-0.5 text-center"
               >
-                <span className="flex items-center justify-center w-full h-full bg-white rounded-md px-8 py-1.5 ">
+                <span className="flex items-center justify-center h-full group-hover:text-white group-hover:bg-black/20 bg-white rounded-md px-4 w-24 py-1.5 ">
                   GCEP
                 </span>
               </button>
