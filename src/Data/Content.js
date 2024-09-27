@@ -10,7 +10,7 @@ const blog_contents = [
   {
     heading1:
       "The path to a successful tech career: The Importance of web development skills",
-      Category: "SCIENCE",
+    Category: "SCIENCE",
     p1: "Discover the importance of web development skills in today’s era. Learn why programming languages like JavaScript, HTML, and CSS are important for front-end, back-end, and full-stack development. Explore how mastering these skills can shape your path to a successful tech career.",
     heading2: "Introduction to Web Development in Tech Careers",
     p2: "The tech industry is constantly growing and expanding , and web development is one of the most crucial skills for people who want to shape their career in this industry. Whether you are making a website, building an app, or optimizing a website, learning web development skills is important in a tech career. So let us know more about what these skills are and their importance.",
@@ -69,7 +69,7 @@ const blog_contents = [
   {
     heading1: "Balancing Screen Time: Healthy Technology Use In Education",
     Category: "EDUCATION",
-    p1: " Learn how to balance screen time effectively while using technology in education. Know about strategies like digital detox, parental controls, and digital literacy. Discover performance monitoring tools like AppDynamics and DataDog to stay healthy and productive while learning in the digital age.", 
+    p1: " Learn how to balance screen time effectively while using technology in education. Know about strategies like digital detox, parental controls, and digital literacy. Discover performance monitoring tools like AppDynamics and DataDog to stay healthy and productive while learning in the digital age.",
     heading2: "The Importance of Healthy Technology Use In Education",
     p2: "As technology has become an integral part of our life, it is really necessary to understand the importance of healthy technology use to maintain your overall well being while learning. ",
     points1: [
@@ -173,7 +173,7 @@ The more interesting the visuals, the more the engagement of students. Incorpora
   {
     heading1:
       "The era of early childhood education:  take up changes, block challenges and, exercise of strategic tools",
-      Category: "TECHNOLOGY",
+    Category: "TECHNOLOGY",
     p1: "Early childhood education is crucial for a child's overall development, encompassing cognitive, emotional, and social growth. Educational videos and interactive learning tools are increasingly essential in this stage, as they provide engaging and age-appropriate content that enhances learning experiences. Discover the profound impact of EdTech in shaping early childhood education, fostering a strong foundation for lifelong learning.",
     heading2: "What is early childhood education technology? ",
     p2: [
@@ -207,7 +207,7 @@ The more interesting the visuals, the more the engagement of students. Incorpora
   {
     heading1:
       "How Ed-Tech Enhances Critical Thinking Skills: Strategies and Future Prospects",
-      Category: "FINANCE",
+    Category: "FINANCE",
     p1: "Learn about how Ed-Tech enhances critical thinking abilities and approaches and possibilities in education technology. Understand the role of critical thinking in contemporary learners.  This blog evaluates how Ed-Tech changes the method of students’ critical thinking skills and the role it plays in the future.",
     heading2: "The Importance of Critical Thinking in Education",
     p2: "Among all practical skills relevant to the students of the current academic year, critical thinking skills have become significant in the context of globalization and advancement in education. Critical thinking, which entails assessing and solving issues, is vital When the global environment becomes more challenging. What is critical thinking? Essentially, critical thinking means-",
@@ -320,7 +320,7 @@ The more interesting the visuals, the more the engagement of students. Incorpora
   {
     heading1:
       "Mastering Financial Literacy for All: Essential Skills for a Brighter Future",
-      Category: "FINANCE",
+    Category: "FINANCE",
     p1: "Knowing how to mastering financial literacy for all: essential skills for a brighter future, is a burning topic for the students belonging from the different age groups.Students are well aware about their financial needs and how to manage them properly. ",
     heading2: "Introduction-",
     p2: "Financial literacy for all is no longer a luxury but a necessity in today's globalised speedy world. Understanding money management, savings, investments, and debt can dramatically improve one’s quality of life and future prospects. The good news is that there are countless financial literacy resources for all available today, making it easier than ever to enhance your financial knowledge. This blog post will delve into the importance of financial literacy, key concepts to master, and the resources and courses that can guide your learning journey to the summit. Demand for financial literacy is rising to its verge, so all the Learning Platforms across India, here Baoiam is getting familiar to provide the knowledge of financial literacy.",
@@ -556,13 +556,13 @@ The more interesting the visuals, the more the engagement of students. Incorpora
   },
   //  additional
   {
-    heading1: "A Complete Guide to Graphic Designing: Career Paths, Tools, and Opportunities",
+    heading1:
+      "A Complete Guide to Graphic Designing: Career Paths, Tools, and Opportunities",
     Category: "SCIENCE",
     p1: "Graphic designing is among the most exciting and fulfilling careers you can pursue in the current world where technology is strongly emphasized. This field can excite any student with a zeal for creativity and a desire to bring stories alive through visuals. Whether you want to develop eye-catching designs for clients and companies, produce easy website and application interfaces, or generate captivating advertising images, the field of graphic designing can provide not only the satisfaction of realizing your creativity but also potentially high income.",
     heading2: "What is software testing?",
     p2: "Software testing is the process of evaluating and verifying the functionality of a software application works according to input. It checks the input and outcome expected. Good testing helps prevent bugs and improve performance with efficiency. It not only aims at fixing issues but also provides measures to improve them.",
-    heading3:
-      "Why Choose Graphic Designing?",
+    heading3: "Why Choose Graphic Designing?",
     p3: [
       {
         head: "The employment rate in graphic designing careers is on the rise. Marketers in today’s businesses require highly skilled individuals to help develop appealing content in different industries.",
@@ -656,7 +656,8 @@ The more interesting the visuals, the more the engagement of students. Incorpora
     ],
   },
   {
-    heading1: "The Role of Social Media and Digital Marketing in Shaping the Youth",
+    heading1:
+      "The Role of Social Media and Digital Marketing in Shaping the Youth",
     Category: "DIGITAL MARKETING",
     p1: "software testing is essential to assess the functionality of a software program while developing a product — it's crucial for ensuring quality and reliability in software development. By learning about software testing we can guarantee reliability, security, and safety for users",
     heading2: "What is software testing?",
