@@ -8,16 +8,18 @@ import gsap from 'gsap'
 
 export const OurTeam = () => {
   document.title = "Baoiam - Our Team";
+
+
+
   useEffect(() => {
     window.scrollTo(0, 0);
-
-
-gsap.fromTo('.t1',{opacity:0,y:100},
+  gsap.fromTo('.t1',{opacity:0,
+  y:40},
   {opacity:1,
     y:0,
     duration:1,
     ease:'power1.inOut',
-    stagger:0.3,
+    stagger:0.2,
   })
 
 
