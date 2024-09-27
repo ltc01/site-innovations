@@ -9,17 +9,24 @@ import Brochure from "../Brochure.txt";
 import { CollegeCourseData, Highlights, OtherCourseData, School } from "../Data";
 import Testimonials from "../Components/Testmonials/Testimonials";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCourseDetails } from "../Redux/slices/courseDetailSlice";
+import courseDetailSlice, { fetchCourseDetails } from "../Redux/slices/courseDetailSlice";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BeatLoader } from "react-spinners";
 import { IoIosArrowRoundForward, IoIosArrowForward } from "react-icons/io";
 import CourseHero from "../Components/CourseDetails/CourseHero";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Navigation } from "swiper/modules";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const CourseDetailsPage = () => {
   const { id } = useParams();
   const [courseDetails, setCourseDetails] = useState({});
   const [showTab, setShowTab] = useState('plus');
+  const [otherCourses, setOtherCourses] = useState()
   const [fixed, setFixed] = useState(false)
   const [coursePlusContent, setCoursePlusContent] = useState([
     "Doubt clearing sessions",
@@ -107,6 +114,16 @@ const CourseDetailsPage = () => {
   const dispatch = useDispatch();
   const course = courses[id]; // Retrieve the course from the store by its id
 
+  const fetchCourseCategory = async (CourseId) => {
+    const response = await axios.get(`${apiUrl}/api/courses/?category=${CourseId}`);
+    // return response.data;
+    // console.log(response.data, "fetchCourseCategory");
+    setOtherCourses(response.data)
+  }
+
+  const otherCou = otherCourses?.filter(other => other?.title !== course?.title);
+  console.log(otherCou, "Filtered");
+
   useEffect(() => {
     // If the course is not in the store, fetch it
     if (!course && status !== "loading") {
@@ -121,6 +138,7 @@ const CourseDetailsPage = () => {
         setFixed(false);
       }
     };
+    fetchCourseCategory(course?.category)
 
     window.addEventListener("scroll", handleScroll);
   }, [dispatch, id, course, status]);
@@ -432,9 +450,79 @@ const CourseDetailsPage = () => {
 
         {/* </div> */}
       </div>
-        <CourseHighlights />
+
+      <CourseHighlights />
 
       {/* <Testimonials /> */}
+
+      {/* Related Courses */}
+      <div className="my-8 px-4 lg:px-24 w-full h-full">
+        <h2 className="text-3xl font-semibold text-center">Related <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">Courses</span></h2>
+        <Swiper
+          modules={[Navigation]}
+          spaceBetween={0} // Adjust the space between cards
+          slidesPerView={1} // Default number of slides per view
+          dot={false}
+          navigation={{
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          }}
+          pagination={{ clickable: true }}
+          className="swiper-container lg:px-6 mt-4 relative"
+          breakpoints={{
+            320: {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
+            620: {
+              slidesPerView: 2,
+              spaceBetween: 10,
+            },
+            740: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },
+            1024: {
+              slidesPerView: 4,
+              spaceBetween: 10,
+            },
+          }}
+        >
+          {otherCou.map((o, i) => {
+            return <SwiperSlide key={i}>
+              <div className="h-80 overflow-hidden dark:bg-indigo-900 dark:border shadow-md rounded-xl m-2">
+                <div className="relative h-[50%]">
+                  <img
+                    src={o.thumbnail_image}
+                    alt={o.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-3 left-4 flex">
+
+                    <span className="text-xs mr-3 bg-gradient-to-r from-orange-600 to-amber-500 text-white rounded-lg px-3 py-1">
+                      Premium
+                    </span>
+                    <span className="bg-slate-200 text-gray-800 rounded-lg text-xs px-3 py-1">
+                      Plus
+                    </span>
+                  </div>
+                </div>
+                <div className="h-fit flex flex-col justify-between px-4">
+                  <h3 className="text-lg font-semibold my-2">{o.title} </h3>
+                  <p className="text-sm pr-3 text-slate-600">{o.description.slice(0, 60) + "..."}</p>
+                  
+                </div>
+              </div>
+            </SwiperSlide>
+          })}
+        </Swiper>
+        <div className="absolute top-[60%] left-2 transform z-10">
+          <button className="swiper-button-prev text-indigo-600 hover:text-white transition"></button>
+        </div>
+        <div className="absolute top-[60%] right-2 transform z-10">
+          <button className="swiper-button-next text-indigo-500 hover:text-white transition"></button>
+        </div>
+      </div>
 
       <ToastContainer />
     </div >
