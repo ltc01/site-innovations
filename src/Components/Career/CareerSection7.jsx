@@ -172,11 +172,23 @@ export const CareerSection7 = () => {
           className="flex flex-col md:flex-row justify-center items-center w-full lg:px-20 "
         >
           {/* Image Section: Right side in the first section */}
-          <div className="w-full md:w-[40%] h-[250px] pl-8 pr-4 lg:pr-2">
+          {/* <div className="w-full md:w-[40%] h-[250px] pl-8 pr-4 lg:pr-2">
             <img
               src={work}
               alt="mission-image"
               className="w-[90%] h-full rounded-lg object-cover transition-transform duration-300 hover:scale-105"
+            />
+          </div> */}
+          <div className="w-full md:w-[40%] h-[250px] pl-8 pr-2 lg:pr-2 relative  ">
+            <img
+              src={work}
+              alt="mission-image"
+              className="w-[90%] h-full rounded-[30px] object-cover transition-transform duration-300 hover:scale-105"
+              style={{
+                // Solid indigo shadow
+                border: "2px solid #3730a3", // Indigo border
+                transform: "rotate(1deg)", // Slight rotation for dynamic feel
+              }}
             />
           </div>
 
@@ -204,16 +216,27 @@ export const CareerSection7 = () => {
             className="flex flex-col md:flex-row-reverse justify-center items-center w-full lg:px-20 "
           >
             {/* Image Section: Left side in the second section */}
-            <div className="w-full md:w-[40%] h-[250px] pl-6 mb-6 mt-8 md:mt-0 lg:pl-10 ">
+            {/* <div className="w-full md:w-[40%] h-[250px] pl-6 mb-6 mt-8 md:mt-0 lg:pl-10 ">
               <img
                 src={work1}
                 alt="vision-image"
                 className="w-[90%] h-full rounded-lg object-cover transition-transform duration-300 hover:scale-105"
               />
+            </div> */}
+            <div className="w-full md:w-[40%] h-[250px] pl-6 pr-2 lg:pr-2 relative "> 
+              <img
+                src={work1}
+                alt="mission-image"
+                className="w-[90%] h-full rounded-[30px] object-cover transition-transform duration-300 hover:scale-105"
+                style={{
+                  // Solid indigo shadow with direction
+                  border: "2px solid #3730a3", // Indigo border
+                  transform: "rotate(1deg)", // Slight rotation for dynamic feel
+                }}
+              />
             </div>
-
             {/* Content Section: Right side in the second section */}
-            <div className="w-full md:w-[60%] h-full px-4 md:px-4 ">
+            <div className="w-full md:w-[60%] h-full px-4 md:px-4  pt-8">
               <h2 className="text-xl lg:text-2xl  mb-2 font-bold text-black text-center md:text-left lg:pl-2 dark:text-white dark:font-semibold">
                 Work{" "}
                 <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">

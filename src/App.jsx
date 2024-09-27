@@ -47,9 +47,11 @@ import Courses from "./Pages/Courses";
 import NotFound from "./Pages/NotFound";
 import EnrollNowButton from "./Components/EnrollNowButton/EnrollNowButton";
 import Profile from "./Pages/Profile";
+import { ContactFormComponent } from "./Components/Contact/ContactForm";
 
 const App = () => {
   const [dark, setDark] = useState(false);
+  const [showForm, setShowForm] = useState(false);
   const location = useLocation();
   const theme = () => {
     setDark((old) => !old);
@@ -66,7 +68,6 @@ const App = () => {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
-
     return () => {};
   }, [location.pathname]);
 
@@ -80,7 +81,7 @@ const App = () => {
 
   return (
     <div className="dark:bg-black w-full max-w-[1440px] mx-auto overflow-hidden h-full dark:text-white ">
-      <Navbar theme={theme} />
+      <Navbar theme={theme} showForm={showForm} setShowForm={setShowForm} />
 
       <div className="mt-24">
         <Routes>
@@ -163,7 +164,10 @@ const App = () => {
           <Route path="*" element={<Navigate to="/404" replace />} />
         </Routes>
         {/* <ChatBot /> */}
-        <EnrollNowButton />
+        <EnrollNowButton showForm={showForm} setShowForm={setShowForm}/>
+        {showForm && (
+          <ContactFormComponent showForm={showForm} setShowForm={setShowForm} />
+        )}
       </div>
 
       <Footer dark={dark} />
