@@ -1,14 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { industry, interestedCheckbox } from "../../Data";
+import gsap from "gsap";
 
 const ContactForm = () => {
+
+
+useEffect(() => {
+
+  gsap.fromTo('.form',{opacity:0,y:30},{
+    opacity:1,
+    y:0,
+    duration:1,
+    ease:'back.inOut',
+    stagger:0.3,
+    scrollTrigger:{
+      trigger:'.formdiv',
+      start:'top 80%',
+      end:'bottom 90%'
+    }
+  })
+
+},[])
+
+
   return (
-    <div className="mt-20 w-[70%] p-4 mx-auto h-full max-lg:w-[80%] max-md:w-[90%] max-sm:w-[95%] max-xs:w-full max-xs:p-4 max-xs:mt-10">
-      <h1 className="text-5xl font-semibold max-lg:text-4xl max-md:text-3xl max-sm:text-3xl max-xs:text-3xl max-xs:text-center">
+    <div className="formdiv mt-20 w-[70%] p-4 mx-auto h-full max-lg:w-[80%] max-md:w-[90%] max-sm:w-[95%] max-xs:w-full max-xs:p-4 max-xs:mt-10">
+      <h1 className="form text-5xl font-semibold max-lg:text-4xl max-md:text-3xl max-sm:text-3xl max-xs:text-3xl max-xs:text-center">
         Contact
       </h1>
 
-      <form className="w-full h-full py-4 flex flex-col gap-4 text-black max-sm:gap-4">
+      <form className="form w-full h-full py-4 flex flex-col gap-4 text-black max-sm:gap-4">
         {/* Name */}
         <div className="flex flex-col w-full">
           <p className="text-lg font-medium max-sm:text-base dark:text-white">

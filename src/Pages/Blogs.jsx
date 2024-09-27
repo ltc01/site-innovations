@@ -272,7 +272,7 @@ const Blog = () => {
   };
 
   return (
-    <div className="dark:bg-black dark:text-white">
+    <div className='dark:bg-black dark:text-white'>
       <HeaderBlog
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
@@ -280,37 +280,37 @@ const Blog = () => {
         setSearchResults={setSearchResults}
         blog_list={blog_list}
       />
-      <div className="max-w-7xl dark:bg-black dark:text-white mx-auto py-8 px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-bold text-center">
+      <div className='max-w-7xl dark:bg-black dark:text-white mx-auto py-8 px-4 sm:px-6 lg:px-8'>
+        <h1 className='text-3xl font-bold text-center'>
           Our Latest Highlights
         </h1>
-        <h2 className="b2 text-lg text-center dark:text-slate-300 mt-2 mb-6">
+        <h2 className='b2 text-lg text-center dark:text-slate-300 mt-2 mb-6'>
           Dive into our latest blogs for fresh insights and trending topics{" "}
         </h2>
 
-        <div className=" p-6"></div>
-        <div className="px-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className=' p-6'></div>
+        <div className='px-6 md:px-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10'>
           {searchResults.map((item, i) => (
             <Link key={i} to={`/Blog_detail/${i}`}>
-              <div className="bg-white flex flex-col h-full dark:bg-black dark:text-white shadow-lg dark:hover:shadow-gray-300 dark:hover:shadow-md rounded-lg overflow-hidden transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-300 ">
-                <div className="relative">
+              <div className='bg-white flex flex-col h-full dark:bg-black dark:text-white shadow-lg dark:hover:shadow-gray-300 dark:hover:shadow-md rounded-lg overflow-hidden transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-300 '>
+                <div className='relative'>
                   <img
-                    className="w-full h-48 object-cover"
+                    className='w-full h-48 object-cover'
                     src={item.imgSrc}
                     alt={`${item.title}`}
                   />
                   {/* Button positioned over the image */}
                   <button
-                    type="button"
-                    className="absolute bottom-2 left-3  bg-slate-400 transition-all text-black text-xs font-medium rounded-full p-1"
+                    type='button'
+                    className='absolute bottom-2 left-3  bg-slate-400 transition-all text-black text-xs font-medium rounded-lg p-2'
                   >
                     {item.category}
                   </button>
                 </div>
-                <div className="p-4 flex-grow ">
-                  <h2 className="text-lg font-bold my-2">{item.text}</h2>
+                <div className='p-4 flex-grow '>
+                  <h2 className='text-lg font-bold my-2'>{item.text}</h2>
                   <span
-                    className="text-sm text-slate-700 font-semibold"
+                    className='text-sm text-slate-700 font-semibold'
                     style={{
                       display: "-webkit-box",
                       WebkitBoxOrient: "vertical",
@@ -320,7 +320,7 @@ const Blog = () => {
                   >
                     {item.des}
                   </span>
-                  <p className="text-xs text-slate-500 font-medium mt-2">
+                  <p className='text-xs text-slate-500 font-medium mt-2'>
                     {item.info}
                   </p>
                 </div>

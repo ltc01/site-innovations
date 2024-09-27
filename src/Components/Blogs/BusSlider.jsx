@@ -6,7 +6,6 @@ import "swiper/css/navigation";
 import ed_tech_enhances_critical_thinking from "../../assets/Blogs/ed_tech_enhances_critical_thinking.png";
 import gsap from "gsap";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import new_excited_tech_edu1 from "../../assets/Blogs/new_excited_tech_edu1.jpg";
 import screen_time from "../../assets/Blogs/screen_time.png";
 import { Link } from "react-router-dom";
@@ -86,14 +85,14 @@ export const BusSlider = () => {
   };
 
   return (
-    <div className="my-12">
+    <div className='my-12'>
       <div>
         {" "}
-        <h1 className="m-8 text-3xl font-bold text-center">
+        <h1 className='m-6 text-3xl font-bold text-center'>
           Popular or Most featured articles
         </h1>
       </div>
-      <div className="mb-6 mt-8 px-10">
+      <div className='mb-6 md:px-10'>
         <Swiper
           ref={swiperRef}
           keyboard={{
@@ -113,33 +112,33 @@ export const BusSlider = () => {
           }}
           onSlideChange={() => console.log("hi")}
           onSwiper={(swiper) => console.log("")}
-          className="b5 w-full m-auto p-6  rounded-lg  flex flex-col justify-center items-center gap-4"
+          className='b5 w-full m-auto p-6  rounded-lg  flex flex-col justify-center items-center gap-4'
         >
           {blog_slider?.map((item, i) => {
             return (
               <SwiperSlide
-                className="p-4 cursor-pointer hover:shadow-indigo-400 hover:shadow-md duration-200 hover:scale-105 dark:bg-zinc-900 bg-zinc-100 rounded-md  flex flex-col justify-center items-center gap-4"
+                className='p-4 cursor-pointer hover:shadow-indigo-400 hover:shadow-md duration-200 hover:scale-105 dark:bg-zinc-900 bg-zinc-100 rounded-md  flex flex-col justify-center items-center gap-4'
                 key={item.id}
               >
                 <Link to={`/Blogdetails/${i}`}>
-                  <div className="relative">
+                  <div className='relative'>
                     <img
-                      className="w-full h-48 object-cover"
+                      className='w-full h-48 object-cover'
                       src={item.imgSrc}
                       alt={`${item.title}`}
                     />
                     {/* Button positioned over the image */}
                     <button
-                      type="button"
-                      className="absolute bottom-2 left-3  bg-slate-400 transition-all text-black text-xs font-medium rounded-full p-1"
+                      type='button'
+                      className='absolute bottom-2 left-3  bg-slate-400 transition-all text-black text-xs font-medium rounded-lg p-2'
                     >
                       {item.category}
                     </button>
                   </div>
-                  <div className="p-4 flex-grow ">
-                    <h2 className="text-lg font-bold my-2">{item.text}</h2>
+                  <div className='p-4 flex-grow '>
+                    <h2 className='text-lg font-bold my-2'>{item.text}</h2>
                     <span
-                      className="text-sm text-slate-700 dark:text-slate-300 font-semibold"
+                      className='text-sm text-slate-700 dark:text-slate-300 font-semibold'
                       style={{
                         display: "-webkit-box",
                         WebkitBoxOrient: "vertical",
@@ -149,7 +148,7 @@ export const BusSlider = () => {
                     >
                       {item.des}
                     </span>
-                    <p className="text-xs text-slate-500  font-medium mt-2">
+                    <p className='text-xs text-slate-500  font-medium mt-2'>
                       {item.info}
                     </p>
                   </div>
@@ -159,11 +158,11 @@ export const BusSlider = () => {
           })}
           {/* Swiper navigation buttons */}
           <div
-            className="swiper-button-prev bg-gray-800 p-2 rounded-full"
+            className='swiper-button-prev bg-gray-800 p-2 rounded-full'
             onClick={handlePrev}
           ></div>
           <div
-            className="swiper-button-next bg-gray-800 p-2 rounded-full"
+            className='swiper-button-next bg-gray-800 p-2 rounded-full'
             onClick={handleNext}
           ></div>
         </Swiper>
