@@ -61,9 +61,7 @@ const HireFromUs = () => {
                 Your trusted partner for finding the right candidates
             </p>
             
-                {/* <button className="px-6 py-3 bg-gradient-to-r from-pink-500 opacity-100 to-pink-600 hover:scale-105 text-white text-lg font-semibold rounded-lg transition-all duration-300">
-                    
-                </button> */}
+
             <Link to={"#why-choose-us"} >
                 {/* <button onClick={()=> navigate('/contact')} className='rounded-full mx-auto  gap-2 flex items-center px-6 py-2 justify-center font-medium text-white group bg-gradient-to-br from-purple-600 to-blue-500 hover:text-black dark:text-white transition-all ease-in-out hover:tracking-wider duration-75'>
                     <p className='relative transition-all ease-in duration-75 group-hover:bg-opacity-0'> 
