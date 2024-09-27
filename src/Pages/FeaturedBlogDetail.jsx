@@ -211,7 +211,7 @@ export const FeaturedBlogDetail = () => {
       </div>
 
       {/* end here */}
-      <div className='mb-5 mx-[10%] w-[80%] lg:w-[50%] mt-[2rem]'>
+      <div className='mb-[10%] mx-[10%] w-[80%] lg:w-[50%] mt-[2rem]'>
         <h1 className='text-[1.3rem] font-bold'>Leave a Reply </h1>
         <p className='text-[1.02rem] my-[1.2rem]'>
           Your email address will not be published. Required fields are marked{" "}
@@ -236,7 +236,7 @@ export const FeaturedBlogDetail = () => {
         </div>
       </div>
 
-      <h2 className='text-[2rem] ml-[10%] font-bold mt-[4rem] xs:top-10 relative top-6 xs:text-[1.325rem]'>
+      {/* <h2 className='text-[2rem] ml-[10%] font-bold mt-[4rem] xs:top-10 relative top-6 xs:text-[1.325rem]'>
         Other Blogs
       </h2>
       <div className='mx-[10%]  mb-5 md:flex-row w-[80%] md:gap-[2rem] flex-col mt-[2rem] flex justify-evenly'>
@@ -281,7 +281,7 @@ export const FeaturedBlogDetail = () => {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
       <NewsletterBanner />
     </>
   );
