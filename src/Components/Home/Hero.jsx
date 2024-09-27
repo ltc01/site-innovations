@@ -15,9 +15,9 @@ const Hero = () => {
     tl.fromTo(leftRef.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0 });
     tl.fromTo(rightRef.current, { opacity: 0, x: 50 }, { opacity: 1, x: 0 }, "<");
 
-    
+
     return () => {
-      tl.kill(); 
+      tl.kill();
     };
   }, []);
 
@@ -33,14 +33,13 @@ const Hero = () => {
         className="w-full flex md:pl-5 gap-y-1 pb-10 md:pb-0 flex-col lg:w-1/2 text-center md:text-left"
       >
         <h1 className="text-3xl lg:text-5xl font-bold">
-          Create Your{" "}
+          Stand{" "}
           <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
             One in a Million
           </span>{" "}
-          Journey
         </h1>
         <p className="mt-5 dark:text-white text-black">
-          Experience personalized learning designed to equip you with the skills to excel. Unlock new opportunities, grow your expertise, and take your next big step with confidence.
+          We give you the opportunity to stand out among millions and shine in the crowd. With our advanced courses and expert guidance live this excellent journey.
         </p>
         <div className="mt-6 flex justify-center md:justify-normal lg:justify-start space-x-4">
           <button

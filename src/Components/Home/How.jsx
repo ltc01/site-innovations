@@ -41,15 +41,13 @@ const How = () => {
       <div className="flex justify-center my-4">
         <div className="w-[80%] xl:w-[85%] text-center">
           <h1 className="text-3xl sm:text-4xl my-5 font-bold">
-            How we{" "}
+            Our {" "}
             <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
-              Work
+              Workflow
             </span>
           </h1>
           <p className="mx-auto w-full lg:w-[80%]">
-            We create high-quality courses mentored by experts, offering
-            full-time support, live corporate training, placement help, and
-            networking opportunities.
+            We provide the most in demand courses, accompanied by professional mentors and guidance at every stage. After a successful learning program, we offer placements support, ensuring assistance continues even after the courses conclude.
           </p>
         </div>
       </div>
@@ -58,32 +56,32 @@ const How = () => {
         <IconBox
           ref={(el) => (iconBoxesRef.current[0] = el)}
           icon={<GoGear />}
-          title="Expert Guidance"
-          text="Boost your confidence with guidance from top experts."
+          title="Professional Mentorship"
+          text="Boost your career with right guidance from top notch experts"
         />
         <IconBox
           ref={(el) => (iconBoxesRef.current[1] = el)}
           icon={<IoPeopleOutline />}
-          title="Community Support"
-          text="Join discussions and share ideas with a supportive community."
+          title="Group Collaboration"
+          text="You can participate in group discussions where your opinions are valued, heard and implemented.           "
         />
         <IconBox
           ref={(el) => (iconBoxesRef.current[2] = el)}
           icon={<GoProjectRoadmap />}
-          title="Live Projects"
-          text="Gain practical knowledge by working on live corporate projects."
+          title="Real-Time Projects"
+          text="After completing theoretical knowledge, you will receive practical, hands-experience while working on live projects"
         />
         <IconBox
           ref={(el) => (iconBoxesRef.current[3] = el)}
           icon={<HiOutlineRocketLaunch />}
-          title="Placement Help"
-          text="Learn interview skills and land top jobs with our guidance."
+          title="Placement Assistance"
+          text="Learn how to ace any interview with our comprehensive placement assistance program."
         />
         <IconBox
           ref={(el) => (iconBoxesRef.current[4] = el)}
           icon={<GoGlobe />}
-          title="Networking & Funding"
-          text="Enhance networking and secure financial aid for your business."
+          title="Relationship Building & Funding"
+          text="Discover how to build valuable connections and access funding support."
         />
       </div>
     </>
@@ -97,7 +95,7 @@ const IconBox = React.forwardRef(({ icon, title, text }, ref) => (
         {icon}
       </div>
     </div>
-    <h2 className="text-nowrap text-lg font-bold mb-2">{title}</h2>
+    <h2 className="text-lg font-bold mb-2">{title}</h2>
     <p className="text-sm tracking-tight">{text}</p>
   </div>
 ));
