@@ -23,33 +23,36 @@ const TeamComponent = () => {
   const cardsRef = useRef([]);
 
   useEffect(() => {
-    cardsRef.current.forEach((el) => {
-      gsap.fromTo(
-        el,
-        { opacity: 0, y: 50 }, 
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: el,
-            start: "top 80%", 
-            toggleActions: "play none none reverse",
-            markers: false, 
-          },
+    
+    gsap.fromTo('.sec5',
+      {
+        opacity:0,
+        y:30
+      },
+      {
+        opacity:1,
+        y:0,
+        duration:1,
+        ease:'power1.out',
+        stagger:0.2,
+        scrollTrigger:{
+          trigger:'.secdiv5',
+          start:'top 70%',
+          end:'bottom 80%'
         }
-      );
-    });
+      }
+    )
+
+
   }, []);
 
   return (
-    <div className="team-component">
-      <div className="text-center text-xl md:text-4xl p-6 py-8 tracking-wide leading-4 font-bold">
+    <div className="secdiv5 team-component">
+      <div className="sec5 text-center text-xl md:text-4xl p-6 py-8 tracking-wide leading-4 font-bold">
         Our <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">Team</span>
       </div>
 
-      <div className="p-6">
+      <div className="sec5 p-6">
         <Swiper
           keyboard={{ enabled: true }}
           navigation={true}

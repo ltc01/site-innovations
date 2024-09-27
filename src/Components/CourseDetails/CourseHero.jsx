@@ -8,14 +8,14 @@ const CourseHero = ({course, downloadBrochure, enrollNowScroll}) => {
     console.log(course);
     
     return (
-        <div className="pb-12 pt-4 px-4 lg:px-24 bg-gradient-to-t from-orange-100 to-transparent">
+        <div className="pb-12 pt-4 px-4 md:px-8 xl:px-24 bg-gradient-to-t from-orange-100 to-transparent">
             <div className="flex items-center gap-2 text-xs">
                 <Link to={`/courses`}>Courses</Link>
                 <span><IoIosArrowForward /></span>
                 <span>School</span>
                 <span><IoIosArrowForward /></span>
-                {/* <Link to={`/course/${course.slug}/${course.id}`}>{course?.title}</Link> */}
-                <span onClick={() => window.location.reload()}>{course?.title}</span>
+                <Link to={`/course/${course?.slug}/${course?.id}`}>{course?.title}</Link>
+                {/* <span onClick={() => window.location.reload()}>{course?.title}</span> */}
             </div>
 
             <div className="flex justify-between items-center mt-4">
