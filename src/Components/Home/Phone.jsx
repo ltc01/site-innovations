@@ -26,9 +26,8 @@ const Phone = () => {
             {/* Success Icon */}
             <FaCheckCircle
               size={50}
-              className={`text-green-500 mx-auto mb-4 ${
-                animatePing ? "animate-ping" : ""
-              }`}
+              className={`text-green-500 mx-auto mb-4 ${animatePing ? "animate-ping" : ""
+                }`}
             />
 
             <h2 className="text-2xl font-bold text-indigo-600 mb-4 transition-all duration-300 ease-in-out">
@@ -58,14 +57,14 @@ const Phone = () => {
         </div>
         <div className="md:w-1/3 w-[80%]">
           <p className="text-3xl font-bold">
-            Take the Leap—Start{" "}
+            Seize The {" "}
             <span className="bg-gradient-to-r from-pink-500  to-violet-600 bg-clip-text text-transparent">
-              Learning
+              Opportunity - Begin
             </span>{" "}
-            Now!
+            Your Journey Now!
           </p>
           <p className="font-medium mt-2 text-slate-600">
-            Unlock your potential for success with our courses.
+            Maximize your growth with our transformative courses
           </p>
 
           <form

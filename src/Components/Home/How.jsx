@@ -40,7 +40,7 @@ const How = () => {
     <>
       <div className="flex justify-center my-4">
         <div className="w-[80%] xl:w-[85%] text-center">
-          <h1 className="text-3xl sm:text-4xl my-5 font-bold">
+          <h1 className="text-3xl sm:text-4xl my-5 font-extrabold">
             Our {" "}
             <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
               Workflow
@@ -52,7 +52,7 @@ const How = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-5 w-full px-10 mt-10 mb-[4rem] mx-auto">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-5 w-full px-10 xl:px-16 mt-10 mb-[4rem] mx-auto">
         <IconBox
           ref={(el) => (iconBoxesRef.current[0] = el)}
           icon={<GoGear />}

@@ -63,7 +63,7 @@ export default function SliderSection() {
   return (
     <div className="slider-section dark:bg-[#080529] w-full relative py-20 overflow-hidden ">
       <div className="text-center mb-0 lg:mb-8">
-        <h2 className="text-4xl font-bold mb-8">Featured <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent" >Courses</span></h2>
+        <h2 className="text-4xl font-extrabold mb-8">Featured <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent" >Courses</span></h2>
         {/* <div className="flex gap-3 items-center justify-center mt-8 md:mt-0">
           {.map(
             (category) => (
@@ -118,7 +118,7 @@ export default function SliderSection() {
         >
            {status === 'failed' ? categories[selectedCategory]?.map((slide, index) => (
             <SwiperSlide key={index}>
-              <div className="h-[22.5rem] overflow-hidden dark:bg-indigo-900 dark:border shadow-md rounded-xl m-2">
+              <div className="h-[22.5rem] overflow-hidden dark:bg-indigo-900 dark:border shadow-md rounded-3xl m-2">
                 <div className="relative h-[50%]">
                   <img
                     src={slide.banner}
@@ -153,7 +153,7 @@ export default function SliderSection() {
           ))
           :  programCourses?.map((slide, index) => (
             <SwiperSlide key={index}>
-              <div className="h-[22.5rem] overflow-hidden dark:bg-indigo-900 dark:border shadow-md rounded-xl m-2">
+              <div className="h-[22.5rem] overflow-hidden dark:bg-indigo-900 dark:border shadow-md rounded-3xl m-2">
                 {/* Image Container */}
                 <div className="relative h-[50%]">
                   <img
@@ -164,11 +164,11 @@ export default function SliderSection() {
                   {/* Price and Duration in the same row */}
                 <div className="absolute top-3 left-4 flex">
                  
-                    <span className="text-xs mr-3 bg-gradient-to-r from-orange-600 to-amber-500 text-white rounded-lg px-3 py-1">
+                    <span className="text-xs mr-3 bg-gradient-to-r from-orange-600 to-amber-500 text-white rounded-lg px-4 py-1">
                       Premium
                     </span>
                     {/* Plus button */}
-                    <span className="bg-slate-200 text-gray-800 rounded-lg text-xs px-3 py-1">
+                    <span className="bg-slate-200 text-gray-800 rounded-lg text-xs px-4 py-1">
                       Plus
                     </span>
                 </div>
@@ -200,10 +200,10 @@ export default function SliderSection() {
 
       {/* Custom Navigation Buttons Positioned on the Sliders */}
       <div className="absolute top-[60%] left-2 transform z-10">
-        <button className="swiper-button-prev text-indigo-600 hover:text-white transition"></button>
+        <button className="swiper-button-prev text-indigo-600 transition"></button>
       </div>
       <div className="absolute top-[60%] right-2 transform z-10">
-        <button className="swiper-button-next text-indigo-500 hover:text-white transition"></button>
+        <button className="swiper-button-next text-indigo-500 transition"></button>
       </div>
     </div>
   );

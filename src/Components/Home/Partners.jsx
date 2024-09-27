@@ -62,17 +62,16 @@ const Partners = () => {
           className="text-3xl px-2 text-center sm:text-4xl dark:text-white font-bold text-gray-900"
           ref={(el) => (titleRef.current[0] = el)}
         >
-          Our Trusted{" "}
+          Our thriving {" "}
           <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
-            Business Partners
+          collaborators
           </span>
         </h2>
         <p
           className="text-center px-4 text-slate-600 dark:text-slate-300 w-full md:w-[60%] mx-auto mb-14 mt-6 md:mt-10"
           ref={(el) => (descriptionRef.current[0] = el)}
         >
-          We collaborate with organizations from startups to multinational
-          firms, including a diverse range of business and non-profits.
+          We collaborate with organizations, from startups to multinational firms, including diverse range of business and nonprofits
         </p>
         <BrandMarquee array={brands} />
       </div>
@@ -124,7 +123,7 @@ export const UniversityPartners = () => {
   return (
     <div className="my-20">
       <h2
-        className="text-3xl text-center sm:text-4xl px-2 dark:text-white font-bold text-gray-900"
+        className="text-3xl text-center sm:text-4xl px-2 dark:text-white font-extrabold text-gray-900"
         ref={(el) => (titleRef.current[1] = el)}
       >
         Shaping Future with{" "}

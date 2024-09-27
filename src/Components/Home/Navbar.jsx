@@ -131,7 +131,7 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
         ></div>
       )}
       <div
-        className={`flex z-[90] text-slate-600 h-24 items-center max-w-[1440px] justify-between px-4 py-1 w-full fixed top-0 ${
+        className={`flex z-[90] text-slate-600 h-24 items-center justify-center gap-28 px-4 py-1 w-full fixed top-0 ${
           isTransparent
             ? "bg-white dark:bg-black"
             : "bg-white/70 backdrop-blur dark:bg-black/30 "
