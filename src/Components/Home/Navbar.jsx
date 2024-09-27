@@ -121,7 +121,7 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
         ></div>
       )}
       <div
-        className={`flex z-[90] text-slate-600 h-24 items-center max-w-[1440px] justify-between px-4 py-1 w-full fixed top-0 ${
+        className={`flex z-[90] text-slate-600 dark:text-slate-200 h-24 items-center max-w-[1440px] justify-between px-4 py-1 w-full fixed top-0 ${
           isTransparent
             ? "bg-white dark:bg-black"
             : "bg-white/70 backdrop-blur dark:bg-black/30 "
@@ -136,7 +136,7 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
           className={`hidden lg:flex items-center ${
             isDark ? "font-semibold" : "font-medium text-sm"
           } justify-between `}
-        >
+        > 
           <Link
             to={"/"}
             onClick={() => handleLinkClick("Home")}
@@ -237,7 +237,7 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
                 <BiLogIn
                   onClick={() => navigate('/login')}
                   size={20}
-                  className=" z-10 relative text-slate-500 cursor-pointer"
+                  className=" z-10 relative text-slate-500 dark:text-slate-200  cursor-pointer"
                 />
               </div>
 
@@ -291,7 +291,7 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
               onClick={darkTheme}
               className="text-base hidden lg:block cursor-pointer "
             >
-              {isDark ? <BsSun className="text-slate-600" /> : <BsMoonStars lassName="text-slate-600"/>}
+              {isDark ? <BsSun className="text-slate-600 dark:text-slate-200 " /> : <BsMoonStars lassName="text-slate-600"/>}
             </span>
 
             {/* <Enroll /> */}

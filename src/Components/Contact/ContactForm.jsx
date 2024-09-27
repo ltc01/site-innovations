@@ -176,7 +176,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
         Course: "",
         Consent: false,
       });
-    } catch (error) {
+    } catch (error) {    
       setLoading(false);
       toast.error("An error occurred");
       console.error("Error submitting form", error);

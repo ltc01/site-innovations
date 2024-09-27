@@ -121,7 +121,7 @@ export default function SliderSection() {
               <div className="h-[22.5rem] overflow-hidden dark:bg-indigo-900 dark:border shadow-md rounded-xl m-2">
                 <div className="relative h-[50%]">
                   <img
-                    src={slide.banner}
+                    src={slide.banner || 'https://miro.medium.com/v2/resize:fit:720/1*aBQrwweY6-qFVWeizUrTnQ.png'}
                     alt={slide.course}
                     className="w-full h-full object-cover"
                   />
