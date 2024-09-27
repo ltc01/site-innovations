@@ -280,16 +280,16 @@ const Blog = () => {
         setSearchResults={setSearchResults}
         blog_list={blog_list}
       />
-      <div className='max-w-7xl dark:bg-black dark:text-white mx-auto py-8 px-4 sm:px-6 lg:px-8'>
-        <h1 className='text-3xl font-bold text-center'>
+      <div className="max-w-7xl dark:bg-black dark:text-white mx-auto py-8 px-4 sm:px-6 lg:px-8">
+        <h1 className="text-3xl font-bold text-center">
           Our Latest Highlights
         </h1>
-        <h2 className='b2 text-lg text-center dark:text-slate-300 mt-2 mb-6'>
+        <h2 className="b2 text-lg text-center dark:text-slate-300 mt-2 mb-6">
           Dive into our latest blogs for fresh insights and trending topics{" "}
         </h2>
 
-        <div className=' p-6'></div>
-        <div className='px-6 md:px-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10'>
+        <div className=" p-6"></div>
+        <div className="px-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {searchResults.map((item, i) => (
             <Link key={i} to={`/Blog_detail/${i}`}>
               <div className='bg-white flex flex-col h-full dark:bg-black dark:text-white shadow-lg dark:hover:shadow-gray-300 dark:hover:shadow-md rounded-lg overflow-hidden transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-300 '>
