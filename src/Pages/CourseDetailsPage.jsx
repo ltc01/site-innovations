@@ -421,15 +421,7 @@ const CourseDetailsPage = () => {
                         </div>
 
                         <button
-                          onClick={() => {
-                            if (localStorage.getItem("access_token"))
-                              navigate(
-                                `/checkout/${id}/${
-                                  p.name == "premium" ? "Premium" : "Plus"
-                                }`
-                              ,{ state: { course: course, price:p.price } });
-                            else navigate("/login",{ state: { course: course } });
-                          }}
+                          onClick={() => {navigate(`/checkout/${id}/${p.name == "premium" ? "Premium" : "Plus"}`,{state: { course: {...course,price:p.price}} })}}
                           className={`block  rounded-lg ${
                             p.name === "premium"
                               ? "bg-orange-500 text-white"

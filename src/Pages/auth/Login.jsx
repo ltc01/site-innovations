@@ -19,12 +19,14 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const location = useLocation();
   const requestRef = useRef(false);
-
+  const from = '/profile';
   const [pass, setPass] = useState(false);
+  const [parentState,setParentState]=useState({...location})
 
-  useEffect(() => {
+console.log(parentState)
+useEffect(() => {
+    if (localStorage.getItem("access_token"))  navigate(from,{state:{...parentState},replace:true})
     window.scrollTo(0, 0);
-    if (localStorage.getItem("access_token")) navigate("/profile");
     const values = queryString.parse(location.search);
     const state = values.state || null;
     const code = values.code || null;
@@ -35,7 +37,7 @@ const Login = () => {
     if (state && code && !localStorage.getItem("authenticated")) {
       googleAuthenticate(state, code);
     }
-  }, [location]);
+  }, []);
 
   const googleAuthenticate = async (state, code) => {
     if (requestRef.current) return;
@@ -77,7 +79,7 @@ const Login = () => {
         localStorage.setItem("authenticated", true);
 
         setTimeout(() => {
-          navigate("/profile");
+           navigate(from,{state:{...parentState},replace:true})
         }, 2000);
       }
     } catch (error) {
@@ -135,7 +137,7 @@ const Login = () => {
         });
 
         setTimeout(() => {
-          navigate("/profile");
+          navigate(from,{state:{...parentState},replace:true})
         }, 2000);
       } else {
         throw new Error(response.data?.detail || "Login failed.");

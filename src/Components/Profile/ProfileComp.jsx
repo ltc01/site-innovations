@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 const ProfileComp = ({ userInfo }) => {
     // console.log(userInfo);
     const user = useSelector((state) => {
-        console.log(state);
+        // console.log(state);
         return state.user;
     });
 

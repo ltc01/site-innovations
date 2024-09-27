@@ -25,33 +25,32 @@ const razorpayKeyId = import.meta.env.RAZORPAY_KEY_ID;
 
 const Checkout = () => {
   const navigate = useNavigate();
-  const selectedCourse=useLocation().state.course;
-  const coursePrice=useLocation().state.price;
+  const location = useLocation();
+  
+  const course = { title: 'title', price: 4999, thumbnail_image: '', description: 'description' };
+  // const course = location.state.course;
+  // const price=useLocation().state;
   const invalidCouponToast = () => toast("Invalid Referral Code!");
-  const { id, plan, course } = useParams();
+  const { id, plan } = useParams();
+console.log(location.state?.course.price);
+
+  // const { course } = {course:{
+  //   title:"Course Title",
+  //   thumbnail_image:"",
+  //   description:"description",
+  //   price:4999,
+  // }};
   const [proceedButton, setProceedButton] = useState(
-    `PROCEED TO PAY ₹${coursePrice}`
+    `PROCEED TO PAY ₹${course.price}`
   );
   const [referral, setReferral] = useState("");
   const [enrollingCourse, setEnrollingCourse] = useState({});
   const [isDescriptionVisible, setIsDescriptionVisible] = useState(false);
-
-  useEffect(() => {
-    if (!localStorage.getItem("access_token")) navigate("/login");
-    // alert('id is:',id , ' and plan is:',plan)
-    else {
-      // window.scrollTo(0, 0);
-      console.log(course, id, plan);
-      console.log(selectedCourse)
-    }
-    return () => { };
-  }, []);
-
-
+  
   const handleCheckout = () => {
     setProceedButton("Loading....");
     const buyCourse = async () => {
-      console.log(localStorage.getItem("access_token"));
+      // console.log(localStorage.getItem("access_token"));
       try {
         const { data } = await axios.post(
           `${apiUrl}/api/orders/`,
@@ -123,7 +122,7 @@ const Checkout = () => {
       } catch (err) {
         console.log(err.stack);
         console.log(proceedButton);
-        setProceedButton(`PROCEED TO PAY ₹${coursePrice}`);
+        setProceedButton(`PROCEED TO PAY ₹${course.price}`);
         // toast.error("Something went wrong");
       }
     };
@@ -140,11 +139,11 @@ const Checkout = () => {
         {/* Course Content */}
         <div className="w-full h-fit flex items-center flex-col md:flex-row justify-between gap-4 bg-white px-8 py-4 rounded-lg">
           <div className="w-full md:w-[25%] h-full overflow-hidden rounded-xl">
-            <img className="w-full h-full object-cover" src={selectedCourse.thumbnail_image || `https://miro.medium.com/v2/resize:fit:720/1*aBQrwweY6-qFVWeizUrTnQ.png`} alt="" />
+            <img className="w-full h-full object-cover" src={`https://miro.medium.com/v2/resize:fit:720/1*aBQrwweY6-qFVWeizUrTnQ.png`} alt="" />
           </div>
           <div className="w-full md:w-[75%] h-full">
-            <h1 className="text-xl font-semibold bg-gradient-to-r from-pink-500  to-violet-600 bg-clip-text text-transparent">{selectedCourse.title}</h1>
-            <p className="text-sm mt-2">{selectedCourse.description.split(".")[0]}</p>
+            <h1 className="text-xl font-semibold bg-gradient-to-r from-pink-500  to-violet-600 bg-clip-text text-transparent">{course.title}</h1>
+            <p className="text-sm mt-2">{course.description.split(".")[0]}</p>
             <p className="text-sm mt-4 flex items-center gap-2">
               <span>25 Lessons</span>
               •
@@ -242,7 +241,7 @@ const Checkout = () => {
         <div className="w-full bg-white rounded-lg mb-4 p-4">
           <p className="text-xl font-semibold">Order Summary</p>
           <div className="flex flex-col gap-2 w-full mt-4">
-            <p className="flex items-center justify-between w-full">Course: <span>₹{coursePrice}</span></p>
+            <p className="flex items-center justify-between w-full">Course: <span>₹{course.price}</span></p>
             <p className="flex items-center justify-between w-full">Discount: <span>₹100</span></p>
             <p className="flex items-center justify-between w-full">GST: <span>₹25</span></p>
           </div>
@@ -252,7 +251,7 @@ const Checkout = () => {
               Total
             </h2>
             <p className="text-black text-lg font-semibold dark:text-white">
-              ₹{coursePrice}
+              ₹{course.price}
             </p>
           </div>
 

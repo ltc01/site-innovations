@@ -48,6 +48,7 @@ import NotFound from "./Pages/NotFound";
 import EnrollNowButton from "./Components/EnrollNowButton/EnrollNowButton";
 import Profile from "./Pages/Profile";
 import { ContactFormComponent } from "./Components/Contact/ContactForm";
+import AuthNavigator from "./Pages/auth/AuthNavigator";
 
 const App = () => {
   const [dark, setDark] = useState(false);
@@ -126,12 +127,12 @@ const App = () => {
 
           {/* Checkout */}
 
-          <Route path="/checkout/:course/:id/:plan?" element={<Checkout />} />
+          <Route path="/checkout/:id/:plan" element={<AuthNavigator><Checkout /></AuthNavigator>} />
           <Route path="/courses" element={<Courses />} />
 
           {/* Profile & Dashboard */}
-          <Route path="/profile" element={<SideBar />} />
-          <Route path="/instructor-dashboard" element={<TeacherDashboard />} />
+          <Route path="/profile" element={<AuthNavigator><SideBar /></AuthNavigator>} />
+          <Route path="/instructor-dashboard" element={<AuthNavigator><TeacherDashboard /></AuthNavigator>} />
 
           {/* Maintenace */}
           <Route path="/Maintenance" element={<Maintenance />} />
