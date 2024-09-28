@@ -2,163 +2,21 @@ import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import SliderHero from "../Components/School/SliderHero";
 import OurHands from "../assets/Team/TeamHands.jpg";
-import {
-  FaArrowRight,
-  FaBug,
-  FaBullhorn,
-  FaCamera,
-  FaChartLine,
-  FaCode,
-  FaGlobe,
-  FaLightbulb,
-  FaMicrophone,
-  FaPaintbrush,
-  FaPalette,
-  FaRobot,
-  FaUserTie,
-} from "react-icons/fa6";
-import { FaCog, FaHandsHelping, FaSearch, FaTasks } from "react-icons/fa";
-import {
-  MdContentPaste,
-  MdDesignServices,
-  MdGroup,
-  MdWeb,
-} from "react-icons/md";
-import { BsBank } from "react-icons/bs";
-import { GiBrain } from "react-icons/gi";
-
-// import { CollegeCourseData } from "../Data/CollegeData";
-import { SiAndroid, SiDatabricks, SiGoogle } from "react-icons/si";
+import { FaHandsHelping} from "react-icons/fa";
 import { FiCheckCircle, FiClock, FiTrendingUp } from "react-icons/fi";
-import { CollegeCourseData } from "../Data";
-import { AiOutlineRobot } from "react-icons/ai";
-import Program from "../Components/School/Program";
+import Program from "../Components/CourseCommon/Program";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useSelector } from "react-redux";
-import Testimonials from "../Components/Testmonials/Testimonials";
 
 const Courses = () => {
   const { allCourses, status, error } = useSelector((state) => state.courses);
   useEffect(() => {
     console.log("allCourses: ", allCourses);
-
     return () => {};
   }, []);
-
-  // const static_data = [
-  //   <Link to="/course/1">
-  //     <span className="relative z-10 flex items-center gap-4">
-  //       <FaMicrophone
-  //         className="text-indigo-600 flex-shrink-0 group-hover:text-white"
-  //         size={22}
-  //       />
-  //       <span className="">English Speaking/Public Speaking</span>
-  //     </span>
-  //   </Link>,
-  //   <Link to="/course/2">
-  //     <span className="relative z-10 flex items-center gap-4 ">
-  //       <FaLightbulb
-  //         className="text-indigo-600 flex-shrink-0 group-hover:text-white"
-  //         size={22}
-  //       />
-  //       <span className="">Creative Writing</span>
-  //     </span>
-  //   </Link>,
-  //   <Link to="/course/3">
-  //     <span className="relative z-10 flex items-center gap-4 ">
-  //       <FaPaintbrush
-  //         className="text-indigo-600 flex-shrink-0 group-hover:text-white"
-  //         size={22}
-  //       />
-  //       <span className="">Art and Craft (DIY)</span>
-  //     </span>
-  //   </Link>,
-  //   <Link to="/course/4">
-  //     <span className="relative z-10 flex items-center gap-4 ">
-  //       <FaCog
-  //         className="text-indigo-600 flex-shrink-0 group-hover:text-white"
-  //         size={22}
-  //       />
-  //       <span className="">Critical Thinking & Problem Solving</span>
-  //     </span>
-  //   </Link>,
-  //   <Link to="/course/5">
-  //     <span className="relative z-10 flex items-center gap-4 ">
-  //       <FaHandsHelping
-  //         className="text-indigo-600 flex-shrink-0 group-hover:text-white"
-  //         size={22}
-  //       />
-  //       <span className="">Life Skills</span>
-  //     </span>
-  //   </Link>,
-  //   <Link to="/course/6">
-  //     <span className="relative z-10 flex items-center gap-4 ">
-  //       <FaCamera
-  //         className="text-indigo-600 flex-shrink-0 group-hover:text-white"
-  //         size={22}
-  //       />
-  //       <span className="">Photography & Editing Skills</span>
-  //     </span>
-  //   </Link>,
-  //   <Link to="/course/7">
-  //     <span className="relative z-10 flex items-center gap-4 ">
-  //       <FaCode
-  //         className="text-indigo-600 flex-shrink-0 group-hover:text-white"
-  //         size={22}
-  //       />
-  //       <span className="">Technology Development with AI & Coding</span>
-  //     </span>
-  //   </Link>,
-  //   <Link to="/course/8">
-  //     <span className="relative z-10 flex items-center gap-4 ">
-  //       <FaChartLine
-  //         className="text-indigo-600 flex-shrink-0 group-hover:text-white"
-  //         size={22}
-  //       />
-  //       <span className="">Entrepreneurship & Innovation</span>
-  //     </span>
-  //   </Link>,
-  //   <Link to="/course/9">
-  //     <span className="relative z-10 flex items-center gap-4 ">
-  //       <MdGroup
-  //         className="text-indigo-600 flex-shrink-0 group-hover:text-white"
-  //         size={22}
-  //       />
-  //       <span className="">Social Media & Digital Marketing</span>
-  //     </span>
-  //   </Link>,
-  //   <Link to="/course/10">
-  //     <span className="relative z-10 flex items-center gap-4 ">
-  //       <BsBank
-  //         className="text-indigo-600 flex-shrink-0 group-hover:text-white"
-  //         size={22}
-  //       />
-  //       <span className="">Finance Education</span>
-  //     </span>
-  //   </Link>,
-  // ];
-  const static_data = allCourses[0]?.courses.map((course) => (
-    <Link to={`/course/${course.title}/${course.id}`}>
-      <span className="relative z-10 flex items-center gap-4 ">
-        <span className="">{course.title}</span>
-      </span>
-    </Link>
-  ));
-  const static_data2 = allCourses[1]?.courses.map((course) => (
-    <Link to={`/course/${course.title}/${course.id}`}>
-      <span className="relative z-10 flex items-center gap-4 ">
-        <span className="">{course.title}</span>
-      </span>
-    </Link>
-  ));
-  const static_data3 = allCourses[2]?.courses.map((course) => (
-    <Link to={`/course/${course.title}/${course.id}`}>
-      <span className="relative z-10 flex items-center gap-4 ">
-        <span className="">{course.title}</span>
-      </span>
-    </Link>
-  ));
+  const static_data = allCourses[0]?.courses;
+  const static_data2 = allCourses[1]?.courses;
+  const static_data3 = allCourses[2]?.courses;
 
   const textRef = useRef(null);
   const sliderRef = useRef(null);
@@ -263,12 +121,12 @@ const Courses = () => {
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold mb-4">
             Explore Our Range of Courses for Schools and Colleges
           </h1>
-          <p className="text-base text-slate-600 sm:text-lg md:text-xl mb-6">
+          <p className="text-base text-slate-600 dark:text-slate-300  sm:text-lg md:text-xl mb-6">
             At BAOIAM, we offer a wide range of courses designed for students
             from schools and colleges. Whether you're preparing for board exams
             or pursuing a degree, our courses provide comprehensive, engaging
             content to help you succeed academically.
-          </p>
+          </p> 
         </div>
         <div ref={sliderRef} className="h-96 md:h-full md:w-[40%] pt-8 md:pt-0">
           <SliderHero />
@@ -330,7 +188,7 @@ const Courses = () => {
           </div>
         </div>
       </section>
-      <Testimonials />
+      {/* <Testimonials /> */}
       {/* Call to Action */}
       <div className="w-full h-52 md:h-80 my-6 relative ">
         <div className="absolute w-full h-full hover:opacity-100 backdrop-blur-sm bg-black/80"></div>

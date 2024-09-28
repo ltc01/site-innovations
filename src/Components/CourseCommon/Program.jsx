@@ -9,6 +9,7 @@ import "swiper/css/pagination";
 import { Keyboard, Navigation, Pagination, Scrollbar } from "swiper/modules";
 import { BiRightArrow } from "react-icons/bi";
 import { FaArrowRightArrowLeft, FaChevronRight } from "react-icons/fa6";
+import CourseCard from "./CourseCard";
 
 // Register ScrollTrigger with GSAP
 gsap.registerPlugin(ScrollTrigger);
@@ -83,53 +84,11 @@ const Program = ({ title, data }) => {
           onSwiper={(swiper) => console.log("Swiper initialized")}
           className="md:h-[350px] w-full py-4 m-auto flex flex-col justify-center items-center gap-4"
         >
-          {data?.map((course, index) => {
-
-            return (
-              <SwiperSlide key={index}>
-                <div className="h-80 w-fit min-w-56 md:my-4 my-0 bg-gradient-to-r from-teal-50  to-indigo-100 shadow-lg overflow-hidden dark:from-indigo-950  dark:to-teal-700  mx-auto dark:border rounded-xl m-2" >
-                  <div className="relative h-[50%]">
-                    <img
-                      src={'https://miro.medium.com/v2/resize:fit:720/1*aBQrwweY6-qFVWeizUrTnQ.png'}
-                      alt={course.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute bottom-3 left-4 flex">
-
-                      <span className="text-xs mr-3 flex-1 bg-gradient-to-r from-orange-600 to-amber-500 text-white rounded-lg px-3 py-1">
-                        Premium
-                      </span>
-
-                      <span className="bg-slate-200 flex-1 text-gray-800 rounded-lg text-xs px-3 py-1">
-                        Plus
-                      </span>
-                    </div>
-                  </div>
-                  <div className="px-4 h-[50%] gap-8 flex flex-col justify-between">
-                    <div className="">
-                      <h3 className="text-xl font-semibold my-2 text-wrap">{course.title} </h3>
-                      {/* <p className="text-sm pr-3 text-slate-600 text-justify">{course.description}</p> */}
-                    </div>
-                    <div className="flex items-center my-3 gap-4 text-nowrap justify-between w-full ">
-                      <button
-                        // onClick={() => navigate(`/course/${course.title}/${course.id}`)}
-                        className="text-lg font-bold w-fit rounded-md"
-                      >
-                        ₹ {course.plans[0].price}
-                      </button>
-                      <button
-                        onClick={() => navigate(`/course/${course.title}/${course.id}`)}
-                        className="bg-gradient-to-r text-base from-indigo-700 to-indigo-400 text-white px-3 py-1 font-semibold hover:bg-gradient-to-l transition-all ease-in-out duration-300 flex items-center justify-center w-fit rounded-md"
-                      >
-                        <p>Read More</p>
-                        <FaChevronRight size={12} />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-            )
-          })}
+          {data?.map((course, index) =>(
+            <SwiperSlide key={index}>
+              <CourseCard course={course} />
+            </SwiperSlide>
+            ))}
         </Swiper>
       </div>
     </div>
