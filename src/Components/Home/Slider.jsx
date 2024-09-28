@@ -10,7 +10,7 @@ import { School } from "../../Data";
 import {categories} from "../../assets/swiper-imgs/categories"; // Import JSON data
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProgramCourses } from '../../Redux/slices/courseSlice'; // Adjust the import path as necessary
+import { fetchFeaturedCourses } from '../../Redux/slices/courseSlice'; // Adjust the import path as necessary
 import { BeatLoader } from "react-spinners";
 
 
@@ -44,11 +44,11 @@ export default function SliderSection() {
 
   // redux start
   const dispatch = useDispatch();
-  const { programCourses, status, error } = useSelector((state) => state.courses);
+  const { featuredCourses, status, error } = useSelector((state) => state.courses);
 
   useEffect(() => {
     if(status==='idle'){
-      dispatch(fetchProgramCourses());
+      dispatch(fetchFeaturedCourses());
     }
   }, [dispatch, status]);
 
@@ -57,7 +57,7 @@ export default function SliderSection() {
                 <BeatLoader color="#4F46E5" loading={true} size={15} />
            </div>;;
   }
-  // console.log(programCourses, 'program courses')
+  // console.log(featuredCourses, 'program courses')
   // redux end
 
   return (
@@ -151,7 +151,7 @@ export default function SliderSection() {
               </div>
             </SwiperSlide>
           ))
-          :  programCourses?.map((slide, index) => (
+          :  featuredCourses?.map((slide, index) => (
             <SwiperSlide key={index}>
               <div className="h-[22.5rem] overflow-hidden dark:bg-indigo-900 dark:border shadow-md rounded-xl m-2">
                 {/* Image Container */}
