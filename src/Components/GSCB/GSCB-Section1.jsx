@@ -18,7 +18,7 @@ const marquee_imgs = [
 ];
 
 const Section1 = ({ dark }) => {
-  const [lettersRef, setlettersRef] = useArrayRef();
+  // const [lettersRef, setlettersRef] = useArrayRef();
   const triggerRef = useRef(null);
 
   // function useArrayRef() {
