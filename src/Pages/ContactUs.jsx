@@ -270,13 +270,13 @@ const ContactUs = () => {
 
               {/* message box */}
               <div>
-                <label htmlFor="message" className="block text-gray-700 dark:text-slate-300 mb-2 text-sm">Message</label>
+                <label htmlFor="message" className="block  text-gray-700 dark:text-slate-300 mb-2 text-sm">Message</label>
                 <textarea
                   id="message"
                   onChange={handleChange}
                   name="Message"
                   rows="4"
-                  className="w-full p-3 border border-gray-300 rounded-md"
+                  className="w-full p-3 border dark:bg-slate-800  border-gray-300 rounded-md"
                   placeholder="Your message here..."
                 ></textarea>
               </div>

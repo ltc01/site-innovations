@@ -45,20 +45,21 @@ const CourseDetailsPage = () => {
   ]);
   const [loading, setLoading] = useState(true);
 
-  const EnrollNow = ({showForm,setShowForm}) => {
+  const EnrollNow = ({ showForm, setShowForm }) => {
     const [animatePing, setAnimatePing] = useState(false);
-  
+
     // Function to toggle the popup
     const togglePopup = () => {
-      console.log(showForm)
+      console.log(showForm);
       setShowForm(true);
       setAnimatePing(true);
-  
+
       // Remove ping animation after a short duration
       setTimeout(() => {
         setAnimatePing(false);
       }, 1000); // Adjust duration as needed
-    }};
+    };
+  };
 
   const navigate = useNavigate();
   // useEffect(() => {
@@ -154,19 +155,20 @@ const CourseDetailsPage = () => {
     if (!course && status !== "loading") {
       dispatch(fetchCourseDetails(id));
     }
-    const handleScroll = () => {
-      if (window.scrollY > 1200) {
-        setFixed(false);
-      } else if (window.scrollY > 500) {
-        setFixed(true);
-      } else {
-        setFixed(false);
-      }
-    };
-    fetchCourseCategory(course?.category);
-
-    window.addEventListener("scroll", handleScroll);
   }, [dispatch, id, course, status]);
+  const handleScroll = () => {
+    if (window.scrollY > 1200) {
+      setFixed(false);
+    } else if (window.scrollY > 500) {
+      setFixed(true);
+    } else {
+      setFixed(false);
+    }
+  };
+  fetchCourseCategory(course?.category);
+
+  window.addEventListener("scroll", handleScroll);
+
   console.log(course, " course action");
   // console.log(courses, ' courses dkdkdkdk action')
   if (status === "loading" && !course) {
@@ -232,159 +234,169 @@ const CourseDetailsPage = () => {
       />
 
       {/* Course Details */}
-      <div className="grid md:grid-cols-3 grid-cols-1 gap-20 mt-8 px-4 md:px-8 xl:px-24 relative">
-        <div className="col-span-2 flex flex-col gap-8">
-          <div className="w-full  p-6 h-fit shadow-xl rounded-xl mb-4">
-            <h2 className="text-2xl font-semibold">
+      <div className="flex flex-col w-full lg:gap-11 p-5 md:flex-row ">
+        <div className="md:w-[60%] w-full space-y-4 ">
+          {/* Course Details */}
+          <div className="w-full md:w-[95%] p-8 shadow-md dark:shadow-slate-100 rounded-xl">
+            <h2 className="text-xl lg:text-2xl font-semibold">
               Course{" "}
               <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
                 Details
               </span>
             </h2>
             <hr className="my-2" />
-            <div>
-              <p className="text-[1rem] text-justify">{course?.description}</p>
-            </div>
+            <p className="text-sm leading-snug lg:text-[1rem] text-left">
+              {course?.description}
+            </p>
           </div>
 
-          {/* Overview */}
-          <div className=" w-full p-6 shadow-xl rounded-xl mb-4">
-            <h2 className="text-2xl font-semibold">
+          {/* Course Overview */}
+          <div className="w-full  md:w-[95%] p-8 shadow-md dark:shadow-slate-100 rounded-xl">
+            <h2 className="text-xl lg:text-2xl font-semibold">
               Course{" "}
               <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
                 Overview
               </span>
             </h2>
             <hr className="my-2" />
-            <p className="text-[1rem] text-justify">{course?.program_overview}</p>
+            <p className="text-sm leading-snug lg:text-[1rem] text-left">
+              {course?.program_overview}
+            </p>
           </div>
 
-          {/* Curriculum */}
-          <div className="w-full  p-6 shadow-xl rounded-xl mb-4">
-            <h2 className="text-2xl font-semibold">
+          {/* Course Curriculum */}
+          <div className="w-full md:w-[95%] p-8 shadow-md dark:shadow-slate-100 rounded-xl">
+            <h2 className="text-xl lg:text-2xl font-semibold">
               Course{" "}
               <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
                 Curriculum
               </span>
             </h2>
             <hr className="my-2" />
-
-            <div className="w-full mt-5 pb-3">
-              <ul className="list-inside list-disc marker:text-orange-600 marker:text-md mt-4">
-                {course?.curriculum?.split(";").map((o, i) => (
-                  <li className="py-1 text-[1rem] text-justify" key={i}>
-                    {o}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <ul className="list-inside list-disc marker:text-orange-600 mt-4">
+              {course?.curriculum?.split(";").map((o, i) => (
+                <li
+                  className="py-1 text-sm leading-snug lg:text-[1rem] text-left"
+                  key={i}
+                >
+                  {o}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-        <div className="relative w-full h-full">
-  {/* Plans Section */}
-  <div
-    className={`col-span-1 lg:${fixed ? "fixed top-28" : "absolute"} bg-white shadow-xl rounded-xl p-4 md:p-6`}
-    style={{ width: fixed ? 'auto' : '100%' }}
-  >
-    <div className="flex items-center w-full justify-around mb-4">
-      {course?.plans?.map((p, i) => {
-        return (
-          <p
-            key={i}
-            onClick={() => setShowTab(p.name)}
-            className={`capitalize text-lg md:text-xl cursor-pointer ${showTab === p.name ? "text-orange-500 border rounded-md border-orange-500 px-3 py-2" : "text-gray-800"}`}
+
+        {/* Plans Section */}
+        <div className="relative mx-auto w-[90%] md:w-[40%]">
+          {/* Plans Section */}
+          <div
+            className={` mt-5 lg:w-80 md:w-72  ${
+              fixed ? "md:fixed md:top-16" : ""
+            } bg-white dark:bg-black shadow-md rounded-xl p-4`}
           >
-            {p.name}
-          </p>
-        );
-      })}
-    </div>
-    
-    {course?.plans?.map((p, i) => {
-      if (p.name === showTab) {
-        return (
-          <>
-            <div
-              key={i}
-              className={`flex flex-col rounded-lg lg:w-64 xl:w-80 md:w-72 border ${p.name === "premium" ? "border-orange-500" : "border-stone-500"} relative p-4 pt-6`}
-            >
-              {p.name === "premium" && (
-                <div className="absolute inset-x-0 -top-3 flex justify-center">
-                  <span className="flex h-6 items-center justify-center rounded-full bg-orange-500 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-white">
-                    most popular
-                  </span>
-                </div>
-              )}
-
-              <div className="mb-2 text-center capitalize text-2xl md:text-xl font-extrabold text-gray-800">
-                {p.name}
-              </div>
-
-              <p className="mx-auto mb-2 px-8 text-center text-lg md:text-base text-gray-500 font-medium">
-                {course.title}
-              </p>
-
-              <p className="text-sm md:text-base mx-auto mb-2 px-8 text-center text-gray-500 font-medium">
-                All Contents of Plus
-              </p>
-              <p className="text-sm md:text-base mx-auto mb-2 px-8 text-center text-gray-500 font-medium">
-                Personal Mentorship
-              </p>
-              <p className="text-sm md:text-base mx-auto mb-2 px-8 text-center text-gray-500 font-medium">
-                Experts Counseling
-              </p>
-              <p className="text-sm md:text-base mx-auto mb-2 px-8 text-center text-gray-500 font-medium">
-                Live Projects
-              </p>
-              <p className="text-sm md:text-base mx-auto mb-2 px-8 text-center text-gray-500 font-medium">
-                Dedicated Placement Cell
-              </p>
-
-              <div className="mt-auto flex flex-col gap-8">
-                <div className="flex items-center justify-center gap-1">
-                  <span className="self-start text-gray-600">₹</span>
-                  <span className="text-2xl md:text-xl font-bold text-gray-800">
-                    {p.price}
-                  </span>
-                  <span className="text-gray-500 text-xs md:text-sm">
-                    /{p.name !== "premium" ? p.duration : "Unlimited"}
-                  </span>
-                </div>
-
-                <button
-                  onClick={() => {
-                    if (localStorage.getItem("access_token"))
-                      navigate(`/checkout/${id}/${p.name === "premium" ? "Premium" : "Plus"}`);
-                    else navigate("/login");
-                  }}
-                  className={`block rounded-lg ${p.name === "premium" ? "bg-orange-500 text-white" : "bg-gray-500"} px-8 py-3 text-center text-sm md:text-base font-semibold text-gray-200 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 hover:text-gray-500 focus-visible:ring active:text-gray-700`}
-                >
-                  Enroll Now
-                </button>
-              </div>
+            <div className="flex items-center justify-center gap-8 mb-4">
+              {course?.plans?.map((p, i) => {
+                return (
+                  <p
+                    key={i}
+                    onClick={() => setShowTab(p.name)}
+                    className={`capitalize text-lg md:text-xl cursor-pointer ${
+                      showTab === p.name
+                        ? "text-orange-500 border rounded-md border-orange-500 px-3 py-1"
+                        : "text-gray-800 dark:text-white"
+                    }`}
+                  >
+                    {p.name}
+                  </p>
+                );
+              })}
             </div>
-          </>
-        );
-      }
-    })}
-  </div>
-</div>
 
+            {course?.plans?.map((p, i) => {
+              if (p.name === showTab) {
+                return (
+                  <>
+                    <div
+                      key={i}
+                      className={`flex flex-col w-full items-center justify-center rounded-lg border ${
+                        p.name === "premium"
+                          ? "border-orange-500"
+                          : "border-stone-500 dark:border-white"
+                      } relative p-4 pt-6`}
+                    >
+                      {p.name === "premium" && (
+                        <div className="absolute inset-x-0 -top-3 mb-4 flex justify-center">
+                          <span className="flex h-6 items-center justify-center rounded-full bg-orange-500 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-white">
+                            most popular
+                          </span>
+                        </div>
+                      )}
 
-        {/* HighLights */}
-        {/* <div className="col-span-2 shadow-xl rounded-xl mb-4"> */}
-        {/* <h2 className="text-2xl font-semibold">Course <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">HighLights</span></h2>
-          <hr className="my-2" />
+                      {/* <div className="mb-2 text-center capitalize text-2xl md:text-xl dark:text-white font-extrabold text-gray-800">
+                        {p.name}
+                      </div> */}
+                      <div className="">
 
-          <ul className="list-inside list-disc marker:text-orange-600 marker:text-md mt-4">
-            {Highlights.map((h, i) => {
-              return <li className="py-1 text-sm lg:text-base" key={i}>
-                {h.head} - {h.desc}
-              </li>
+                      <p className="mx-auto mb-2 px-8 text-center text-lg md:text-base dark:text-white text-gray-500 font-medium">
+                        {course.title}
+                      </p>
+
+                      <p className="text-sm md:text-base mx-auto mb-2 px-8 text-center dark:text-white text-gray-500 font-medium">
+                        All Contents of Plus
+                      </p>
+                      <p className="text-sm md:text-base mx-auto mb-2 px-8 text-center dark:text-white text-gray-500 font-medium">
+                        Personal Mentorship
+                      </p>
+                      <p className="text-sm md:text-base mx-auto mb-2 px-8 text-center dark:text-white text-gray-500 font-medium">
+                        Experts Counseling
+                      </p>
+                      <p className="text-sm md:text-base mx-auto mb-2 px-8 text-center dark:text-white text-gray-500 font-medium">
+                        Live Projects
+                      </p>
+                      <p className="text-sm md:text-base  mx-auto mb-2 px-8 text-center dark:text-white text-gray-500 font-medium">
+                        Dedicated Placement Cell
+                      </p>
+
+                      <div className="mt-auto flex flex-col gap-8">
+                        <div className="flex items-center justify-center gap-1">
+                          <span className="self-start dark:text-white text-gray-600">
+                            ₹
+                          </span>
+                          <span className="text-2xl md:text-xl dark:text-white font-bold text-gray-800">
+                            {p.price}
+                          </span>
+                          <span className="text-gray-500 dark:text-white text-xs md:text-sm">
+                            /{p.name !== "premium" ? p.duration : "Unlimited"}
+                          </span>
+                        </div>
+
+                        <button
+                          onClick={() => {
+                            if (localStorage.getItem("access_token"))
+                              navigate(
+                                `/checkout/${id}/${
+                                  p.name === "premium" ? "Premium" : "Plus"
+                                }`
+                              );
+                            else navigate("/login");
+                          }}
+                          className={`block rounded-lg ${
+                            p.name === "premium"
+                              ? "bg-orange-500 text-white"
+                              : "bg-gray-500"
+                          } px-8 py-3 mt-4 text-center text-sm md:text-base font-semibold text-gray-200 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 hover:text-gray-500 focus-visible:ring active:text-gray-700`}
+                        >
+                          Enroll Now
+                        </button>
+                      </div>
+                    </div>
+                    </div>
+                  </>
+                );
+              }
             })}
-          </ul> */}
-
-        {/* </div> */}
+          </div>
+        </div>
       </div>
 
       <CourseHighlights />
