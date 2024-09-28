@@ -120,7 +120,7 @@ const Program = ({ title, data }) => {
                   </div>
                   <div className="px-4 h-[50%] gap-8 flex flex-col justify-between">
                     <div className="">
-                      <h3 className="text-xl font-semibold my-2 text-wrap">{course.title.length <= 20 ? course.title : course.title.slice(0, 20) + '...'} </h3>
+                      <h3 className="text-xl font-semibold my-2 text-wrap">{course.title} </h3>
                       {/* <p className="text-sm pr-3 text-slate-600 text-justify">{course.description}</p> */}
                     </div>
                     <div className="flex items-center my-3 gap-4 text-nowrap justify-between w-full ">
