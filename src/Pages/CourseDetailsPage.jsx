@@ -61,71 +61,11 @@ const CourseDetailsPage = () => {
     }};
 
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   const getCourseDetails = async () => {
-  //     // setCourseDetails(data[0]);
-  //     try {
-  //       setLoading(true);
-  //       const { data } = await axios.get(
-  //         `https://api.baoiam.com/api/courses?subcategory=${id}`
-  //       );
-  //       // console.log(data);
-  //       setCourseDetails(data[0]);
-  //       console.log(data[0], "live");
-  //       console.log(data, "all");
-
-  //       setLoading(false);
-  //     } catch (error) {
-  //       console.log(error.stack);
-  //       setLoading(true);
-  //     }
-  //   };
-  //   getCourseDetails()
-  // },[id])
-  // console.log("course details: ", courseDetails);
-  // document.title = `Baoiam - ${courseDetails.title}`;
-
-  // useEffect(() => {
-  //   if (id >= 1 && id <= 10) {
-  //     // setCoursePlusContent(schoolCoursePlusContent);
-  //     // console.log("school is : ", school[0].id);
-  //     const d = School.filter((data) => data.id == id);
-  //     console.log("d is:", d);
-  //     setCourseDetails(School[0].subCate.filter((data) => data.id == id)[0]);
-  //     console.log("course details:", courseDetails);
-  //   } else if (id >= 11 && id <= 22) {
-  //     // setCoursePlusContent(collegeCoursePlusContent);
-  //     setCourseDetails(
-  //       CollegeCourseData[0].subCate.filter((data) => data.id == id)[0]
-  //     );
-  //   } else {
-  //     // setCoursePlusContent(otherCoursePlusContent);
-  //     setCourseDetails(
-  //       OtherCourseData[0].subCate.filter((data) => data.id == id)[0]
-  //     );
-  //   }
-
-  //   return () => {};
-  // }, [id]);
-
-  // } else if (id >= 11 && id <= 22) {
-  //   // setCoursePlusContent(collegeCoursePlusContent);
-  //   setCourseDetails(
-  //     CollegeCourseData[0].subCate.filter((data) => data.id == id)[0]
-  //   );
-  // } else {
-  //   // setCoursePlusContent(otherCoursePlusContent);
-  //   setCourseDetails(
-  //     OtherCourseData[0].subCate.filter((data) => data.id == id)[0]
-  //   );
-  // }
 
   const planRef = useRef();
   const enrollNowScroll = () => {
     planRef.current?.scrollIntoView({ behavior: "smooth" });
   };
-
-  // console.log("id is:", id);
 
   // redux start
 
@@ -133,25 +73,17 @@ const CourseDetailsPage = () => {
     (state) => state.courseDetails
   );
   const dispatch = useDispatch();
-  const course = courses[id]; // Retrieve the course from the store by its id
+  const courseData = courses[id]; // Retrieve the courseData from the store by its id
 
-  const fetchCourseCategory = async (CourseId) => {
-    const response = await axios.get(
-      `${apiUrl}/api/courses/?category=${CourseId}`
-    );
-    // return response.data;
-    // console.log(response.data, "fetchCourseCategory");
-    setOtherCourses(response.data);
-  };
 
   const otherCou = otherCourses?.filter(
-    (other) => other?.title !== course?.title
+    (other) => other?.title !== courseData?.title
   );
   console.log(otherCou, "Filtered");
 
   useEffect(() => {
-    // If the course is not in the store, fetch it
-    if (!course && status !== "loading") {
+    // If the courseData is not in the store, fetch it
+    if (!courseData && status !== "loading") {
       dispatch(fetchCourseDetails(id));
     }
     const handleScroll = () => {
@@ -163,13 +95,13 @@ const CourseDetailsPage = () => {
         setFixed(false);
       }
     };
-    fetchCourseCategory(course?.category);
+    // fetchCourseCategory(courseData?.category);
 
     window.addEventListener("scroll", handleScroll);
-  }, [dispatch, id, course, status]);
-  console.log(course, " course action");
+  }, [dispatch, id, courseData, status]);
+  console.log(courseData, " courseData action");
   // console.log(courses, ' courses dkdkdkdk action')
-  if (status === "loading" && !course) {
+  if (status === "loading" && !courseData) {
     return (
       <div className="flex justify-center items-center h-screen">
         <BeatLoader color="#4F46E5" loading={true} size={15} />
@@ -226,43 +158,43 @@ const CourseDetailsPage = () => {
     <div>
       {/* Hero Section */}
       <CourseHero
-        course={course}
+        course={courseData?.course}
         downloadBrochure={downloadBrochure}
         enrollNowScroll={enrollNowScroll}
       />
 
-      {/* Course Details */}
+      {/* courseData Details */}
       <div className="grid md:grid-cols-3 grid-cols-1 gap-20 mt-8 px-4 md:px-8 xl:px-24 relative">
         <div className="col-span-2 flex flex-col gap-8">
           <div className="w-full  p-6 h-fit shadow-xl rounded-xl mb-4">
             <h2 className="text-2xl font-semibold">
-              Course{" "}
+              courseData{" "}
               <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
                 Details
               </span>
             </h2>
             <hr className="my-2" />
             <div>
-              <p className="text-[1rem] text-justify">{course?.description}</p>
+              <p className="text-[1rem] text-justify">{courseData?.course?.description}</p>
             </div>
           </div>
 
           {/* Overview */}
           <div className=" w-full p-6 shadow-xl rounded-xl mb-4">
             <h2 className="text-2xl font-semibold">
-              Course{" "}
+              courseData{" "}
               <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
                 Overview
               </span>
             </h2>
             <hr className="my-2" />
-            <p className="text-[1rem] text-justify">{course?.program_overview}</p>
+            <p className="text-[1rem] text-justify">{courseData?.course?.program_overview}</p>
           </div>
 
           {/* Curriculum */}
           <div className="w-full  p-6 shadow-xl rounded-xl mb-4">
             <h2 className="text-2xl font-semibold">
-              Course{" "}
+              courseData{" "}
               <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
                 Curriculum
               </span>
@@ -271,7 +203,7 @@ const CourseDetailsPage = () => {
 
             <div className="w-full mt-5 pb-3">
               <ul className="list-inside list-disc marker:text-orange-600 marker:text-md mt-4">
-                {course?.curriculum?.split(";").map((o, i) => (
+                {courseData?.course?.curriculum?.split(";").map((o, i) => (
                   <li className="py-1 text-[1rem] text-justify" key={i}>
                     {o}
                   </li>
@@ -287,7 +219,7 @@ const CourseDetailsPage = () => {
     style={{ width: fixed ? 'auto' : '100%' }}
   >
     <div className="flex items-center w-full justify-around mb-4">
-      {course?.plans?.map((p, i) => {
+      {courseData?.course?.plans?.map((p, i) => {
         return (
           <p
             key={i}
@@ -300,7 +232,7 @@ const CourseDetailsPage = () => {
       })}
     </div>
     
-    {course?.plans?.map((p, i) => {
+    {courseData?.course?.plans?.map((p, i) => {
       if (p.name === showTab) {
         return (
           <>
@@ -321,7 +253,7 @@ const CourseDetailsPage = () => {
               </div>
 
               <p className="mx-auto mb-2 px-8 text-center text-lg md:text-base text-gray-500 font-medium">
-                {course.title}
+                {courseData.title}
               </p>
 
               <p className="text-sm md:text-base mx-auto mb-2 px-8 text-center text-gray-500 font-medium">
@@ -373,7 +305,7 @@ const CourseDetailsPage = () => {
 
         {/* HighLights */}
         {/* <div className="col-span-2 shadow-xl rounded-xl mb-4"> */}
-        {/* <h2 className="text-2xl font-semibold">Course <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">HighLights</span></h2>
+        {/* <h2 className="text-2xl font-semibold">courseData <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">HighLights</span></h2>
           <hr className="my-2" />
 
           <ul className="list-inside list-disc marker:text-orange-600 marker:text-md mt-4">
@@ -392,7 +324,7 @@ const CourseDetailsPage = () => {
       {/* <Testimonials /> */}
 
       {/* Related Courses */}
-      {otherCou && (
+      {courseData?.related_courses && (
         <div className="my-8 px-4 lg:px-8 xl:px-24 w-full h-full relative">
           <h2 className="text-3xl font-semibold text-center">
             Related{" "}
@@ -430,7 +362,7 @@ const CourseDetailsPage = () => {
               },
             }}
           >
-            {otherCou.map((o, i) => {
+            {courseData?.related_courses.map((o, i) => {
               return (
                 <SwiperSlide key={i}>
                   <div className="h-80 overflow-hidden dark:bg-indigo-900 dark:border shadow-md rounded-xl m-2">
@@ -451,7 +383,7 @@ const CourseDetailsPage = () => {
                     </div>
                     <div className="h-fit flex flex-col justify-between px-4">
                       <Link
-                        to={`/course/${o?.slug}/${o?.id}`}
+                        to={`/courseData/${o?.slug}/${o?.id}`}
                         className="text-lg font-semibold my-2"
                       >
                         {o.title}{" "}

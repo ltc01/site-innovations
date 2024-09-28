@@ -16,6 +16,8 @@ import { IoIosArrowDown } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { RxCross2 } from "react-icons/rx";
+const apiUrl = import.meta.env.VITE_API_URL;
+
 
 const ContactUs = () => {
   // const togglePopup = () => {
@@ -141,41 +143,36 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
     // Prepare the data to be sent in the POST request
     console.log("formData: ", formData.Name);
     const data = {
-      Name: formData.Name,
-      Email: formData.Email,
-      Phone: formData.Phone,
-      CountryCode: formData.CountryCode,
-      Course: formData.Course,
-      Consent: formData.Consent,
+      student_full_name: formData.Name,
+      student_email: formData.Email,
+      student_phone: formData.Phone,
+      // CountryCode: formData.CountryCode,
+      course: formData.Course,
+      // Consent: formData.Consent,
     };
 
     console.log("Form Data:", data);
-    setShowPopup(true)
-    setLoading(false);
     try {
+      setLoading(true);
       const response = await axios.post(
-        "https://script.google.com/macros/s/AKfycbyrM_x9q5m5qMwJ814X2g9rdKYWGne8bmZ5nzIZ0xY0ppGnzTOl5jsUGKlALnPgnEEI/exec",
+        // "https://script.google.com/macros/s/AKfycbyrM_x9q5m5qMwJ814X2g9rdKYWGne8bmZ5nzIZ0xY0ppGnzTOl5jsUGKlALnPgnEEI/exec",
+          `${apiUrl}/api/enrollment-query-save/`,
         data,
-        {
-          headers: { "Content-Type": "multipart/form-data" },
-        }
+        // {
+        //   headers: { "Content-Type": "multipart/form-data" },
+        // }
       );
+      if (response.status ===201){
 
-      console.log("Form successfully submitted:", response.data);
-      // toast.success("Form submitted successfully");
-      setShowForm(false);
-      setFormData({
-        Name: "",
-        Email: "",
-        Phone: "",
-        CountryCode: "+91",
-        Course: "",
-        Consent: false,
-      });
+        console.log("Form successfully submitted:", response.data);
+        setShowPopup(true)
+      
+        // toast.success("Form submitted successfully");
+       
+      }
     } catch (error) {
       setLoading(false);
       toast.error("An error occurred");
@@ -190,6 +187,21 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
       [name]: type === "checkbox" ? checked : value,
     }));
   };
+
+  const handleCloseForm = () =>{
+    setShowPopup(false)
+    setShowForm(false)
+    setFormData({
+      Name: "",
+      Email: "",
+      Phone: "",
+      CountryCode: "+91",
+      Course: "",
+      Consent: false,
+    });
+    setLoading(false)
+    
+  }
   return (
     <>
       {showPopup && (
@@ -222,7 +234,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
 
             {/* Close Button */}
             <button
-              onClick={() => setShowPopup(false)}
+              onClick={handleCloseForm}
               className="bg-gradient-to-br from-purple-600 via-indigo-500 to-indigo-700 text-white px-6 py-2 rounded-full hover:bg-indigo-700 focus:outline-none transition-all text-sm md:text-base"
             >
               Close
