@@ -41,45 +41,51 @@ const ContactUs = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    // Prepare the data to be sent in the POST request
-    console.log("formData: ", formData.Name);
-    const data = {
-      Name: formData.Name,
-      Email: formData.Email,
-      Phone: formData.Phone,
-      CountryCode: formData.CountryCode,
-      Course: formData.Course,
-      Consent: formData.Consent,
-    };
+    const nameParts = formData.Name.trim().split(" ");
 
-    console.log("Form Data:", data);
+    if (nameParts.length < 2 || nameParts[0] === "" || nameParts[1] === "") {
+      toast.error("Please enter your full name");
+    } else {
+      setLoading(true);
+      // Prepare the data to be sent in the POST request
+      console.log("formData: ", formData.Name);
+      const data = {
+        fullName: formData.Name,
+        email: formData.Email,
+        countryCode: formData.CountryCode,
+        phone: formData.Phone,
+        course: formData.Course,
+        consent: formData.Consent,
+      };
 
-    try {
-      const response = await axios.post(
-        "https://script.google.com/macros/s/AKfycbyrM_x9q5m5qMwJ814X2g9rdKYWGne8bmZ5nzIZ0xY0ppGnzTOl5jsUGKlALnPgnEEI/exec",
-        data,
-        {
-          headers: { "Content-Type": "multipart/form-data" },
-        }
-      );
+      console.log("Form Data:", data);
 
-      console.log("Form successfully submitted:", response.data);
-      // toast.success("Form submitted successfully");
-      setShowPopup(true);
-      setLoading(false);
-      setFormData({
-        Name: "",
-        Email: "",
-        Phone: "",
-        CountryCode: "+91",
-        Course: "",
-        Consent: false,
-      });
-    } catch (error) {
-      setLoading(false);
-      toast.error("An error occurred");
-      console.error("Error submitting form", error);
+      try {
+        const response = await axios.post(
+          "https://proxy-server-baoiam.vercel.app/contact-form ",
+          data
+        );
+        if (response.status == 200) {
+          console.log("Form successfully submitted:", response.data);
+          // toast.success("Form submitted successfully");
+          setShowPopup(true);
+          // alert(response.status);
+        } else toast.error("An error occurred");
+        setLoading(false);
+
+        setFormData({
+          Name: "",
+          Email: "",
+          Phone: "",
+          CountryCode: "+91",
+          Course: "",
+          Consent: false,
+        });
+      } catch (error) {
+        setLoading(false);
+        toast.error("An error occurred");
+        console.error("Error submitting form", error);
+      }
     }
   };
   const handleChange = (e) => {
