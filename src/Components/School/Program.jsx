@@ -71,7 +71,7 @@ const Program = ({ title, data }) => {
   }, []);
 
   return (
-    <div className="p-5 mx-auto lg:w-10/12 mt-10 sm:px-4 xs:px-4" id="courses">
+    <div className="p-5 mx-auto lg:w-11/12 mt-10 sm:px-4 xs:px-4" id="courses">
       <h1
         ref={titleRef}
         className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4"
