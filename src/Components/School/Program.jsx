@@ -71,7 +71,7 @@ const Program = ({ title, data }) => {
   }, []);
 
   return (
-    <div className="py-5 mx-auto lg:w-10/12 mt-10 sm:px-4 xs:px-4" id="courses">
+    <div className="p-5 mx-auto lg:w-10/12 mt-10 sm:px-4 xs:px-4" id="courses">
       <h1
         ref={titleRef}
         className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4"
@@ -100,7 +100,7 @@ const Program = ({ title, data }) => {
 
             return (
               <SwiperSlide key={index}>
-                <div className="h-80 w-fit min-w-56 my-4 bg-gradient-to-r from-teal-50  to-indigo-100 shadow-lg overflow-hidden dark:from-indigo-950  dark:to-teal-700  mx-auto dark:border rounded-xl m-2" >
+                <div className="h-80 w-fit min-w-56 md:my-4 my-0 bg-gradient-to-r from-teal-50  to-indigo-100 shadow-lg overflow-hidden dark:from-indigo-950  dark:to-teal-700  mx-auto dark:border rounded-xl m-2" >
                   <div className="relative h-[50%]">
                     <img
                       src={'https://miro.medium.com/v2/resize:fit:720/1*aBQrwweY6-qFVWeizUrTnQ.png'}
