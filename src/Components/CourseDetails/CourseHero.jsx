@@ -5,7 +5,7 @@ import { CourseDesc2 } from '../../assets/assets'
 import { FaDownload } from 'react-icons/fa6'
 import { useNavigate } from 'react-router-dom'
 
-const CourseHero = ({ course, downloadBrochure, enrollNowScroll }) => {
+const CourseHero = ({ course, downloadBrochure, setShowForm,showForm, enrollNowScroll }) => {
     console.log(course);
 
     const navigate = useNavigate();
@@ -14,7 +14,7 @@ const CourseHero = ({ course, downloadBrochure, enrollNowScroll }) => {
             <div className="flex items-center gap-2 text-xs">
                 <Link to={`/courses`}>Courses</Link>
                 <span><IoIosArrowForward /></span>
-                <span>School</span>
+                <Link to={`/`}></Link>
                 <span><IoIosArrowForward /></span>
                 <Link to={`/course/${course?.slug}/${course?.id}`}>{course?.title}</Link>
             </div>
@@ -28,11 +28,9 @@ const CourseHero = ({ course, downloadBrochure, enrollNowScroll }) => {
                         <div className="mt-8 flex flex-col md:flex-row items-start md:items-center justify-between w-full gap-4">
                             <div className="flex gap-2">
                                 <button
-                                     onClick={() => {
-                                        if (localStorage.getItem("access_token"))
-                                          navigate(`/checkout/${id}/${p.name === "premium" ? "Premium" : "Plus"}`);
-                                        else navigate("/login");
-                                      }}
+                                     onClick={() => 
+                                        setShowForm(true)
+                                      }
                                     className="relative inline-flex items-center bg-orange-400 px-6 md:px-8 lg:px-12 py-2 md:py-3 text-xs md:text-sm overflow-hidden text-white font-medium border border-orange-400 rounded-lg hover:text-orange-500 group"
                                 >
                                     <span className="absolute left-0 block w-full h-0 transition-all bg-white opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease-in-out"></span>

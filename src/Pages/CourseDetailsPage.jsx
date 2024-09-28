@@ -28,7 +28,7 @@ import "swiper/css/pagination";
 import { Navigation } from "swiper/modules";
 const apiUrl = import.meta.env.VITE_API_URL;
 
-const CourseDetailsPage = () => {
+const CourseDetailsPage = ({showForm, setShowForm} ) => {
   const { id } = useParams();
   const [courseDetails, setCourseDetails] = useState({});
   const [showTab, setShowTab] = useState("premium");
@@ -228,6 +228,7 @@ const CourseDetailsPage = () => {
     <div>
       {/* Hero Section */}
       <CourseHero
+      showForm={showForm} setShowForm={setShowForm}
         course={course}
         downloadBrochure={downloadBrochure}
         enrollNowScroll={enrollNowScroll}
