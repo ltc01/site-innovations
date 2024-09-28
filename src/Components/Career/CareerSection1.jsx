@@ -90,7 +90,7 @@ export const CareerSection1 = () => {
             </div>
           </form> */}
           <Link to="/contact">
-            <button className="relative overflow-hidden mt-12 bg-indigo-600 text-white font-semibold py-2 px-8 rounded-full hover:text-indigo-600 focus:outline-none  transition-all duration-300 hover:border-2 hover:border-indigo-700 dark:border-white group cursor-pointer ">
+            <button className="relative overflow-hidden mt-12 bg-[#6c09ed] text-white font-semibold py-2 px-8 rounded-full hover:text-[#6c09ed] focus:outline-none  transition-all duration-300 hover:border-2 hover:border-[#6c09ed] dark:border-white group cursor-pointer ">
               <span className="absolute inset-0 bg-white transition-transform duration-500 ease-out transform scale-x-0 group-hover:scale-x-100 origin-center"></span>
               <span className="relative z-10">Join us</span>
             </button>
