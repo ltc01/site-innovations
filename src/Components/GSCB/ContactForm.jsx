@@ -3,6 +3,7 @@ import { industry, interestedCheckbox } from "../../Data";
 import axios from "axios";
 import { FaCheckCircle } from "react-icons/fa";
 import { toast } from "react-toastify";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const ContactForm = () => {
   const [loading, setLoading] = useState(false);
@@ -10,14 +11,14 @@ const ContactForm = () => {
 
   const [showPopup, setShowPopup] = useState(false);
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    first_name: "",
+    last_name: "",
     institute: "",
     designation: "",
     email: "",
     phone: "",
-    jobTitle: "",
-    type: "",
+    job_title: "",
+    contact_type: "",
     message: "",
   });
   const submitData = async (e) => {
@@ -27,14 +28,14 @@ const ContactForm = () => {
     console.log("before submit:", formData);
     try {
       const data1 = {
-        firstName: formData.firstName,
-        lastName: formData.lastName,
+        first_name: formData.first_name,
+        last_name: formData.last_name,
         institute: formData.institute,
         designation: formData.designation,
         email: formData.email,
         phone: formData.phone,
-        jobTitle: formData.jobTitle,
-        type: formData.type,
+        job_title: formData.job_title,
+        contact_type: formData.contact_type,
         message: formData.message,
       };
       const { data } = await axios.post(
@@ -47,14 +48,14 @@ const ContactForm = () => {
       else toast.error("An error occurred");
       setLoading(false);
       setFormData({
-        firstName: "",
-        lastName: "",
+        first_name: "",
+        last_name: "",
         institute: "",
         designation: "",
         email: "",
         phone: "",
-        jobTitle: "",
-        type: "",
+        job_title: "",
+        contact_type: "",
         message: "",
       });
     } catch (e) {
@@ -120,11 +121,11 @@ const ContactForm = () => {
           <div className="flex items-center justify-between gap-8 w-full max-sm:flex-col max-sm:gap-4">
             <div className="w-1/2 flex flex-col max-sm:w-full">
               <input
-                value={formData.firstName}
+                value={formData.first_name}
                 onChange={(e) => {
-                  setFormData({ ...formData, firstName: e.target.value });
+                  setFormData({ ...formData, first_name: e.target.value });
                 }}
-                type="text"
+                contact_type="text"
                 id="first"
                 className="px-4 py-2 border border-black/60 w-full max-sm:py-1"
                 required
@@ -135,11 +136,11 @@ const ContactForm = () => {
             </div>
             <div className="w-1/2 flex flex-col max-sm:w-full">
               <input
-                value={formData.lastName}
+                value={formData.last_name}
                 onChange={(e) => {
-                  setFormData({ ...formData, lastName: e.target.value });
+                  setFormData({ ...formData, last_name: e.target.value });
                 }}
-                type="text"
+                contact_type="text"
                 id="last"
                 className="px-4 py-2 border border-black/60 w-full max-sm:py-1"
                 required
@@ -165,7 +166,7 @@ const ContactForm = () => {
               onChange={(e) => {
                 setFormData({ ...formData, institute: e.target.value });
               }}
-              type="text"
+              contact_type="text"
               id="company"
               className="px-4 py-2 border border-black/60 w-full max-sm:py-1"
               required
@@ -187,7 +188,7 @@ const ContactForm = () => {
               onChange={(e) => {
                 setFormData({ ...formData, designation: e.target.value });
               }}
-              type="text"
+              contact_type="text"
               id="agency"
               className="px-4 py-2 border border-black/60 w-full max-sm:py-1"
             />
@@ -208,7 +209,7 @@ const ContactForm = () => {
               onChange={(e) => {
                 setFormData({ ...formData, email: e.target.value });
               }}
-              type="email"
+              contact_type="email"
               id="email"
               className="px-4 py-2 border border-black/60 w-full max-sm:py-1"
               required
@@ -227,7 +228,7 @@ const ContactForm = () => {
               onChange={(e) => {
                 setFormData({ ...formData, phone: e.target.value });
               }}
-              type="tel"
+              contact_type="tel"
               id="phone"
               inputMode="numeric"
               maxLength={10}
@@ -246,11 +247,11 @@ const ContactForm = () => {
               Job Title
             </label>
             <input
-              value={formData.jobTitle}
+              value={formData.job_title}
               onChange={(e) => {
-                setFormData({ ...formData, jobTitle: e.target.value });
+                setFormData({ ...formData, job_title: e.target.value });
               }}
-              type="text"
+              contact_type="text"
               id="job"
               className="px-4 py-2 border border-black/60 w-full max-sm:py-1"
             />
@@ -264,9 +265,9 @@ const ContactForm = () => {
               Type
             </label>
             <select
-              value={formData.type}
+              value={formData.contact_type}
               onChange={(e) => {
-                setFormData({ ...formData, type: e.target.value });
+                setFormData({ ...formData, contact_type: e.target.value });
               }}
               id="industry"
               className="px-4 py-2 border border-black/60 w-full max-sm:py-1"
@@ -290,7 +291,7 @@ const ContactForm = () => {
             {interestedCheckbox.map((c) => (
               <div key={c.id} className="flex items-center">
                 <input
-                  type="checkbox"
+                  contact_type="checkbox"
                   id={c.value}
                   name={c.value}
                   value={c.value}
@@ -319,7 +320,7 @@ const ContactForm = () => {
             className="px-4 py-2 border border-black/60 w-full mt-2 max-sm:py-1"
           ></textarea>
           <button
-            type="submit"
+            contact_type="submit"
             className="px-6 py-2 mt-4 uppercase rounded-full bg-black text-white border-black dark:bg-[#EB0027] dark:hover:bg-transparent dark:hover:border-[#EB0027] dark:hover:text-[#EB0027] max-sm:text-sm max-sm:px-4 max-sm:py-1"
           >
             {loading ? "Loading..." : "Submit"}
