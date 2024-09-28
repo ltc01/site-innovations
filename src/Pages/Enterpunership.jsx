@@ -100,7 +100,7 @@ const Enterpunership = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    return () => {};
+    return () => { };
   }, []);
 
   const { id } = useParams();
@@ -325,7 +325,7 @@ const Enterpunership = () => {
           </button>
         </div>
       </div>
-     
+
       {/*//! Program Overview */}
       <div className="p-6 md:p-10">
         <div className="endiv1 mx-auto max-w-7xl px-4 md:px-6">
