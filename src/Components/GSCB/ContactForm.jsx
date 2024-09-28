@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { industry, interestedCheckbox } from "../../Data";
 import axios from "axios";
 import { FaCheckCircle } from "react-icons/fa";
+import { toast } from "react-toastify";
 const apiUrl = import.meta.env.VITE_API_URL;
 
 const ContactForm = () => {
@@ -22,6 +23,7 @@ const ContactForm = () => {
   });
   const submitData = async (e) => {
     e.preventDefault();
+
     setLoading(true);
     console.log("before submit:", formData);
     try {
@@ -37,12 +39,13 @@ const ContactForm = () => {
         message: formData.message,
       };
       const { data } = await axios.post(
-        // `https://proxy-server-baoiam.vercel.app/submit-form`,
-        `${apiUrl}/api/contact-gcep/`,
+        `https://proxy-server-baoiam.vercel.app/submit-form`,
+        // `http://localhost:3000/submit-form`,
         data1
       );
       console.log("GCEP form: ", data);
-      setShowPopup(true);
+      if (data.status === "success") setShowPopup(true);
+      else toast.error("An error occurred");
       setLoading(false);
       setFormData({
         first_name: "",
@@ -74,8 +77,9 @@ const ContactForm = () => {
             {/* Success Icon */}
             <FaCheckCircle
               size={50}
-              className={`text-green-500 mx-auto mb-4 ${animatePing ? "animate-ping" : ""
-                }`}
+              className={`text-green-500 mx-auto mb-4 ${
+                animatePing ? "animate-ping" : ""
+              }`}
             />
 
             <h2 className="text-2xl font-bold text-indigo-600 mb-4 transition-all duration-300 ease-in-out">
