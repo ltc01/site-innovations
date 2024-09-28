@@ -84,7 +84,7 @@ const App = () => {
     <div className="dark:bg-black w-full mx-auto overflow-hidden h-full dark:text-white ">
       <Navbar theme={theme} showForm={showForm} setShowForm={setShowForm} />
 
-      <div className="mt-24 max-w-[1440px] mx-auto">
+      <div className="mt-24 max-w-[1660px] mx-auto">
         <Routes>
           {/* NavLinks */}
           <Route path="/" element={<Home dark={dark} />} />
