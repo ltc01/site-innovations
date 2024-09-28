@@ -489,7 +489,6 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
           </div>
         </div>
       }
-      }
     </>
   );
 };
