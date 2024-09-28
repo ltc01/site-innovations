@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { industry, interestedCheckbox } from "../../Data";
 import axios from "axios";
 import { FaCheckCircle } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const ContactForm = () => {
   const [loading, setLoading] = useState(false);
@@ -38,10 +39,11 @@ const ContactForm = () => {
       };
       const { data } = await axios.post(
         `https://proxy-server-baoiam.vercel.app/submit-form`,
+        // `http://localhost:3000/submit-form`,
         data1
       );
       console.log("GCEP form: ", data);
-      if (response.status === 200) setShowPopup(true);
+      if (data.status === "success") setShowPopup(true);
       else toast.error("An error occurred");
       setLoading(false);
       setFormData({
