@@ -239,7 +239,7 @@ const Courses = () => {
 
   return (
     <>
-      <div className="flex mt-20 justify-center flex-col-reverse lg:flex-row items-center mx-auto w-full p-5 sm:px-6 xs:px-4">
+      <div className="flex mt-20 gap-8 lg:gap-0 justify-center flex-col-reverse lg:flex-row items-center mx-auto w-full p-5 sm:px-6 xs:px-4">
         <div ref={textRef} className="w-full lg:w-1/2 text-left md:text-center lg:text-left">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold mb-4">
             Explore Our Range of Courses for Schools and Colleges
