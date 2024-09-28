@@ -234,7 +234,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
       )}
       {
         <div className="cursor-pointer fixed inset-0 flex justify-center h-screen items-center z-[200] w-screen bg-black/20">
-          <div className="w-[90%] dark:bg-black md:w-3/5 lg:max-w-xl lg:h-[37rem] h-[500px] bg-white p-4 md:px-12 md:py-8 rounded-lg border relative flex flex-col items-center justify-center overflow-y-auto ">
+          <div className="w-[90%] sm:w-[70%] dark:bg-black md:w-[60%] lg:max-w-xl lg:h-[37rem] h-[500px] bg-white p-4 px-6 sm:px-8 md:px-12 lg:px-16 md:py-8 rounded-lg border relative flex flex-col items-center justify-center overflow-y-auto ">
             <span
               onClick={() => setShowForm(false)}
               className="absolute top-3 right-3 text-2xl"
@@ -249,7 +249,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
             </div>
             <form
               id="form1"
-              className="space-y-2 md:space-y-4"
+              className="space-y-4"
               onSubmit={(e) => {
                 handleSubmit(e);
               }}
@@ -266,7 +266,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
                   id="fullname"
                   type="text"
                   name="Name"
-                  className="w-full dark:bg-slate-800 py-1 md:px-2 lg:py-2 border border-gray-300 rounded-lg text-xs md:text-sm"
+                  className="w-full dark:bg-slate-800 py-1 px-2 sm:px-2.5 lg:py-2 border border-gray-300 rounded-md sm:rounded-lg text-xs md:text-sm"
                   placeholder="Enter your full name"
                   onChange={handleChange}
                   required
@@ -285,7 +285,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
                   id="email"
                   type="email"
                   name="Email"
-                  className="w-full dark:bg-slate-800 py-1 md:px-2 lg:py-2 border border-gray-300 rounded-lg text-xs md:text-sm"
+                  className="w-full dark:bg-slate-800 py-1 px-1 md:px-2 lg:py-2 border border-gray-300 rounded-md sm:rounded-lg text-xs md:text-sm"
                   placeholder="Enter your E-mail"
                   onChange={handleChange}
                   required
@@ -293,26 +293,33 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
               </div>
 
               {/* Phone Number with Country Code */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="relative inline-block">
-                  <label
+              <div>
+                <label
+                  htmlFor="phone"
+                  className="block dark:text-gray-300 text-gray-700 mb-2 text-xs md:text-sm"
+                >
+                  Phone Number
+                </label>
+                <div className="flex w-full gap-1 sm:gap-2 items-center">
+                  <div className="relative w-fit inline-block">
+                    {/* <label
                     htmlFor="countryCode"
                     className="block dark:text-gray-300 text-gray-700 mb-2 text-xs md:text-sm"
                   >
                     Country Code
-                  </label>
-                  {/* <div className="flex items-center gap-4"> */}
-                  <div className="flex gap-2 items-center dark:bg-slate-800 border md:w-[65%] py-1 px-1 md:px-2 lg:py-1.5 rounded-lg focus:outline-none focus:border-gray-300 w-full bg-white cursor-pointer text-xs md:text-sm">
-                    <p className="font-medium">+91</p>
-                    <div className="w-8 lg:w-10 h-[20px] rounded-lg lg:h-6">
-                      <img
-                        src={Flag}
-                        alt="India"
-                        className="w-full h-full md:object-contain rounded-sm lg:object-cover"
-                      />
+                  </label> */}
+                    {/* <div className="flex items-center gap-4"> */}
+                    <div className="flex gap-2 items-center dark:bg-slate-800 border w-full h-[26px] md:h-[30px] lg:h-[38px] py-1 px-2 sm:px-2.5 lg:py-1.5 rounded-lg focus:outline-none focus:border-gray-300 w-full bg-white cursor-pointer text-xs md:text-sm">
+                      <p className="font-medium">+91</p>
+                      <div className="min-w-4 lg:w-10 h-4 rounded-lg lg:h-6">
+                        <img
+                          src={Flag}
+                          alt="India"
+                          className="w-full h-full md:object-contain rounded-sm lg:object-cover"
+                        />
+                      </div>
                     </div>
-                  </div>
-                  {/* <select
+                    {/* <select
                       id="countryCode"
                       name="CountryCode"
                       className="border py-1 md:px-2 lg:py-2 pr-8 rounded-lg focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer text-xs md:text-sm"
@@ -326,37 +333,38 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
                     <div className="absolute right-3 flex items-center justify-center pointer-events-none">
                       <IoIosArrowDown className="text-gray-500" />
                     </div> */}
-                  {/* </div> */}
-                </div>
+                    {/* </div> */}
+                  </div>
 
-                <div className="col-span-2 ">
-                  <label
+                  <div className="w-full">
+                    {/* <label
                     htmlFor="phone"
-                    className="block dark:text-gray-300 text-gray-700 mb-2 text-xs md:text-sm"
+                    className="block dark:text-gray-300 text-gray-700 px-1 mb-2 text-xs md:text-sm"
                   >
                     Phone Number
-                  </label>
-                  <input
-                    id="phone"
-                    name="Phone"
-                    type="tel"
-                    className="w-full dark:bg-slate-800 py-1 md:px-2 lg:py-2 border border-gray-300 rounded-lg text-xs md:text-sm"
-                    placeholder="Enter your phone number"
-                    pattern="[0-9]{10}"
-                    minLength="10"
-                    maxLength="10"
-                    required
-                    onChange={handleChange}
-                  />
+                  </label> */}
+                    <input
+                      id="phone"
+                      name="Phone"
+                      type="tel"
+                      className="w-full dark:bg-slate-800 py-1 px-2 sm:px-2.5 lg:py-2 border border-gray-300 rounded-md sm:rounded-lg text-xs md:text-sm"
+                      placeholder="Enter your phone number"
+                      pattern="[0-9]{10}"
+                      minLength="10"
+                      maxLength="10"
+                      required
+                      onChange={handleChange}
+                    />
+                  </div>
                 </div>
               </div>
 
               {/* Inquiry Type */}
-              <div className="relative inline-block w-full">
+              <div className="relative inline-block mb-2 w-full">
                 <select
                   id="courses"
                   name="Course"
-                  className="border dark:bg-slate-800 py-1 md:px-2 lg:py-2 pr-10 rounded-lg focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer text-xs md:text-sm"
+                  className="border dark:bg-slate-800 py-1 px-2 sm:px-2.5 lg:py-2 pr-10 rounded-md sm:rounded-lg focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer text-xs md:text-sm"
                   required
                   onChange={handleChange}
                 >
@@ -423,7 +431,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
                 <select
                   id="courses"
                   name="Course"
-                  className="border dark:bg-slate-800 py-1 md:px-2 lg:py-2 pr-10 rounded-lg focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer text-xs md:text-sm"
+                  className="border dark:bg-slate-800 py-1 px-2 sm:px-2.5 lg:py-2 pr-10 rounded-md sm:rounded-lg focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer text-xs md:text-sm"
                   required
                   onChange={handleChange}
                 >
