@@ -133,9 +133,7 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
 
         {/* NavLinks */}
         <div
-          className={`hidden lg:flex items-center ${
-            isDark ? "font-semibold" : "font-medium text-sm"
-          } justify-between `}
+          className={`hidden lg:flex items-center font-medium text-sm xl:text-base justify-between `}
         > 
           <Link
             to={"/"}

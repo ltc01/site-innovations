@@ -35,13 +35,13 @@ function CourseCard({ course }) {
         <div className="flex mb-2 mx-auto px-1 justify-between items-center text-nowrap gap-3 absolute right-0 left-0 w-11/12 bottom-3">
           <button
             // onClick={() => navigate(`/course/${course.title}/${course.id}`)}
-            className="text-lg font-bold w-fit rounded-md"
+            className="font-bold w-fit rounded-md"
           >
             ₹ {course.plans[planIndex].price}
           </button>
           <button
             onClick={() => navigate(`/course/${course.title}/${course.id}`)}
-            className="bg-gradient-to-r text-base from-indigo-700 to-indigo-400 text-white px-3 py-1 font-semibold hover:bg-gradient-to-l transition-all ease-in-out duration-300 flex items-center justify-center w-fit rounded-md"
+            className="bg-gradient-to-r from-indigo-700 to-indigo-400 text-white px-3 py-1 font-semibold hover:bg-gradient-to-l transition-all ease-in-out duration-300 flex items-center justify-center w-fit rounded-md"
           >
             Read More
           </button>
