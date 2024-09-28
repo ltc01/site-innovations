@@ -209,7 +209,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
           {/* Overlay */}
           <div
             className="fixed inset-0 bg-gray-600 bg-opacity-50 transition-opacity"
-          // Click outside to close
+            // Click outside to close
           ></div>
 
           {/* Modal Content */}
@@ -217,8 +217,9 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
             {/* Success Icon */}
             <FaCheckCircle
               size={50}
-              className={`text-green-500 mx-auto mb-4 ${animatePing ? "animate-ping" : ""
-                }`}
+              className={`text-green-500 mx-auto mb-4 ${
+                animatePing ? "animate-ping" : ""
+              }`}
             />
 
             <h2 className="md:text-2xl font-bold text-indigo-600 mb-4 transition-all duration-300 ease-in-out">
@@ -242,33 +243,41 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
           </div>
         </div>
       )}
-      {(
+      {
         <div className="cursor-pointer fixed inset-0 flex justify-center h-screen items-center z-[200] w-screen bg-black/20">
-          <div  className="w-[90%] md:w-3/5 lg:max-w-xl lg:h-[37rem] h-[500px] bg-white p-4 md:px-12 md:py-8 rounded-lg border relative flex flex-col items-center justify-center overflow-y-auto ">
-            <span onClick={() => setShowForm(false)} className="absolute top-3 right-3 text-2xl"><RxCross2 /></span>
+          <div className="w-[90%] sm:w-[70%] dark:bg-black md:w-[60%] lg:max-w-xl lg:h-[37rem] h-[500px] bg-white p-4 px-6 sm:px-8 md:px-12 lg:px-16 md:py-8 rounded-lg border relative flex flex-col items-center justify-center overflow-y-auto ">
+            <span
+              onClick={() => setShowForm(false)}
+              className="absolute top-3 right-3 text-2xl"
+            >
+              <RxCross2 />
+            </span>
             <div className="text-lg md:text-2xl lg:text-3xl mt-4 pt-2 pb-2 md:pb-4 text-center font-bold">
-              <div>Ready to enhance your skills?</div> 
+              <div>Ready to enhance your skills?</div>
               <span className="text-xs md:text-sm lg:text-base font-medium">
                 Share your details and hear from us soon
               </span>
             </div>
             <form
               id="form1"
-              className="space-y-2 md:space-y-4"
+              className="space-y-4"
               onSubmit={(e) => {
                 handleSubmit(e);
               }}
             >
               {/* Full Name */}
               <div>
-                <label htmlFor="fullname" className="block text-gray-700 mb-2 text-xs md:text-sm">
+                <label
+                  htmlFor="fullname"
+                  className="block dark:text-gray-300 text-gray-700 mb-2 text-xs md:text-sm"
+                >
                   Full Name
                 </label>
                 <input
                   id="fullname"
                   type="text"
                   name="Name"
-                  className="w-full py-1 md:px-2 lg:py-2 border border-gray-300 rounded-md text-xs md:text-sm"
+                  className="w-full dark:bg-slate-800 py-1 px-2 sm:px-2.5 lg:py-2 border border-gray-300 rounded-md sm:rounded-lg text-xs md:text-sm"
                   placeholder="Enter your full name"
                   onChange={handleChange}
                   required
@@ -277,14 +286,17 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
 
               {/* Email */}
               <div>
-                <label htmlFor="email" className="block text-gray-700 mb-2 text-xs md:text-sm">
+                <label
+                  htmlFor="email"
+                  className="block dark:text-gray-300 text-gray-700 mb-2 text-xs md:text-sm"
+                >
                   Email
                 </label>
                 <input
                   id="email"
                   type="email"
                   name="Email"
-                  className="w-full py-1 md:px-2 lg:py-2 border border-gray-300 rounded-md text-xs md:text-sm"
+                  className="w-full dark:bg-slate-800 py-1 px-1 md:px-2 lg:py-2 border border-gray-300 rounded-md sm:rounded-lg text-xs md:text-sm"
                   placeholder="Enter your E-mail"
                   onChange={handleChange}
                   required
@@ -292,54 +304,78 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
               </div>
 
               {/* Phone Number with Country Code */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="relative inline-block">
-                  <label
+              <div>
+                <label
+                  htmlFor="phone"
+                  className="block dark:text-gray-300 text-gray-700 mb-2 text-xs md:text-sm"
+                >
+                  Phone Number
+                </label>
+                <div className="flex w-full gap-1 sm:gap-2 items-center">
+                  <div className="relative w-fit inline-block">
+                    {/* <label
                     htmlFor="countryCode"
-                    className="block text-gray-700 mb-2 text-xs md:text-sm"
+                    className="block dark:text-gray-300 text-gray-700 mb-2 text-xs md:text-sm"
                   >
                     Country Code
-                  </label>
-                  <div className="flex items-center gap-4">
-                    <select
+                  </label> */}
+                    {/* <div className="flex items-center gap-4"> */}
+                    <div className="flex gap-2 items-center dark:bg-slate-800 border w-full h-[26px] md:h-[30px] lg:h-[38px] py-1 px-2 sm:px-2.5 lg:py-1.5 rounded-lg focus:outline-none focus:border-gray-300 w-full bg-white cursor-pointer text-xs md:text-sm">
+                      <p className="font-medium">+91</p>
+                      <div className="min-w-4 lg:w-10 h-4 rounded-lg lg:h-6">
+                        <img
+                          src={Flag}
+                          alt="India"
+                          className="w-full h-full md:object-contain rounded-sm lg:object-cover"
+                        />
+                      </div>
+                    </div>
+                    {/* <select
                       id="countryCode"
                       name="CountryCode"
-                      className="border py-1 md:px-2 lg:py-2 pr-8 rounded focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer text-xs md:text-sm"
+                      className="border py-1 md:px-2 lg:py-2 pr-8 rounded-lg focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer text-xs md:text-sm"
                       onChange={handleChange}
-                    >
-                      <option value="+91">🇮🇳 +91 (India)</option>
+                    > 
+                      <option value="+91">
+                        +91
+                      </option>
                     </select>
+
                     <div className="absolute right-3 flex items-center justify-center pointer-events-none">
                       <IoIosArrowDown className="text-gray-500" />
-                    </div>
+                    </div> */}
+                    {/* </div> */}
                   </div>
-                </div>
 
-                <div className="col-span-2">
-                  <label htmlFor="phone" className="block text-gray-700 mb-2 text-xs md:text-sm">
+                  <div className="w-full">
+                    {/* <label
+                    htmlFor="phone"
+                    className="block dark:text-gray-300 text-gray-700 px-1 mb-2 text-xs md:text-sm"
+                  >
                     Phone Number
-                  </label>
-                  <input
-                    id="phone"
-                    name="Phone"
-                    type="tel"
-                    className="w-full py-1 md:px-2 lg:py-2 border border-gray-300 rounded-md text-xs md:text-sm"
-                    placeholder="Enter your phone number"
-                    pattern="[0-9]{10}"
-                    minLength="10"
-                    maxLength="10"
-                    required
-                    onChange={handleChange}
-                  />
+                  </label> */}
+                    <input
+                      id="phone"
+                      name="Phone"
+                      type="tel"
+                      className="w-full dark:bg-slate-800 py-1 px-2 sm:px-2.5 lg:py-2 border border-gray-300 rounded-md sm:rounded-lg text-xs md:text-sm"
+                      placeholder="Enter your phone number"
+                      pattern="[0-9]{10}"
+                      minLength="10"
+                      maxLength="10"
+                      required
+                      onChange={handleChange}
+                    />
+                  </div>
                 </div>
               </div>
 
               {/* Inquiry Type */}
-              <div className="relative inline-block w-full">
+              <div className="relative inline-block mb-2 w-full">
                 <select
                   id="courses"
                   name="Course"
-                  className="border py-1 md:px-2 lg:py-2 pr-10 rounded focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer text-xs md:text-sm"
+                  className="border dark:bg-slate-800 py-1 px-2 sm:px-2.5 lg:py-2 pr-10 rounded-md sm:rounded-lg focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer text-xs md:text-sm"
                   required
                   onChange={handleChange}
                 >
@@ -349,7 +385,9 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
                     English speaking/Public speaking
                   </option>
                   <option value="Creative writing">Creative writing</option>
-                  <option value="Art and craft (DIY)">Art and craft (DIY)</option>
+                  <option value="Art and craft (DIY)">
+                    Art and craft (DIY)
+                  </option>
                   <option value="Critical Thinking & Problem Solving">
                     Critical Thinking & Problem Solving
                   </option>
@@ -371,7 +409,9 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
                   <option value="Human Resource">Human Resource</option>
                   <option value="Data Analytics">Data Analytics</option>
                   <option value="Product Management">Product Management</option>
-                  <option value="Android Development">Android Development</option>
+                  <option value="Android Development">
+                    Android Development
+                  </option>
                   <option value="Digital Marketing">Digital Marketing</option>
                   <option value="UI/UX Design">UI/UX Design</option>
                   <option value="Software Testing">Software Testing</option>
@@ -394,12 +434,29 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
                   <option value="Data Science">Data Science</option>
                 </select>
                 <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
-                  <IoIosArrowDown className="text-gray-500" />
+                  <IoIosArrowDown className="dark:text-gray-300 text-gray-500" />
+                </div>
+              </div>
+
+              <div className="relative inline-block w-full">
+                <select
+                  id="courses"
+                  name="Course"
+                  className="border dark:bg-slate-800 py-1 px-2 sm:px-2.5 lg:py-2 pr-10 rounded-md sm:rounded-lg focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer text-xs md:text-sm"
+                  required
+                  onChange={handleChange}
+                >
+                  <option value="">Select Enrollment Type</option>
+                  <option value="Full Course">Full Course</option>
+                  <option value="Demo Session">Demo Session</option>
+                </select>
+                <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+                  <IoIosArrowDown className="dark:text-gray-300 text-gray-500" />
                 </div>
               </div>
 
               {/* Consent Checkbox */}
-              <div className="flex items-center">
+              <div className="flex">
                 <input
                   id="consent"
                   name="Consent"
@@ -408,7 +465,10 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
                   onChange={handleChange}
                   required
                 />
-                <label htmlFor="consent" className="text-gray-700 text-xs">
+                <label
+                  htmlFor="consent"
+                  className="dark:text-gray-300 text-gray-700 text-xs"
+                >
                   I consent to receiving updates and notifications from online
                   Baoiam and its affiliates via email, SMS, WhatsApp, and voice
                   call, overriding any DNC/NDNC preference.
@@ -425,8 +485,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
             </form>
           </div>
         </div>
-      )}
+      }
     </>
   );
 };
-

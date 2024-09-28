@@ -15,6 +15,9 @@ import {
 const TeamCard = () => {
     return (
         <div>
+            <div className="sec5 text-center text-xl md:text-4xl p-6 py-8 tracking-wide leading-4 font-bold">
+                Our <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">Team</span>
+            </div>
             <Swiper
                 keyboard={{ enabled: true }}
                 navigation={true}
