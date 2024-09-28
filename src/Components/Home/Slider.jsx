@@ -47,6 +47,7 @@ export default function SliderSection() {
   const { featuredCourses, status, error } = useSelector((state) => state.courses);
 
   useEffect(() => {
+    console.log("Component rendered, current status:", status);
     if(status==='idle'){
       dispatch(fetchFeaturedCourses());
     }
