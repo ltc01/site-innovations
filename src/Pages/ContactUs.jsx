@@ -151,8 +151,12 @@ const ContactUs = () => {
       <section className="py-2 px-4 md:px-24   dark:bg-black rounded-xl">
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-6 lg:gap-10 justify-center">
           <div className="lg:w-2/4 xl:w-2/5 dark:text-white p-4 md:p-6 lg:p-8 rounded-lg border lg:py-6  ">
-            <h2 className="text-xl md:text-3xl lg:text-3xl text-center font-bold md:mb-8 mb-4">
-            Contact Us
+            <h2 className="text-xl md:text-3xl lg:text-2xl text-center font-bold md:mb-8 mb-4">
+              Ready to enhance your skills?
+              <br />
+              <span className="text-sm font-medium">
+                Share your details and hear from us soon
+              </span>
             </h2>
             <form
               id="form1"
@@ -256,29 +260,63 @@ const ContactUs = () => {
                   value={formData.Course}
                   onChange={handleChange}
                 >
-                  <option value="" className="bg-gray-300">Select Inquiry Type</option>
-                  <option value="General Inquiry">General Inquiry</option>
-                  <option value="Technical Support">Technical Support</option>
-                  <option value="Course-Related Query">Course-Related Query</option>
-                  <option value="Partnership Opportunities">Partnership Opportunities</option>
-                  <option value="Others">Others</option>
+                  <option value="">Select Course</option>
+                  <option value="Web Development">Web Development</option>
+                  <option value="English speaking/Public speaking">
+                    English speaking/Public speaking
+                  </option>
+                  <option value="Creative writing">Creative writing</option>
+                  <option value="Art and craft (DIY)">
+                    Art and craft (DIY)
+                  </option>
+                  <option value="Critical Thinking & Problem Solving">
+                    Critical Thinking & Problem Solving
+                  </option>
+                  <option value="Life Skills">Life Skills</option>
+                  <option value="Photography & Editing Skills">
+                    Photography & Editing Skills
+                  </option>
+                  <option value="Technology Development with AI & Coding">
+                    Technology Development with AI & Coding
+                  </option>
+                  <option value="Entrepreneurship & Innovation(Junior Program)">
+                    Entrepreneurship & Innovation(Junior Program)
+                  </option>
+                  <option value="Social Media and Digital Marketing">
+                    Social Media and Digital Marketing
+                  </option>
+                  <option value="Finance Education">Finance Education</option>
+                  <option value="Graphic Designing">Graphic Designing</option>
+                  <option value="Human Resource">Human Resource</option>
+                  <option value="Data Analytics">Data Analytics</option>
+                  <option value="Product Management">Product Management</option>
+                  <option value="Android Development">
+                    Android Development
+                  </option>
+                  <option value="Digital Marketing">Digital Marketing</option>
+                  <option value="UI/UX Design">UI/UX Design</option>
+                  <option value="Software Testing">Software Testing</option>
+                  <option value="Entrepreneurship & Innovation(Pre University)">
+                    Entrepreneurship & Innovation(Pre University)
+                  </option>
+                  <option value="SEO Development">SEO Development</option>
+                  <option value="Machine Learning with AI">
+                    Machine Learning with AI
+                  </option>
+                  <option value="International Business">
+                    International Business
+                  </option>
+                  <option value="Emotional Intelligence">
+                    Emotional Intelligence
+                  </option>
+                  <option value="Executive & Public Relations Content Writing">
+                    Executive & Public Relations Content Writing
+                  </option>
+                  <option value="Data Science">Data Science</option>
                 </select>
                 <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                   <IoIosArrowDown className="text-gray-500" />
                 </div>
-              </div>
-
-              {/* message box */}
-              <div>
-                <label htmlFor="message" className="block text-gray-700 dark:text-slate-300 mb-2 text-sm">Message</label>
-                <textarea
-                  id="message"
-                  onChange={handleChange}
-                  name="Message"
-                  rows="4"
-                  className="w-full p-3 border border-gray-300 rounded-md"
-                  placeholder="Your message here..."
-                ></textarea>
               </div>
 
               {/* Consent Checkbox */}
