@@ -16,6 +16,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { RxCross2 } from "react-icons/rx";
+import thumbsUp from "../../assets/Images/thumbs-up (1).gif"
 
 const ContactUs = () => {
   // const togglePopup = () => {
@@ -154,7 +155,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
     };
 
     console.log("Form Data:", data);
-    setShowPopup(true)
+    setShowPopup(true);
     setLoading(false);
     try {
       const response = await axios.post(
@@ -197,45 +198,57 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
           {/* Overlay */}
           <div
             className="fixed inset-0 bg-gray-600 bg-opacity-50 transition-opacity"
-          // Click outside to close
+            onClick={() => setShowPopup(false)} // Click outside to close
           ></div>
 
           {/* Modal Content */}
-          <div className="relative bg-white rounded-lg p-8 shadow-2xl z-10 text-center">
+          <div className="relative bg-white rounded-lg p-8 shadow-2xl z-10 text-center md:w-[400px] w-[250px] dark:bg-gray-700">
+            {/* Gradient Top Section */}
+            {/* bg-gradient-to-r from-orange-500 to-pink-400*/}
+            {/*bg-gradient-to-r from-green-500 to-yellow-400 */}
+            {/*bg-gradient-to-r from-indigo-900 to-purple-800 */}
+            <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-r from-green-400 to-indigo-500 rounded-t-lg"></div>
+
             {/* Success Icon */}
-            <FaCheckCircle
-              size={50}
-              className={`text-green-500 mx-auto mb-4 ${animatePing ? "animate-ping" : ""
-                }`}
-            />
+            <div className="relative top-[80px] bg-white  rounded-full shadow-lg inline-block ">
+              {/* <FaCheckCircle size={50} className="text-black mx-auto mb-4" /> */}
+              <img
+                src={thumbsUp} // Replace with your image path
+                alt="Success"
+                className="w-20 h-20 mx-auto flex items-center p-2 rounded-full  " // Adjust the width and height as needed
+              />
+            </div>
 
-            <h2 className="md:text-2xl font-bold text-indigo-600 mb-4 transition-all duration-300 ease-in-out">
-              Data submitted successfully
-            </h2>
-            {/* <p className="text-gray-700 mb-6">
-              Your enrollment was successful. We’re excited to have you on
-              board!
-            </p> */}
+            {/* Success Message */}
+            <div className=" pt-24">
+              <h2 className="text-3xl font-bold text-black mb-4 dark:text-white">Success!</h2>
+              <p className="text-gray-700 mb-6 dark:text-gray-300">
+                Yay! You have successfully enrolled.
+              </p>
 
-            {/* Decorative Element */}
-            <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-green-400 to-blue-500 rounded-t-md"></div>
-
-            {/* Close Button */}
-            <button
-              onClick={() => setShowPopup(false)}
-              className="bg-gradient-to-br from-purple-600 via-indigo-500 to-indigo-700 text-white px-6 py-2 rounded-full hover:bg-indigo-700 focus:outline-none transition-all text-sm md:text-base"
-            >
-              Close
-            </button>
+              {/* Continue Button */}
+              <button
+                onClick={() => setShowPopup(false)} // Manually close the popup
+                className="bg-gradient-to-br from-purple-600 via-indigo-500 to-indigo-700 text-white px-6 py-2 rounded-full hover:bg-indigo-700 focus:outline-none transition-all text-sm md:text-base"
+              >
+                Continue
+              </button>
+            </div>
           </div>
         </div>
       )}
-      {(
+
+      {
         <div className="cursor-pointer fixed inset-0 flex justify-center h-screen items-center z-[200] w-screen bg-black/20">
-          <div  className="w-[90%] md:w-3/5 lg:max-w-xl lg:h-[37rem] h-[500px] bg-white p-4 md:px-12 md:py-8 rounded-lg border relative flex flex-col items-center justify-center overflow-y-auto ">
-            <span onClick={() => setShowForm(false)} className="absolute top-3 right-3 text-2xl"><RxCross2 /></span>
+          <div className="w-[90%] md:w-3/5 lg:max-w-xl lg:h-[37rem] h-[500px] bg-white p-4 md:px-12 md:py-8 rounded-lg border relative flex flex-col items-center justify-center overflow-y-auto ">
+            <span
+              onClick={() => setShowForm(false)}
+              className="absolute top-3 right-3 text-2xl"
+            >
+              <RxCross2 />
+            </span>
             <div className="text-lg md:text-2xl lg:text-3xl mt-4 pt-2 pb-2 md:pb-4 text-center font-bold">
-              <div>Ready to enhance your skills?</div> 
+              <div>Ready to enhance your skills?</div>
               <span className="text-xs md:text-sm lg:text-base font-medium">
                 Share your details and hear from us soon
               </span>
@@ -249,7 +262,10 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
             >
               {/* Full Name */}
               <div>
-                <label htmlFor="fullname" className="block text-gray-700 mb-2 text-xs md:text-sm">
+                <label
+                  htmlFor="fullname"
+                  className="block text-gray-700 mb-2 text-xs md:text-sm"
+                >
                   Full Name
                 </label>
                 <input
@@ -265,7 +281,10 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
 
               {/* Email */}
               <div>
-                <label htmlFor="email" className="block text-gray-700 mb-2 text-xs md:text-sm">
+                <label
+                  htmlFor="email"
+                  className="block text-gray-700 mb-2 text-xs md:text-sm"
+                >
                   Email
                 </label>
                 <input
@@ -304,7 +323,10 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
                 </div>
 
                 <div className="col-span-2">
-                  <label htmlFor="phone" className="block text-gray-700 mb-2 text-xs md:text-sm">
+                  <label
+                    htmlFor="phone"
+                    className="block text-gray-700 mb-2 text-xs md:text-sm"
+                  >
                     Phone Number
                   </label>
                   <input
@@ -337,7 +359,9 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
                     English speaking/Public speaking
                   </option>
                   <option value="Creative writing">Creative writing</option>
-                  <option value="Art and craft (DIY)">Art and craft (DIY)</option>
+                  <option value="Art and craft (DIY)">
+                    Art and craft (DIY)
+                  </option>
                   <option value="Critical Thinking & Problem Solving">
                     Critical Thinking & Problem Solving
                   </option>
@@ -359,7 +383,9 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
                   <option value="Human Resource">Human Resource</option>
                   <option value="Data Analytics">Data Analytics</option>
                   <option value="Product Management">Product Management</option>
-                  <option value="Android Development">Android Development</option>
+                  <option value="Android Development">
+                    Android Development
+                  </option>
                   <option value="Digital Marketing">Digital Marketing</option>
                   <option value="UI/UX Design">UI/UX Design</option>
                   <option value="Software Testing">Software Testing</option>
@@ -413,7 +439,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
             </form>
           </div>
         </div>
-      )}
+      }
     </>
   );
 };
