@@ -266,9 +266,9 @@ const ContactForm = () => {
               id="industry"
               className="px-4 py-2 border border-black/60 w-full max-sm:py-1"
             >
-              <option value="">Select an Type</option>
+              <option value="">Select a Type</option>
               {industry.map((i) => (
-                <option key={i.id} value={i.value} className="dark:text-white">
+                <option key={i.id} value={i.value} className="">
                   {i.label}
                 </option>
               ))}
