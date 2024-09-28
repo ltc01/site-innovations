@@ -26,7 +26,7 @@ const MobNavbar = ({ showmenu, setShowmenu, course, isDark, setIsDark }) => {
   const closeSideBar = () => {
     setShowmenu(false);
   };
-
+ 
   // console.log(course);
 
   return (
@@ -69,19 +69,20 @@ const MobNavbar = ({ showmenu, setShowmenu, course, isDark, setIsDark }) => {
                   : "text-gray-600 dark:text-gray-400"
               }`}
             >
-              <button
-                onClick={() => {
+              <div
+                className="flex justify-between w-full items-center"
+              >
+                <Link to="/courses" onClick={closeSideBar} className="flex-1 dark:text-white ms-3 text-left rtl:text-right whitespace-nowrap">
+                  Course
+                </Link>
+                {subCateDrop ? <FaChevronUp onClick={() => {
                   setSubCateDrop((old) => !old);
                   setActiveTab("Course");
-                }}
-                className="flex justify-between w-full items-center"
-                type="button"
-              >
-                <span className="flex-1 dark:text-white ms-3 text-left rtl:text-right whitespace-nowrap">
-                  Course
-                </span>
-                {subCateDrop ? <FaChevronUp /> : <FaChevronDown />}
-              </button>
+                }} /> : <FaChevronDown onClick={() => {
+                  setSubCateDrop((old) => !old);
+                  setActiveTab("Course");
+                }} />}
+              </div>
               {subCateDrop && (
                 <ul className="py-2 relative flex flex-col gap-2 w-full items-start ">
                   <li

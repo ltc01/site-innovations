@@ -150,7 +150,7 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
           </Link>
 
           <Link
-            to={"/about-us"}
+            to={"/about-us"} 
             onClick={() => handleLinkClick("About")}
             className={`mx-2 xl:mx-4 text-nowrap hover:text-indigo-500 ${
               location.pathname === "/about-us" && linkActive === "About"
