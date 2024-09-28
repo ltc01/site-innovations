@@ -116,7 +116,7 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
     <>
       {showmenu && (
         <div
-          className="overlay fixed top-0 right-0 w-full  h-full bg-black opacity-40 z-40 xl:hidden"
+          className="overlay fixed top-0 right-0 w-full h-full bg-black opacity-40 z-40 xl:hidden"
           onClick={() => setShowmenu(false)}
         ></div>
       )}
@@ -172,7 +172,7 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
 
           {show && (
             <div
-              className="absolute pl-4 pr-2 py-1 top-20 font-normal left-[30%] bg-white dark:bg-gray-700 border-black/50 border-[1px] text-sm shadow-lg z-50 dark:text-white"
+              className="absolute pl-4 pr-2 py-1 top-20 rounded-md left-[30%] bg-white dark:bg-black dark:border-white border-black/50 border-[1px] text-sm shadow-lg z-50 dark:text-white"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
