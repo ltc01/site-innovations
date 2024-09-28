@@ -23,6 +23,10 @@ const MobNavbar = ({ showmenu, setShowmenu, course, isDark, setIsDark }) => {
     setIsDark();
   };
 
+  useEffect(() => {
+    console.log(isDark);
+  }, [isDark]);
+
   const closeSideBar = () => {
     setShowmenu(false);
   };

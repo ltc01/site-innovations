@@ -176,7 +176,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
         Course: "",
         Consent: false,
       });
-    } catch (error) {    
+    } catch (error) {
       setLoading(false);
       toast.error("An error occurred");
       console.error("Error submitting form", error);
@@ -193,7 +193,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
   return (
     <>
       {showPopup && (
-        <div className="fixed inset-0 flex items-center justify-center z-[100]">
+        <div className="fixed inset-0 flex items-center justify-center z-[201]">
           {/* Overlay */}
           <div
             className="fixed inset-0 bg-gray-600 bg-opacity-50 transition-opacity"
@@ -231,10 +231,10 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
         </div>
       )}
       {(
-        <div className="cursor-pointer fixed inset-0 flex justify-center h-screen items-center z-50 w-screen bg-black/20">
-          <div  className="w-full max-w-xl lg:h-fit h-[500px] bg-white p-4 md:px-12 md:py-8 rounded-lg border relative flex flex-col items-center justify-center overflow-y-auto mt-24 pt-12">
+        <div className="cursor-pointer fixed inset-0 flex justify-center h-screen items-center z-[200] w-screen bg-black/20">
+          <div  className="w-[90%] md:w-3/5 lg:max-w-xl lg:h-[37rem] h-[500px] bg-white p-4 md:px-12 md:py-8 rounded-lg border relative flex flex-col items-center justify-center overflow-y-auto ">
             <span onClick={() => setShowForm(false)} className="absolute top-3 right-3 text-2xl"><RxCross2 /></span>
-            <div className="text-lg md:text-2xl lg:text-3xl pt-16 lg:pt-8 pb-8 text-center font-bold">
+            <div className="text-lg md:text-2xl lg:text-3xl mt-4 pt-2 pb-2 md:pb-4 text-center font-bold">
               <div>Ready to enhance your skills?</div> 
               <span className="text-xs md:text-sm lg:text-base font-medium">
                 Share your details and hear from us soon
@@ -242,7 +242,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
             </div>
             <form
               id="form1"
-              className="space-y-4"
+              className="space-y-2 md:space-y-4"
               onSubmit={(e) => {
                 handleSubmit(e);
               }}
@@ -256,7 +256,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
                   id="fullname"
                   type="text"
                   name="Name"
-                  className="w-full p-2 border border-gray-300 rounded-md text-xs md:text-sm"
+                  className="w-full py-1 md:px-2 lg:py-2 border border-gray-300 rounded-md text-xs md:text-sm"
                   placeholder="Enter your full name"
                   onChange={handleChange}
                   required
@@ -272,7 +272,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
                   id="email"
                   type="email"
                   name="Email"
-                  className="w-full p-2 border border-gray-300 rounded-md text-xs md:text-sm"
+                  className="w-full py-1 md:px-2 lg:py-2 border border-gray-300 rounded-md text-xs md:text-sm"
                   placeholder="Enter your E-mail"
                   onChange={handleChange}
                   required
@@ -292,7 +292,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
                     <select
                       id="countryCode"
                       name="CountryCode"
-                      className="border p-2 pr-8 rounded focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer text-xs md:text-sm"
+                      className="border py-1 md:px-2 lg:py-2 pr-8 rounded focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer text-xs md:text-sm"
                       onChange={handleChange}
                     >
                       <option value="+91">🇮🇳 +91 (India)</option>
@@ -311,7 +311,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
                     id="phone"
                     name="Phone"
                     type="tel"
-                    className="w-full p-2 border border-gray-300 rounded-md text-xs md:text-sm"
+                    className="w-full py-1 md:px-2 lg:py-2 border border-gray-300 rounded-md text-xs md:text-sm"
                     placeholder="Enter your phone number"
                     pattern="[0-9]{10}"
                     minLength="10"
@@ -327,7 +327,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
                 <select
                   id="courses"
                   name="Course"
-                  className="border p-2 pr-10 rounded focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer text-xs md:text-sm"
+                  className="border py-1 md:px-2 lg:py-2 pr-10 rounded focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer text-xs md:text-sm"
                   required
                   onChange={handleChange}
                 >
@@ -406,7 +406,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-indigo-500 text-white text-xs md:text-base py-2 md:py-3 rounded-md hover:bg-indigo-600"
+                className="w-full bg-indigo-500 text-white text-xs md:text-base py-2 lg:py-3 rounded-md hover:bg-indigo-600"
               >
                 {loading ? "Loading..." : "Submit"}
               </button>

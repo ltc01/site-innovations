@@ -1,8 +1,5 @@
 import React, { useEffect } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const section2 = [
   {
@@ -32,13 +29,26 @@ const section2 = [
 ];
 
 const Cards = () => {
+
   useEffect(() => {
+
+    gsap.fromTo('.cards1',{opacity:0,y:30},{
+      opacity:1,
+      y:0,
+      duration:1,
+      ease:'back.inOut',
+      scrollTrigger:{
+        trigger:'.carddiv1',
+        start:'top 90%',
+        end:'bottom 90%'
+      }
+    })
+
     gsap.fromTo(
       ".card-1",
-      { y: "0%", x: "30%", opacity: 0 },
+      {  x: "30%", opacity: 0 },
       {
-        x: "0",
-        y: "0%",
+        x: "0%",
         opacity: 1,
         duration: 1,
         ease: "power2.out",
@@ -65,6 +75,7 @@ const Cards = () => {
         },
       }
     );
+
     gsap.fromTo(
       ".card-3",
       { y: "30%", opacity: 0 },
@@ -92,18 +103,19 @@ const Cards = () => {
         ease: "power2.out",
         scrollTrigger: {
           trigger: ".card-3",
-          start: "top 120%",
+          start: "top 80%",
           end: "top 60%",
         },
       }
     );
+
   }, []);
 
   return (
-    <section className="w-full h-full mt-24 px-6 md:px-12 lg:px-24">
+    <section className="carddiv1 w-full h-full mt-24 px-6 md:px-12 lg:px-24">
       {/* Heading wrapper */}
-      <div className="flex justify-center mb-8 lg:mb-5">
-        <h2 className="text-3xl md:text-4xl font-bold text-left">
+      <div className="cards1 flex justify-center mb-8 lg:mb-5">
+        <h2 className=" text-3xl md:text-4xl font-bold text-left">
           Why{" "}
           <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
             Join GCEP

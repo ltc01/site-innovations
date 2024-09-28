@@ -64,7 +64,7 @@ const CourseCard = () => {
         {courses.map((course, index) => (
           <div
             key={index}
-            className="course-card max-w-sm w-full rounded-lg border border-slate-300 bg-slate-100 overflow-hidden shadow-lg hover:scale-105 transition-transform duration-200 ease-in-out"
+            className="course-card dark:dark:bg-[#080529] max-w-sm w-full rounded-lg border border-slate-300 bg-slate-100 overflow-hidden shadow-lg hover:scale-105 transition-transform duration-200 ease-in-out"
           >
             <img
               src={course.image}
@@ -72,11 +72,11 @@ const CourseCard = () => {
               className="w-full h-48 object-cover rounded-t-lg"
             />
             <div className="p-5 py-4 h-full">
-              <div className="font-bold text-lg dark:text-black md:text-2xl text-start">
+              <div className="font-bold text-lg dark:text-white md:text-2xl text-start">
                 {course.title}
               </div>
               <div className="flex items-center my-3">
-                <div className="text-base text-gray-600 md:text-lg font-semibold">
+                <div className="text-base text-gray-600 dark:text-gray-100 md:text-lg font-semibold">
                   {course.rating}
                 </div>
                 <div className="text-xl flex font-semibold text-amber-400 ml-2">
@@ -86,7 +86,7 @@ const CourseCard = () => {
                   <RiStarSFill />
                   <RiStarSLine />
                 </div>
-                <div className="text-xs text-gray-600 ml-2">
+                <div className="text-xs text-gray-600 dark:text-gray-100 ml-2">
                   ({course.review} Reviews)
                 </div>
               </div>

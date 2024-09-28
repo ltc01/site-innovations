@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link, useNavigate } from "react-router-dom";
@@ -17,19 +17,6 @@ const Program = ({ title, data }) => {
   const navigate = useNavigate();
   const titleRef = useRef(null);
   const buttonRefs = useRef([]);
-  console.log(data);
-  const [selectedCategory, setSelectedCategory] = useState("Category1");
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    if (currentIndex >= data?.length) {
-      setCurrentIndex(0);
-    }
-  }, [currentIndex]);
-
-  const handleSlideChange = (swiper) => {
-    // setCurrentIndex(swiper.realIndex);
-  };
 
   useEffect(() => {
     // Animation for the title
