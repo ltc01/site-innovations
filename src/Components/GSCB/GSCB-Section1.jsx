@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Marquee from "react-fast-marquee";
 import { BsFillEnvelopeAtFill } from "react-icons/bs";
 import { MdPreview } from "react-icons/md";
@@ -17,8 +18,8 @@ const marquee_imgs = [
 ];
 
 const Section1 = ({ dark }) => {
-  // const [lettersRef, setlettersRef] = useArrayRef();
-  // const triggerRef = useRef(null);
+  const [lettersRef, setlettersRef] = useArrayRef();
+  const triggerRef = useRef(null);
 
   // function useArrayRef() {
     // const lettersRef = useRef([]);
@@ -27,8 +28,9 @@ const Section1 = ({ dark }) => {
   // }
 
 
-  // const text =
-  //   "GCEP (Global Collabo Educational Partnership) is an initiative by BAOIAM aimed at building strong, innovative alliances with schools, colleges, and educational institutions worldwide. Through GCEP, we collaborate to enhance the quality of education and create new opportunities for students and educators alike.";
+  gsap.registerPlugin(ScrollTrigger);
+  const text =
+    "GCEP (Global Collabo Educational Partnership) is an initiative by BAOIAM aimed at building strong, innovative alliances with schools, colleges, and educational institutions worldwide. Through GCEP, we collaborate to enhance the quality of education and create new opportunities for students and educators alike.";
 
   
     const defaultColor=dark?'text-indigo-500':'text-black';
@@ -157,7 +159,6 @@ gsap.fromTo('.cards',{opacity:0,y:30},{
         <div className="border-expand2  w-full my-8 md:my-16 h-1 bg-gradient-to-r from-indigo-500 to-purple-600 mx-auto"></div>
 
       </div>
-   
 
       {/* Join */}
 

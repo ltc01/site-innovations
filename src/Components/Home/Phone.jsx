@@ -26,9 +26,8 @@ const Phone = () => {
             {/* Success Icon */}
             <FaCheckCircle
               size={50}
-              className={`text-green-500 mx-auto mb-4 ${
-                animatePing ? "animate-ping" : ""
-              }`}
+              className={`text-green-500 mx-auto mb-4 ${animatePing ? "animate-ping" : ""
+                }`}
             />
 
             <h2 className="text-2xl font-bold text-indigo-600 mb-4 transition-all duration-300 ease-in-out">
@@ -52,20 +51,20 @@ const Phone = () => {
           </div>
         </div>
       )}
-      <div className="flex w-full gap-8 pb-20 py-10 dark:bg-[#080529] dark:text-white items-center mx-auto justify-center flex-col md:flex-row">
+      <div className="flex w-full gap-8 pb-20 py-10 dark:bg-[#010203] dark:text-white items-center mx-auto justify-center flex-col md:flex-row">
         <div className="w-40 md:w-[23%]">
           <img src={App_phone} className="w-full" alt="Android app-Baoiam" />
         </div>
         <div className="md:w-1/3 w-[80%]">
           <p className="text-3xl font-bold">
-            Take the Leap—Start{" "}
+            Seize The {" "}
             <span className="bg-gradient-to-r from-pink-500  to-violet-600 bg-clip-text text-transparent">
-              Learning
+              Opportunity - Begin
             </span>{" "}
-            Now!
+            Your Journey Now!
           </p>
-          <p className="font-medium mt-2 text-slate-600">
-            Unlock your potential for success with our courses.
+          <p className="font-medium mt-2 text-slate-600 dark:text-slate-300">
+            Maximize your growth with our transformative courses
           </p>
 
           <form

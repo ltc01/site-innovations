@@ -48,6 +48,7 @@ import NotFound from "./Pages/NotFound";
 import EnrollNowButton from "./Components/EnrollNowButton/EnrollNowButton";
 import Profile from "./Pages/Profile";
 import { ContactFormComponent } from "./Components/Contact/ContactForm";
+import AuthNavigator from "./Pages/auth/AuthNavigator";
 
 const App = () => {
   const [dark, setDark] = useState(false);
@@ -80,10 +81,10 @@ const App = () => {
   }
 
   return (
-    <div className="dark:bg-black w-full max-w-[1440px] mx-auto overflow-hidden h-full dark:text-white ">
+    <div className="dark:bg-black w-full mx-auto overflow-hidden h-full dark:text-white ">
       <Navbar theme={theme} showForm={showForm} setShowForm={setShowForm} />
 
-      <div className="mt-24">
+      <div className="mt-24 max-w-[1660px] mx-auto">
         <Routes>
           {/* NavLinks */}
           <Route path="/" element={<Home dark={dark} />} />
@@ -126,12 +127,12 @@ const App = () => {
 
           {/* Checkout */}
 
-          <Route path="/checkout/:course/:id/:plan?" element={<Checkout />} />
+          <Route path="/checkout/:id/:plan" element={<AuthNavigator><Checkout /></AuthNavigator>} />
           <Route path="/courses" element={<Courses />} />
 
           {/* Profile & Dashboard */}
-          <Route path="/profile" element={<SideBar />} />
-          <Route path="/instructor-dashboard" element={<TeacherDashboard />} />
+          <Route path="/profile" element={<AuthNavigator><SideBar /></AuthNavigator>} />
+          <Route path="/instructor-dashboard" element={<AuthNavigator><TeacherDashboard /></AuthNavigator>} />
 
           {/* Maintenace */}
           <Route path="/Maintenance" element={<Maintenance />} />

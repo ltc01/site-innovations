@@ -1,6 +1,7 @@
 // local
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import axiosInstance from "../../axiosInstance";
 const apiUrl = import.meta.env.VITE_API_URL;
 
 // Async thunk to fetch enrollment list of courses ->
@@ -59,28 +60,28 @@ const coursesSlice = createSlice({
     // Handle fetchProgramCourses
     builder
       .addCase(fetchProgramCourses.pending, (state) => {
-        state.status = "loading";
+        state.status = 'loading';
       })
       .addCase(fetchProgramCourses.fulfilled, (state, action) => {
-        state.status = "succeeded";
+        state.status = 'succeeded';
         state.programCourses = action.payload;
       })
       .addCase(fetchProgramCourses.rejected, (state, action) => {
-        state.status = "failed";
+        state.status = 'failed';
         state.error = action.error.message;
       });
 
     // Handle fetchAllCourses
     builder
       .addCase(fetchAllCourses.pending, (state) => {
-        state.status = "loading";
+        state.status = 'loading';
       })
       .addCase(fetchAllCourses.fulfilled, (state, action) => {
-        state.status = "succeeded";
+        state.status = 'succeeded';
         state.allCourses = action.payload;
       })
       .addCase(fetchAllCourses.rejected, (state, action) => {
-        state.status = "failed";
+        state.status = 'failed';
         state.error = action.error.message;
       });
   },

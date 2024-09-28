@@ -18,7 +18,7 @@ const Logo = ({ isDark }) => {
         <Link
             rel="canonical"
             to={"/"}
-            className={`w-24 h-16 mb-4 ml-4 xl:ml-8`}
+            className={`w-24 h-16 mb-4`}
             ref={logoRef} // Attach the ref to the logo element
         >
             <img
