@@ -1,10 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "animate.css";
 import { useLocation, useParams } from "react-router-dom";
+import { ContactFormComponent } from "../Contact/ContactForm";
 
-const EnrollNowButton = () => {
+const EnrollNowButton = ({showForm,setShowForm}) => {
   const buttonRef = useRef(null);
   const location = useLocation();
+
   useEffect(() => {
     const triggerAnimation = () => {
       if (buttonRef.current) {
@@ -35,12 +37,13 @@ const EnrollNowButton = () => {
   if (location.pathname != "/404")
     return (
       <div>
-        <button
+        {showForm ? null : <button
           ref={buttonRef}
-          className="sm:hidden fixed bottom-28 right-0 z-[100] inline-flex items-center justify-center text-base font-medium disabled:opacity-50 border  rounded-l-3xl w-35 px-5 py-3 bg-gradient-to-r from-pink-500 to-violet-600 m-0 cursor-pointer border-gray-200 text-white normal-case"
+          onClick={() => setShowForm(old=>!old)}
+          className="fixed bottom-28 right-0 z-[100] inline-flex lg:hidden items-center justify-center text-base font-medium disabled:opacity-50 border  rounded-l-3xl w-35 px-5 py-3 bg-gradient-to-r from-pink-500 to-violet-600 m-0 cursor-pointer border-gray-200 text-white normal-case"
         >
           Enroll Now
-        </button>
+        </button>}
       </div>
     );
 };

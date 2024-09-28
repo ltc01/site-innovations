@@ -46,24 +46,15 @@ const CourseNav = ({ setShow, course }) => {
           return (
             <div
               key={i}
-              className={`flex items-center justify-between py-3 w-64 ${
-                activeTabIndex === i && "text-amber-600"
+              onClick={() => handleTabActiveState(c.id, i)}
+              className={`flex items-center hover:text-indigo-500 justify-between py-3 w-64 ${
+                activeTabIndex === i && "text-indigo-500"
               }`}
             >
-              <Link
-                onClick={() => setShow(false)}
-                // to={`/${c.link}`}
-                className=" hover:text-amber-600 font-semibold flex items-center gap-2"
-              >
+              <div className="font-semibold flex items-center gap-2" >
                 {c.icon} {c.title}
-              </Link>
-              {/* Maintenance */}
-              <button
-                onClick={() => {
-                  // handleTabActiveState(c.id, i)
-                }}
-                className={`hover:text-amber-600`}
-              >
+              </div>
+              <button className={``}>
                 <IoIosArrowDown
                   className={`${activeTabIndex === i && "-rotate-90"}`}
                 />
@@ -74,13 +65,13 @@ const CourseNav = ({ setShow, course }) => {
       </div>
 
       {activeTabIndex === 0 && (
-        <div className="absolute top-8 left-72 h-fit w-72 overflow-x-hidden bg-white dark:bg-gray-700 border-black/50 border-[1px] text-sm p-1 shadow-lg z-50 dark:text-white overflow-y-auto">
+        <div className="absolute top-8 left-72 h-fit w-72 overflow-x-hidden bg-white dark:bg-black dark:border-white border-black/50 border-[1px] text-sm p-1 shadow-lg z-50 dark:text-white overflow-y-auto rounded-md">
           {course[0]?.courses?.map((sub, index) => {
             return (
-              <div key={index} className="px-6 py-2 hover:bg-amber-50">
+              <div key={index} className="px-6 py-2 hover:bg-amber-50 dark:hover:bg-indigo-500 dark:hover:text-white">
                 <Link
                   onClick={() => setShow(false)}
-                  to={`/course/${sub.title}/${sub.id}`}
+                  to={`/course/${sub.slug}/${sub.id}`}
                   className="text-sm"
                 >
                   {sub.title}
@@ -91,13 +82,13 @@ const CourseNav = ({ setShow, course }) => {
         </div>
       )}
       {activeTabIndex === 1 && (
-        <div className="absolute top-8 left-72 h-fit w-72 overflow-x-hidden bg-white dark:bg-gray-700 border-black/50 border-[1px] text-sm p-1 shadow-lg z-50 dark:text-white overflow-y-auto">
+        <div className="absolute top-8 left-72 h-fit w-72 overflow-x-hidden bg-white dark:bg-black dark:border-white border-black/50 border-[1px] text-sm p-1 shadow-lg z-50 dark:text-white overflow-y-auto rounded-md">
           {course[1]?.courses?.map((sub, index) => {
             return (
-              <div key={index} className="px-6 py-2 hover:bg-amber-50">
+              <div key={index} className="px-6 py-2 hover:bg-amber-50 dark:hover:bg-indigo-500 dark:hover:text-white">
                 <Link
                   onClick={() => setShow(false)}
-                  to={`/course/${sub.title}/${sub.id}`}
+                  to={`/course/${sub.slug}/${sub.id}`}
                   className="text-sm"
                 >
                   {sub.title}
@@ -108,13 +99,13 @@ const CourseNav = ({ setShow, course }) => {
         </div>
       )}
       {activeTabIndex === 2 && (
-        <div className="absolute top-8 left-72 h-fit w-72 overflow-x-hidden bg-white dark:bg-gray-700 border-black/50 border-[1px] text-sm p-1 shadow-lg z-50 dark:text-white overflow-y-auto">
+        <div className="absolute top-8 left-72 h-fit w-72 overflow-x-hidden bg-white dark:bg-black dark:border-white border-black/50 border-[1px] text-sm p-1 shadow-lg z-50 dark:text-white overflow-y-auto rounded-md">
           {course[2]?.courses?.map((sub, index) => {
             return (
-              <div key={index} className="px-6 py-2 hover:bg-amber-50">
+              <div key={index} className="px-6 py-2 hover:bg-amber-50 dark:hover:bg-indigo-500 dark:hover:text-white">
                 <Link
                   onClick={() => setShow(false)}
-                  to={`/course/${sub.title}/${sub.id}`}
+                  to={`/course/${sub.slug}/${sub.id}`}
                   className="text-sm"
                 >
                   {sub.title}
@@ -170,7 +161,7 @@ export default CourseNav;
 //                         <div className="w-full h-72 overflow-x-hidden dark:bg-gray-700 dark:text-white overflow-y-auto">
 //                             {courses[activeTabIndex].subcategories.map((sub, index) => {
 //                                 return (
-//                                     <div key={index} className="px-6 py-2 hover:bg-amber-50">
+//                                     <div key={index} className="px-6 py-2 hover:bg-amber-50 dark:hover:bg-indigo-500 dark:hover:text-white">
 //                                         <Link onClick={() => setShow(false)} to={`/course/${sub.name}/${sub.id}`} className="text-sm">
 //                                             {sub.name}
 //                                         </Link>

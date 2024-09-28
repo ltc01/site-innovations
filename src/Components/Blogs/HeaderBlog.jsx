@@ -1,10 +1,39 @@
 import bhead from "../../assets/Blogs/bhead.jpg";
 import { toast } from "react-toastify";
 
-export const HeaderBlog = ({ searchQuery, setSearchQuery }) => {
+export const HeaderBlog = ({
+  searchQuery,
+  setSearchQuery,
+  searchResults,
+  setSearchResults,
+  blog_list,
+}) => {
   const handleSearch = () => {
-    if (searchQuery == "") {
-      toast.error("Please write something in input feild");
+    if (searchQuery.trim() === "") {
+      toast.error("Please write something in input field");
+      return;
+    }
+
+    const filteredBlogs = blog_list.filter(
+      (item) =>
+        item.text.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    if (filteredBlogs.length === 0) {
+      toast.info("No matching blogs found.");
+    }
+
+    setSearchResults(filteredBlogs);
+  };
+
+  const handleInputChange = (e) => {
+    setSearchQuery(e.target.value);
+
+    // Reset results if input is cleared
+    if (e.target.value.trim() === "") {
+      setSearchResults(blog_list);
+      console.log("trim work");
     }
   };
 
@@ -31,7 +60,7 @@ export const HeaderBlog = ({ searchQuery, setSearchQuery }) => {
                 placeholder='Search for articles...'
                 className='w-full outline-none bg-transparent text-sm text-gray-800 px-4 py-3'
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={handleInputChange}
               />
 
               <button

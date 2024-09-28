@@ -46,9 +46,13 @@ import { PopularBlogDetail } from "./Pages/PopularBlogDetail";
 import Courses from "./Pages/Courses";
 import NotFound from "./Pages/NotFound";
 import EnrollNowButton from "./Components/EnrollNowButton/EnrollNowButton";
+import Profile from "./Pages/Profile";
+import { ContactFormComponent } from "./Components/Contact/ContactForm";
+import AuthNavigator from "./Pages/auth/AuthNavigator";
 
 const App = () => {
   const [dark, setDark] = useState(false);
+  const [showForm, setShowForm] = useState(false);
   const location = useLocation();
   const theme = () => {
     setDark((old) => !old);
@@ -65,7 +69,6 @@ const App = () => {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
-
     return () => {};
   }, [location.pathname]);
 
@@ -73,11 +76,15 @@ const App = () => {
     return <Loader />;
   }
 
-  return (
-    <div className="dark:bg-[#080529] w-full max-w-[1440px] mx-auto overflow-hidden h-full dark:text-white ">
-      <Navbar theme={theme} />
+  if(location.pathname === "/profile"){
+    return <Profile />
+  }
 
-      <div className="mt-24">
+  return (
+    <div className="dark:bg-black w-full mx-auto overflow-hidden h-full dark:text-white ">
+      <Navbar theme={theme} showForm={showForm} setShowForm={setShowForm} />
+
+      <div className="mt-24 max-w-[1660px] mx-auto">
         <Routes>
           {/* NavLinks */}
           <Route path="/" element={<Home dark={dark} />} />
@@ -120,12 +127,12 @@ const App = () => {
 
           {/* Checkout */}
 
-          <Route path="/checkout/:course/:id/:plan?" element={<Checkout />} />
+          <Route path="/checkout/:id/:plan" element={<AuthNavigator><Checkout /></AuthNavigator>} />
           <Route path="/courses" element={<Courses />} />
 
           {/* Profile & Dashboard */}
-          <Route path="/profile" element={<SideBar />} />
-          <Route path="/instructor-dashboard" element={<TeacherDashboard />} />
+          <Route path="/profile" element={<AuthNavigator><SideBar /></AuthNavigator>} />
+          <Route path="/instructor-dashboard" element={<AuthNavigator><TeacherDashboard /></AuthNavigator>} />
 
           {/* Maintenace */}
           <Route path="/Maintenance" element={<Maintenance />} />
@@ -158,7 +165,10 @@ const App = () => {
           <Route path="*" element={<Navigate to="/404" replace />} />
         </Routes>
         {/* <ChatBot /> */}
-        <EnrollNowButton />
+        <EnrollNowButton showForm={showForm} setShowForm={setShowForm}/>
+        {showForm && (
+          <ContactFormComponent showForm={showForm} setShowForm={setShowForm} />
+        )}
       </div>
 
       <Footer dark={dark} />

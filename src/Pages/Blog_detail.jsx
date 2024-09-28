@@ -6,12 +6,11 @@ import carrer1 from "../assets/carrer1.jpg";
 import datasc from "../assets/datasc.jpg";
 import business from "../assets/business.jpg";
 import tech from "../assets/tech.jpg";
-import critical from "../assets/critical.jpg";
+import new_excited_tech_edu1 from "../assets/Blogs/new_excited_tech_edu1.jpg";
 import content_data from "../Data/Content.js";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import data2 from "../Data/Content2.js";
 import { toast } from "react-toastify";
-import axios from "axios";
 import {
   FaBullhorn,
   FaClipboardList,
@@ -26,75 +25,66 @@ const Blog_detail = () => {
   document.title = "Baoiam - Blog Detail";
   const [comment, setComment] = useState("");
   const [datacmmt, setDatacmmt] = useState([]);
-
   const { id } = useParams();
+  const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo(0, 0);
     console.log(content_data);
-    console.log(content_data[id].heading1);
+    console.log(content_data[id].Category);
     return () => {};
   }, []);
   document.title = "Baoiam - Blog Details";
 
+  const hanldenav = () => {
+    navigate("/Blog-detail/0");
+  };
+  const hanldenav2 = () => {
+    navigate("/Blogdetails/1");
+  };
+  const hanldenav3 = () => {
+    navigate("/Blog_detail/3");
+  };
+
   const handlePostSubmit = () => {
     if (comment === "") {
       toast.error("Please fill in all the fields");
+      return;
+    } else {
+      const payload = {
+        title: comment,
+        id: Date.now(),
+        name: "user",
+      };
+      setDatacmmt([...datacmmt, payload]);
+      setComment("");
+      toast.success("Comment Added");
     }
-    const payload = {
-      title: comment,
-      id: Date.now(),
-      name: "user",
-    };
-    setDatacmmt([...datacmmt, payload]);
-    setComment("");
-    toast.success("Comment Added");
-    // axios
-    //   .post("", {
-    //     comment: comment,
-    //     name: name,
-    //     email: email,
-    //   })
-    //   .then((res) => {
-    //     console.log(res);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
   };
-  console.log(datacmmt, "cc");
+
   return (
     <>
-      <div className='h-[auto] w-[90%] sm:text-[1.6vw] mx-[5%] px-[2rem] py-[2.5rem] flex-col my-[2rem] bg-purple-100'>
-        <p className='font-bold text-sm dark:text-black'>
-          {" "}
-          HOME / ARTICLES / SINGLE ARTICLE{" "}
+      <div className='h-[auto] w-[90%] sm:text-[1.6vw] mx-[2%] px-4 py-4 flex-col my-[2rem] bg-purple-100'>
+        <p className='font-bold text-sm md:text-lg dark:text-black'>
+          <Link className='text-blue-600 hover:underline' to='/'>
+            HOME
+          </Link>{" "}
+          <Link className='text-blue-600 hover:underline' to='/blogs'>
+            / BLOGS /
+          </Link>
+          <span className='text-blue-600 ml-2'>
+            {content_data[id]?.Category}
+          </span>
         </p>
-        {/* <h1 className='text-[1.3rem] sm:text-[3vw] pt-6 w-[100%] font-extrabold dark:text-black'>
-          {content_data[id].heading1}
-        </h1> */}
       </div>
-      <div className='w-[80%] lg:flex lg:flex-row  flex-col gap-[2rem] mx-[10%] mt-[10%]'>
+      <div className='w-[80%] lg:flex lg:flex-row  flex-col gap-[2rem] mx-[10%]'>
         <div className='w-[100%] lg:w-[70%] lg:flex lg:flex-col  flex-col'>
-          {/* {data.map((d) => {
-            return (
-              <>
-                <div className="w-[100%] lg:w-[90%] flex flex-col">
-                  <h2 className="text-[1.9rem] p-3 mt-[2rem] font-bold">
-                    {d.heading}
-                  </h2>
-                  <p className="p-3">{d.data}</p>
-                </div>
-              </>
-            );
-          })} */}
-
           <div>
             <div dangerouslySetInnerHTML={{ __html: data2[id].head }}></div>
             <div dangerouslySetInnerHTML={{ __html: data2[id].body }}></div>
           </div>
         </div>
         <div className='w-[100%] lg:w-[40%] mt-5'>
-          <div className='w-full bg-gray-100 dark:bg-gray-800 rounded-lg pb-5 lg:h-auto h-[45%] shadow-md shadow-[#00000081] dark:text-white flex flex-col gap-4'>
+          {/* <div className='w-full bg-gray-100 dark:bg-gray-800 rounded-lg pb-5 lg:h-auto h-[45%] shadow-md shadow-[#00000081] dark:text-white flex flex-col gap-4'>
             <h2 className='text-3xl xs:text-2xl py-5 font-bold text-center dark:text-white'>
               Categories
             </h2>
@@ -142,36 +132,46 @@ const Blog_detail = () => {
                 </span>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div className='w-[100%] mt-20 dark:text-white xs:px-1 rounded pb-5 lg:h-auto h-[45%]  dark:border-white dark:border-[1px] shadow-md shadow-[#00000081] flex flex-col gap-2 '>
             <h2 className='text-[2rem]  font-bold text-center xs:text-[23px] mt-5'>
               Related Blogs
             </h2>
 
-            <div className='flex items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 gap-10 mt-[2rem] px-4 shadow-md  dark:bg-[#374151] mx-4 py-4 cursor-pointer'>
+            <div
+              onClick={hanldenav}
+              className='flex flex-col gap-2 md:flex-row hover:-translate-y-1 hover:scale-120  duration-150 shadow-md border-2 border-zinc-200 rounded-md hover:shadow-md items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 md:gap-10 mt-[2rem] px-4  dark:bg-[#374151] mx-4 py-4 cursor-pointer'
+            >
               <img
-                className='w-[6rem] xs:w-[5.7rem] xs:h-[5.7rem]'
+                className='w-[8rem] xs:w-[5.7rem] xs:h-[5.7rem]'
                 src={code}
               />
-              <p className='w-[60%] dark:text-white  text-indigo-600 xs:w-[90%] xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'>
+
+              <p className='w-[95%] md:w-[60%] dark:text-white hover:underline  text-indigo-600 xs:w-[90%] text-center xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'>
                 The Best Graphic Design Careers — for Beginners and
                 Professionals{" "}
               </p>
             </div>
-            <div className='flex items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 gap-10 mt-[2rem] px-4 shadow-md  dark:bg-[#374151] mx-4 py-4 cursor-pointer'>
-              <img className='w-[6rem] xs:w-[5.7rem] xs:h-[5.7rem]' src={ai} />
-              <p className='w-[60%] dark:text-white  xs:w-[90%] text-indigo-600 xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'>
+            <div
+              onClick={hanldenav2}
+              className='flex flex-col gap-2 md:flex-row border-2 shadow-md border-zinc-200 rounded-md hover:shadow-md items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 md:gap-10 mt-[2rem] px-4 dark:bg-[#374151] mx-4 py-4 cursor-pointer'
+            >
+              <img className='w-[8rem] xs:w-[5.7rem] xs:h-[5.7rem]' src={ai} />
+              <p className='w-[95%] md:w-[60%] dark:text-white hover:underline xs:w-[90%] text-indigo-600 text-center xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'>
                 The Top Technical Skills All Employees Need in 2022
               </p>
             </div>
-            <div className='flex items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 gap-10 mt-[2rem] px-4 shadow-md  dark:bg-[#374151] mx-4 py-4 cursor-pointer'>
+            <div
+              onClick={hanldenav3}
+              className='flex flex-col gap-2 md:flex-row border-2 shadow-md border-zinc-200 rounded-md items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 md:gap-10 mt-[2rem] px-4 hover:shadow-md  dark:bg-[#374151] mx-4 py-4 cursor-pointer'
+            >
               <img
-                className='w-[6rem] xs:w-[5.7rem] xs:h-[5.7rem]'
-                src={marketing}
+                className='w-[8rem] xs:w-[5.7rem] xs:h-[5.7rem]'
+                src={new_excited_tech_edu1}
               />
-              <p className='w-[60%] text-indigo-600 dark:text-white   xs:w-[90%] xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'>
-                Types Of Quantitative Research for Students and Researchers
+              <p className='w-[95%] md:w-[60%] text-indigo-600 dark:text-white hover:underline text-center xs:w-[90%] xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'>
+                How Ed-Tech Enhances Critical Thinking Skills
               </p>
             </div>
           </div>
@@ -212,7 +212,7 @@ const Blog_detail = () => {
       </div>
 
       {/* end here */}
-      <div className='mb-5 mx-[10%] w-[80%] lg:w-[50%] mt-[2rem]'>
+      <div className='mb-[10%] mx-[10%] w-[80%] lg:w-[50%] mt-[2rem]'>
         <h1 className='text-[1.3rem] font-bold'>Leave a Reply </h1>
         <p className='text-[1.02rem] my-[1.2rem]'>
           Your email address will not be published. Required fields are marked{" "}
@@ -237,7 +237,7 @@ const Blog_detail = () => {
         </div>
       </div>
 
-      <h2 className='text-[2rem] ml-[10%] font-bold mt-[4rem] xs:top-10 relative top-6 xs:text-[1.325rem]'>
+      {/* <h2 className='text-[2rem] ml-[10%] font-bold mt-[4rem] xs:top-10 relative top-6 xs:text-[1.325rem]'>
         Other Blogs
       </h2>
       <div className='mx-[10%]  mb-5 md:flex-row w-[80%] md:gap-[2rem] flex-col mt-[2rem] flex justify-evenly'>
@@ -282,7 +282,7 @@ const Blog_detail = () => {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
       <NewsletterBanner />
     </>
   );

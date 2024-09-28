@@ -75,10 +75,8 @@ const MobNavbar = ({ showmenu, setShowmenu, course, isDark, setIsDark }) => {
             >
               <button
                 onClick={() => {
-                  navigate("/Maintenance");
-
-                  // setSubCateDrop((old) => !old);
-                  // setActiveTab("Course");
+                  setSubCateDrop((old) => !old);
+                  setActiveTab("Course");
                 }}
                 className="flex justify-between w-full items-center"
                 type="button"
