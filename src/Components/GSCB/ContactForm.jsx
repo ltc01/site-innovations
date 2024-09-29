@@ -17,7 +17,7 @@ const ContactForm = () => {
     designation: "",
     email: "",
     phone: "",
-    job_title: "",
+    // job_title: "",
     contact_type: "",
     message: "",
   });
@@ -34,7 +34,7 @@ const ContactForm = () => {
         designation: formData.designation,
         email: formData.email,
         phone: formData.phone,
-        job_title: formData.job_title,
+        // job_title: formData.job_title,
         contact_type: formData.contact_type,
         message: formData.message,
       };
