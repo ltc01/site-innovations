@@ -62,7 +62,7 @@ export default function SliderSection() {
   // redux end
 
   return (
-    <div className="slider-section dark:bg-[#010203] w-full relative py-20 overflow-hidden ">
+    <div className="slider-section dark:bg-[#010203] w-full relative py-12 overflow-hidden ">
       <div className="text-center mb-0 lg:mb-8">
         <h2 className="text-4xl font-extrabold mb-8">Featured <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent" >Courses</span></h2>
       </div>
@@ -167,7 +167,7 @@ export default function SliderSection() {
                   {/* Button */}
                   <button
                     onClick={() => navigate(`/course/${slide.title}/${slide.id}`)}
-                    className="bg-gradient-to-r w-fit mb-4 mt-1 rounded-md text-xs from-indigo-700 to-indigo-400 text-white px-4 py-2 font-semibold hover:bg-gradient-to-l transition-all ease-in-out duration-300"
+                    className="bg-gradient-to-r w-fit mb-4 rounded-md text-xs from-indigo-700 to-indigo-400 text-white px-4 py-2 font-semibold hover:bg-gradient-to-l transition-all ease-in-out duration-300"
                   >
                   View More
                   </button>
