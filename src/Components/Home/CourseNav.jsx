@@ -5,6 +5,7 @@ import { CollegeCourseData, OtherCourseData, School } from "../../Data";
 import { MdSchool } from "react-icons/md";
 import { FaUniversity } from "react-icons/fa";
 import { IoBookSharp } from "react-icons/io5";
+import { BiChevronsRight } from "react-icons/bi";
 
 const CourseNav = ({ setShow, course }) => {
   const [activeTabId, setActiveTabId] = useState(null);
@@ -65,14 +66,14 @@ const CourseNav = ({ setShow, course }) => {
       </div>
 
       {activeTabIndex === 0 && (
-        <div className="absolute top-8 left-72 h-fit w-72 overflow-x-hidden bg-white dark:bg-black dark:border-white border-black/50 border-[1px] text-sm p-1 shadow-lg z-50 dark:text-white overflow-y-auto rounded-md">
+        <div className="absolute top-0 ml-0.5 py-3 left-72 overflow-y-scroll w-72 overflow-x-hidden bg-white dark:bg-black dark:border-white border-black/50 border-[1px] text-sm p-1 shadow-lg z-50 dark:text-white rounded-md">
           {course[0]?.courses?.map((sub, index) => {
             return (
-              <div key={index} className="px-6 py-2 hover:bg-amber-50 dark:hover:bg-indigo-500 dark:hover:text-white">
+              <div key={index} className="pl-3 hover:bg-slate-200 mb-1 py-1 hover:text-amber-600 rounded dark:hover:bg-indigo-500 dark:hover:text-white">
                 <Link
                   onClick={() => setShow(false)}
                   to={`/course/${sub.slug}/${sub.id}`}
-                  className="text-sm"
+                  className="text-xs hover:underline"
                 >
                   {sub.title}
                 </Link>
@@ -82,14 +83,14 @@ const CourseNav = ({ setShow, course }) => {
         </div>
       )}
       {activeTabIndex === 1 && (
-        <div className="absolute top-8 left-72 h-fit w-72 overflow-x-hidden bg-white dark:bg-black dark:border-white border-black/50 border-[1px] text-sm p-1 shadow-lg z-50 dark:text-white overflow-y-auto rounded-md">
+        <div className="absolute ml-0.5 top-0 left-72 h-fit w-72 overflow-y-scroll bg-white dark:bg-black dark:border-white border-black/50 border-[1px] text-sm p-1 shadow-lg z-50 dark:text-white rounded-md">
           {course[1]?.courses?.map((sub, index) => {
             return (
-              <div key={index} className="px-6 py-2 hover:bg-amber-50 dark:hover:bg-orange-500 dark:hover:text-white">
+              <div key={index} className="pl-3 hover:bg-slate-200 mb-1 py-1 hover:text-amber-600 rounded dark:hover:bg-indigo-500 dark:hover:text-white">
                 <Link
                   onClick={() => setShow(false)}
                   to={`/course/${sub.slug}/${sub.id}`}
-                  className="text-sm"
+                  className="text-xs hover:underline"
                 >
                   {sub.title}
                 </Link>
@@ -99,14 +100,14 @@ const CourseNav = ({ setShow, course }) => {
         </div>
       )}
       {activeTabIndex === 2 && (
-        <div className="absolute top-8 left-72 h-fit w-72 overflow-x-hidden bg-white dark:bg-black dark:border-white border-black/50 border-[1px] text-sm p-1 shadow-lg z-50 dark:text-white overflow-y-auto rounded-md">
+        <div className="absolute ml-0.5 top-16 left-72 h-fit w-72 overflow-x-hidden overflow-y-scroll bg-white dark:bg-black dark:border-white border-black/50 border-[1px] text-sm p-1 shadow-lg z-50 dark:text-white rounded-md">
           {course[2]?.courses?.map((sub, index) => {
             return (
-              <div key={index} className="px-6 py-2 hover:bg-amber-50 dark:hover:bg-indigo-500 dark:hover:text-white">
-                <Link
+              <div key={index} className="pl-3 hover:bg-slate-200 mb-1 py-1 hover:text-amber-600 rounded dark:hover:bg-indigo-500 dark:hover:text-white">
+                 <Link
                   onClick={() => setShow(false)}
                   to={`/course/${sub.slug}/${sub.id}`}
-                  className="text-sm"
+                  className="text-xs hover:underline"
                 >
                   {sub.title}
                 </Link>

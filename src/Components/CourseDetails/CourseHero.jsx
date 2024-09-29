@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { CourseDesc2 } from '../../assets/assets'
 import { FaDownload } from 'react-icons/fa6'
 import { useNavigate } from 'react-router-dom'
+import EnrollNow from '../Home/EnrollNow'
 
 const CourseHero = ({ course, downloadBrochure, setShowForm,showForm, enrollNowScroll }) => {
     console.log(course);
@@ -26,7 +27,7 @@ const CourseHero = ({ course, downloadBrochure, setShowForm,showForm, enrollNowS
                         <h1 className="text-6xl font-bold mb-4">{course?.title}</h1>
                         <p>Many online courses are self-paced, allowing learners to complete coursework at their own convenience.</p>
                         <div className="mt-8 flex items-center justify-between w-full">
-                            <div className="flex gap-2">
+                            <div className="flex justify-center items-center gap-2">
                                 <button
                                      onClick={() => 
                                         setShowForm(true)
@@ -38,16 +39,19 @@ const CourseHero = ({ course, downloadBrochure, setShowForm,showForm, enrollNowS
                                         <IoIosArrowRoundForward size={30} />
                                     </span>
                                     <span className="relative text-nowrap">Enroll Now</span>
+                                    
                                 </button>
-                                <Link
+                                
+                                {/* <EnrollNow showForm={showForm} setShowForm={setShowForm}/> */}
+                                {/* <Link
                                     to={`/book-a-demo/${course?.title}/${course?.id}`}
                                     className="relative inline-flex items-center bg-orange-400 px-6 py-2 md:py-3 text-xs md:text-sm dark:text-white dark:border-white overflow-hidden text-white font-medium border border-orange-400 rounded-lg hover:text-orange-500 group"
                                 >
                                     <span className="absolute left-0 block w-full h-0 transition-all bg-white opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease-in-out"></span>
                                     <span className="relative text-nowrap">Book a Demo</span>
-                                </Link>
-                            </div>
+                                </Link> */}
                             <span>6,000 Students</span>
+                            </div>
                         </div>
                     </div>
 

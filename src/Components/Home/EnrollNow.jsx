@@ -6,6 +6,7 @@ const EnrollNow = ({showForm,setShowForm}) => {
 
   // Function to toggle the popup
   const togglePopup = () => {
+    
     console.log(showForm)
     setShowForm(true);
     setAnimatePing(true);

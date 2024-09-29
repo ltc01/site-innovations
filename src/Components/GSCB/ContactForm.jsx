@@ -39,8 +39,9 @@ const ContactForm = () => {
         message: formData.message,
       };
       const { data } = await axios.post(
-        `https://proxy-server-baoiam.vercel.app/submit-form`,
+        // `https://proxy-server-baoiam.vercel.app/submit-form`,
         // `http://localhost:3000/submit-form`,
+        `${apiUrl}/api/contact-gcep/`,
         data1
       );
       console.log("GCEP form: ", data);

@@ -36,23 +36,23 @@ const CourseDetailsPage = ({showForm, setShowForm} ) => {
     "Mentor Feedback",
     "Regular Quizzes & Assessment",
   ]);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
-  const EnrollNow = ({ showForm, setShowForm }) => {
-    const [animatePing, setAnimatePing] = useState(false);
+  // const EnrollNow = ({ showForm, setShowForm }) => {
+  //   const [animatePing, setAnimatePing] = useState(false);
 
-    // Function to toggle the popup
-    const togglePopup = () => {
-      console.log(showForm);
-      setShowForm(true);
-      setAnimatePing(true);
+  //   // Function to toggle the popup
+  //   const togglePopup = () => {
+  //     console.log(showForm);
+  //     setShowForm(true);
+  //     setAnimatePing(true);
 
-      // Remove ping animation after a short duration
-      setTimeout(() => {
-        setAnimatePing(false);
-      }, 1000); // Adjust duration as needed
-    };
-  };
+  //     // Remove ping animation after a short duration
+  //     setTimeout(() => {
+  //       setAnimatePing(false);
+  //     }, 1000); // Adjust duration as needed
+  //   };
+  // }
 
   const navigate = useNavigate();
 
@@ -149,20 +149,21 @@ const CourseDetailsPage = ({showForm, setShowForm} ) => {
   };
 
   return (
-    <div>
+    <div className="mx-auto w-full">
 
       {/* Hero Section */}
       <CourseHero
         course={courseData?.course}
         downloadBrochure={downloadBrochure}
-        enrollNowScroll={enrollNowScroll}
+        // enrollNowScroll={enrollNowScroll}
+        showForm={showForm} setShowForm={setShowForm}
       />
 
       {/* courseData Details */}
-      <div className="flex flex-col w-full lg:gap-11 p-5 md:flex-row ">
-        <div className="md:w-[60%] w-full space-y-4 ">
+      <div className="flex flex-col md:flex-row mx-auto">
+        <div className="md:w-2/3 px-20 py-10 flex flex-col space-y-14 w-[90%]">
           {/* Course Details */}
-          <div className="w-full md:w-[95%] p-8 shadow-md dark:shadow-slate-100 rounded-xl">
+          <div className="p-8 shadow-md border dark:shadow-slate-100 rounded-xl">
             <h2 className="text-xl lg:text-2xl font-semibold">
               courseData{" "}
               <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
@@ -176,7 +177,7 @@ const CourseDetailsPage = ({showForm, setShowForm} ) => {
           </div>
 
           {/* Course Overview */}
-          <div className="w-full  md:w-[95%] p-8 shadow-md dark:shadow-slate-100 rounded-xl">
+          <div className=" p-8 shadow-md border dark:shadow-slate-100 rounded-xl">
             <h2 className="text-xl lg:text-2xl font-semibold">
               courseData{" "}
               <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
@@ -190,7 +191,7 @@ const CourseDetailsPage = ({showForm, setShowForm} ) => {
           </div>
 
           {/* Course Curriculum */}
-          <div className="w-full md:w-[95%] p-8 shadow-md dark:shadow-slate-100 rounded-xl">
+          <div className="p-8 shadow-md border dark:shadow-slate-100 rounded-xl">
             <h2 className="text-xl lg:text-2xl font-semibold">
               courseData{" "}
               <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
@@ -212,7 +213,7 @@ const CourseDetailsPage = ({showForm, setShowForm} ) => {
         </div>
 
         {/* Plans Section */}
-        <div className="relative mx-auto w-[90%] md:w-[40%]">
+        <div className="relative mx-auto">
           {/* Plans Section */}
           <div
             className={` mt-5 lg:w-80 md:w-72  ${
