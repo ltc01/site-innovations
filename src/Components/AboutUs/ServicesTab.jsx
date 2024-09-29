@@ -22,18 +22,18 @@ const ServicesTab = () => {
                     career
                   </span>
                 </h1>
-                <p className="text-gray-500 dark:text-gray-200 text-sm">
+                <p className="text-gray-500 dark:text-gray-200">
                   Instead of results speak louder than words we can use we don't deliver promises, we believe in achievements.
                 </p>
               </div>
 
               {/* Content Section */}
-              <div className="flex flex-col lg:flex-row justify-between gap-8 mt-10 sm:mt-8 ">
+              <div className="flex flex-col lg:flex-row justify-center gap-10 mt-10 sm:mt-8 ">
                 <div className="flex justify-center w-full lg:w-[30%]">
                   <img
                     src={Service}
                     alt="Service"
-                    className="rounded-tl-2xl rounded-br-2xl w-full h-full object-cover shadow-none sm:shadow-lg lg:shadow-[20px_25px_#4338ca]"
+                    className="rounded-tl-2xl rounded-br-2xl w-full h-full object-cover shadow-none sm:shadow-lg"
                   />
                 </div>
 
@@ -111,12 +111,12 @@ const ServicesTab = () => {
               </div>
 
               {/* Content Section */}
-              <div className="flex flex-col lg:flex-row justify-between gap-8 mt-10 sm:mt-8 ">
+              <div className="flex flex-col lg:flex-row justify-center gap-10 mt-10 sm:mt-8 ">
                 <div className="flex justify-center w-full lg:w-[30%] ">
                   <img
                     src={Career}
                     alt="Service"
-                    className="rounded-tl-2xl rounded-br-2xl w-full h-full object-cover shadow-none sm:shadow-lg lg:shadow-[20px_25px_#4338ca]"
+                    className="rounded-tl-2xl rounded-br-2xl w-full h-full object-cover shadow-none sm:shadow-lg "
                   />
                 </div>
 
@@ -193,12 +193,12 @@ const ServicesTab = () => {
               </div>
 
               {/* Content Section */}
-              <div className="flex flex-col lg:flex-row justify-between gap-8 mt-10 sm:mt-8 ">
+              <div className="flex flex-col lg:flex-row justify-center gap-10 mt-10 sm:mt-8 ">
                 <div className="flex justify-center w-full lg:w-[30%]">
                   <img
                     src={Perks}
                     alt="Service"
-                    className="rounded-tl-2xl rounded-br-2xl w-full h-full object-cover shadow-none sm:shadow-lg lg:shadow-[20px_25px_#4338ca]"
+                    className="rounded-tl-2xl rounded-br-2xl w-full h-full object-cover shadow-none sm:shadow-lg"
                   />
                 </div>
 
@@ -278,12 +278,12 @@ const ServicesTab = () => {
               </div>
 
               {/* Content Section */}
-              <div className="flex flex-col lg:flex-row justify-between gap-8 mt-10 sm:mt-8 ">
+              <div className="flex flex-col lg:flex-row justify-center gap-10 mt-10 sm:mt-8 ">
                 <div className="flex justify-center w-full lg:w-[30%]">
                   <img
                     src={Review}
                     alt="Service"
-                    className="rounded-tl-2xl rounded-br-2xl w-full h-full object-cover shadow-none sm:shadow-lg lg:shadow-[20px_25px_#4338ca]"
+                    className="rounded-tl-2xl rounded-br-2xl w-full h-full object-cover shadow-none sm:shadow-lg"
                   />
                 </div>
 
@@ -350,7 +350,7 @@ const ServicesTab = () => {
       <div className="p-4 mx-4 sm:mx-10 ">
         <div className="flex flex-col mb-2 sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8">
           <button
-            className={`text-sm md:text-base font-semibold ${activeTab === "services"
+            className={`text-sm md:text-base font-bold ${activeTab === "services"
               ? "text-indigo-600 dark:text-indigo-400"
               : "text-blue-950 dark:text-white"
               }`}
@@ -359,7 +359,7 @@ const ServicesTab = () => {
             What we provide
           </button>
           <button
-            className={`text-sm md:text-base font-semibold ${activeTab === "features"
+            className={`text-sm md:text-base font-bold ${activeTab === "features"
               ? "text-indigo-600 dark:text-indigo-400"
               : "text-blue-950 dark:text-white"
               }`}
@@ -368,16 +368,16 @@ const ServicesTab = () => {
             Our unique elements
           </button>
           <button
-            className={`text-sm md:text-base font-semibold ${activeTab === "perks"
+            className={`text-sm md:text-base font-bold ${activeTab === "perks"
               ? "text-indigo-600 dark:text-indigo-400"
               : "text-blue-950 dark:text-white"
               }`}
             onClick={() => setActiveTab("perks")}
           >
-            Rewards / Special offerings
+            Rewards
           </button>
           <button
-            className={`text-sm md:text-base font-semibold ${activeTab === "reviews"
+            className={`text-sm md:text-base font-bold ${activeTab === "reviews"
               ? "text-indigo-600 dark:text-indigo-400"
               : "text-blue-950 dark:text-white"
               }`}

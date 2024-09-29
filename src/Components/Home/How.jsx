@@ -38,15 +38,15 @@ const How = () => {
 
   return (
     <>
-      <div className="flex justify-center md:-mt-16 mb-4">
+      <div className="flex justify-center lg:-mt-16">
         <div className="w-[80%] text-center">
           <h1 className="text-3xl sm:text-4xl my-5 font-extrabold">
             Our {" "}
-            <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-pink-500 to-indigo-600 bg-clip-text text-transparent">
               Workflow
             </span>
           </h1>
-          <p className="mx-auto w-full lg:w-[80%]">
+          <p className="text-xs md:text-base mx-auto text-slate-600 dark:text-slate-300 w-full lg:w-[80%]">
             We provide the most in demand courses, accompanied by professional mentors and guidance at every stage. After a successful learning program, we offer placements support, ensuring assistance continues even after the courses conclude.
           </p>
         </div>
@@ -80,7 +80,7 @@ const How = () => {
         <IconBox
           ref={(el) => (iconBoxesRef.current[4] = el)}
           icon={<GoGlobe />}
-          title="Relationship Building & Funding"
+          title="Relationship Building"
           text="Discover how to build valuable connections and access funding support."
         />
       </div>
@@ -89,13 +89,13 @@ const How = () => {
 };
 
 const IconBox = React.forwardRef(({ icon, title, text }, ref) => (
-  <div ref={ref} className="text-center my-2">
-    <div className="text-[3rem] flex justify-center mb-4">
-      <div className="rounded-full p-3 text-indigo-600 border-2 border-indigo-600">
+  <div ref={ref} className="text-center mx-auto w-full my-2">
+    <div className="text-4xl flex justify-center mb-4">
+      <div className="rounded-full p-3 text-indigo-500 border-indigo-500 border-2">
         {icon}
       </div>
     </div>
-    <h2 className="text-lg font-bold mb-2">{title}</h2>
+    <h2 className="text-lg font-semibold mb-2">{title}</h2>
     <p className="text-sm tracking-tight">{text}</p>
   </div>
 ));

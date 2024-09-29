@@ -91,19 +91,19 @@ const Phone = () => {
           <img src={App_phone} className="w-full" alt="Android app-Baoiam" />
         </div>
         <div className="md:w-1/3 w-[80%]">
-          <p className="text-3xl font-bold">
-            Seize The{" "}
+          <p className="text-3xl md:text-4xl font-bold">
+            Seize the{" "}
             <span className="bg-gradient-to-r from-pink-500  to-violet-600 bg-clip-text text-transparent">
-              Opportunity - Begin
+              Opportunity 
             </span>{" "}
-            Your Journey Now!
+            - Begin Your Journey Now!
           </p>
-          <p className="font-medium mt-2 text-slate-600 dark:text-slate-300">
-            Maximize your growth with our transformative courses
+          <p className="font-medium mt-4 pl-2 text-slate-600 dark:text-slate-300">
+            Join now to Maximize your growth with our transformative courses.
           </p>
 
           <form
-            className="flex flex-col gap-4 mt-4"
+            className="flex flex-col gap-4 mt-8"
             onSubmit={(e) => onSubmit(e)}
           >
             {/* <div className="flex items-center gap-4">

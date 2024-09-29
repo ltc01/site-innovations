@@ -106,8 +106,8 @@ export const StatupSlider = () => {
               slidesPerView: 3,
             },
           }}
-          onSlideChange={() => console.log("hi")}
-          onSwiper={(swiper) => console.log("")}
+          // onSlideChange={() => console.log("hi")}
+          // onSwiper={(swiper) => console.log("")}
           className='b3 w-full m-auto p-6  rounded-lg  flex flex-col justify-center items-center gap-4'
         >
           {blog_slider?.map((item, i) => {

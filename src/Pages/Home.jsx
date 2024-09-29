@@ -19,6 +19,7 @@ import { universities } from "../assets/Universities/Universities";
 import OurReach from "../Components/Home/OurReach";
 import ExploreSubjects from "../Components/College/ExploreSubjects";
 import TeamCard from "../Components/Home/TeamCard";
+import { TeamSwiper } from "../Components/OurTeam Components/TeamSwiper";
 const Home = ({ dark }) => {
   document.title = "Baoiam - Home";
   const navigate = useNavigate();
@@ -38,8 +39,9 @@ const Home = ({ dark }) => {
 
         <Protocol />
         {/* <JoinNow /> */}
-        {/* <OurTeam /> */}
-        <TeamCard />
+        <OurTeam />
+        {/* <TeamCard /> */}
+        {/* <TeamSwiper /> */}
         <Phone />
       </div>
     </>
