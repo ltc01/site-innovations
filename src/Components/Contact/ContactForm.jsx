@@ -6,6 +6,7 @@ import {
   FaPhoneAlt,
   FaCheckCircle,
 } from "react-icons/fa";
+import Flag from "../../assets/Our_flag.jpeg";
 import {
   FaFacebook,
   FaInstagram,
@@ -438,7 +439,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
                 </div>
               </div>
 
-              <div className="relative inline-block w-full">
+              {/* <div className="relative inline-block w-full">
                 <select
                   id="courses"
                   name="Course"
@@ -453,7 +454,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
                 <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
                   <IoIosArrowDown className="dark:text-gray-300 text-gray-500" />
                 </div>
-              </div>
+              </div> */}
 
               {/* Consent Checkbox */}
               <div className="flex">
