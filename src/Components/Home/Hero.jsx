@@ -32,7 +32,7 @@ const Hero = () => {
         ref={leftRef}
         className="w-full flex md:pl-5 gap-y-1 pb-10 md:pb-0 flex-col lg:w-1/2 text-center md:text-left"
       >
-        <h1 className="text-3xl lg:text-5xl font-bold">
+        <h1 className="text-3xl md:text-6xl font-bold">
           Stand{" "}
           <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
             One in a Million
