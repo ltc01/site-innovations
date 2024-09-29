@@ -33,7 +33,7 @@ gsap.fromTo('.marq',{opacity:0,y:30},{
                     <img
                         src={item}
                         alt={`Image `}
-                        className=" mx-auto object-cover"
+                        className=" mx-auto bg-white rounded-full p-2 object-cover"
                         />
                 </div>
             ))

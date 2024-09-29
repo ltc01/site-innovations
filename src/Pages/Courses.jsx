@@ -118,23 +118,23 @@ const Courses = () => {
     <>
       <div className="flex mt-20 gap-8 lg:gap-0 justify-center flex-col-reverse lg:flex-row items-center mx-auto w-full p-5 sm:px-6 xs:px-4">
         <div ref={textRef} className="w-full lg:w-1/2 text-left md:text-center lg:text-left">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold mb-4">
+          <h1 className="text-xl pt-3 md:pt-0 pr-6 md:pr-0 md:text-4xl font-bold mb-4">
             Explore Our Range of Courses for Schools and Colleges
           </h1>
-          <p className="text-base text-slate-600 dark:text-slate-300  sm:text-lg md:text-xl mb-6">
+          <p className="text-base text-slate-600 dark:text-slate-300 ">
             At BAOIAM, we offer a wide range of courses designed for students
             from schools and colleges. Whether you're preparing for board exams
             or pursuing a degree, our courses provide comprehensive, engaging
             content to help you succeed academically.
           </p> 
         </div>
-        <div ref={sliderRef} className="h-96 md:h-full md:w-[40%] pt-8 md:pt-0">
+        <div ref={sliderRef} className="h-80 md:h-full md:w-[40%] pt-3 md:pt-0">
           <SliderHero />
         </div>
       </div>
-      <Program title={"Junior"} data={static_data} />
-      <Program title={"University"} data={static_data2} />
-      <Program title={"Professional Degree"} data={static_data3} />
+      <Program title={"Junior Courses"} data={static_data} />
+      <Program title={"University Courses"} data={static_data2} />
+      <Program title={"Other Courses"} data={static_data3} />
       <section ref={sectionRef} className="py-16 dark:bg-black dark:text-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">

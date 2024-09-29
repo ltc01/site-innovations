@@ -74,9 +74,9 @@ const Courses = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {data.map((stat, i) => {
-          return <div className="shadow-[15px_20px_#515050] border border-[#515050] p-4 rounded-xl">
+          return <div className="shadow-[7px_7px_#0f0e0fce] border border-[#515050] p-4 rounded-xl">
             <div className="flex items-center gap-4 mb-2">
-              <span className="border border-[#515050] rounded-lg p-2">{stat.icon}</span>
+              <span className="border border-[#0f0e0fce] rounded-lg p-2">{stat.icon}</span>
               <h2 className="text-xl font-semibold text-gray-800 dark:text-white">
                 {stat.title}
               </h2>
