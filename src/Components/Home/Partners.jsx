@@ -59,7 +59,7 @@ const Partners = () => {
     <div className="dark:bg-[#010203]">
       <div className="my-20">
         <h2
-          className="text-3xl px-2 text-center sm:text-4xl dark:text-white font-bold text-gray-900"
+          className="text-3xl px-2 text-center md:text-4xl dark:text-white font-extrabold text-gray-900"
           ref={(el) => (titleRef.current[0] = el)}
         >
           Our thriving {" "}
@@ -83,47 +83,48 @@ export const UniversityPartners = () => {
   const titleRef = useRef([]);
   const descriptionRef = useRef([]);
 
-  useEffect(() => {
-    titleRef.current.forEach((title, index) => {
-      gsap.fromTo(
-        title,
-        { opacity: 0, y: -20 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: title,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    });
+  // useEffect(() => {
+  //   titleRef.current.forEach((title, index) => {
+  //     gsap.fromTo(
+  //       title,
+  //       { opacity: 0, y: -20 },
+  //       {
+  //         opacity: 1,
+  //         y: 0,
+  //         duration: 0.8,
+  //         ease: "power2.out",
+  //         scrollTrigger: {
+  //           trigger: title,
+  //           start: "top 80%",
+  //           toggleActions: "play none none reverse",
+  //         },
+  //       }
+  //     );
+  //   });
 
-    descriptionRef.current.forEach((desc, index) => {
-      gsap.fromTo(
-        desc,
-        { opacity: 0, y: 20 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: desc,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    });
-  }, []);
+  //   descriptionRef.current.forEach((desc, index) => {
+  //     gsap.fromTo(
+  //       desc,
+  //       { opacity: 0, y: 20 },
+  //       {
+  //         opacity: 1,
+  //         y: 0,
+  //         duration: 0.8,
+  //         ease: "power2.out",
+  //         scrollTrigger: {
+  //           trigger: desc,
+  //           start: "top 80%",
+  //           toggleActions: "play none none reverse",
+  //         },
+  //       }
+  //     );
+  //   });
+  // }, []);
+
   return (
     <div className="my-20">
       <h2
-        className="text-3xl text-center sm:text-4xl px-2 dark:text-white font-extrabold text-gray-900"
+        className="text-3xl text-center md:text-4xl px-2 dark:text-white font-extrabold text-gray-900"
         ref={(el) => (titleRef.current[1] = el)}
       >
         Shaping Future with{" "}

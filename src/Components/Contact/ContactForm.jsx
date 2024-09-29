@@ -262,7 +262,7 @@ const dispatch=useDispatch();
             </div>
             <form
               id="form1"
-              className="space-y-2 px-6 pb-4 text-center mx-auto w-full"
+              className="space-y-2 md:px-6 pb-4 text-center mx-auto w-full"
               onSubmit={(e) => {
                 handleSubmit(e);
               }}
@@ -466,7 +466,7 @@ const dispatch=useDispatch();
                 />
                 <label
                   htmlFor="consent"
-                  className="dark:text-gray-300 mb-3 text-gray-700 text-xs"
+                  className="dark:text-gray-300 mb-3 text-gray-700 text-[10px] md:text-xs"
                 >
                   I consent to receiving updates and notifications from online
                   Baoiam and its affiliates via email, SMS, WhatsApp, and voice

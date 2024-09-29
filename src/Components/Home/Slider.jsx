@@ -20,13 +20,13 @@ export default function SliderSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const categoryKeys = Object.keys(categories);
-  console.log(categoryKeys, 'category keys')
+  // console.log(categoryKeys, 'category keys')
 
   useEffect(() => {
     if (categories[selectedCategory] === undefined) {
       setSelectedCategory(categoryKeys[0]); // Fallback to the first category if the current category is undefined
     }
-    console.log(categories,'cate')
+    // console.log(categories,'cate')
     
     if (currentIndex >= categories[selectedCategory]?.length) {
       const nextCategoryIndex =
@@ -47,7 +47,7 @@ export default function SliderSection() {
   const { featuredCourses, status, error } = useSelector((state) => state.courses);
 
   useEffect(() => {
-    console.log("Component rendered, current status:", status);
+    // console.log("Component rendered, current status:", status);
     if(status==='idle'){
       dispatch(fetchFeaturedCourses());
     }
@@ -122,12 +122,12 @@ export default function SliderSection() {
                 <div className="pl-4 h-[45%] flex flex-col justify-between">
                   <div className="">
                     <h3 className="text-xl font-semibold my-2 text-nowrap">{slide.course || slide.courseName} </h3>
-                    <p className="text-sm pr-3 text-slate-600">{slide.desc[0].slice(0, 60) + "..."}</p>
+                    <p className="text-sm pr-3 text-slate-600">{slide.desc[0].slice(0, 80) + "..."}</p>
                     
                   </div>
                   <button
                     onClick={() => navigate(`/course/${slide.course}/`)}
-                    className="bg-gradient-to-r w-fit mb-4 mt-1 rounded-md text-xs from-indigo-700 to-indigo-400 text-white px-4 py-1 font-semibold hover:bg-gradient-to-l transition-all ease-in-out duration-300"
+                    className="bg-gradient-to-r w-fit mb-2 mt-1 rounded-md text-xs from-indigo-700 to-indigo-400 text-white px-4 py-1 font-semibold hover:bg-gradient-to-l transition-all ease-in-out duration-300"
                   >
                   View More
                   </button>
@@ -137,43 +137,47 @@ export default function SliderSection() {
           ))
           :  featuredCourses?.map((slide, index) => (
             <SwiperSlide key={index}>
-              <div className="h-[22.5rem] overflow-hidden dark:bg-white/10 dark:border shadow-md rounded-3xl m-2">
-                {/* Image Container */}
-                <div className="relative h-[50%]">
-                  <img
-                    src={slide.thumbnail_image}
-                    alt={slide.title}
-                    className="w-full h-full object-cover"
-                  />
-                  {/* Price and Duration in the same row */}
-                <div className="absolute top-3 left-4 flex">
-                 
-                    <span className="text-xs mr-3 bg-gradient-to-r from-orange-600 to-amber-500 text-white rounded-lg px-4 py-1">
-                      Premium
-                    </span>
-                    {/* Plus button */}
-                    <span className="bg-slate-200 text-gray-800 rounded-lg text-xs px-4 py-1">
-                      Plus
-                    </span>
-                </div>
-                </div>
-                <div className="pl-4 h-[45%] flex flex-col justify-between">
-                  {/* Title */}
-                  <div className="">
-                    <h3 className="text-xl font-semibold my-2 text-nowrap">{ slide.title.slice(0, 20) + "..." } </h3>
-                    <p className="text-sm pr-3 text-slate-600 dark:text-slate-200">{slide.description.slice(0, 60) + "..."}</p>
-                    
-                  </div>
-                  {/* Button */}
-                  <button
-                    onClick={() => navigate(`/course/${slide.title}/${slide.id}`)}
-                    className="bg-gradient-to-r w-fit mb-4 rounded-md text-xs from-indigo-700 to-indigo-400 text-white px-4 py-2 font-semibold hover:bg-gradient-to-l transition-all ease-in-out duration-300"
-                  >
-                  View More
-                  </button>
-                </div>
-              </div>
-            </SwiperSlide>
+  <div className="h-[400px] max-h-[400px] overflow-hidden dark:bg-white/10 dark:border shadow-md rounded-3xl m-2 flex flex-col justify-between">
+    {/* Image Container */}
+    <div className="relative h-[50%]">
+      <img
+        src={slide.thumbnail_image}
+        alt={slide.title}
+        className="w-full h-full object-cover rounded-t-3xl"
+      />
+      {/* Price and Duration in the same row */}
+      <div className="absolute top-3 left-4 flex items-center space-x-3">
+        <span className="text-xs bg-gradient-to-r from-orange-600 to-amber-500 text-white rounded-lg px-4 py-1">
+          Premium
+        </span>
+        {/* Plus button */}
+        <span className="bg-slate-200 text-gray-800 rounded-lg text-xs px-4 py-1">
+          Plus
+        </span>
+      </div>
+    </div>
+    <div className="px-4 h-[45%] flex flex-col justify-between">
+      {/* Title and Description */}
+      <div className="">
+        <h3 className="font-bold text-lg text-nowrap">{slide.title}</h3>
+        <p className="text-sm pr-3 text-slate-600 dark:text-slate-200">
+          {slide.description.slice(0, 80) + "..."}
+        </p>
+      </div>
+      {/* View More Button */}
+      <div className="self-end mb-6">
+        <button
+          onClick={() => navigate(`/course/${slide.title}/${slide.id}`)}
+          className="bg-gradient-to-r w-fit rounded-md text-xs from-indigo-700 to-indigo-400 text-white px-4 py-2 font-semibold hover:bg-gradient-to-l transition-all ease-in-out duration-300"
+        >
+          View More
+        </button>
+      </div>
+    </div>
+  </div>
+</SwiperSlide>
+
+          
           
           ))
            } 
