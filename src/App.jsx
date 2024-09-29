@@ -49,11 +49,13 @@ import EnrollNowButton from "./Components/EnrollNowButton/EnrollNowButton";
 import Profile from "./Pages/Profile";
 import { ContactFormComponent } from "./Components/Contact/ContactForm";
 import AuthNavigator from "./Pages/auth/AuthNavigator";
-
 const App = () => {
+  const apiUrl = import.meta.env.VITE_API_URL;
+  console.log(apiUrl, 'api url vite checking ')
   const [dark, setDark] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const location = useLocation();
+
   const theme = () => {
     setDark((old) => !old);
     document.body.classList.toggle("dark");

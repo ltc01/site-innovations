@@ -34,12 +34,13 @@ const ContactForm = () => {
         designation: formData.designation,
         email: formData.email,
         phone: formData.phone,
-        job_title: formData.job_title,
+        // job_title: formData.job_title,
         contact_type: formData.contact_type,
         message: formData.message,
       };
       const { data } = await axios.post(
-        `https://proxy-server-baoiam.vercel.app/submit-form`,
+        `${apiUrl}/api/contact-gcep/`,
+        // `https://proxy-server-baoiam.vercel.app/submit-form`,
         // `http://localhost:3000/submit-form`,
         data1
       );
