@@ -40,8 +40,8 @@ const MobNavbar = ({ showmenu, setShowmenu, course, isDark, setIsDark }) => {
           showmenu ? "translate-x-0" : "-translate-x-full"
         }  `}
       >
-        <div className="block lg:hidden h-full px-3 pb-8 overflow-y-auto rounded-r-lg  bg-white border taxt-gray-600 dark:text-white dark:bg-[#080529]">
-          <div className="flex justify-between items-center w-full px-2 py-4 sticky top-0 z-50 dark:bg-[#080529]">
+        <div className="block lg:hidden h-full px-3 pb-8 overflow-y-auto rounded-r-lg  bg-white border taxt-gray-600 dark:text-white dark:bg-black">
+          <div className="flex justify-between items-center w-full px-2 py-4 sticky top-0 z-50 dark:bg-black">
             <Logo isDark={isDark} />
             <RxCross2
               className="text-black dark:text-white"
@@ -171,7 +171,7 @@ const MobNavbar = ({ showmenu, setShowmenu, course, isDark, setIsDark }) => {
                       setCollegeCate(false);
                       setSchoolCate(false);
                     }}
-                    className="flex items-center justify-between gap-2 w-full p-2 transition duration-75 rounded-lg pl-6 group hover:bg-gray-100 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:bg-gray-700"
+                    className="flex items-center justify-between gap-2 w-full p-2 transition duration-75 rounded-lg pl-6 group hover:bg-gray-100 text-gray-600 dark:bg-black hover:text-gray-900 dark:hover:bg-gray-700"
                   >
                     <div className="flex items-center gap-2">
                       <IoBookSharp />
@@ -257,7 +257,7 @@ const MobNavbar = ({ showmenu, setShowmenu, course, isDark, setIsDark }) => {
             <li
               className={`${mobTabtyles} ${
                 location.pathname === "/gcep" && activeTab === "GCEP"
-                  ? "text-[#1638C9]  dark:text-white dark:bg-[#060606]"
+                  ? "text-[#1638C9]  dark:text-white dark:bg-black"
                   : "text-gray-600 dark:text-gray-400"
               }`}
               onClick={() => {
