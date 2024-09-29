@@ -51,7 +51,7 @@ import { ContactFormComponent } from "./Components/Contact/ContactForm";
 import AuthNavigator from "./Pages/auth/AuthNavigator";
 const App = () => {
   const apiUrl = import.meta.env.VITE_API_URL;
-  console.log(apiUrl, 'api url vite checking ')
+  console.log(apiUrl, 'api url vite checking test')
   const [dark, setDark] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const location = useLocation();
