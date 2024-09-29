@@ -25,7 +25,8 @@ import { BeatLoader } from "react-spinners";
 import Enroll from "./EnrollNow";
 import EnrollNow from "./EnrollNow";
 import { BiLogIn } from "react-icons/bi";
-import { FaUserCircle } from "react-icons/fa";
+import { FaRegCircleUser } from "react-icons/fa6";
+
  
 const Navbar = ({ theme}) => {
   const [show, setShow] = useState(false);
@@ -239,12 +240,12 @@ useEffect(()=>console.log("user",isLoggedIn),[isLoggedIn])
                 {!isLoggedIn?<BiLogIn
                   onClick={() => navigate('/login')}
                   size={20}
-                  className=" z-10 relative text-slate-500 dark:text-slate-200  cursor-pointer"
+                  className=" z-10 relative text-slate-700 dark:text-slate-200  cursor-pointer"
                 />:
-                <FaUserCircle
+                <FaRegCircleUser 
                   onClick={() => navigate('/login')}
                   size={20}
-                  className=" z-10 relative text-slate-500 dark:text-slate-200  cursor-pointer"
+                  className=" z-10 relative text-slate-700 dark:text-slate-200  cursor-pointer"
                 />}
               </div>
 
