@@ -297,9 +297,9 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
             <Link to={"/gcep"} className="relative group">
               <button
                 type="button"
-                className="hidden group z-10 sm:flex text-black bg-gradient-to-br from-green-400 via-teal-500 to-blue-500  hover:bg-gradient-to-br focus:outline-none focus:ring-amber-300 dark:focus:ring-amber-800 shadow-base shadow-amber-500/50 dark:shadow-base dark:shadow-amber-800/80 font-semibold rounded-lg text-sm px-0.5 py-0.5 text-center"
+                className="hidden group z-10 sm:flex text-indigo-950 bg-gradient-to-br from-pink-400 to-indigo-600 shadow-sm shadow-slate-300 dark:shadow-slate-600  font-semibold rounded-lg text-sm px-0.5 py-0.5 text-center"
               >
-                <span className="flex items-center justify-center h-full group-hover:text-white group-hover:bg-black/20 bg-white rounded-md px-4 w-24 py-1.5 ">
+                <span className="flex items-center justify-center h-full  bg-white dark:bg-black/60 dark:text-white rounded-md px-4 w-24 py-1.5 font-bold ">
                   GCEP
                 </span>
               </button>

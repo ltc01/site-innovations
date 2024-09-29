@@ -107,8 +107,8 @@ export const TechBlogSlider = () => {
               slidesPerView: 3,
             },
           }}
-          onSlideChange={() => console.log("hi")}
-          onSwiper={(swiper) => console.log("")}
+          // onSlideChange={() => console.log("hi")}
+          // onSwiper={(swiper) => console.log("")}
           className='b4 w-full  p-6  m-auto rounded-lg  flex flex-col justify-center items-center gap-4'
         >
           {blog_slider?.map((item, i) => {

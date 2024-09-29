@@ -242,7 +242,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
       )}
       {
         <div className="cursor-pointer fixed inset-0 flex justify-center items-center z-[200] bg-black/50">
-          <div className=" w-[38%] my-10  dark:bg-black  bg-white p-4 px-6 rounded-lg border relative flex flex-col items-center justify-center overflow-y-auto ">
+          <div className=" w-[95%] md:w-[70%] lg:w-[38%] my-10  dark:bg-black  bg-white p-4 px-6 rounded-lg border relative flex flex-col items-center justify-center overflow-y-auto ">
             <span
               onClick={() => setShowForm(false)}
               className="absolute top-7 right-6 text-2xl"
@@ -259,7 +259,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
             </div>
             <form
               id="form1"
-              className="space-y-2 px-6 pb-4 text-center mx-auto w-full"
+              className="space-y-2 md:px-6 pb-4 text-center mx-auto w-full"
               onSubmit={(e) => {
                 handleSubmit(e);
               }}
@@ -463,7 +463,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
                 />
                 <label
                   htmlFor="consent"
-                  className="dark:text-gray-300 mb-3 text-gray-700 text-xs"
+                  className="dark:text-gray-300 mb-3 text-gray-700 text-[10px] md:text-xs"
                 >
                   I consent to receiving updates and notifications from online
                   Baoiam and its affiliates via email, SMS, WhatsApp, and voice

@@ -33,7 +33,7 @@ export const HeaderBlog = ({
     // Reset results if input is cleared
     if (e.target.value.trim() === "") {
       setSearchResults(blog_list);
-      console.log("trim work");
+      // console.log("trim work");
     }
   };
 
