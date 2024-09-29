@@ -1,11 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import img1 from "../../assets/img1.png";
-import {
-  FaBars,
-  FaMagnifyingGlass,
-  FaRegUser,
-  FaUserPen,
-} from "react-icons/fa6";
+import { FaBars, FaMagnifyingGlass, FaRegUser } from "react-icons/fa6";
 // import CoursesList from "../CoursesList";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 // import { CollegeCourseData, OtherCourseData, School } from "../../Data";
@@ -28,13 +23,8 @@ import College from "../../Pages/College";
 import { fetchAllCourses } from "../../Redux/slices/courseSlice";
 import { BeatLoader } from "react-spinners";
 import Enroll from "./EnrollNow";
-// import { IoLogIn } from "react-icons/io5";
-import { LuLogIn } from "react-icons/lu";
-import { FaUser } from "react-icons/fa";
-import { MdAccountCircle } from "react-icons/md";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import EnrollNow from "./EnrollNow";
+import { BiLogIn } from "react-icons/bi";
 
 const Navbar = ({ theme,showForm,setShowForm }) => {
   const [show, setShow] = useState(false);
@@ -105,7 +95,7 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
 
   // redux start
   const { allCourses, status, error } = useSelector((state) => state.courses);
-  console.log("in navbar:", allCourses);
+  // console.log("in navbar:", allCourses);
   // console.log(allCourses, 'all courses navbar')
 
   useEffect(() => {
@@ -126,12 +116,12 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
     <>
       {showmenu && (
         <div
-          className="overlay fixed top-0 right-0 w-full  h-full bg-black opacity-40 z-40 xl:hidden"
+          className="overlay fixed top-0 right-0 w-full h-full bg-black opacity-40 z-40 xl:hidden"
           onClick={() => setShowmenu(false)}
         ></div>
       )}
       <div
-        className={`flex z-[90] text-slate-600 h-24 items-center max-w-[1440px] justify-between px-4 py-1 w-full fixed top-0 ${
+        className={`flex z-[90] text-slate-600 dark:text-slate-200 h-24 items-center justify-between lg:px-12 px-4 py-1 w-full fixed top-0 ${
           isTransparent
             ? "bg-white dark:bg-black"
             : "bg-white/70 backdrop-blur dark:bg-black/30 "
@@ -143,16 +133,14 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
 
         {/* NavLinks */}
         <div
-          className={`hidden lg:flex items-center ${
-            isDark ? "font-semibold" : "font-medium text-sm"
-          } justify-between `}
-        >
+          className={`hidden lg:flex items-center font-medium text-sm justify-between `}
+        > 
           <Link
             to={"/"}
             onClick={() => handleLinkClick("Home")}
             className={`mx-2 xl:mx-4 ${
               location.pathname === "/" && linkActive === "Home"
-                ? "text-orange-500"
+                ? "text-orange-600"
                 : ""
             }`}
           >
@@ -160,11 +148,11 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
           </Link>
 
           <Link
-            to={"/about-us"}
+            to={"/about-us"} 
             onClick={() => handleLinkClick("About")}
-            className={`mx-2 xl:mx-4 text-nowrap hover:text-indigo-500 ${
+            className={`mx-2 xl:mx-4 text-nowrap hover:text-orange-600 ${
               location.pathname === "/about-us" && linkActive === "About"
-                ? "text-indigo-600"
+                ? "text-orange-600"
                 : ""
             } `}
           >
@@ -172,19 +160,19 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
           </Link>
 
           <li
-            className={`mx-2 xl:mx-4 cursor-pointer flex gap-2 items-center hover:text-indigo-500`}
+            className={`mx-2 xl:mx-4 cursor-pointer flex gap-1 items-center `}
           >
-            <Link to="/courses">Courses</Link>
+            <Link to="/courses" className="hover:text-orange-600">Courses</Link>
             {show ? (
-              <IoIosArrowUp onClick={() => setShow(!show)} />
+              <IoIosArrowUp className="hover:text-orange-600" size={18} onClick={() => setShow(!show)} />
             ) : (
-              <IoIosArrowDown onClick={() => setShow(!show)} />
+              <IoIosArrowDown className="hover:text-orange-600" size={18} onClick={() => setShow(!show)} />
             )}
           </li>
 
           {show && (
             <div
-              className="absolute pl-4 pr-2 py-1 top-20 font-normal left-[30%] bg-white dark:bg-gray-700 border-black/50 border-[1px] text-sm shadow-lg z-50 dark:text-white"
+              className="absolute pl-4 pr-2 py-1 top-16 rounded-md left-[30%] bg-white dark:bg-black dark:border-white border-black/50 border-[1px] text-sm shadow-lg z-50 dark:text-white"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
@@ -195,9 +183,9 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
           <Link
             to={"/blogs"}
             onClick={() => handleLinkClick("Blog")}
-            className={`mx-2 xl:mx-4 hover:text-indigo-500 ${
+            className={`mx-2 xl:mx-4 hover:text-orange-600 ${
               location.pathname === "/blogs" && linkActive === "Blog"
-                ? "text-indigo-600"
+                ? "text-orange-600"
                 : ""
             } `}
           >
@@ -207,9 +195,9 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
           <Link
             to={"/contact"}
             onClick={() => handleLinkClick("Contact Us")}
-            className={`mx-2 xl:mx-4 text-nowrap hover:text-indigo-500 ${
+            className={`mx-2 xl:mx-4 text-nowrap hover:text-orange-600 ${
               location.pathname === "/contact" && linkActive === "Contact Us"
-                ? "text-indigo-600"
+                ? "text-orange-600"
                 : ""
             } `}
           >
@@ -244,21 +232,11 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
                     </span>
                   </button>
                 </Link> */}
-                {!localStorage.getItem("access_token") ? (
-                  <LuLogIn
-                    onClick={() => navigate("/login")}
-                    size={20}
-                    className=" z-10 relative text-slate-500 cursor-pointer"
-                  />
-                ) : (
-                  <FontAwesomeIcon
-                    icon={faUserCircle}
-                    size="lg"
-                    style={{ marginRight: "8px" }}
-                    className=" z-10 dark:text-white relative text-black cursor-pointer"
-                    onClick={() => navigate("/profile")}
-                  />
-                )}
+                <BiLogIn
+                  onClick={() => navigate('/login')}
+                  size={20}
+                  className=" z-10 relative text-slate-500 dark:text-slate-200  cursor-pointer"
+                />
               </div>
 
               {userDrop && (
@@ -311,11 +289,7 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
               onClick={darkTheme}
               className="text-base hidden lg:block cursor-pointer "
             >
-              {isDark ? (
-                <BsSun className="text-slate-600" />
-              ) : (
-                <BsMoonStars lassName="text-slate-600" />
-              )}
+              {isDark ? <BsSun className="text-slate-600 dark:text-slate-200 " /> : <BsMoonStars lassName="text-slate-600"/>}
             </span>
 
             {/* <Enroll /> */}

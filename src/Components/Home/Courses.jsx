@@ -11,30 +11,30 @@ const Courses = () => {
 
   const data = [
     {
-      title: "Extensive Learning Hours",
+      title: "Intensive Study Sessions",
       description:
-        "Engage in thousands of hours of interactive content crafted to enhance your skills and knowledge.",
-      icon: <FaBook className="dark:text-white text-indigo-700 text-4xl" />,
+        "We provide interactive learning sessions to enhance your knowledge and skills. Every academic minute is dedicated to the success of our students.",
+      icon: <FaBook className="dark:text-white text-indigo-700 text-3xl" />,
     },
     {
-      title: "Hands-On Projects",
+      title: "Practical Assignments",
       description:
-        "Gain practical experience with a broad range of real-world projects tailored to your field of interest.",
+        "Gain real world knowledge and valuable experience by contributing to the live projects, helping you in applying your skills.",
       icon: (
-        <FaProjectDiagram className="dark:text-white text-indigo-700 text-4xl" />
+        <FaProjectDiagram className="dark:text-white text-indigo-700 text-3xl" />
       ),
     },
     {
-      title: "Growing Global Community",
+      title: "Develop a Global Connection",
       description:
-        "Join a dynamic community of learners from around the world who are advancing their education and careers.",
-      icon: <FaGlobe className="dark:text-white text-indigo-700 text-4xl" />,
+        "Build new connections from all over the world. Learn from their experience and expertise as they do same.",
+      icon: <FaGlobe className="dark:text-white text-indigo-700 text-3xl" />,
     },
     {
-      title: "Expert Mentorship",
+      title: "Skilled Coaching",
       description:
-        "Receive guidance from a diverse group of industry professionals who offer valuable insights and support.",
-      icon: <FaUsers className="dark:text-white text-indigo-700 text-4xl" />,
+        "Receive the right guidance for the right path as you grow in your domain, with superior coaching from top skilled mentors.",
+      icon: <FaUsers className="dark:text-white text-indigo-700 text-3xl" />,
     },
   ];
 
@@ -59,26 +59,40 @@ const Courses = () => {
   }, []);
 
   return (
-    <div className="px-10 md:px-20 dark:bg-[#080529] pb-5">
+    <div className="px-10 md:px-20 dark:bg-[#010203] pb-5">
       <div className="text-center mb-10 md:mb-12">
-        <h2 className="text-3xl sm:text-4xl dark:text-white font-bold text-gray-900 mb-3">
+        <h2 className="text-3xl sm:text-4xl dark:text-white font-extrabold text-gray-900 mb-3">
           What Sets Us{" "}
           <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
             Apart
           </span>
         </h2>
         <p className="text-base dark:text-gray-300 sm:text-lg text-gray-600">
-          Discover the milestones and achievements that set us apart in the
-          industry.
+          Our commitment to quality, dedication and achievement oriented mindset sets us apart
         </p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {data.map((stat, i) => {
+          return <div className="shadow-[7px_7px_#0f0e0fce] border border-[#515050] p-4 rounded-xl">
+            <div className="flex items-center gap-4 mb-2">
+              <span className="border border-[#0f0e0fce] rounded-lg p-2">{stat.icon}</span>
+              <h2 className="text-xl font-semibold text-gray-800 dark:text-white">
+                {stat.title}
+              </h2>
+            </div>
+            <p className={`text-gray-600 dark:text-white text-sm ${i === 4 && "mt-4"}`}>{stat.description}</p>
+
+          </div>
+        })}
+      </div>
+
+      {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {data.map((stat, index) => (
           <div
             key={index}
             ref={(el) => (cardsRef.current[index] = el)} // Store each card's ref in the array
-            className="bg-zinc-100 dark:bg-indigo-900 bg-opacity-60 backdrop-blur-sm border border-gray-200 rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300 ease-in-out"
+            className="bg-zinc-100 dark:bg-indigo-900 bg-opacity-60 backdrop-blur-sm border border-gray-200 rounded-lg shadow-lg p-4 text-center hover:shadow-xl transition-shadow duration-300 ease-in-out"
           >
             <div className="flex items-center justify-center mb-4">
               {stat.icon}
@@ -89,7 +103,7 @@ const Courses = () => {
             <p className="text-gray-600 dark:text-white">{stat.description}</p>
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

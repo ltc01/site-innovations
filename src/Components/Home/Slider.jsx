@@ -10,7 +10,7 @@ import { School } from "../../Data";
 import {categories} from "../../assets/swiper-imgs/categories"; // Import JSON data
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProgramCourses } from '../../Redux/slices/courseSlice'; // Adjust the import path as necessary
+import { fetchFeaturedCourses } from '../../Redux/slices/courseSlice'; // Adjust the import path as necessary
 import { BeatLoader } from "react-spinners";
 
 
@@ -44,11 +44,12 @@ export default function SliderSection() {
 
   // redux start
   const dispatch = useDispatch();
-  const { programCourses, status, error } = useSelector((state) => state.courses);
+  const { featuredCourses, status, error } = useSelector((state) => state.courses);
 
   useEffect(() => {
+    console.log("Component rendered, current status:", status);
     if(status==='idle'){
-      dispatch(fetchProgramCourses());
+      dispatch(fetchFeaturedCourses());
     }
   }, [dispatch, status]);
 
@@ -57,30 +58,13 @@ export default function SliderSection() {
                 <BeatLoader color="#4F46E5" loading={true} size={15} />
            </div>;;
   }
-  // console.log(programCourses, 'program courses')
+  // console.log(featuredCourses, 'program courses')
   // redux end
 
   return (
-    <div className="slider-section dark:bg-[#080529] w-full relative py-20 overflow-hidden ">
+    <div className="slider-section dark:bg-[#010203] w-full relative py-12 overflow-hidden ">
       <div className="text-center mb-0 lg:mb-8">
-        <h2 className="text-4xl font-bold mb-8">Featured <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent" >Courses</span></h2>
-        {/* <div className="flex gap-3 items-center justify-center mt-8 md:mt-0">
-          {.map(
-            (category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-4 border-2 py-2 w-fit text-xs md:text-sm rounded-lg ${
-                  selectedCategory === category
-                    ? "dark:bg-indigo-900 bg-black text-white rounded-xl text-sm transition-all ease-in-out duration-300"
-                    : "bg-white text-black"
-                } hover:bg-gradient-to-l hover:scale-105 transition`}
-              >
-                {category}
-              </button>
-            )
-          )}
-        </div> */}
+        <h2 className="text-4xl font-extrabold mb-8">Featured <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent" >Courses</span></h2>
       </div>
 
       <div className="mx-4 mt-8 md:mx-14">
@@ -118,10 +102,10 @@ export default function SliderSection() {
         >
            {status === 'failed' ? categories[selectedCategory]?.map((slide, index) => (
             <SwiperSlide key={index}>
-              <div className="h-[22.5rem] overflow-hidden dark:bg-indigo-900 dark:border shadow-md rounded-xl m-2">
+              <div className="h-[22.5rem] overflow-hidden dark:bg-white/20 dark:border shadow-md rounded-3xl m-2">
                 <div className="relative h-[50%]">
                   <img
-                    src={slide.banner}
+                    src={slide.banner || 'https://miro.medium.com/v2/resize:fit:720/1*aBQrwweY6-qFVWeizUrTnQ.png'}
                     alt={slide.course}
                     className="w-full h-full object-cover"
                   />
@@ -151,9 +135,9 @@ export default function SliderSection() {
               </div>
             </SwiperSlide>
           ))
-          :  programCourses?.map((slide, index) => (
+          :  featuredCourses?.map((slide, index) => (
             <SwiperSlide key={index}>
-              <div className="h-[22.5rem] overflow-hidden dark:bg-indigo-900 dark:border shadow-md rounded-xl m-2">
+              <div className="h-[22.5rem] overflow-hidden dark:bg-white/10 dark:border shadow-md rounded-3xl m-2">
                 {/* Image Container */}
                 <div className="relative h-[50%]">
                   <img
@@ -164,11 +148,11 @@ export default function SliderSection() {
                   {/* Price and Duration in the same row */}
                 <div className="absolute top-3 left-4 flex">
                  
-                    <span className="text-xs mr-3 bg-gradient-to-r from-orange-600 to-amber-500 text-white rounded-lg px-3 py-1">
+                    <span className="text-xs mr-3 bg-gradient-to-r from-orange-600 to-amber-500 text-white rounded-lg px-4 py-1">
                       Premium
                     </span>
                     {/* Plus button */}
-                    <span className="bg-slate-200 text-gray-800 rounded-lg text-xs px-3 py-1">
+                    <span className="bg-slate-200 text-gray-800 rounded-lg text-xs px-4 py-1">
                       Plus
                     </span>
                 </div>
@@ -177,13 +161,13 @@ export default function SliderSection() {
                   {/* Title */}
                   <div className="">
                     <h3 className="text-xl font-semibold my-2 text-nowrap">{ slide.title.slice(0, 20) + "..." } </h3>
-                    <p className="text-sm pr-3 text-slate-600">{slide.description.slice(0, 60) + "..."}</p>
+                    <p className="text-sm pr-3 text-slate-600 dark:text-slate-200">{slide.description.slice(0, 60) + "..."}</p>
                     
                   </div>
                   {/* Button */}
                   <button
                     onClick={() => navigate(`/course/${slide.title}/${slide.id}`)}
-                    className="bg-gradient-to-r w-fit mb-4 mt-1 rounded-md text-xs from-indigo-700 to-indigo-400 text-white px-4 py-2 font-semibold hover:bg-gradient-to-l transition-all ease-in-out duration-300"
+                    className="bg-gradient-to-r w-fit mb-4 rounded-md text-xs from-indigo-700 to-indigo-400 text-white px-4 py-2 font-semibold hover:bg-gradient-to-l transition-all ease-in-out duration-300"
                   >
                   View More
                   </button>
@@ -200,10 +184,10 @@ export default function SliderSection() {
 
       {/* Custom Navigation Buttons Positioned on the Sliders */}
       <div className="absolute top-[60%] left-2 transform z-10">
-        <button className="swiper-button-prev text-indigo-600 hover:text-white transition"></button>
+        <button className="swiper-button-prev text-indigo-600 transition"></button>
       </div>
       <div className="absolute top-[60%] right-2 transform z-10">
-        <button className="swiper-button-next text-indigo-500 hover:text-white transition"></button>
+        <button className="swiper-button-next text-indigo-500 transition"></button>
       </div>
     </div>
   );
