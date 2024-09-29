@@ -19,6 +19,7 @@ export const fetchFeaturedCourses = createAsyncThunk(
   async () => {
     const response = await axios.get(`${apiUrl}/api/courses/featured/`); 
     console.log(response.data, 'featured courses')
+    console.log(import.meta.env, apiUrl, 'vite env val production mode');
     return response.data;
   }
 );

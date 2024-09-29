@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   server:{
 
-    __VALUE__: `"${process.env.VALUE}"`,
+    __VALUE__: `${process.env.VALUE}`,
     host:"0.0.0.0",
     fs:{
       strict:false,
