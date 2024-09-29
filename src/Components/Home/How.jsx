@@ -38,11 +38,11 @@ const How = () => {
 
   return (
     <>
-      <div className="flex justify-center my-4">
-        <div className="w-[80%] xl:w-[85%] text-center">
+      <div className="flex justify-center md:-mt-16 mb-4">
+        <div className="w-[80%] text-center">
           <h1 className="text-3xl sm:text-4xl my-5 font-extrabold">
             Our {" "}
-            <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-amber-500 to-red-600 bg-clip-text text-transparent">
               Workflow
             </span>
           </h1>
@@ -89,9 +89,9 @@ const How = () => {
 };
 
 const IconBox = React.forwardRef(({ icon, title, text }, ref) => (
-  <div ref={ref} className="text-center my-2">
+  <div ref={ref} className="text-center mx-auto w-full my-2">
     <div className="text-[3rem] flex justify-center mb-4">
-      <div className="rounded-full p-3 text-indigo-600 border-2 border-indigo-600">
+      <div className="rounded-full p-3 bg-gradient-to-r from-pink-500 to-violet-600 text-white">
         {icon}
       </div>
     </div>

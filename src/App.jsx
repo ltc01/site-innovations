@@ -77,8 +77,8 @@ const App = () => {
     return <Loader />;
   }
 
-  if(location.pathname === "/profile"){
-    return <Profile />
+  if (location.pathname === "/profile") {
+    return <Profile />;
   }
 
   return (
@@ -99,7 +99,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
 
           {/* Courses */}
-          <Route path="/course/:name/:id" element={<CourseDetailsPage />} />
+          <Route path="/course/:name/:id" element={<CourseDetailsPage  showForm={showForm} setShowForm={setShowForm} />} />
 
           {/* Blog */}
           <Route path="/Blog_detail/:id" element={<Blog_detail />} />
@@ -128,12 +128,26 @@ const App = () => {
 
           {/* Checkout */}
 
-          <Route path="/checkout/:id/:plan" element={<AuthNavigator><Checkout /></AuthNavigator>} />
+          <Route
+            path="/checkout/:id/:plan"
+            element={
+              <AuthNavigator>
+                <Checkout />
+              </AuthNavigator>
+            }
+          />
           <Route path="/courses" element={<Courses />} />
 
           {/* Profile & Dashboard */}
-          <Route path="/profile" element={<AuthNavigator><SideBar /></AuthNavigator>} />
-          <Route path="/instructor-dashboard" element={<AuthNavigator><TeacherDashboard /></AuthNavigator>} />
+          {/* <Route path="/profile" element={<AuthNavigator><SideBar /></AuthNavigator>} /> */}
+          <Route
+            path="/instructor-dashboard"
+            element={
+              <AuthNavigator>
+                <TeacherDashboard />
+              </AuthNavigator>
+            }
+          />
 
           {/* Maintenace */}
           <Route path="/Maintenance" element={<Maintenance />} />

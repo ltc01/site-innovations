@@ -10,6 +10,7 @@ const showForm=useSelector(state=>state.showForm);
  const dispatch = useDispatch()
   // Function to toggle the popup
   const togglePopup = () => {
+    
     console.log(showForm)
     dispatch(toggleEnrollForm());
     setAnimatePing(true);

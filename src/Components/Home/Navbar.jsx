@@ -125,7 +125,7 @@ useEffect(()=>console.log("user",isLoggedIn),[isLoggedIn])
         ></div>
       )}
       <div
-        className={`flex z-[90] text-slate-600 dark:text-slate-200 h-24 items-center max-w-[1440px] justify-between px-4 py-1 w-full fixed top-0 ${
+        className={`flex z-[90] text-slate-600 dark:text-slate-200 h-24 items-center justify-between lg:px-12 px-4 py-1 w-full fixed top-0 ${
           isTransparent
             ? "bg-white dark:bg-black"
             : "bg-white/70 backdrop-blur dark:bg-black/30 "
@@ -137,14 +137,14 @@ useEffect(()=>console.log("user",isLoggedIn),[isLoggedIn])
 
         {/* NavLinks */}
         <div
-          className={`hidden lg:flex items-center font-medium text-sm xl:text-base justify-between `}
+          className={`hidden lg:flex items-center font-medium text-sm justify-between `}
         > 
           <Link
             to={"/"}
             onClick={() => handleLinkClick("Home")}
             className={`mx-2 xl:mx-4 ${
               location.pathname === "/" && linkActive === "Home"
-                ? "text-orange-500"
+                ? "text-orange-600"
                 : ""
             }`}
           >
@@ -154,9 +154,9 @@ useEffect(()=>console.log("user",isLoggedIn),[isLoggedIn])
           <Link
             to={"/about-us"} 
             onClick={() => handleLinkClick("About")}
-            className={`mx-2 xl:mx-4 text-nowrap hover:text-indigo-500 ${
+            className={`mx-2 xl:mx-4 text-nowrap hover:text-orange-600 ${
               location.pathname === "/about-us" && linkActive === "About"
-                ? "text-indigo-600"
+                ? "text-orange-600"
                 : ""
             } `}
           >
@@ -166,17 +166,17 @@ useEffect(()=>console.log("user",isLoggedIn),[isLoggedIn])
           <li
             className={`mx-2 xl:mx-4 cursor-pointer flex gap-1 items-center `}
           >
-            <Link to="/courses" className="hover:text-indigo-500">Courses</Link>
+            <Link to="/courses" className="hover:text-orange-600">Courses</Link>
             {show ? (
-              <IoIosArrowUp className="hover:text-indigo-500" size={18} onClick={() => setShow(!show)} />
+              <IoIosArrowUp className="hover:text-orange-600" size={18} onClick={() => setShow(!show)} />
             ) : (
-              <IoIosArrowDown className="hover:text-indigo-500" size={18} onClick={() => setShow(!show)} />
+              <IoIosArrowDown className="hover:text-orange-600" size={18} onClick={() => setShow(!show)} />
             )}
           </li>
 
           {show && (
             <div
-              className="absolute pl-4 pr-2 py-1 top-20 rounded-md left-[30%] bg-white dark:bg-black dark:border-white border-black/50 border-[1px] text-sm shadow-lg z-50 dark:text-white"
+              className="absolute pl-4 pr-2 py-1 top-16 rounded-md left-[30%] bg-white dark:bg-black dark:border-white border-black/50 border-[1px] text-sm shadow-lg z-50 dark:text-white"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
@@ -187,9 +187,9 @@ useEffect(()=>console.log("user",isLoggedIn),[isLoggedIn])
           <Link
             to={"/blogs"}
             onClick={() => handleLinkClick("Blog")}
-            className={`mx-2 xl:mx-4 hover:text-indigo-500 ${
+            className={`mx-2 xl:mx-4 hover:text-orange-600 ${
               location.pathname === "/blogs" && linkActive === "Blog"
-                ? "text-indigo-600"
+                ? "text-orange-600"
                 : ""
             } `}
           >
@@ -199,9 +199,9 @@ useEffect(()=>console.log("user",isLoggedIn),[isLoggedIn])
           <Link
             to={"/contact"}
             onClick={() => handleLinkClick("Contact Us")}
-            className={`mx-2 xl:mx-4 text-nowrap hover:text-indigo-500 ${
+            className={`mx-2 xl:mx-4 text-nowrap hover:text-orange-600 ${
               location.pathname === "/contact" && linkActive === "Contact Us"
-                ? "text-indigo-600"
+                ? "text-orange-600"
                 : ""
             } `}
           >

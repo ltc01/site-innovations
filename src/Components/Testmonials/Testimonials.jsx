@@ -75,7 +75,8 @@ const Testimonials = () => {
         {data.testimonials.map((testimonial, index) => (
           <div
             key={index}
-            className="relative w-full mb-6 p-6 dark:bg-[#080529] rounded-lg shadow-[0_4px_14px_-6px_rgba(93,96,127,0.4)] bg-white testimonial-card"
+            // dark:bg-[#080529]
+            className="relative w-full mb-6 p-6 dark:bg-gradient-to-r from-white/15 to-white/5 backdrop-blur-lg backdrop-saturate-150  rounded-lg shadow-[0_4px_14px_-6px_rgba(93,96,127,0.4)] testimonial-card"
           >
             {/* Profile Image */}
             <img

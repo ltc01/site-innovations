@@ -10,6 +10,8 @@ const apiUrl = import.meta.env.VITE_API_URL;
 const domain = import.meta.env.VITE_DOMAIN_URL;
 import gsap from "gsap";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../Redux/auth/authSlice";
 
 const Login = () => {
   document.title = "Baoiam - Login";
@@ -19,25 +21,30 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const location = useLocation();
   const requestRef = useRef(false);
-  const from = '/profile';
+  const from = "/profile";
   const [pass, setPass] = useState(false);
-  const [parentState,setParentState]=useState(location)
+  const [parentState, setParentState] = useState(location);
+  const dispatch = useDispatch();
+  const authData = useSelector((state) => state.auth);
+  console.log(parentState);
+  useEffect(() => {
+    console.log("authData:", authData);
+    if (authData && authData.isLoggedIn) {
+      navigate(from, { state: { ...parentState }, replace: true });
+    } else {
+      window.scrollTo(0, 0);
+      const values = queryString.parse(location.search);
+      const state = values.state || null;
+      const code = values.code || null;
 
-console.log(parentState)
-useEffect(() => {
-    if (localStorage.getItem("access_token"))  navigate(from,{state:{...parentState},replace:true})
-    window.scrollTo(0, 0);
-    const values = queryString.parse(location.search);
-    const state = values.state || null;
-    const code = values.code || null;
+      console.log("State:", state);
+      console.log("Code:", code);
 
-    console.log("State:", state);
-    console.log("Code:", code);
-
-    if (state && code && !localStorage.getItem("authenticated")) {
-      googleAuthenticate(state, code);
+      if (state && code && !localStorage.getItem("authenticated")) {
+        googleAuthenticate(state, code);
+      }
     }
-  }, []);
+  }, [authData, location.search]);
 
   const googleAuthenticate = async (state, code) => {
     if (requestRef.current) return;
@@ -77,9 +84,8 @@ useEffect(() => {
 
         localStorage.setItem("access", data.access);
         localStorage.setItem("authenticated", true);
-
         setTimeout(() => {
-           navigate(from,{state:{...parentState},replace:true})
+          navigate(from, { state: { ...parentState }, replace: true });
         }, 2000);
       }
     } catch (error) {
@@ -108,6 +114,7 @@ useEffect(() => {
           autoClose: 2000,
         });
         window.location.replace(response.data.authorization_url);
+        localStorage.setItem("login", true);
       } else {
         throw new Error("Failed to get authorization URL.");
       }
@@ -135,9 +142,10 @@ useEffect(() => {
           isLoading: false,
           autoClose: 2000,
         });
-
+        dispatch(login(response.data.access));
+        localStorage.setItem("login", true);
         setTimeout(() => {
-          navigate(from,{state:{...parentState},replace:true})
+          navigate(from, { state: { ...parentState }, replace: true });
         }, 2000);
       } else {
         throw new Error(response.data?.detail || "Login failed.");
