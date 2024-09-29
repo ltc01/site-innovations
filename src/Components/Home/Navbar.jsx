@@ -25,8 +25,9 @@ import { BeatLoader } from "react-spinners";
 import Enroll from "./EnrollNow";
 import EnrollNow from "./EnrollNow";
 import { BiLogIn } from "react-icons/bi";
-
-const Navbar = ({ theme,showForm,setShowForm }) => {
+import { FaUserCircle } from "react-icons/fa";
+ 
+const Navbar = ({ theme}) => {
   const [show, setShow] = useState(false);
   const [showmenu, setShowmenu] = useState(false);
   const [delayHide, setDelayHide] = useState(null);
@@ -46,6 +47,8 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
     theme();
   };
 
+  const showForm = useSelector(state=>state.showForm)
+
   const handleLinkClick = (link) => {
     setLinkActive(link);
   };
@@ -60,7 +63,6 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
       setUserDrop(false);
     }
   };
-
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -95,6 +97,8 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
 
   // redux start
   const { allCourses, status, error } = useSelector((state) => state.courses);
+  const isLoggedIn = useSelector((state) => state.user.profile);
+useEffect(()=>console.log("user",isLoggedIn),[isLoggedIn])
   // console.log("in navbar:", allCourses);
   // console.log(allCourses, 'all courses navbar')
 
@@ -232,11 +236,16 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
                     </span>
                   </button>
                 </Link> */}
-                <BiLogIn
+                {!isLoggedIn?<BiLogIn
                   onClick={() => navigate('/login')}
                   size={20}
                   className=" z-10 relative text-slate-500 dark:text-slate-200  cursor-pointer"
-                />
+                />:
+                <FaUserCircle
+                  onClick={() => navigate('/login')}
+                  size={20}
+                  className=" z-10 relative text-slate-500 dark:text-slate-200  cursor-pointer"
+                />}
               </div>
 
               {userDrop && (
@@ -268,7 +277,7 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
                         <NavLink to="/signup">Sign Up</NavLink>
                       </Link>
                     ) : (
-                      <p
+                      <p 
                         onClick={() => {
                           localStorage.removeItem("access_token");
                           localStorage.removeItem("userInfo");
@@ -293,7 +302,7 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
             </span>
 
             {/* <Enroll /> */}
-            <EnrollNow showForm={showForm} setShowForm={setShowForm}/>
+            <EnrollNow/>
             <Link to={"/gcep"} className="relative group">
               <button
                 type="button"

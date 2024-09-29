@@ -4,7 +4,7 @@ import Logo from "../Components/Home/Logo";
 import { LogoDark } from "../assets/assets";
 import { useDispatch } from "react-redux";
 import axios from "axios";
-import { setProfile1 } from "../Redux/user/userSlice";
+import { setProfile1, deleteUserData1 } from "../Redux/user/userSlice";
 import { Link, useNavigate } from "react-router-dom";
 import Courses from "../Components/StudentDasboard/Courses";
 import Achievements from "../Components/StudentDasboard/Achievements";
@@ -15,7 +15,7 @@ import { RiSecurePaymentFill } from "react-icons/ri";
 import { FaCog, FaHome, FaSignOutAlt } from "react-icons/fa";
 import axiosInstance from "../axiosInstance";
 const apiUrl = import.meta.env.VITE_API_URL;
-
+console.log('profile loaded')
 const Profile = () => {
   const sideBarLink = [
     { id: 1, name: "Profile", tab: "profile", icon: <FaUser /> },
@@ -65,6 +65,7 @@ const Profile = () => {
     localStorage.removeItem("access_token");
     localStorage.removeItem("userInfo");
     navigate("/login", { replace: true });
+    dispatch(deleteUserData1());
   };
 
   if (

@@ -21,7 +21,7 @@ const Login = () => {
   const requestRef = useRef(false);
   const from = '/profile';
   const [pass, setPass] = useState(false);
-  const [parentState,setParentState]=useState({...location})
+  const [parentState,setParentState]=useState(location)
 
 console.log(parentState)
 useEffect(() => {
@@ -349,7 +349,7 @@ useEffect(() => {
               </p>
               <Link
                 to={"/Signup"}
-                className="px-16 bg-black sm:py-1 sm:text-[1.2vw] px-9 py-2 border rounded-full border-black"
+                className="px-16 bg-black sm:py-1 sm:text-[1.2vw] py-2 border rounded-full border-black"
               >
                 Sign Up
               </Link>

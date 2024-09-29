@@ -49,10 +49,11 @@ import EnrollNowButton from "./Components/EnrollNowButton/EnrollNowButton";
 import Profile from "./Pages/Profile";
 import { ContactFormComponent } from "./Components/Contact/ContactForm";
 import AuthNavigator from "./Pages/auth/AuthNavigator";
+import { useSelector } from "react-redux";
 
 const App = () => {
   const [dark, setDark] = useState(false);
-  const [showForm, setShowForm] = useState(false);
+  const {showForm} = useSelector(state=>state);
   const location = useLocation();
   const theme = () => {
     setDark((old) => !old);
@@ -82,7 +83,7 @@ const App = () => {
 
   return (
     <div className="dark:bg-black w-full mx-auto overflow-hidden h-full dark:text-white ">
-      <Navbar theme={theme} showForm={showForm} setShowForm={setShowForm} />
+      <Navbar theme={theme}/>
 
       <div className="mt-24 max-w-[1660px] mx-auto">
         <Routes>
@@ -165,9 +166,9 @@ const App = () => {
           <Route path="*" element={<Navigate to="/404" replace />} />
         </Routes>
         {/* <ChatBot /> */}
-        <EnrollNowButton showForm={showForm} setShowForm={setShowForm}/>
+        <EnrollNowButton />
         {showForm && (
-          <ContactFormComponent showForm={showForm} setShowForm={setShowForm} />
+          <ContactFormComponent />
         )}
       </div>
 

@@ -1,12 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
-import "animate.css";
+import "animate.css"; 
 import { useLocation, useParams } from "react-router-dom";
 import { ContactFormComponent } from "../Contact/ContactForm";
+import { toggleEnrollForm } from "../../Redux/slices/enrollFormSlice";
+import { useDispatch, useSelector } from "react-redux";
 
-const EnrollNowButton = ({showForm,setShowForm}) => {
+const EnrollNowButton = () => {
   const buttonRef = useRef(null);
   const location = useLocation();
-
+  const dispatch=useDispatch();
+const showForm = useSelector(state=>state.showForm);
   useEffect(() => {
     const triggerAnimation = () => {
       if (buttonRef.current) {
@@ -39,7 +42,7 @@ const EnrollNowButton = ({showForm,setShowForm}) => {
       <div>
         {showForm ? null : <button
           ref={buttonRef}
-          onClick={() => setShowForm(old=>!old)}
+          onClick={() => dispatch(toggleEnrollForm())}
           className="fixed bottom-28 right-0 z-[100] inline-flex lg:hidden items-center justify-center text-base font-medium disabled:opacity-50 border  rounded-l-3xl w-35 px-5 py-3 bg-gradient-to-r from-pink-500 to-violet-600 m-0 cursor-pointer border-gray-200 text-white normal-case"
         >
           Enroll Now

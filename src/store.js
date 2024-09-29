@@ -5,6 +5,7 @@ import userReducer from "./Redux/user/userSlice";
 import orderReducer from './Redux/slices/orderSlice'
 import courseReducer from "./Redux/slices/courseSlice";
 import courseDetailReducer from "./Redux/slices/courseDetailSlice";
+import enrollFormReducer from "./Redux/slices/enrollFormSlice";
 
 const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
     orders: orderReducer,
     courses: courseReducer,
     courseDetails: courseDetailReducer,
+    showForm :enrollFormReducer,
   },
 });
 

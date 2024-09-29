@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { FaCheckCircle } from "react-icons/fa";
-import { Link, useLocation } from "react-router-dom";
-const EnrollNow = ({showForm,setShowForm}) => {
-  const [animatePing, setAnimatePing] = useState(false);
+import { Link, useLocation, useSearchParams } from "react-router-dom";
+import { toggleEnrollForm } from "../../Redux/slices/enrollFormSlice";
+import { useDispatch, useSelector } from "react-redux";
 
+const EnrollNow = () => {
+  const [animatePing, setAnimatePing] = useState(false);
+const showForm=useSelector(state=>state.showForm);
+ const dispatch = useDispatch()
   // Function to toggle the popup
   const togglePopup = () => {
     console.log(showForm)
-    setShowForm(true);
+    dispatch(toggleEnrollForm());
     setAnimatePing(true);
 
     // Remove ping animation after a short duration

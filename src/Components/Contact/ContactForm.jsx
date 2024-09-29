@@ -16,6 +16,8 @@ import { IoIosArrowDown } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { RxCross2 } from "react-icons/rx";
+import { useDispatch } from "react-redux";
+import { toggleEnrollForm } from "../../Redux/slices/enrollFormSlice";
 
 const ContactUs = () => {
   // const togglePopup = () => {
@@ -120,13 +122,13 @@ const ContactUs = () => {
           </div>
         </div>
       </section>
-    </div>
+    </div> 
   );
 };
 
 export default ContactUs;
 
-export const ContactFormComponent = ({ setShowForm, showForm }) => {
+export const ContactFormComponent = () => {
   const [loading, setLoading] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [animatePing, setAnimatePing] = useState(false);
@@ -138,7 +140,8 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
     Course: "",
     Consent: false,
   });
-
+  
+const dispatch=useDispatch();
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -233,7 +236,7 @@ export const ContactFormComponent = ({ setShowForm, showForm }) => {
       {(
         <div className="cursor-pointer fixed inset-0 flex justify-center h-screen items-center z-[200] w-screen bg-black/20">
           <div  className="w-[90%] md:w-3/5 lg:max-w-xl lg:h-[37rem] h-[500px] bg-white p-4 md:px-12 md:py-8 rounded-lg border relative flex flex-col items-center justify-center overflow-y-auto ">
-            <span onClick={() => setShowForm(false)} className="absolute top-3 right-3 text-2xl"><RxCross2 /></span>
+            <span onClick={() => dispatch(toggleEnrollForm())} className="absolute top-3 right-3 text-2xl"><RxCross2 /></span>
             <div className="text-lg md:text-2xl lg:text-3xl mt-4 pt-2 pb-2 md:pb-4 text-center font-bold">
               <div>Ready to enhance your skills?</div> 
               <span className="text-xs md:text-sm lg:text-base font-medium">
