@@ -18,6 +18,7 @@ import {
   FaMugHot,
   FaRobot,
 } from "react-icons/fa6";
+import { FaChevronRight } from "react-icons/fa6";
 import { FaMobileAlt, FaUserCircle } from "react-icons/fa";
 import NewsletterBanner from "../Components/Home/Subcription.jsx";
 
@@ -63,15 +64,21 @@ const Blog_detail = () => {
 
   return (
     <>
-      <div className='h-[auto] w-[90%] sm:text-[1.6vw] mx-[2%] px-4 py-4 flex-col my-[2rem] bg-purple-100'>
-        <p className='font-bold text-sm md:text-lg dark:text-black'>
-          <Link className='text-blue-600 hover:underline' to='/'>
+      <div className='h-[auto] w-[90%] sm:text-[1.6vw] mx-[2%] px-4 py-4 flex-col my-[2rem]'>
+        <p className='font-bold flex gap-2 text-sm md:text-lg'>
+          <Link
+            className='text-blue-600 dark:text-slate-500 hover:underline'
+            to='/'
+          >
             HOME
           </Link>{" "}
-          <Link className='text-blue-600 hover:underline' to='/blogs'>
-            / BLOGS /
+          <Link
+            className='text-blue-600 hover:underline dark:text-slate-500 flex justify-center items-center gap-2 '
+            to='/blogs'
+          >
+            <FaChevronRight /> BLOGS <FaChevronRight />
           </Link>
-          <span className='text-blue-600 ml-2'>
+          <span className='text-blue-600 dark:text-slate-500 ml-2'>
             {content_data[id]?.Category}
           </span>
         </p>
@@ -134,14 +141,14 @@ const Blog_detail = () => {
             </div>
           </div> */}
 
-          <div className='w-[100%] mt-20 dark:text-white xs:px-1 rounded pb-5 lg:h-auto h-[45%]  dark:border-white dark:border-[1px] shadow-md shadow-[#00000081] flex flex-col gap-2 '>
+          <div className='w-[100%] mt-20 dark:text-white xs:px-1 rounded pb-5 lg:h-auto h-[45%]  shadow-md shadow-[#00000081] flex flex-col gap-2 '>
             <h2 className='text-[2rem]  font-bold text-center xs:text-[23px] mt-5'>
               Related Blogs
             </h2>
 
             <div
               onClick={hanldenav}
-              className='flex flex-col gap-2 md:flex-row hover:-translate-y-1 hover:scale-120  duration-150 shadow-md border-2 border-zinc-200 rounded-md hover:shadow-md items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 md:gap-10 mt-[2rem] px-4  dark:bg-[#374151] mx-4 py-4 cursor-pointer'
+              className='flex flex-col gap-2 dark:bg-zinc-900 dark:border-none dark:hover:shadow-indigo-400 md:flex-row hover:-translate-y-1 hover:scale-120  duration-150 shadow-md border-2 border-zinc-200 rounded-md hover:shadow-md items-center justify-center hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 md:gap-10 mt-[2rem] px-4 mx-4 py-4 cursor-pointer'
             >
               <img
                 className='w-[8rem] xs:w-[5.7rem] xs:h-[5.7rem]'
@@ -155,7 +162,7 @@ const Blog_detail = () => {
             </div>
             <div
               onClick={hanldenav2}
-              className='flex flex-col gap-2 md:flex-row border-2 shadow-md border-zinc-200 rounded-md hover:shadow-md items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 md:gap-10 mt-[2rem] px-4 dark:bg-[#374151] mx-4 py-4 cursor-pointer'
+              className='flex flex-col dark:bg-zinc-900 dark:border-none dark:hover:shadow-indigo-400 gap-2 md:flex-row border-2 shadow-md border-zinc-200 rounded-md hover:shadow-md items-center justify-center hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 md:gap-10 mt-[2rem] px-4 mx-4 py-4 cursor-pointer'
             >
               <img className='w-[8rem] xs:w-[5.7rem] xs:h-[5.7rem]' src={ai} />
               <p className='w-[95%] md:w-[60%] dark:text-white hover:underline xs:w-[90%] text-indigo-600 text-center xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'>
@@ -164,13 +171,13 @@ const Blog_detail = () => {
             </div>
             <div
               onClick={hanldenav3}
-              className='flex flex-col gap-2 md:flex-row border-2 shadow-md border-zinc-200 rounded-md items-center justify-center dark:shadow-none hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 md:gap-10 mt-[2rem] px-4 hover:shadow-md  dark:bg-[#374151] mx-4 py-4 cursor-pointer'
+              className='flex flex-col gap-2 dark:bg-zinc-900 dark:border-none dark:hover:shadow-indigo-400 md:flex-row border-2 shadow-md border-zinc-200 rounded-md items-center justify-center hover:bg-white hover:text-black transition-all xs:text-center xs:flex-col xs:px-0 xs:gap-2 xs:mx-1 md:gap-10 mt-[2rem] px-4 hover:shadow-md mx-4 py-4 cursor-pointer'
             >
               <img
                 className='w-[8rem] xs:w-[5.7rem] xs:h-[5.7rem]'
                 src={new_excited_tech_edu1}
               />
-              <p className='w-[95%] md:w-[60%] text-indigo-600 dark:text-white hover:underline text-center xs:w-[90%] xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'>
+              <p className='w-[95%] md:w-[60%]  text-indigo-600 dark:text-white hover:underline text-center xs:w-[90%] xs:text-center xs:text-[0.9rem] font-bold text-[1rem]'>
                 How Ed-Tech Enhances Critical Thinking Skills
               </p>
             </div>
@@ -220,7 +227,7 @@ const Blog_detail = () => {
         <h2 className='text-[1.13rem] font-bold mb-1'>Add a Response</h2>
         <textarea
           rows='8'
-          className='bg-gray-100 w-[100%] p-5 dark:text-black'
+          className='bg-gray-100 w-[100%] p-5 dark:bg-zinc-900 dark:text-black'
           cols='80'
           type='text'
           placeholder='Leave a Comment'
@@ -230,7 +237,7 @@ const Blog_detail = () => {
         <div>
           <button
             onClick={handlePostSubmit}
-            className=' bg-black text-white p-3 rounded-lg mt-9 dark:bg-white dark:text-black'
+            className=' bg-black dark:bg-blue-600 text-white p-3 rounded-lg mt-9 dark:text-white'
           >
             Post Comment
           </button>

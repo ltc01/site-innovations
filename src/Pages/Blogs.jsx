@@ -280,19 +280,19 @@ const Blog = () => {
         setSearchResults={setSearchResults}
         blog_list={blog_list}
       />
-      <div className="max-w-7xl dark:bg-black dark:text-white mx-auto py-8 px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-bold text-center">
+      <div className='max-w-7xl dark:bg-black dark:text-white mx-auto py-8 px-4 sm:px-6 lg:px-8'>
+        <h1 className='text-3xl font-bold text-center'>
           Our Latest Highlights
         </h1>
-        <h2 className="b2 text-lg text-center dark:text-slate-300 mt-2 mb-6">
+        <h2 className='b2 text-lg text-center dark:text-slate-300 mt-2 mb-6'>
           Dive into our latest blogs for fresh insights and trending topics{" "}
         </h2>
 
-        <div className=" p-6"></div>
-        <div className="px-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className=' p-6'></div>
+        <div className='px-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10'>
           {searchResults.map((item, i) => (
             <Link key={i} to={`/Blog_detail/${i}`}>
-              <div className='bg-white flex flex-col h-full dark:bg-black dark:text-white shadow-lg dark:hover:shadow-gray-300 dark:hover:shadow-md rounded-lg overflow-hidden transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-300 '>
+              <div className='bg-white flex flex-col h-full dark:bg-zinc-900 dark:hover:shadow-indigo-400 dark:text-white shadow-lg dark:hover:shadow-md rounded-lg overflow-hidden transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-300 '>
                 <div className='relative'>
                   <img
                     className='w-full h-48 object-cover'
@@ -310,7 +310,7 @@ const Blog = () => {
                 <div className='p-4 flex-grow '>
                   <h2 className='text-lg font-bold my-2'>{item.text}</h2>
                   <span
-                    className='text-sm text-slate-700 font-semibold'
+                    className='text-sm text-slate-700 dark:text-slate-300 font-semibold'
                     style={{
                       display: "-webkit-box",
                       WebkitBoxOrient: "vertical",

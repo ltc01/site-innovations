@@ -50,11 +50,11 @@ export const HeaderBlog = ({
             <h3 className='text-white md:text-5xl text-4xl font-bold'>
               Latest Insights and Updates on BAOIAM Blog
             </h3>
-            <p className='text-gray-300 text-sm mt-6'>
+            <p className='text-gray-300 text-sm md:text-lg mt-6'>
               Explore our articles, news, and tips to stay informed and inspired
             </p>
 
-            <div className='max-w-lg mx-auto bg-gray-100 flex p-1 rounded-full text-left mt-12 border focus-within:border-gray-700'>
+            <div className='max-w-lg mx-auto bg-gray-100 flex p-1 rounded-full text-left mt-10 border focus-within:border-gray-700'>
               <input
                 type='text'
                 placeholder='Search for articles...'
