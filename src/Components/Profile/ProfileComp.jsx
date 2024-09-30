@@ -1,12 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { AiFillStar } from "react-icons/ai";
+import { AiFillStar, AiOutlineCheck, AiOutlineCheckCircle, AiOutlineExclamationCircle } from "react-icons/ai";
 import { BsPerson, BsPersonCircle } from "react-icons/bs";
-import { FaLinkedin, FaUser, FaUserAlt, FaUserCircle, FaUserFriends } from "react-icons/fa";
+import {
+  FaCheck,
+  FaInstagram,
+  FaLinkedin,
+  FaUser,
+  FaUserAlt,
+  FaUserCircle,
+  FaUserFriends,
+} from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
-import { HiUser } from "react-icons/hi2";
-import { MdPerson, MdPersonAdd, MdPersonOutline } from "react-icons/md";
+import { HiOutlineCheck, HiOutlineCheckCircle, HiUser } from "react-icons/hi2";
+import {
+  MdCheck,
+  MdOutlineMailOutline,
+  MdPerson,
+  MdPersonAdd,
+  MdPersonOutline,
+} from "react-icons/md";
 import { RiUser3Line, RiUserSmileLine } from "react-icons/ri";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const ProfileComp = ({ userInfo }) => {
   // console.log(userInfo);
@@ -92,22 +107,43 @@ const ProfileComp = ({ userInfo }) => {
             {userInfo.first_name} {userInfo.last_name}
           </h1>
           <div className="my-1 text-xs md:text-base">
+            {userInfo.is_email_verified ? (
+              <div className="text-green-700 flex items-center gap-3">
+              <AiOutlineCheckCircle size={17} /> <p>Email is verified</p>
+            </div>
+            ) : (
+              <div className="text-red-500 flex items-center gap-3">
+                <AiOutlineExclamationCircle size={17} /> <p>Email is not verified</p>
+              </div>
+            )}
+          </div>
+          <div className="my-1 text-xs md:text-base">
             Email:
             <span className="text-indigo-600"> {userInfo.email}</span>
           </div>
-          {/* <div className='my-1 text-xs md:text-base'>
-                        Mobile:
-                        <span className='text-indigo-600'> +91 1234567890</span>
-                    </div>
-                    <div className='my-1 text-xs md:text-base'>
-                        College:
-                        <span className='text-indigo-600'> College</span>
-                    </div> */}
-
-          {/* <div className="flex items-center gap-2 mt-4 max-xs:mt-2">
-            <FaGithub className="bg-indigo-500 size-6 p-1 rounded-full text-white" />
+          {userInfo.mobile_number && <div className="my-1 text-xs md:text-base">
+            Mobile:
+            <span className="text-indigo-600"> {userInfo.mobile_number}</span>
+          </div>}
+          {userInfo.college_name && <div className="my-1 text-xs md:text-base">
+            College:
+            <span className="text-indigo-600"> {userInfo.college_name}</span>
+          </div>}
+          { userInfo.school_name && <div className="my-1 text-xs md:text-base">
+            School
+            <span className="text-indigo-600"> {userInfo.school_name}</span>
+          </div>}
+          <div className="flex items-center gap-2 mt-4 max-xs:mt-2">
+            {userInfo.linkedin && <Link to={userInfo.linkedin}>
             <FaLinkedin className="bg-indigo-500 size-6 p-1 rounded-full text-white" />
-          </div> */}
+            </Link>}
+            {userInfo.github && <Link to={userInfo.github}>
+            <FaGithub className="bg-indigo-500 size-6 p-1 rounded-full text-white" />
+            </Link>}
+            {userInfo.instagram && <Link to={userInfo.instagram}>
+            <FaInstagram className="bg-indigo-500 size-6 p-1 rounded-full text-white" />
+            </Link>}
+          </div>
         </div>
       </div>
 

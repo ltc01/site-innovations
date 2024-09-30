@@ -35,7 +35,7 @@ const Profile = () => {
   const getUserDetails = async () => {
     try {
       // Use axiosInstance, no need to set Authorization manually
-      const { data } = await axiosInstance.get("/api/auth/users/me/");
+      const { data } = await axiosInstance.get("/api/profile");
 
       console.log("User data retrieved:", data);
 
