@@ -124,7 +124,7 @@ const ContactUs = () => {
           </div>
         </div>
       </section>
-    </div> 
+    </div>
   );
 };
 
@@ -142,8 +142,8 @@ export const ContactFormComponent = () => {
     Course: "",
     Consent: false,
   });
-  
-const dispatch=useDispatch();
+
+  const dispatch = useDispatch();
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Prepare the data to be sent in the POST request
@@ -160,7 +160,7 @@ const dispatch=useDispatch();
     console.log("Form Data:", data);
     try {
       setLoading(true);
-      const response = await axios.post(
+      const { response, status } = await axios.post(
         // "https://script.google.com/macros/s/AKfycbyrM_x9q5m5qMwJ814X2g9rdKYWGne8bmZ5nzIZ0xY0ppGnzTOl5jsUGKlALnPgnEEI/exec",
         `${apiUrl}/api/enrollment-query-save/`,
         data
@@ -168,7 +168,7 @@ const dispatch=useDispatch();
         //   headers: { "Content-Type": "multipart/form-data" },
         // }
       );
-      if (response.status === 201) {
+      if (status === 201) {
         console.log("Form successfully submitted:", response.data);
         setShowPopup(true);
 
@@ -223,7 +223,7 @@ const dispatch=useDispatch();
             />
 
             <h2 className="md:text-2xl font-bold text-indigo-600 mb-4 transition-all duration-300 ease-in-out">
-              Data submitted successfully
+              Your details have been recorded successfully!!
             </h2>
             {/* <p className="text-gray-700 mb-6">
               Your enrollment was successful. We’re excited to have you on
@@ -245,8 +245,8 @@ const dispatch=useDispatch();
       )}
       {
         <div className="fixed inset-0 flex justify-center items-center z-[200] bg-black/50">
-            <div className=" w-[95%] md:w-[70%] lg:w-[38%] my-10  dark:bg-black  bg-white p-4 px-6 rounded-lg border relative flex flex-col items-center justify-center overflow-y-auto ">
-               <span
+          <div className=" w-[95%] md:w-[70%] lg:w-[38%] my-10  dark:bg-black  bg-white p-4 px-6 rounded-lg border relative flex flex-col items-center justify-center overflow-y-auto ">
+            <span
               onClick={() => dispatch(toggleEnrollForm())}
               className="absolute top-7 right-6 text-2xl"
             >
@@ -406,7 +406,9 @@ const dispatch=useDispatch();
                     <option value="Graphic Designing">Graphic Designing</option>
                     <option value="Human Resource">Human Resource</option>
                     <option value="Data Analytics">Data Analytics</option>
-                    <option value="Product Management">Product Management</option>
+                    <option value="Product Management">
+                      Product Management
+                    </option>
                     <option value="Android Development">
                       Android Development
                     </option>

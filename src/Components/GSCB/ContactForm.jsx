@@ -38,14 +38,14 @@ const ContactForm = () => {
         contact_type: formData.contact_type,
         message: formData.message,
       };
-      const { data } = await axios.post(
+      const { data, status } = await axios.post(
         // `https://proxy-server-baoiam.vercel.app/submit-form`,
         // `http://localhost:3000/submit-form`,
         `${apiUrl}/api/contact-gcep/`,
         data1
       );
-      // console.log("GCEP form: ", data);
-      if (data.status === "success") setShowPopup(true);
+      console.log("GCEP form: ", data);
+      if (status === 201) setShowPopup(true);
       // else toast.error("An error occurred");
       setLoading(false);
       setFormData({
@@ -97,7 +97,7 @@ const ContactForm = () => {
             />
 
             <h2 className="text-2xl font-bold text-indigo-600 mb-4 transition-all duration-300 ease-in-out">
-              Successfully Submitted Data
+              Thank you for submitting your details. We'll get back to you soon
             </h2>
             {/* <p className="text-gray-700 mb-6">
               Your enrollment was successful. We’re excited to have you on
