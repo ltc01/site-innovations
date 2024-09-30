@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import {
   FaMapMarkerAlt,
@@ -15,6 +15,8 @@ import {
 import { IoIosArrowDown } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import gsap from 'gsap';
+import Split  from 'split-type';
 
 const ContactUs = () => {
   const [loading, setLoading] = useState(false);
@@ -90,6 +92,25 @@ const ContactUs = () => {
     }));
   };
 
+useEffect(() => {
+
+  const splitText = new Split('.h1',{
+    types:'lines'
+  })
+
+ gsap.fromTo(splitText.lines,{
+  opacity:0,
+  yPercent:100
+ },{
+  opacity:1,
+  yPercent:0,
+  duration:1,
+ })
+
+},[])
+
+
+
   return (
     <div className="ContactUs my-8">
       {showPopup && (
@@ -133,7 +154,7 @@ const ContactUs = () => {
       )}
       <section className="relative dark:bg-black px-4 py-8 md:py-10 z-10 mt-4 md:mt-14 mb-6 md:mb-6 overflow-hidden">
         <div className="relative max-w-5xl mx-auto text-center z-10">
-          <h1 className="text-3xl md:text-5xl font-semibold dark:text-white text-gray-900">
+          <h1 className="h1 m-0 overflow-hidden text-3xl md:text-5xl font-semibold dark:text-white text-gray-900">
             <span className="bg-gradient-to-r from-pink-500  to-violet-600 bg-clip-text text-transparent">
               Get in Touch
             </span>{" "}
