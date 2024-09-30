@@ -99,7 +99,10 @@ const Navbar = ({ theme}) => {
   // redux start
   const { allCourses, status, error } = useSelector((state) => state.courses);
   const isLoggedIn = useSelector((state) => state.user.profile);
-useEffect(()=>console.log("user",isLoggedIn),[isLoggedIn])
+
+// useEffect(()=>{
+//   // console.log("user",isLoggedIn),
+// }, [isLoggedIn])
   // console.log("in navbar:", allCourses);
   // console.log(allCourses, 'all courses navbar')
 
@@ -126,7 +129,7 @@ useEffect(()=>console.log("user",isLoggedIn),[isLoggedIn])
         ></div>
       )}
       <div
-        className={`flex z-[90] text-slate-600 dark:text-slate-200 h-24 items-center justify-between lg:px-12 px-4 py-1 w-full fixed top-0 ${
+        className={`flex z-[90] text-slate-600 dark:text-slate-200 md:h-24 items-center justify-between pt-5 sm:pt-0 lg:px-8 px-4 w-full fixed top-0 ${
           isTransparent
             ? "bg-white dark:bg-black"
             : "bg-white/70 backdrop-blur dark:bg-black/30 "
@@ -138,7 +141,7 @@ useEffect(()=>console.log("user",isLoggedIn),[isLoggedIn])
 
         {/* NavLinks */}
         <div
-          className={`hidden lg:flex items-center font-medium text-sm justify-between `}
+          className={`hidden lg:flex md:ml-2 items-center font-medium text-sm justify-between `}
         > 
           <Link
             to={"/"}
@@ -212,8 +215,8 @@ useEffect(()=>console.log("user",isLoggedIn),[isLoggedIn])
 
         {/* Last */}
         <div>
-          <div className="flex items-center gap-2 md:gap-4 text-black dark:text-white">
-            <div className="flex items-center gap-6 xl:gap-14 ">
+          <div className="flex items-center gap-2 lg:gap-4 text-black dark:text-white">
+            <div className="flex items-center gap-3 xl:gap-10 ">
               <SearchBox courses={courses} />
 
               <div ref={userhandleDropDownRef}>

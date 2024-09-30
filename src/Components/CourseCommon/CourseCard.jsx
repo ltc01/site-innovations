@@ -18,11 +18,11 @@ function CourseCard({ course }) {
         />
         <div className="absolute bottom-3 left-4 flex">
 
-          <span onClick={() => handlePlanSelect(0)} className={`rounded-lg px-3 py-1 text-xs mr-3 flex-1 ${!planIndex ? "bg-gradient-to-r from-orange-600 to-amber-500 text-white" : "bg-slate-200 text-gray-800"}`}>
+          <span onClick={() => handlePlanSelect(0)} className={`rounded-lg px-3 py-1 text-xs mr-3 flex-1 ${!planIndex ? "bg-gradient-to-r from-orange-600 to-amber-600 text-white" : "bg-slate-200 text-gray-800"}`}>
             Plus
           </span>
 
-          <span onClick={() => handlePlanSelect(1)} className={`flex-1 rounded-lg px-3 py-1 text-xs ${!planIndex ? " bg-slate-200 text-gray-800" : "bg-gradient-to-r from-orange-600 to-amber-500 text-white"}`}>
+          <span onClick={() => handlePlanSelect(1)} className={`flex-1 rounded-lg px-3 py-1 text-xs ${!planIndex ? " bg-slate-200 text-gray-800" : "bg-gradient-to-r from-orange-600 to-amber-600 text-white"}`}>
             Premium
           </span>
         </div>
@@ -30,15 +30,21 @@ function CourseCard({ course }) {
       <div className="px-4 h-[40%]">
 
         <h3 className="text-xl font-semibold my-2 text-nowrap">{course.title} </h3>
-        {/* <p className="text-sm pr-3 text-slate-600 text-justify">{course.description}</p> */}
+        {/* <p className="text-sm pr-3 text-slate-600 text-justify">{course.description.slice(0,15)}</p> */}
 
         <div className="flex mb-2 mx-auto px-1 justify-end items-end text-nowrap gap-3">
-          <button
+          <p
             // onClick={() => navigate(`/course/${course.title}/${course.id}`)}
-            className="font-bold  text-indigo-800 w-fit rounded-md"
+            className="font-bold  text-indigo-800 dark:text-amber-500 w-fit rounded-md"
           >
-            ₹ {course.plans[0].price}
-          </button>
+            ₹{course.plans[0].price}
+          </p>
+          <p
+            // onClick={() => navigate(`/course/${course.title}/${course.id}`)}
+            className="font-bold  text-indigo-800 dark:text-amber-500 w-fit rounded-md"
+          >
+            
+          </p>
         </div>
           <button
             onClick={() => navigate(`/course/${course.title}/${course.id}`)}
