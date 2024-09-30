@@ -116,6 +116,64 @@ useEffect(() => {
   duration:0.6,
  })
 
+ gsap.fromTo('.con',{ opacity:0,y:50 },{
+  opacity:1,
+  y:0,
+  duration:0.7,
+  ease:'power1.out'
+ })
+
+ const tl = gsap.timeline()
+
+ tl.fromTo('.con1',{opacity:0,y:30},{
+  opacity:1,
+  y:0,
+  duration:0.6,
+  ease:'power1.out'
+ })
+
+tl.fromTo('.rvl',{opacity:0,y:30},
+  {
+    opacity:1,
+    duration:0.5,
+    y:0,
+    ease:'power1.out',
+  }
+)
+
+tl.fromTo('.icon',{opacity:0,scale:0.1},
+  {
+    opacity:1,
+    scale:1,
+    duration:1,
+    ease:'power1.out',
+    stagger:0.2,
+  },
+  '-=0.6'
+)
+tl.fromTo('.icon2',{opacity:0,x:30},
+  {
+    opacity:1,
+    x:0,
+    duration:1,
+    ease:'power1.out',
+    stagger:0.2,
+  },
+  '-=0.7'
+)
+
+tl.fromTo('.icon3',{opacity:0,x:30},
+  {
+    opacity:1,
+    x:0,
+    duration:1,
+    ease:'power1.out',
+    stagger:0.2,
+  },
+  '-=0.9'
+)
+
+
 },[])
 
 
@@ -180,7 +238,7 @@ useEffect(() => {
 
       <section className="py-2 px-4 md:px-24   dark:bg-black rounded-xl">
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-6 lg:gap-10 justify-center">
-          <div className="lg:w-2/4 xl:w-2/5 dark:text-white p-4 md:p-6 lg:p-8 rounded-lg border lg:py-6  ">
+          <div className="con lg:w-2/4 xl:w-2/5 dark:text-white p-4 md:p-6 lg:p-8 rounded-lg border lg:py-6  ">
             <h2 className="text-xl md:text-3xl lg:text-3xl text-center font-bold md:mb-8 mb-4">
               Contact Us
             </h2>
@@ -355,29 +413,29 @@ useEffect(() => {
           </div>
 
           <div className="lg:w-1/3 space-y-4 ">
-            <div className="dark:bg-black p-6 lg:p-8 lg:py-6 ">
-              <h2 className="text-xl md:text-2xl lg:text-xl font-bold mb-4">
+            <div className="con1 dark:bg-black p-6 lg:p-8 lg:py-6 ">
+              <h2 className="rvl text-xl md:text-2xl lg:text-xl font-bold mb-4">
                 Contact Information
               </h2>
               <div className="space-y-4">
                 <div className="flex items-center">
-                  <FaEnvelope className="mr-4" />
+                  <FaEnvelope className="mr-4 icon" />
                   <a
                     href="mailto:support@baoiam.com"
-                    className="underline text-sm"
+                    className="underline text-sm icon2"
                   >
                     support@baoiam.com
                   </a>
                 </div>
                 <div className="flex items-center">
-                  <FaPhoneAlt className="mr-4" />
-                  <a href="tel:08069640635" className="underline text-sm">
+                  <FaPhoneAlt className="mr-4 icon" />
+                  <a href="tel:08069640635" className="icon2 underline text-sm">
                     08069640635
                   </a>
                 </div>
                 <div className="flex items-center">
-                  <FaMapMarkerAlt className="mr-4" />
-                  <a href="#" className="underline text-sm">
+                  <FaMapMarkerAlt className="mr-4 icon" />
+                  <a href="#" className="underline text-sm icon2 ">
                     B Block Noida Sector 15 Uttar Pradesh
                   </a>
                 </div>
@@ -388,28 +446,28 @@ useEffect(() => {
                   target="_blank"
                   className="text-black dark:text-white hover:text-gray-500"
                 >
-                  <FaFacebook size={22} />
+                  <FaFacebook size={22} className="icon3" />
                 </Link>
                 <Link
                   to="https://www.instagram.com/baoiam_innovations/"
                   target="_blank"
                   className="text-black dark:text-white hover:text-gray-500"
                 >
-                  <FaInstagram size={22} />
+                  <FaInstagram size={22} className="icon3" />
                 </Link>
                 <Link
                   to="https://www.linkedin.com/company/baoiam-innovations-pvt-ltd/mycompany/"
                   target="_blank"
                   className="text-black dark:text-white hover:text-gray-500"
                 >
-                  <FaLinkedin size={22} />
+                  <FaLinkedin size={22} className="icon3" />
                 </Link>
                 <Link
                   to="https://twitter.com/BAOIAM1"
                   target="_blank"
                   className="text-black text-nowrap flex items-center dark:text-white hover:text-gray-500"
                 >
-                  <FaSquareXTwitter size={22} />
+                  <FaSquareXTwitter size={22}  className="icon3"/>
                 </Link>
               </div>
 

@@ -55,7 +55,7 @@ export const BusSlider = () => {
   const swiperRef = useRef(null);
   useEffect(() => {
     gsap.fromTo(
-      ".b5",
+      ".b6",
       { opacity: 0, y: 30 },
       {
         opacity: 1,
@@ -64,7 +64,7 @@ export const BusSlider = () => {
         ease: "back.inOut",
         stagger: 0.3,
         scrollTrigger: {
-          trigger: ".bdiv5",
+          trigger: ".bdiv6",
           start: "top 90%",
           end: "bottom 80%",
         },
@@ -85,14 +85,14 @@ export const BusSlider = () => {
   };
 
   return (
-    <div className='my-12'>
+    <div className='my-12 bdiv6'>
       <div>
         {" "}
-        <h1 className='m-6 text-3xl font-bold text-center'>
+        <h1 className='m-6 b6 text-3xl font-bold text-center'>
           Popular or Most featured articles
         </h1>
       </div>
-      <div className='mb-6 md:px-10'>
+      <div className='mb-6 md:px-10 b6'>
         <Swiper
           ref={swiperRef}
           keyboard={{
