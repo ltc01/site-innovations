@@ -58,21 +58,46 @@ const Courses = () => {
   //   });
   // }, []);
 
+
+  useEffect(() => {
+
+    gsap.fromTo('.trig4',{
+      opacity:0,
+      y:30
+    },
+    {
+      opacity:1,
+      y:0,
+      duration:0.6,
+      ease:'power1.out',
+      stagger:0.2,
+      scrollTrigger:{
+        trigger:'.section-div2',
+        start:'top 80%',
+        end:'bottom 80%'
+      }
+    })
+    
+    
+    },[])
+
+
+
   return (
-    <div className="px-10 md:px-16 mx-auto dark:bg-[#010203] pb-5">
+    <div className="section-div2 px-10 md:px-16 mx-auto dark:bg-[#010203] pb-5">
       <div className="text-center mx-auto mb-10 md:mb-12">
-        <h2 className="text-3xl lg:text-4xl dark:text-white font-extrabold text-gray-900 mb-3">
+        <h2 className="trig4 text-3xl lg:text-4xl dark:text-white font-extrabold text-gray-900 mb-3">
           What Sets Us{" "}
           <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
             Apart
           </span>
         </h2>
-        <p className="text-base dark:text-gray-300 sm:text-lg text-gray-600">
+        <p className="trig4 text-base dark:text-gray-300 sm:text-lg text-gray-600">
           Our commitment to quality, dedication and achievement oriented mindset sets us apart
         </p>
       </div>
 
-      <div className="flex flex-col mx-auto justify-center md:flex-row gap-8">
+      <div className="trig4 flex flex-col mx-auto justify-center md:flex-row gap-8">
         {data.map((stat, i) => {
           return <div className="w-60 shadow-[7px_7px_#4338CA] border border-[#515050] p-4 rounded-xl">
             <div className="flex items-center mx-auto justify-start gap-4 mb-3">

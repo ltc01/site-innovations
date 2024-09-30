@@ -180,7 +180,6 @@ const Blog = () => {
         trigger:'.blogdiv1',
         start:'top 88%',
         end:'bottom 85%',
-        markers:true,
       }
     }
    )
