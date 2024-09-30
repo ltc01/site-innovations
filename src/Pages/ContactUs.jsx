@@ -297,7 +297,7 @@ const ContactUs = () => {
                   name="message"
                   rows="4"
                   value={formData.message}
-                  className="w-full p-3 border border-gray-300 rounded-md"
+                  className="w-full p-3 border dark:bg-slate-800 border-gray-300 rounded-md"
                   placeholder="Your message here..."
                 ></textarea>
               </div>
