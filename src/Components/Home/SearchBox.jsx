@@ -44,10 +44,10 @@ const SearchBox = ({ courses }) => {
 
     return (
         <div className='relative'>
-            <div className='hidden md:flex items-center border border-slate-400 rounded-3xl pl-3 pr-2 py-1 w-44'>
+            <div className='hidden md:flex items-center border focus:outline focus:outline-orange-500 bg-zinc-100 dark:bg-white/10 dark:text-white border-slate-400 rounded-3xl w-48'>
                 <input
                     type="text"
-                    className='w-32 bg-transparent text-slate-500 text-sm outline-none'
+                    className='w-40 bg-transparent py-2 pl-3 text-slate-500 dark:text-white text-xs outline-none'
                     placeholder='Search...'
                     ref={inputRef}
                     value={searchQuery}

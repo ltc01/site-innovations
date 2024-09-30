@@ -38,30 +38,30 @@ const Courses = () => {
     },
   ];
 
-  useEffect(() => {
-    cardsRef.current.forEach((card, index) => {
-      gsap.fromTo(
-        card,
-        { opacity: 0, y: 50 }, // Initial state (hidden and below its position)
-        {
-          opacity: 1,
-          y: 0, // Final state (visible and in its original position)
-          duration: 0.6,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: card, // The card itself is the trigger
-            start: "top 80%", // Start the animation when the card is 80% in view
-            toggleActions: "play none none reverse", // Play the animation once
-          },
-        }
-      );
-    });
-  }, []);
+  // useEffect(() => {
+  //   cardsRef.current.forEach((card, index) => {
+  //     gsap.fromTo(
+  //       card,
+  //       { opacity: 0, y: 50 }, // Initial state (hidden and below its position)
+  //       {
+  //         opacity: 1,
+  //         y: 0, // Final state (visible and in its original position)
+  //         duration: 0.6,
+  //         ease: "power2.out",
+  //         scrollTrigger: {
+  //           trigger: card, // The card itself is the trigger
+  //           start: "top 80%", // Start the animation when the card is 80% in view
+  //           toggleActions: "play none none reverse", // Play the animation once
+  //         },
+  //       }
+  //     );
+  //   });
+  // }, []);
 
   return (
-    <div className="px-10 md:px-20 dark:bg-[#010203] pb-5">
-      <div className="text-center mb-10 md:mb-12">
-        <h2 className="text-3xl sm:text-4xl dark:text-white font-extrabold text-gray-900 mb-3">
+    <div className="px-10 md:px-16 mx-auto dark:bg-[#010203] pb-5">
+      <div className="text-center mx-auto mb-10 md:mb-12">
+        <h2 className="text-3xl lg:text-4xl dark:text-white font-extrabold text-gray-900 mb-3">
           What Sets Us{" "}
           <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
             Apart
@@ -72,11 +72,11 @@ const Courses = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="flex flex-col flex-wrap mx-auto justify-center md:flex-row gap-10">
         {data.map((stat, i) => {
-          return <div className="shadow-[15px_20px_#515050] border border-[#515050] p-4 rounded-xl">
-            <div className="flex items-center gap-4 mb-2">
-              <span className="border border-[#515050] rounded-lg p-2">{stat.icon}</span>
+          return <div className="w-60 shadow-[7px_7px_#4338CA] border border-[#515050] p-4 rounded-xl">
+            <div className="flex items-center mx-auto justify-start gap-4 mb-3">
+              <span className="">{stat.icon}</span>
               <h2 className="text-xl font-semibold text-gray-800 dark:text-white">
                 {stat.title}
               </h2>
