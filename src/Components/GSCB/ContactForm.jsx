@@ -305,7 +305,7 @@ const ContactForm = () => {
           ></textarea>
           <button
             contact_type="submit"
-            className="px-6 py-2 mt-4 uppercase rounded-full bg-black text-white border-black dark:bg-[#EB0027] dark:hover:bg-transparent dark:hover:border-[#EB0027] dark:hover:text-[#EB0027] max-sm:text-sm max-sm:px-4 max-sm:py-1"
+            className="px-6 py-2 mt-4 uppercase rounded-full bg-black text-white border-black dark:bg-[#EB0027] dark:hover:bg- dark:hover:border-[#EB0027] dark:hover:text-[#ffffff] max-sm:text-sm max-sm:px-4 max-sm:py-1"
           >
             {loading ? "Loading..." : "Submit"}
           </button>
