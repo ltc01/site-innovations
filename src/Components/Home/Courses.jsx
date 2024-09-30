@@ -25,7 +25,7 @@ const Courses = () => {
       ),
     },
     {
-      title: "Develop a Global Connection",
+      title: "Connect Globally",
       description:
         "Build new connections from all over the world. Learn from their experience and expertise as they do same.",
       icon: <FaGlobe className="dark:text-white text-indigo-700 text-3xl" />,
@@ -72,7 +72,7 @@ const Courses = () => {
         </p>
       </div>
 
-      <div className="flex flex-col flex-wrap mx-auto items-center justify-center md:flex-row gap-10">
+      <div className="flex flex-col mx-auto justify-center md:flex-row gap-8">
         {data.map((stat, i) => {
           return <div className="w-60 shadow-[7px_7px_#4338CA] border border-[#515050] p-4 rounded-xl">
             <div className="flex items-center mx-auto justify-start gap-4 mb-3">

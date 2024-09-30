@@ -141,10 +141,10 @@ const Section1 = ({ dark }) => {
   return (
     <section className="gcepdiv1 flex items-center justify-evenly flex-col  ">
       <div className="letterdivs px-[6vw] xs:px-4 md:py-12 text-center">
-        <div className="border-expand  w-full  my-8 md:my-16 h-1 bg-gradient-to-r from-indigo-500 to-purple-600 mx-auto"></div>
+        <div className="border-expand  w-full  my-8 md:my-10 h-1 bg-gradient-to-r from-indigo-500 to-purple-600 mx-auto"></div>
 
         <h2
-          className={`letter2 leading-[3rem] font-[400] md:leading-[4rem] dark:drop-shadow-[0_0_0.03rem_white] text-xl md:text-3xl font-medium  ${defaultColor}`}
+          className='letter2 font-semibold leading-[2rem] md:leading-[3rem] lg:leading-[4rem] tracking-wide md:text-2xl lg:text-3xl'
         >
           GCEP (Global Collabo Educational Partnership) is an initiative by
           BAOIAM aimed at building strong, innovative alliances with schools,
@@ -153,12 +153,12 @@ const Section1 = ({ dark }) => {
           opportunities for students and educators alike.
         </h2>
 
-        <div className="border-expand2  w-full my-8 md:my-16 h-1 bg-gradient-to-r from-indigo-500 to-purple-600 mx-auto"></div>
+        <div className="border-expand2  w-full my-8 md:my-10 h-1 bg-gradient-to-r from-indigo-500 to-purple-600 mx-auto"></div>
       </div>
 
       {/* Join */}
 
-      <section className="carddiv w-full h-full py-8 px-6 lg:px-12 max-xs:px-4">
+      <section className="carddiv w-full h-full pb-8 px-6 lg:px-12">
         <div className="text-center mb-12">
           <h2 className="cards text-3xl md:text-4xl text-center mb-8 lg:mb-5 font-bold">
             How to{" "}
