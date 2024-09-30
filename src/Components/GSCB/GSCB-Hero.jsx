@@ -65,8 +65,7 @@ const HeroSection = () => {
           <h2 className="anime1 bg-gradient-to-r from-pink-500  to-violet-600  text-transparent hero md:py-3 p-1">
             <span className="anime1 text-xl px-4 md:text-4xl text-white lg:text-5xl">GCEP</span>
           </h2>
-          <span className="anime3 w-[1vw] h-[8vw] hidden md:block bg-white">.</span>
-
+          <span className="anime3 w-[1vw] h-[8vw] hidden md:block bg-white"></span>
           <div className="text-xl  hero-tail text-left md:text-4xl xl:text-5xl ">
             <h2 className="anime2">Global Collabo </h2>  
             <h2 className="text-nowrap anime2 ">Educational Partnership </h2> </div> 
