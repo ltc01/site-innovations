@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import EnrollNow from "../Home/EnrollNow";
 
 const CourseHero = ({ course, downloadBrochure, setShowForm, showForm }) => {
-  console.log(course);
+  // console.log(course);
 
   const navigate = useNavigate();
   return (

@@ -21,7 +21,7 @@ import NewsletterBanner from "../Components/Home/Subcription.jsx";
 import { FaChevronRight } from "react-icons/fa6";
 
 export const FeaturedBlogDetail = () => {
-  document.title = "Baoiam - Blog Detail";
+  document.title = "Baoiam Innovations | Blogs";
   const [comment, setComment] = useState("");
   const [datacmmt, setDatacmmt] = useState([]);
   const navigate = useNavigate();

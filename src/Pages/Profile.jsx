@@ -4,7 +4,7 @@ import Logo from "../Components/Home/Logo";
 import { LogoDark } from "../assets/assets";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { setProfile1 } from "../Redux/user/userSlice";
+import { setProfile1, deleteUserData1 } from "../Redux/user/userSlice";
 import { Link, useNavigate } from "react-router-dom";
 import Courses from "../Components/StudentDasboard/Courses";
 import Achievements from "../Components/StudentDasboard/Achievements";
@@ -16,8 +16,9 @@ import { FaCog, FaHome, FaSignOutAlt } from "react-icons/fa";
 import axiosInstance from "../axiosInstance";
 import { logout } from "../Redux/auth/authSlice";
 const apiUrl = import.meta.env.VITE_API_URL;
-
+console.log('profile loaded')
 const Profile = () => {
+  document.title = "Baoiam Innovations | User Dashboard";
   const sideBarLink = [
     { id: 1, name: "Profile", tab: "profile", icon: <FaUser /> },
     { id: 2, name: "Courses", tab: "courses", icon: <FaGraduationCap /> },
@@ -77,6 +78,7 @@ const Profile = () => {
     console.log("After logout:", localStorage.getItem("login"));
 
     navigate("/login", { replace: true });
+    dispatch(deleteUserData1());
   };
 
   if (

@@ -29,7 +29,7 @@ gsap.fromTo('.marq',{opacity:0,y:30},{
 
         <Marquee speed={100} className='flex gap-4'>{
             arrayDoubled.map((item, index) => (
-                <div key={index} className="flex-shrink-0 mx-8 h-fit w-16 md:w-28">
+                <div key={index} className="flex-shrink-0 mx-8 h-fit w-16 md:w-32">
                     <img
                         src={item}
                         alt={`Image `}
