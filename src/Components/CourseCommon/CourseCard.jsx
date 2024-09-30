@@ -37,7 +37,7 @@ function CourseCard({ course }) {
             // onClick={() => navigate(`/course/${course.title}/${course.id}`)}
             className="font-bold  text-indigo-800 dark:text-amber-500 w-fit rounded-md"
           >
-            ₹{course.plans[0].price}
+            ₹{course.plans[planIndex].price}
           </p>
           <p
             // onClick={() => navigate(`/course/${course.title}/${course.id}`)}
