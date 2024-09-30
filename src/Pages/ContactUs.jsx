@@ -112,7 +112,7 @@ useEffect(() => {
  },{
   opacity:1,
   yPercent:0,
-  duration:1,
+  duration:0.6,
  })
 
 },[])
@@ -168,10 +168,10 @@ useEffect(() => {
             </span>{" "}
             with Us
           </h1>
-          <p className="text-sm md:text-base lg:text-lg dark:text-slate-300 text-gray-600 mt-4 md:mt-6">
+          <p className="h1 m-0 overflow-hidden text-sm md:text-base lg:text-lg dark:text-slate-300 text-gray-600 mt-4 md:mt-6">
             Have any questions, feedback, or need assistance? We're just a
             message away.
-            <br /> Fill out the form below, and our team will get back to you
+            <br/> Fill out the form below, and our team will get back to you
             shortly.
           </p>
         </div>
