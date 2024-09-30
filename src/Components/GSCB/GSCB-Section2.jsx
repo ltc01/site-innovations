@@ -125,7 +125,7 @@ const Cards = () => {
       </div>
 
       {/* Cards grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 items-center">
         {section2.map((info, index) => {
           const cardClass =
             index === 0
@@ -138,15 +138,16 @@ const Cards = () => {
           return (
             <div
               key={index}
-              className={`group flex flex-col h-auto w-full rounded-xl overflow-hidden md:h-[90%] md:w-[90%] cursor-pointer gap-6 relative ${cardClass}`}
+              className={`group flex flex-col h-auto w-full rounded-xl overflow-hidden md:h-[80%] md:w-[90%] cursor-pointer gap-6 relative ${cardClass}`}
             >
               <img
                 className="w-full h-full hover:opacity-10 object-cover"
                 src={info.img}
                 alt={`img${index + 1}`}
               />
-              <div className="flex flex-col items-center justify-center px-4 gap-4 opacity-0 group-hover:opacity-100 absolute top-0 left-0 right-0 bottom-0 z-10 bg-black/70 transition-all ease-linear text-center text-white">
-                <h3 className="text-2xl md:text-3xl font-bold">{info.title}</h3>
+              <div className="flex flex-col items-center justify-center px-2 gap-5 opacity-0 group-hover:opacity-100 absolute top-0 left-0 right-0 bottom-0 z-10 bg-black/70 transition-all ease-linear text-center text-white">
+                <h3 className="text-xl font-bold">{info.title}</h3>
+                <hr className="h-0.5 bg-indigo-500 w-full border-none rounded-full" />
                 <h6 className="text-sm md:text-base tracking-tight">
                   {info.desc}
                 </h6>

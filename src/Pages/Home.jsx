@@ -26,7 +26,7 @@ const Home = ({ dark }) => {
 
   return (
     <>
-      <div className="max-w-11/12 mx-auto">
+      {/* <div className="max-w-11/12 mx-auto"> */}
         <Hero />
         <How />
         {/* <ExploreSubjects /> */}
@@ -43,7 +43,7 @@ const Home = ({ dark }) => {
         {/* <TeamCard /> */}
         {/* <TeamSwiper /> */}
         <Phone />
-      </div>
+      {/* </div> */}
     </>
   );
 };
