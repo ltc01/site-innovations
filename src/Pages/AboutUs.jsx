@@ -56,7 +56,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 const AboutUs = () => {
-  document.title = "Baoiam - About Us";
+  document.title = "Baoiam Innovations | About Us";
   const [data, setData] = useState(swiperData);
 
   // useEffect(() => {
@@ -249,178 +249,192 @@ const AboutUs = () => {
   //   );
   // }, []);
 
+  // useEffect(() => {
+  //   gsap.fromTo(
+  //     ".heading",
+  //     {
+  //       opacity: 0,
+  //       y: 30,
+  //     },
+  //     {
+  //       opacity: 1,
+  //       y: 0,
+  //       duration: 1,
+  //       ease: "power1.out",
+  //       stagger: 0.2,
+  //     }
+  //   );
 
+  //   const tl = gsap.timeline({
+  //     scrollTrigger: {
+  //       trigger: ".secdiv1",
+  //       start: "top 70%",
+  //       end: "bottom 90%",
+  //     },
+  //   });
 
-useEffect(() => {
+  //   tl.fromTo(
+  //     ".sec1h",
+  //     {
+  //       opacity: 0,
+  //       y: 30,
+  //     },
+  //     {
+  //       opacity: 1,
+  //       y: 0,
+  //       duration: 0.5,
+  //       ease: "power1.out",
+  //     }
+  //   );
 
-gsap.fromTo('.heading',{
-  opacity:0,
-  y:30
-},
-{
-  opacity:1,
-  y:0,
-  duration:1,
-  ease:'power1.out',
-  stagger:0.2,
-}
-)
+  //   tl.fromTo(
+  //     ".sec1",
+  //     {
+  //       opacity: 0,
+  //       x: -20,
+  //     },
+  //     {
+  //       opacity: 1,
+  //       x: 0,
+  //       duration: 0.5,
+  //       ease: "power1.out",
+  //       stagger: 0.2,
+  //     }
+  //   );
 
-const tl = gsap.timeline({
-  scrollTrigger:{
-    trigger:'.secdiv1',
-    start:'top 70%',
-    end:'bottom 90%',
-  }
-})
+  //   tl.fromTo(
+  //     ".sec1img",
+  //     {
+  //       opacity: 0,
+  //       y: -20,
+  //       x: -20,
+  //     },
+  //     {
+  //       opacity: 1,
+  //       x: 0,
+  //       y: 0,
+  //       duration: 0.6,
+  //       ease: "power1.out",
+  //     },
+  //     "-=0.7"
+  //   );
 
-tl.fromTo('.sec1h',{
-  opacity:0,
-  y:30
-},
-{
-  opacity:1,
-  y:0,
-  duration:0.5,
-  ease:'power1.out',
-})
+  //   const te = gsap.timeline({
+  //     scrollTrigger: {
+  //       trigger: ".secdiv2",
+  //       start: "top 70%",
+  //       end: "bottom 90%",
+  //     },
+  //   });
 
-tl.fromTo('.sec1',{
-  opacity:0,
-  x:-20
-},
-{
-  opacity:1,
-  x:0,
-  duration:0.5,
-  ease:'power1.out',
-  stagger:0.2,
-  
-})
+  //   te.fromTo(
+  //     ".sec2h",
+  //     {
+  //       opacity: 0,
+  //       y: 30,
+  //     },
+  //     {
+  //       opacity: 1,
+  //       y: 0,
+  //       duration: 0.5,
+  //       ease: "power1.out",
+  //     }
+  //   );
 
-tl.fromTo('.sec1img',{
-  opacity:0,
-  y:-20,
-  x:-20,
-},
-{
-  opacity:1,
-  x:0,
-  y:0,
-  duration:0.6,
-  ease:'power1.out'
-},
-'-=0.7')
+  //   te.fromTo(
+  //     ".sec2",
+  //     {
+  //       opacity: 0,
+  //       x: -20,
+  //     },
+  //     {
+  //       opacity: 1,
+  //       x: 0,
+  //       duration: 0.5,
+  //       ease: "power1.out",
+  //       stagger: 0.2,
+  //     }
+  //   );
 
+  //   te.fromTo(
+  //     ".sec2img",
+  //     {
+  //       opacity: 0,
+  //       y: 20,
+  //       x: 20,
+  //     },
+  //     {
+  //       opacity: 1,
+  //       x: 0,
+  //       y: 0,
+  //       duration: 0.6,
+  //       ease: "power1.out",
+  //     },
+  //     "-=0.7"
+  //   );
 
-
-const te = gsap.timeline({
-
-  scrollTrigger:{
-    trigger:'.secdiv2',
-    start:'top 70%',
-    end:'bottom 90%',
-  }
-})
-
-
-te.fromTo('.sec2h',{
-  opacity:0,
-  y:30
-},
-{
-  opacity:1,
-  y:0,
-  duration:0.5,
-  ease:'power1.out',
-})
-
-te.fromTo('.sec2',{
-  opacity:0,
-  x:-20
-},
-{
-  opacity:1,
-  x:0,
-  duration:0.5,
-  ease:'power1.out',
-  stagger:0.2,
-  
-})
-
-te.fromTo('.sec2img',{
-  opacity:0,
-  y:20,
-  x:20,
-},
-{
-  opacity:1,
-  x:0,
-  y:0,
-  duration:0.6,
-  ease:'power1.out'
-},
-'-=0.7')
-
-
-gsap.fromTo('.sec3',
-  {
-    opacity:0,
-    y:30
-  },
-  {
-    opacity:1,
-    y:0,
-    duration:1,
-    ease:'power1.out',
-    stagger:0.2,
-    scrollTrigger:{
-      trigger:'.secdiv3',
-      start:'top 70%',
-      end:'bottom 80%'
-    }
-  }
-)
-
-
-},[])
-
-
-
-
+  //   gsap.fromTo(
+  //     ".sec3",
+  //     {
+  //       opacity: 0,
+  //       y: 30,
+  //     },
+  //     {
+  //       opacity: 1,
+  //       y: 0,
+  //       duration: 1,
+  //       ease: "power1.out",
+  //       stagger: 0.2,
+  //       scrollTrigger: {
+  //         trigger: ".secdiv3",
+  //         start: "top 70%",
+  //         end: "bottom 80%",
+  //       },
+  //     }
+  //   );
+  // }, []);
 
   return (
     <div>
       {/* Section - 1 */}
-      <div className="mx-auto w-full text-white">
-        <div className="relative mx-auto h-[20%] w-full text-white">
-          <div className="h-[100vh] md:h-[75vh] w-full image-container">
+      <div className="flex mt-20 gap-8 lg:gap-0 justify-center flex-col-reverse lg:flex-row items-center mx-auto w-full ">
+        <div className="relative w-full">
+          <div className="h-[450px] w-full image-container">
             <img
               className="w-full h-full opacity-90 object-cover"
               src={aboutus4}
               alt="image"
             />
           </div>
-          <div className="absolute inset-0 content-overlay bg-gradient-to-b from-black/60 via-black/50 md:px-48 to-black/25 flex flex-col gap-4 items-center sm:pt-20 md:pt-32 justify-center sm:justify-start text-white">
-            <p className="heading rounded-3xl md:py-1 px-4 w-fit bg-gradient-to-r from-pink-500 text-center to-violet-600 z-10">
-              <span className="text-[0.55rem] md:text-sm font-medium">
-                Redefining education with advance edtech learning
-              </span>
-            </p>
-            <h2 className="heading text-3xl md:px-28 font-extrabold mb-3 text-center lg:text-5xl">
-              Join Us on a Journey to Be{" "}
-              <span className="bg-gradient-to-r from-teal-300 italic tracking-wider to-amber-300 bg-clip-text text-transparent">
-                One In A Million!
-              </span>
-            </h2>
-            <p className="heading font-medium text-sm px-8 lg:text-lg text-center">
-              Our platform is committed to delivering high standards and skills
-              sharpening courses. We believe in empowering every individual who
-              connects with us on this industry driven journey, helping them
-              stand out from millions. We are here to support them in achieving
-              their professional goals.
-            </p>
+          <div
+            // ref={textRef}
+            className="absolute left-0 bg-black/60 right-0 top-0 w-full h-full text-center"
+          >
+            <div className="flex justify-center items-center flex-col h-full text-white">
+              <p className="heading rounded-3xl mb-3 py-1 px-4 w-fit bg-gradient-to-r from-pink-500 text-center to-violet-600 z-10">
+                <span className="text-[0.55rem] md:text-sm mb-2 font-medium">
+                  Redefining education with advance edtech learning
+                </span>
+              </p>
+              <h1 className="heading text-3xl md:w-[50%] mb-9 font-extrabold text-center lg:text-5xl">
+                Join Us on a Journey to Be{" "}
+                <span className="bg-gradient-to-r from-teal-300 italic to-amber-300 bg-clip-text text-transparent">
+                  One In A Million!
+                </span>
+              </h1>
+
+              <p className="heading text-xs md:text-base w-[90%] md:w-[60%] text-slate-300 ">
+                Our platform is committed to delivering high standards and
+                skills sharpening courses. We believe in empowering every
+                individual who connects with us on this industry driven journey,
+                helping them stand out from millions. We are here to support
+                them in achieving their professional goals.
+              </p>
+            </div>
           </div>
+          {/* <div ref={sliderRef} className="h-80 md:h-full md:w-[50%] pt-3 md:pt-0">
+          <SliderHero />
+          </div> */}
         </div>
       </div>
 
@@ -500,7 +514,7 @@ gsap.fromTo('.sec3',
       </div>
 
       {/* Section 4 */}
-      <div className="secdiv3 flex flex-col items-center gap-4 mx-auto px-4 sm:px-16 py-20 xl:px-20">
+      <div className="secdiv3 flex flex-col items-center gap-4 mx-auto px-4 md:px-10 py-20">
         <div className="w-full text-center core-values-heading">
           <h2 className="sec3 text-3xl md:text-4xl text-center mb-8 lg:mb-12 font-bold">
             Core{" "}
@@ -510,7 +524,7 @@ gsap.fromTo('.sec3',
           </h2>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-8">
+        <div className="flex justify-center items-center flex-wrap lg:flex-nowrap lg:flex-row gap-8">
           <div className="sec3 value-card-1">
             <ValueCard
               Icon={FaHandsHelping}

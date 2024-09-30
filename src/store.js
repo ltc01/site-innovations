@@ -5,7 +5,8 @@ import userReducer from "./Redux/user/userSlice";
 import orderReducer from "./Redux/slices/orderSlice";
 import courseReducer from "./Redux/slices/courseSlice";
 import courseDetailReducer from "./Redux/slices/courseDetailSlice";
-import authSliceReducer from "./Redux/auth/authSlice";
+import authSliceReducer from "./Redux/auth/authSlice";import enrollFormReducer from "./Redux/slices/enrollFormSlice";
+
 const store = configureStore({
   reducer: {
     user: userReducer,
@@ -13,6 +14,7 @@ const store = configureStore({
     courses: courseReducer,
     courseDetails: courseDetailReducer,
     auth: authSliceReducer,
+    showForm :enrollFormReducer,
   },
 });
 

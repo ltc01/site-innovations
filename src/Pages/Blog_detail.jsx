@@ -22,7 +22,7 @@ import { FaMobileAlt, FaUserCircle } from "react-icons/fa";
 import NewsletterBanner from "../Components/Home/Subcription.jsx";
 
 const Blog_detail = () => {
-  document.title = "Baoiam - Blog Detail";
+  document.title = "Baoiam Innovations | Blogs";
   const [comment, setComment] = useState("");
   const [datacmmt, setDatacmmt] = useState([]);
   const { id } = useParams();
@@ -33,7 +33,7 @@ const Blog_detail = () => {
     console.log(content_data[id].Category);
     return () => {};
   }, []);
-  document.title = "Baoiam - Blog Details";
+  document.title = "Baoiam Innovations | Blogs";
 
   const hanldenav = () => {
     navigate("/Blog-detail/0");

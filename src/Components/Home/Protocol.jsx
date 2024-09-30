@@ -12,31 +12,31 @@ gsap.registerPlugin(ScrollTrigger);
 const Protocol = () => {
   const itemsRef = useRef([]);
 
-  useEffect(() => {
-    itemsRef.current.forEach((el, index) => {
-      gsap.fromTo(
-        el,
-        { opacity: 0, y: 50 }, // Initial state
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1.2,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: el,
-            start: "top 80%", // When the element is 80% in view
-            toggleActions: "play none none reverse",
-            markers: false, // Set to true for debugging markers
-          },
-        }
-      );
-    });
-  }, []);
+  // useEffect(() => {
+  //   itemsRef.current.forEach((el, index) => {
+  //     gsap.fromTo(
+  //       el,
+  //       { opacity: 0, y: 50 }, // Initial state
+  //       {
+  //         opacity: 1,
+  //         y: 0,
+  //         duration: 1.2,
+  //         ease: "power3.out",
+  //         scrollTrigger: {
+  //           trigger: el,
+  //           start: "top 80%", // When the element is 80% in view
+  //           toggleActions: "play none none reverse",
+  //           markers: false, // Set to true for debugging markers
+  //         },
+  //       }
+  //     );
+  //   });
+  // }, []);
 
   return (
     <div className="md:px-16">
-      <div className="md:mt-[7rem]">
-        <h1 className="text-3xl sm:text-4xl my-2 text-center font-extrabold">
+      <div className="md:mt-[6rem]">
+        <h1 className="text-3xl md:text-4xl my-2 text-center font-extrabold">
           The ethics{" "}
           <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
             Baoiam

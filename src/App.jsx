@@ -49,11 +49,15 @@ import EnrollNowButton from "./Components/EnrollNowButton/EnrollNowButton";
 import Profile from "./Pages/Profile";
 import { ContactFormComponent } from "./Components/Contact/ContactForm";
 import AuthNavigator from "./Pages/auth/AuthNavigator";
+import { useSelector } from "react-redux";
 
 const App = () => {
+  const apiUrl = import.meta.env.VITE_API_URL;
+  console.log(apiUrl, 'api url vite checking test')
   const [dark, setDark] = useState(false);
-  const [showForm, setShowForm] = useState(false);
+  const {showForm} = useSelector(state=>state);
   const location = useLocation();
+
   const theme = () => {
     setDark((old) => !old);
     document.body.classList.toggle("dark");
@@ -82,7 +86,7 @@ const App = () => {
 
   return (
     <div className="dark:bg-black w-full mx-auto overflow-hidden h-full dark:text-white ">
-      <Navbar theme={theme} showForm={showForm} setShowForm={setShowForm} />
+      <Navbar theme={theme}/>
 
       <div className="mt-24 max-w-[1660px] mx-auto">
         <Routes>
@@ -90,10 +94,13 @@ const App = () => {
           <Route path="/" element={<Home dark={dark} />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/gcep" element={<GCEP dark={dark} />} />
-          <Route path="/pap" element={<PAP />} />
+          {/* <Route path="/pap" element={<PAP />} /> */}
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/blogs" element={<Blogs />} />
-          <Route path="/ITIE" element={<ITIE />} />
+          <Route path="/ITIE" element={
+            // <ITIE />
+            <Maintenance />
+            } />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
 
@@ -114,25 +121,38 @@ const App = () => {
           <Route path="/team" element={<OurTeam />} />
 
           {/* PAP */}
-          <Route path="/pap" element={<PAP />} />
+          <Route path="/pap" element={
+            // <PAP />
+            <Maintenance />
+            } />
 
           {/* Entrepreneurship */}
-          <Route path="/entrepreneurship" element={<Enterpunership />} />
+          <Route path="/entrepreneurship" element={
+            // <Enterpunership />
+            <Maintenance />
+            } />
 
           {/* Terms and Conditions */}
-          <Route path="/terms-conditions" element={<TermsConditions />} />
+          <Route path="/terms-conditions" element={
+            // <TermsConditions />
+            <Maintenance />
+            } />
 
           {/* Privacy policy */}
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/privacy-policy" element={
+            // <PrivacyPolicy />
+            <Maintenance />
+            } />
 
           {/* Checkout */}
 
           <Route
             path="/checkout/:id/:plan"
             element={
-              <AuthNavigator>
-                <Checkout />
-              </AuthNavigator>
+              // <AuthNavigator>
+              //   <Checkout />
+              // </AuthNavigator>
+              <Maintenance />
             }
           />
           <Route path="/courses" element={<Courses />} />
@@ -142,9 +162,10 @@ const App = () => {
           <Route
             path="/instructor-dashboard"
             element={
-              <AuthNavigator>
-                <TeacherDashboard />
-              </AuthNavigator>
+              // <AuthNavigator>
+              //   <TeacherDashboard />
+              // </AuthNavigator>
+              <Maintenance />
             }
           />
 
@@ -160,18 +181,30 @@ const App = () => {
           />
           {/* Help */}
           {/* <Route path='/help' element={<HelpCenter />} /> */}
+
           {/* Hire */}
-          <Route path="/hire" element={<HireFromUs />} />
+          <Route path="/hire" element={
+            // <HireFromUs />
+           <Maintenance />} />
+
           {/* <Route path='/instructor' element={<InstructorCard />} /> */}
-          <Route path="/hire" element={<HireFromUs />} />
-          <Route path="/instructor" element={<InstructorCard />} />
+  
+       
           {/*FAQ*/}
-          <Route path="/FAQ" element={<FAQS />} />
+          <Route path="/FAQ" element={
+            // <FAQS />
+            <Maintenance />
+            } />
 
           {/*Refund Policy */}
-          <Route path="/refund" element={<Refund />} />
+          <Route path="/refund" element={
+            // <Refund />
+            <Maintenance />
+            } />
 
-          <Route path="/ReferAndEarn" element={<ReferAndEarn />} />
+          <Route path="/ReferAndEarn" element={
+            <ReferAndEarn />
+            } />
           {/* Book a demo */}
 
           <Route path="/book-a-demo/:name/:courseId" element={<BookADemo />} />
@@ -179,9 +212,9 @@ const App = () => {
           <Route path="*" element={<Navigate to="/404" replace />} />
         </Routes>
         {/* <ChatBot /> */}
-        <EnrollNowButton showForm={showForm} setShowForm={setShowForm} />
+        <EnrollNowButton />
         {showForm && (
-          <ContactFormComponent showForm={showForm} setShowForm={setShowForm} />
+          <ContactFormComponent />
         )}
       </div>
 

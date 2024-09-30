@@ -55,7 +55,7 @@ const CommonComp = ({ heading, para, dataArray = [] }) => {
         <h1 className=" t3  text-center col-span-1 text-lg lg:text-2xl px-4 py-2 tracking-wide font-bold ">
           {heading}
         </h1>
-        <p className="t3 ">{para}</p>
+        {/* <p className="t3 ">{para.slice(0, 100) + "..." }</p> */}
       </div>
       <div className=" md:col-span-3 col-span-1">
        
@@ -96,8 +96,8 @@ const CommonComp = ({ heading, para, dataArray = [] }) => {
                     <div className="flip-card-front  rounded-2xl max-w-80 mx-auto">
                       <img
                         className="h-full w-72 mx-auto  rounded-2xl object-cover"
-                        src={el.image}
-                        alt={el.name}
+                        src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsoEAMYKHiwI5JH_IlxayW3-9UurHlASFy9A&s"}
+                        alt={"team name"}
                       />
                     </div>
                   
@@ -105,15 +105,15 @@ const CommonComp = ({ heading, para, dataArray = [] }) => {
                     {/* Back Side (Details) */}
                     <div className="flip-card-back bg-black/90 bg-opacity-80 text-white rounded-2xl flex flex-col justify-center items-center">
                       <h3 className="text-center font-sans font-medium text-sm md:text-lg">
-                        {el.name}
+                        {/* {el.name} */} Coming soon
                       </h3>
                       <p className="text-center text-white font-bold text-xs md:text-sm">
-                        {el.role}
+                        {/* {el.role} */}
                       </p>
-                      <div className="py-2 flex items-center justify-center gap-2">
+                      {/* <div className="py-2 flex items-center justify-center gap-2">
                         <FaLinkedin className="text-blue-600 text-xl" />
                         <FaXTwitter className="text-white" />
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                

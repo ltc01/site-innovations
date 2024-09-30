@@ -3,7 +3,8 @@ import { FiBarChart2 } from "react-icons/fi";
 import image10 from "../../assets/ITIE&Entre/teamwork6.webp";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { FaArrowRight } from 'react-icons/fa6';
 
 // Register ScrollTrigger with GSAP
 gsap.registerPlugin(ScrollTrigger);
@@ -11,6 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 export const CareerSection1 = () => {
   const textRef = useRef(null);
   const imageRef = useRef(null);
+  const navigate = useNavigate();
   
   useEffect(() => {
     // Animation for the text
@@ -89,12 +91,12 @@ export const CareerSection1 = () => {
               </button>
             </div>
           </form> */}
-          <Link to="/contact">
-            <button className="relative overflow-hidden mt-12 bg-[#6c09ed] text-white font-semibold py-2 px-8 rounded-full hover:text-[#6c09ed] focus:outline-none  transition-all duration-300 hover:border-2 hover:border-[#6c09ed] dark:border-white group cursor-pointer ">
-              <span className="absolute inset-0 bg-white transition-transform duration-500 ease-out transform scale-x-0 group-hover:scale-x-100 origin-center"></span>
-              <span className="relative z-10">Join us</span>
-            </button>
-          </Link>
+          <button onClick={()=> navigate('/contact')} className='pap10 rounded-full mt-5 gap-2 flex items-center px-6 py-2 justify-center font-medium text-white group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-black dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800'>
+                    <p className='relative transition-all ease-in duration-75 group-hover:bg-opacity-0'> 
+                    Join us
+                </p>
+                    <FaArrowRight />
+                    </button>
         </div>
         {/* Image and Stats Section */}
         <div

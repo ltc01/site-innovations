@@ -63,7 +63,7 @@ function Footer({ dark }) {
                   Careers
                 </Link>
                 <Link
-                  to={"/Maintenance"}
+                  to={"/courses"}
                   className="text-black dark:text-white text-nowrap flex items-center"
                 >
                   <MdKeyboardArrowRight className=" min-w-6 text-xl aspect-square" />

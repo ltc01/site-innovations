@@ -17,7 +17,7 @@ const NewsletterSignup = () => {
            Have questions about our open positions? Contact our HR team at
            <span className=" text-yellow-500 font-semibold">
              {" "}
-             recruitment@baoiam.com
+             hr@baoiam.com
            </span>
            .
          </p>

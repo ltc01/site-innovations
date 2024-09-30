@@ -25,8 +25,10 @@ import { BeatLoader } from "react-spinners";
 import Enroll from "./EnrollNow";
 import EnrollNow from "./EnrollNow";
 import { BiLogIn } from "react-icons/bi";
+import { FaRegCircleUser } from "react-icons/fa6";
 
-const Navbar = ({ theme,showForm,setShowForm }) => {
+ 
+const Navbar = ({ theme}) => {
   const [show, setShow] = useState(false);
   const [showmenu, setShowmenu] = useState(false);
   const [delayHide, setDelayHide] = useState(null);
@@ -46,6 +48,8 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
     theme();
   };
 
+  const showForm = useSelector(state=>state.showForm)
+
   const handleLinkClick = (link) => {
     setLinkActive(link);
   };
@@ -60,7 +64,6 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
       setUserDrop(false);
     }
   };
-
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -95,6 +98,11 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
 
   // redux start
   const { allCourses, status, error } = useSelector((state) => state.courses);
+  const isLoggedIn = useSelector((state) => state.user.profile);
+
+// useEffect(()=>{
+//   // console.log("user",isLoggedIn),
+// }, [isLoggedIn])
   // console.log("in navbar:", allCourses);
   // console.log(allCourses, 'all courses navbar')
 
@@ -121,7 +129,7 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
         ></div>
       )}
       <div
-        className={`flex z-[90] text-slate-600 dark:text-slate-200 h-24 items-center max-w-[1440px] justify-between px-4 py-1 w-full fixed top-0 ${
+        className={`flex z-[90] text-slate-600 dark:text-slate-200 md:h-20 h-16 items-center justify-between px-4 md:px-10 w-full fixed top-0 ${
           isTransparent
             ? "bg-white dark:bg-black"
             : "bg-white/70 backdrop-blur dark:bg-black/30 "
@@ -133,14 +141,14 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
 
         {/* NavLinks */}
         <div
-          className={`hidden lg:flex items-center font-medium text-sm xl:text-base justify-between `}
+          className={`hidden lg:flex md:ml-2 lg:gap-2 font-semibold items-center text-sm justify-between `}
         > 
           <Link
             to={"/"}
             onClick={() => handleLinkClick("Home")}
             className={`mx-2 xl:mx-4 ${
               location.pathname === "/" && linkActive === "Home"
-                ? "text-orange-500"
+                ? "text-orange-600"
                 : ""
             }`}
           >
@@ -150,9 +158,9 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
           <Link
             to={"/about-us"} 
             onClick={() => handleLinkClick("About")}
-            className={`mx-2 xl:mx-4 text-nowrap hover:text-indigo-500 ${
+            className={`mx-2 xl:mx-4 text-nowrap hover:text-orange-600 ${
               location.pathname === "/about-us" && linkActive === "About"
-                ? "text-indigo-600"
+                ? "text-orange-600"
                 : ""
             } `}
           >
@@ -162,17 +170,17 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
           <li
             className={`mx-2 xl:mx-4 cursor-pointer flex gap-1 items-center `}
           >
-            <Link to="/courses" className="hover:text-indigo-500">Courses</Link>
+            <Link to="/courses" className="hover:text-orange-600">Courses</Link>
             {show ? (
-              <IoIosArrowUp className="hover:text-indigo-500" size={18} onClick={() => setShow(!show)} />
+              <IoIosArrowUp className="hover:text-orange-600" size={18} onClick={() => setShow(!show)} />
             ) : (
-              <IoIosArrowDown className="hover:text-indigo-500" size={18} onClick={() => setShow(!show)} />
+              <IoIosArrowDown className="hover:text-orange-600" size={18} onClick={() => setShow(!show)} />
             )}
           </li>
 
           {show && (
             <div
-              className="absolute pl-4 pr-2 py-1 top-20 rounded-md left-[30%] bg-white dark:bg-black dark:border-white border-black/50 border-[1px] text-sm shadow-lg z-50 dark:text-white"
+              className="absolute pl-4 pr-2 py-1 top-16 rounded-md left-[30%] bg-white dark:bg-black dark:border-white border-black/50 border-[1px] text-sm shadow-lg z-50 dark:text-white"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
@@ -183,9 +191,9 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
           <Link
             to={"/blogs"}
             onClick={() => handleLinkClick("Blog")}
-            className={`mx-2 xl:mx-4 hover:text-indigo-500 ${
+            className={`mx-2 xl:mx-4 hover:text-orange-600 ${
               location.pathname === "/blogs" && linkActive === "Blog"
-                ? "text-indigo-600"
+                ? "text-orange-600"
                 : ""
             } `}
           >
@@ -195,9 +203,9 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
           <Link
             to={"/contact"}
             onClick={() => handleLinkClick("Contact Us")}
-            className={`mx-2 xl:mx-4 text-nowrap hover:text-indigo-500 ${
+            className={`mx-2 xl:mx-4 text-nowrap hover:text-orange-600 ${
               location.pathname === "/contact" && linkActive === "Contact Us"
-                ? "text-indigo-600"
+                ? "text-orange-600"
                 : ""
             } `}
           >
@@ -207,8 +215,8 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
 
         {/* Last */}
         <div>
-          <div className="flex items-center gap-2 md:gap-4 text-black dark:text-white">
-            <div className="flex items-center gap-6 xl:gap-14 ">
+          <div className="flex items-center gap-2 lg:gap-4 text-black dark:text-white">
+            <div className="flex items-center gap-3 xl:gap-7 ">
               <SearchBox courses={courses} />
 
               <div ref={userhandleDropDownRef}>
@@ -232,11 +240,16 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
                     </span>
                   </button>
                 </Link> */}
-                <BiLogIn
+                {!isLoggedIn?<BiLogIn
                   onClick={() => navigate('/login')}
                   size={20}
-                  className=" z-10 relative text-slate-500 dark:text-slate-200  cursor-pointer"
-                />
+                  className=" z-10 relative text-slate-700 dark:text-slate-200  cursor-pointer"
+                />:
+                <FaRegCircleUser 
+                  onClick={() => navigate('/login')}
+                  size={20}
+                  className=" z-10 relative text-slate-700 dark:text-slate-200  cursor-pointer"
+                />}
               </div>
 
               {userDrop && (
@@ -268,7 +281,7 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
                         <NavLink to="/signup">Sign Up</NavLink>
                       </Link>
                     ) : (
-                      <p
+                      <p 
                         onClick={() => {
                           localStorage.removeItem("access_token");
                           localStorage.removeItem("userInfo");
@@ -293,13 +306,13 @@ const Navbar = ({ theme,showForm,setShowForm }) => {
             </span>
 
             {/* <Enroll /> */}
-            <EnrollNow showForm={showForm} setShowForm={setShowForm}/>
+            <EnrollNow/>
             <Link to={"/gcep"} className="relative group">
               <button
                 type="button"
-                className="hidden group z-10 sm:flex text-black bg-gradient-to-br from-green-400 via-teal-500 to-blue-500  hover:bg-gradient-to-br focus:outline-none focus:ring-amber-300 dark:focus:ring-amber-800 shadow-base shadow-amber-500/50 dark:shadow-base dark:shadow-amber-800/80 font-semibold rounded-lg text-sm px-0.5 py-0.5 text-center"
+                className="hidden group z-10 sm:flex text-indigo-950 bg-gradient-to-br from-pink-400 to-indigo-600 shadow-sm shadow-slate-300 dark:shadow-slate-600  font-semibold rounded-lg text-sm px-0.5 py-0.5 text-center"
               >
-                <span className="flex items-center justify-center h-full group-hover:text-white group-hover:bg-black/20 bg-white rounded-md px-4 w-24 py-1.5 ">
+                <span className="flex items-center justify-center h-full  bg-white dark:bg-black/60 dark:text-white rounded-md px-4 w-24 py-1.5 font-bold ">
                   GCEP
                 </span>
               </button>
