@@ -194,7 +194,7 @@ const Blog_detail = () => {
               <div className=' flex flex-col gap-6'>
                 {datacmmt.map((el, index) => (
                   <>
-                    <div className='border-2 hover:shadow-lg  shadow-gray-400 shadow-sm p-4 bg-zinc-50 rounded-md flex gap-2 items-start'>
+                    <div className='border-2 hover:shadow-lg dark:border dark:shadow-none dark:bg-zinc-900 shadow-gray-400 shadow-sm p-4 bg-zinc-50 rounded-md flex gap-2 items-start'>
                       <div>
                         <div className='w-[45px] h-[45px] rounded-full flex items-center justify-center'>
                           <FaUserCircle className='h-full w-full text-zinc-400' />
@@ -205,7 +205,9 @@ const Blog_detail = () => {
                           <p className='font-semibold'>{el.name}</p>
                           <p className='text-zinc-500'>3hr ago</p>
                         </div>
-                        <p className='text-[#444444]'>{el.title}</p>
+                        <p className='text-[#444444] dark:text-gray-400'>
+                          {el.title}
+                        </p>
                       </div>
                     </div>
                   </>
@@ -227,7 +229,7 @@ const Blog_detail = () => {
         <h2 className='text-[1.13rem] font-bold mb-1'>Add a Response</h2>
         <textarea
           rows='8'
-          className='bg-gray-100 w-[100%] p-5 dark:bg-zinc-900 dark:text-black'
+          className='bg-gray-100 w-[100%] p-5 dark:bg-zinc-900 dark:text-gray-400'
           cols='80'
           type='text'
           placeholder='Leave a Comment'
