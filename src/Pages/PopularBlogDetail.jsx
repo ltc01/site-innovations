@@ -20,7 +20,7 @@ import { FaMobileAlt, FaUserCircle } from "react-icons/fa";
 import NewsletterBanner from "../Components/Home/Subcription.jsx";
 
 export const PopularBlogDetail = () => {
-  document.title = "Baoiam - Blog Detail";
+  document.title = "Baoiam Innovations | Blogs";
   const [comment, setComment] = useState("");
   const [datacmmt, setDatacmmt] = useState([]);
   const navigate = useNavigate();

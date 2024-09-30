@@ -1,15 +1,49 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { App_phone } from "../../assets/assets";
 import { FaCheckCircle } from "react-icons/fa";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const Phone = () => {
   const [inputValue, setInputValue] = useState("Email");
   const [animatePing, setAnimatePing] = useState(false);
-
+  const emailRef = useRef();
   const [showPopup, setShowPopup] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const submit = async () => {
+    setLoading(true);
+    try {
+      const { data } = await axios.post(
+        "https://proxy-server-baoiam.vercel.app/contact-form ",
+        {
+          fullName: "",
+          email: emailRef.current.value,
+          countryCode: "",
+          phone: "",
+          inquiryType: "",
+          message: "",
+          newsletter: true,
+        }
+      );
+      console.log("res is:", data);
+      setLoading(false);
+      setShowPopup(true);
+    } catch (e) {
+      setLoading(false);
+      toast.error("Some error occurred");
+      console.log(e.stack);
+    }
+    // fullName: formData.Name,
+    //     email: formData.Email,
+    //     countryCode: formData.CountryCode,
+    //     phone: formData.Phone,
+    //     inquiryType: formData.inquiryType,
+    //     message: formData.message,
+    //     newsletter: false,
+  };
   const onSubmit = (e) => {
     e.preventDefault();
-    setShowPopup(true);
+    submit();
   };
   return (
     <>
@@ -26,8 +60,9 @@ const Phone = () => {
             {/* Success Icon */}
             <FaCheckCircle
               size={50}
-              className={`text-green-500 mx-auto mb-4 ${animatePing ? "animate-ping" : ""
-                }`}
+              className={`text-green-500 mx-auto mb-4 ${
+                animatePing ? "animate-ping" : ""
+              }`}
             />
 
             <h2 className="text-2xl font-bold text-indigo-600 mb-4 transition-all duration-300 ease-in-out">
@@ -57,7 +92,7 @@ const Phone = () => {
         </div>
         <div className="md:w-1/3 w-[80%]">
           <p className="text-3xl md:text-4xl font-bold">
-            Seize The {" "}
+            Seize the{" "}
             <span className="bg-gradient-to-r from-pink-500  to-violet-600 bg-clip-text text-transparent">
               Opportunity 
             </span>{" "}
@@ -128,6 +163,7 @@ const Phone = () => {
             <div className="w-fit flex p-1 rounded-full text-left border focus-within:border-gray-700">
               <input
                 type="email"
+                ref={emailRef}
                 placeholder="Enter your email..."
                 required
                 className="w-full outline-none bg-transparent text-sm text-gray-800 px-4 py-1"
@@ -135,7 +171,7 @@ const Phone = () => {
               <button // Change to 'submit'
                 className="bg-gradient-to-r from-indigo-700 to-indigo-500 hover:bg-gradient-to-l transition-all text-white tracking-wide text-sm rounded-full px-6 py-2"
               >
-                Submit
+                {loading ? "Loading..." : "Submit"}
               </button>
             </div>
           </form>

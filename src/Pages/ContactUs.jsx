@@ -17,6 +17,7 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const ContactUs = () => {
+  document.title = "Baoiam Innovations | Contact us";
   const [loading, setLoading] = useState(false);
   const [animatePing, setAnimatePing] = useState(false);
 
