@@ -20,6 +20,7 @@ import { RxCross2 } from "react-icons/rx";
 const apiUrl = import.meta.env.VITE_API_URL;
 import { useDispatch } from "react-redux";
 import { toggleEnrollForm } from "../../Redux/slices/enrollFormSlice";
+import thumbsUp from "../../assets/Images/thumbs-up (1).gif";
 
 const ContactUs = () => {
   // const togglePopup = () => {
@@ -221,35 +222,35 @@ export const ContactFormComponent = () => {
             <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-r from-green-400 to-indigo-500 rounded-t-lg"></div>
 
             {/* Success Icon */}
-            <FaCheckCircle
-              size={50}
-              className={`text-green-500 mx-auto mb-4 ${
-                animatePing ? "animate-ping" : ""
-              }`}
-            />
+            <div className="relative top-[80px] bg-white  rounded-full shadow-lg inline-block ">
+              {/* <FaCheckCircle size={50} className="text-black mx-auto mb-4" /> */}
+              <img
+                src={thumbsUp} // Replace with your image path
+                alt="Success"
+                className="w-20 h-20 mx-auto flex items-center p-2 rounded-full  " // Adjust the width and height as needed
+              />
+            </div>
 
-            <h2 className="md:text-2xl font-bold text-indigo-600 mb-4 transition-all duration-300 ease-in-out">
-              Your details have been recorded successfully!!
-            </h2>
-            {/* <p className="text-gray-700 mb-6">
-              Your enrollment was successful. We’re excited to have you on
-              board!
-            </p> */}
+            {/* Success Message */}
+            <div className=" pt-24">
+              <h2 className="text-3xl font-bold text-black mb-4 dark:text-white">
+                Success!
+              </h2>
+              <p className="text-gray-700 mb-6 dark:text-gray-300">
+                Yay! You have successfully enrolled.
+              </p>
 
-            {/* Decorative Element */}
-            <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-green-400 to-blue-500 rounded-t-md"></div>
-
-            {/* Close Button */}
-            <button
-              onClick={handleCloseForm}
-              className="bg-gradient-to-br from-purple-600 via-indigo-500 to-indigo-700 text-white px-6 py-2 rounded-full hover:bg-indigo-700 focus:outline-none transition-all text-sm md:text-base"
-            >
-              Close
-            </button>
+              {/* Continue Button */}
+              <button
+                onClick={handleCloseForm} // Manually close the popup
+                className="bg-gradient-to-br from-purple-600 via-indigo-500 to-indigo-700 text-white px-6 py-2 rounded-full hover:bg-indigo-700 focus:outline-none transition-all text-sm md:text-base"
+              >
+                Continue
+              </button>
+            </div>
           </div>
         </div>
       )}
-
       {
         <div className="fixed inset-0 flex justify-center items-center z-[200] bg-black/50">
           <div className=" w-[95%] md:w-[70%] lg:w-[38%] my-10  dark:bg-black  bg-white p-4 px-6 rounded-lg border relative flex flex-col items-center justify-center overflow-y-auto ">
