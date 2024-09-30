@@ -199,7 +199,7 @@ tl.fromTo('.icon3',{opacity:0,x:30},
             />
 
             <h2 className="text-2xl font-bold text-indigo-600 mb-4 transition-all duration-300 ease-in-out">
-              Successfully Submitted Data
+              Your details have been recorded successfully!!
             </h2>
             {/* <p className="text-gray-700 mb-6">
               Your enrollment was successful. We’re excited to have you on
