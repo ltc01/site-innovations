@@ -143,7 +143,7 @@ export default function SliderSection() {
       <img
         src={slide.thumbnail_image}
         alt={slide.title}
-        className="w-full h-full object-cover rounded-t-3xl"
+        className="w-full h-full object-cover object-top rounded-t-3xl"
       />
       {/* Price and Duration in the same row */}
       <div className="absolute top-3 left-4 flex items-center space-x-3">
@@ -161,7 +161,7 @@ export default function SliderSection() {
       <div className="">
         <h3 className="font-bold text-lg text-nowrap">{slide.title}</h3>
         <p className="text-sm pr-3 text-slate-600 dark:text-slate-200">
-          {slide.description.slice(0, 80) + "..."}
+          {slide.description.slice(0, 98) + "..."}
         </p>
       </div>
       {/* View More Button */}
