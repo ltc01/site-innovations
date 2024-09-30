@@ -13,8 +13,12 @@ const Hero = () => {
     const tl = gsap.timeline();
 
     tl.fromTo(leftRef.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0 });
-    tl.fromTo(rightRef.current, { opacity: 0, x: 50 }, { opacity: 1, x: 0 }, "<");
-
+    tl.fromTo(
+      rightRef.current,
+      { opacity: 0, x: 50 },
+      { opacity: 1, x: 0 },
+      "<"
+    );
 
     return () => {
       tl.kill();
@@ -30,16 +34,21 @@ const Hero = () => {
       {/* Left Side: Heading and Content */}
       <div
         ref={leftRef}
-        className="w-full flex md:pl-5 gap-y-1 pb-10 md:pb-0 flex-col lg:w-1/2 text-center md:text-left"
+        className="w-full flex mx-auto md:pr-4 md:pl-5 gap-y-1 pb-10 md:pb-0 flex-col lg:w-1/2 text-center md:text-left"
       >
-        <h1 className="text-3xl lg:text-5xl font-bold">
-          Stand{" "}
+        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold">
+          Your{" "}
           <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
-            One in a Million
+            Success,
           </span>{" "}
+          Our <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
+          Mission </span>
         </h1>
-        <p className="mt-5 dark:text-white text-black">
-          We give you the opportunity to stand out among millions and shine in the crowd. With our advanced courses and expert guidance live this excellent journey.
+
+        <p className="mt-5 text-slate-600 dark:text-slate-300">
+          We give you the opportunity to stand out among millions and shine in
+          the crowd. With our advanced courses and expert guidance live this
+          excellent journey.
         </p>
         <div className="mt-6 flex justify-center md:justify-normal lg:justify-start space-x-4">
           <button
@@ -50,7 +59,9 @@ const Hero = () => {
             <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
               <IoIosArrowRoundForward size={30} />
             </span>
-            <span className="relative text-sm lg:text-base">Discover Your Path</span>
+            <span className="relative text-sm lg:text-base">
+              Discover Your Path
+            </span>
           </button>
         </div>
       </div>

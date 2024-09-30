@@ -17,7 +17,7 @@ const ContactForm = () => {
     designation: "",
     email: "",
     phone: "",
-    job_title: "",
+    // job_title: "",
     contact_type: "",
     message: "",
   });
@@ -39,9 +39,9 @@ const ContactForm = () => {
         message: formData.message,
       };
       const { data } = await axios.post(
-        `${apiUrl}/api/contact-gcep/`,
         // `https://proxy-server-baoiam.vercel.app/submit-form`,
         // `http://localhost:3000/submit-form`,
+        `${apiUrl}/api/contact-gcep/`,
         data1
       );
       console.log("GCEP form: ", data);
@@ -116,11 +116,11 @@ const ContactForm = () => {
       >
         {/* Name */}
         <div className="flex flex-col w-full">
-          <p className="text-lg font-medium max-sm:text-base dark:text-white">
-            Name <span className="text-red-600">*</span>
-          </p>
           <div className="flex items-center justify-between gap-8 w-full max-sm:flex-col max-sm:gap-4">
             <div className="w-1/2 flex flex-col max-sm:w-full">
+          <label className=" font-medium max-sm:text-base dark:text-white">
+            First Name <span className="text-red-600">*</span>
+          </label>
               <input
                 value={formData.first_name}
                 onChange={(e) => {
@@ -128,14 +128,18 @@ const ContactForm = () => {
                 }}
                 contact_type="text"
                 id="first"
+                placeholder="Enter your First Name...."
                 className="px-4 py-2 border border-black/60 w-full max-sm:py-1"
                 required
               />
-              <label htmlFor="first" className="text-sm dark:text-white">
+              {/* <label htmlFor="first" className="text-sm dark:text-white">
                 First
-              </label>
+              </label> */}
             </div>
             <div className="w-1/2 flex flex-col max-sm:w-full">
+            <label className=" font-medium max-sm:text-base dark:text-white">
+            Last Name <span className="text-red-600">*</span>
+          </label>
               <input
                 value={formData.last_name}
                 onChange={(e) => {
@@ -143,64 +147,21 @@ const ContactForm = () => {
                 }}
                 contact_type="text"
                 id="last"
+                placeholder="Enter your Last Name...."
                 className="px-4 py-2 border border-black/60 w-full max-sm:py-1"
                 required
               />
-              <label htmlFor="last" className="text-sm dark:text-white">
+              {/* <label htmlFor="last" className="text-sm dark:text-white">
                 Last
-              </label>
+              </label> */}
             </div>
           </div>
         </div>
-
-        {/* Company */}
-        <div className="flex gap-8 w-full max-sm:flex-col max-sm:gap-4">
-          <div className="flex-col flex w-1/2 max-sm:w-full">
-            <label
-              className="text-lg font-medium dark:text-white"
-              htmlFor="company"
-            >
-              Institute <span className="text-red-600">*</span>
-            </label>
-            <input
-              value={formData.institute}
-              onChange={(e) => {
-                setFormData({ ...formData, institute: e.target.value });
-              }}
-              contact_type="text"
-              id="company"
-              className="px-4 py-2 border border-black/60 w-full max-sm:py-1"
-              required
-            />
-            <span className="text-sm dark:text-white">
-              Who do you work for?
-            </span>
-          </div>
-
-          <div className="flex-col flex w-1/2 max-sm:w-full">
-            <label
-              className="text-lg font-medium dark:text-white"
-              htmlFor="agency"
-            >
-              Designation (if agency)
-            </label>
-            <input
-              value={formData.designation}
-              onChange={(e) => {
-                setFormData({ ...formData, designation: e.target.value });
-              }}
-              contact_type="text"
-              id="agency"
-              className="px-4 py-2 border border-black/60 w-full max-sm:py-1"
-            />
-          </div>
-        </div>
-
         {/* Email & Phone */}
         <div className="flex gap-8 w-full max-sm:flex-col max-sm:gap-4">
           <div className="flex-col flex w-1/2 max-sm:w-full">
             <label
-              className="text-lg font-medium dark:text-white"
+              className=" font-medium dark:text-white"
               htmlFor="email"
             >
               Email <span className="text-red-600">*</span>
@@ -212,6 +173,7 @@ const ContactForm = () => {
               }}
               contact_type="email"
               id="email"
+              placeholder="Enter your email address...."
               className="px-4 py-2 border border-black/60 w-full max-sm:py-1"
               required
             />
@@ -219,10 +181,10 @@ const ContactForm = () => {
 
           <div className="flex-col flex w-1/2 max-sm:w-full">
             <label
-              className="text-lg font-medium dark:text-white"
+              className=" font-medium dark:text-white"
               htmlFor="phone"
             >
-              Phone
+              Phone <span className="text-red-600">*</span>
             </label>
             <input
               value={formData.phone}
@@ -233,34 +195,17 @@ const ContactForm = () => {
               id="phone"
               inputMode="numeric"
               maxLength={10}
+              placeholder="Enter your contact number..."
               className="px-4 py-2 border border-black/60 w-full max-sm:py-1"
             />
           </div>
         </div>
 
-        {/* Job & Industry */}
+        {/* Company */}
         <div className="flex gap-8 w-full max-sm:flex-col max-sm:gap-4">
           <div className="flex-col flex w-1/2 max-sm:w-full">
             <label
-              className="text-lg font-medium dark:text-white"
-              htmlFor="job"
-            >
-              Job Title
-            </label>
-            <input
-              value={formData.job_title}
-              onChange={(e) => {
-                setFormData({ ...formData, job_title: e.target.value });
-              }}
-              contact_type="text"
-              id="job"
-              className="px-4 py-2 border border-black/60 w-full max-sm:py-1"
-            />
-          </div>
-
-          <div className="flex-col flex w-1/2 max-sm:w-full">
-            <label
-              className="text-lg font-medium dark:text-white"
+              className=" font-medium dark:text-white"
               htmlFor="industry"
             >
               Type
@@ -281,35 +226,74 @@ const ContactForm = () => {
               ))}
             </select>
           </div>
+          <div className="flex-col flex w-1/2 max-sm:w-full">
+            <label
+              className=" font-medium dark:text-white"
+              htmlFor="company"
+            >
+              Institute <span className="text-red-600">*</span>
+            </label>
+            <input
+              value={formData.institute}
+              onChange={(e) => {
+                setFormData({ ...formData, institute: e.target.value });
+              }}
+              contact_type="text"
+              id="company"
+              placeholder="Enter your University...."
+              className="px-4 py-2 border border-black/60 w-full max-sm:py-1"
+              required
+            />
+
+            {/* <span className="text-sm dark:text-white">
+              Who do you work for?
+            </span> */}
+          </div>
         </div>
 
-        {/* Interested */}
-        {/* <div className="w-full">
-          <p className="text-lg font-medium dark:text-white">
-            I am interested in... <span className="text-red-600">*</span>
-          </p>
-          <div className="grid grid-cols-2 gap-4 mt-2 max-sm:grid-cols-1 max-sm:gap-2">
-            {interestedCheckbox.map((c) => (
-              <div key={c.id} className="flex items-center">
-                <input
-                  contact_type="checkbox"
-                  id={c.value}
-                  name={c.value}
-                  value={c.value}
-                  required
-                />
-                <label className="ml-2 dark:text-white" htmlFor={c.value}>
-                  {c.label}
-                </label>
-              </div>
-            ))}
+        <div className="flex-col flex md:w-1/2 max-sm:w-full  ">
+          <label
+            className=" font-medium dark:text-white"
+            htmlFor="agency"
+          >
+            Designation
+          </label>
+          <input
+            value={formData.designation}
+            onChange={(e) => {
+              setFormData({ ...formData, designation: e.target.value });
+            }}
+            contact_type="text"
+            id="agency"
+            placeholder="Enter your position...."
+            className="px-2 py-2 border border-black/60 w-full max-sm:py-1"
+          />
+        </div>
+        {/* Job & Industry
+        <div className="flex gap-8 w-full max-sm:flex-col max-sm:gap-4">
+          <div className="flex-col flex w-1/2 max-sm:w-full">
+            <label
+              className=" font-medium dark:text-white"
+              htmlFor="job"
+            >
+              Job Title
+            </label>
+            <input
+              value={formData.job_title}
+              onChange={(e) => {
+                setFormData({ ...formData, job_title: e.target.value });
+              }}
+              contact_type="text"
+              id="job"
+              className="px-4 py-2 border border-black/60 w-full max-sm:py-1"
+            />
           </div>
         </div> */}
 
         {/* Textarea */}
         <div className="w-full">
-          <label className="text-lg font-medium dark:text-white" htmlFor="help">
-            Write a message...
+          <label className=" font-medium dark:text-white" htmlFor="help">
+            Message {' '}<span className="text-slate-400">(optional)</span>
           </label>
           <textarea
             value={formData.message}
@@ -318,6 +302,7 @@ const ContactForm = () => {
             }}
             rows={4}
             id="help"
+            placeholder="Write us to..."
             className="px-4 py-2 border border-black/60 w-full mt-2 max-sm:py-1"
           ></textarea>
           <button

@@ -6,10 +6,19 @@ import { CourseDesc2, CourseOverview } from "../assets/assets";
 import CourseHighlights from "../Components/CourseDetails/CourseHighlights";
 import Loader from "../Components/Loader";
 import Brochure from "../Brochure.txt";
-import { CollegeCourseData, Highlights, OtherCourseData, School } from "../Data";
+import { IoIosArrowRoundForward } from "react-icons/io";
+
+import {
+  CollegeCourseData,
+  Highlights,
+  OtherCourseData,
+  School,
+} from "../Data";
 import Testimonials from "../Components/Testmonials/Testimonials";
 import { useDispatch, useSelector } from "react-redux";
-import courseDetailSlice, { fetchCourseDetails } from "../Redux/slices/courseDetailSlice";
+import courseDetailSlice, {
+  fetchCourseDetails,
+} from "../Redux/slices/courseDetailSlice";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BeatLoader } from "react-spinners";
@@ -21,12 +30,12 @@ import "swiper/css/pagination";
 import { Navigation } from "swiper/modules";
 const apiUrl = import.meta.env.VITE_API_URL;
 
-const CourseDetailsPage = ({showForm, setShowForm} ) => {
+const CourseDetailsPage = ({ showForm, setShowForm }) => {
   const { id } = useParams();
   const [courseDetails, setCourseDetails] = useState({});
-  const [showTab, setShowTab] = useState('premium');
-  const [otherCourses, setOtherCourses] = useState()
-  const [fixed, setFixed] = useState(false)
+  const [showTab, setShowTab] = useState("plus");
+  const [otherCourses, setOtherCourses] = useState();
+  const [fixed, setFixed] = useState(false);
   const [coursePlusContent, setCoursePlusContent] = useState([
     "Doubt clearing sessions",
     "Material & Assignment Management",
@@ -36,23 +45,23 @@ const CourseDetailsPage = ({showForm, setShowForm} ) => {
     "Mentor Feedback",
     "Regular Quizzes & Assessment",
   ]);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
-  const EnrollNow = ({ showForm, setShowForm }) => {
-    const [animatePing, setAnimatePing] = useState(false);
+  // const EnrollNow = ({ showForm, setShowForm }) => {
+  //   const [animatePing, setAnimatePing] = useState(false);
 
-    // Function to toggle the popup
-    const togglePopup = () => {
-      console.log(showForm);
-      setShowForm(true);
-      setAnimatePing(true);
+  //   // Function to toggle the popup
+  //   const togglePopup = () => {
+  //     console.log(showForm);
+  //     setShowForm(true);
+  //     setAnimatePing(true);
 
-      // Remove ping animation after a short duration
-      setTimeout(() => {
-        setAnimatePing(false);
-      }, 1000); // Adjust duration as needed
-    };
-  };
+  //     // Remove ping animation after a short duration
+  //     setTimeout(() => {
+  //       setAnimatePing(false);
+  //     }, 1000); // Adjust duration as needed
+  //   };
+  // }
 
   const navigate = useNavigate();
 
@@ -68,7 +77,6 @@ const CourseDetailsPage = ({showForm, setShowForm} ) => {
   );
   const dispatch = useDispatch();
   const courseData = courses[id]; // Retrieve the courseData from the store by its id
-
 
   const otherCou = otherCourses?.filter(
     (other) => other?.title !== courseData?.title
@@ -149,22 +157,23 @@ const CourseDetailsPage = ({showForm, setShowForm} ) => {
   };
 
   return (
-    <div>
-
+    <div className="mx-auto w-full">
       {/* Hero Section */}
       <CourseHero
         course={courseData?.course}
         downloadBrochure={downloadBrochure}
-        enrollNowScroll={enrollNowScroll}
+        // enrollNowScroll={enrollNowScroll}
+        showForm={showForm}
+        setShowForm={setShowForm}
       />
 
       {/* courseData Details */}
-      <div className="flex flex-col w-full lg:gap-11 p-5 md:flex-row ">
-        <div className="md:w-[60%] w-full space-y-4 ">
+      <div className="flex flex-col gap-4 md:flex-row mx-auto justify-center w-[90%]">
+        <div className="md:w-[68%] items-start pr-10 py-10 flex flex-col space-y-14">
           {/* Course Details */}
-          <div className="w-full md:w-[95%] p-8 shadow-md dark:shadow-slate-100 rounded-xl">
+          <div className="p-8 shadow-md border dark:shadow-slate-100 rounded-xl">
             <h2 className="text-xl lg:text-2xl font-semibold">
-              courseData{" "}
+              Course{" "}
               <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
                 Details
               </span>
@@ -176,9 +185,9 @@ const CourseDetailsPage = ({showForm, setShowForm} ) => {
           </div>
 
           {/* Course Overview */}
-          <div className="w-full  md:w-[95%] p-8 shadow-md dark:shadow-slate-100 rounded-xl">
+          <div className=" p-8 shadow-md border dark:shadow-slate-100 rounded-xl">
             <h2 className="text-xl lg:text-2xl font-semibold">
-              courseData{" "}
+              Course{" "}
               <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
                 Overview
               </span>
@@ -190,9 +199,9 @@ const CourseDetailsPage = ({showForm, setShowForm} ) => {
           </div>
 
           {/* Course Curriculum */}
-          <div className="w-full md:w-[95%] p-8 shadow-md dark:shadow-slate-100 rounded-xl">
+          <div className="p-8 shadow-md border dark:shadow-slate-100 rounded-xl">
             <h2 className="text-xl lg:text-2xl font-semibold">
-              courseData{" "}
+              Course{" "}
               <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
                 Curriculum
               </span>
@@ -212,11 +221,11 @@ const CourseDetailsPage = ({showForm, setShowForm} ) => {
         </div>
 
         {/* Plans Section */}
-        <div className="relative mx-auto w-[90%] md:w-[40%]">
+        <div className="relative top-7 mx-auto">
           {/* Plans Section */}
           <div
-            className={` mt-5 lg:w-80 md:w-72  ${
-              fixed ? "md:fixed md:top-16" : ""
+            className={` mt-5 ${
+              fixed ? "md:fixed md:top-20 right-[10%] absolute " : ""
             } bg-white dark:bg-black shadow-md rounded-xl p-4`}
           >
             <div className="flex items-center justify-center gap-8 mb-4">
@@ -225,9 +234,9 @@ const CourseDetailsPage = ({showForm, setShowForm} ) => {
                   <p
                     key={i}
                     onClick={() => setShowTab(p.name)}
-                    className={`capitalize text-lg md:text-xl cursor-pointer ${
+                    className={`capitalize font-bold text-lg md:text-xl cursor-pointer ${
                       showTab === p.name
-                        ? "text-orange-500 border rounded-md border-orange-500 px-3 py-1"
+                        ? "text-orange-500 underline rounded-md px-3 py-1"
                         : "text-gray-800 dark:text-white"
                     }`}
                   >
@@ -243,13 +252,13 @@ const CourseDetailsPage = ({showForm, setShowForm} ) => {
                   <>
                     <div
                       key={i}
-                      className={`flex flex-col w-full items-center justify-center rounded-lg border ${
-                        p.name === "premium"
+                      className={`flex flex-col mt-6  w-full items-center justify-center rounded-lg border ${
+                        p.name === "plus"
                           ? "border-orange-500"
                           : "border-stone-500 dark:border-white"
-                      } relative p-4 pt-6`}
+                      } relative py-5 text-nowrap`}
                     >
-                      {p.name === "premium" && (
+                      {p.name != "premium" && (
                         <div className="absolute inset-x-0 -top-3 mb-4 flex justify-center">
                           <span className="flex h-6 items-center justify-center rounded-full bg-orange-500 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-white">
                             most popular
@@ -261,41 +270,47 @@ const CourseDetailsPage = ({showForm, setShowForm} ) => {
                         {p.name}
                       </div> */}
                       <div className="">
+                        <p className="mx-auto my-2 px-8 text-center text-lg md:text-base dark:text-white text-gray-500 font-medium">
+                          {courseData.title}
+                        </p>
 
-                      <p className="mx-auto mb-2 px-8 text-center text-lg md:text-base dark:text-white text-gray-500 font-medium">
-                        {courseData.title}
-                      </p>
+                        <p className="text-sm md:text-base mx-auto mb-2 px-8 text-center dark:text-white text-gray-500 font-medium">
+                          {p.name === "plus"
+                            ? "Project Based Learning"
+                            : "Coming soon..."}
+                        </p>
+                        <p className="text-sm md:text-base mx-auto mb-2 px-8 text-center dark:text-white text-gray-500 font-medium">
+                          {p.name === "plus" ? " Personal Mentorship" : ""}
+                        </p>
+                        <p className="text-sm md:text-base mx-auto mb-2 px-8 text-center dark:text-white text-gray-500 font-medium">
+                          {p.name === "plus" ? " Experts Counseling" : ""}
+                        </p>
+                        <p className="text-sm md:text-base mx-auto mb-2 px-8 text-center dark:text-white text-gray-500 font-medium">
+                          {p.name === "plus" ? "Live Projects" : ""}
+                        </p>
+                        <p className="text-sm md:text-base  mx-auto mb-2 px-8 text-center dark:text-white text-gray-500 font-medium">
+                          {p.name === "plus" ? " Dedicated Placement Cell" : ""}
+                        </p>
 
-                      <p className="text-sm md:text-base mx-auto mb-2 px-8 text-center dark:text-white text-gray-500 font-medium">
-                        All Contents of Plus
-                      </p>
-                      <p className="text-sm md:text-base mx-auto mb-2 px-8 text-center dark:text-white text-gray-500 font-medium">
-                        Personal Mentorship
-                      </p>
-                      <p className="text-sm md:text-base mx-auto mb-2 px-8 text-center dark:text-white text-gray-500 font-medium">
-                        Experts Counseling
-                      </p>
-                      <p className="text-sm md:text-base mx-auto mb-2 px-8 text-center dark:text-white text-gray-500 font-medium">
-                        Live Projects
-                      </p>
-                      <p className="text-sm md:text-base  mx-auto mb-2 px-8 text-center dark:text-white text-gray-500 font-medium">
-                        Dedicated Placement Cell
-                      </p>
+                        <div className="mt-7 mx-auto flex flex-col gap-5">
+                          {p.name === "plus" && (
+                            <div className="flex items-center justify-center gap-1">
+                              <span className="self-start dark:text-white text-gray-600">
+                                ₹
+                              </span>
+                              <span className="text-2xl md:text-xl dark:text-white font-bold text-gray-800">
+                                {p.price}
+                              </span>
+                              <span className="text-gray-500 dark:text-white text-xs md:text-sm">
+                                /
+                                {p.name !== "premium"
+                                  ? '12 months'
+                                  : "Unlimited"}
+                              </span>
+                            </div>
+                          )}
 
-                      <div className="mt-auto flex flex-col gap-8">
-                        <div className="flex items-center justify-center gap-1">
-                          <span className="self-start dark:text-white text-gray-600">
-                            ₹
-                          </span>
-                          <span className="text-2xl md:text-xl dark:text-white font-bold text-gray-800">
-                            {p.price}
-                          </span>
-                          <span className="text-gray-500 dark:text-white text-xs md:text-sm">
-                            /{p.name !== "premium" ? p.duration : "Unlimited"}
-                          </span>
-                        </div>
-
-                        <button
+                          {/* <button
                           onClick={() => {
                             if (localStorage.getItem("access_token"))
                               navigate(
@@ -312,9 +327,23 @@ const CourseDetailsPage = ({showForm, setShowForm} ) => {
                           } px-8 py-3 mt-4 text-center text-sm md:text-base font-semibold text-gray-200 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 hover:text-gray-500 focus-visible:ring active:text-gray-700`}
                         >
                           Enroll Now
-                        </button>
+                        </button> */}
+                          {p.name === "plus" && (
+                            <button
+                              onClick={() => setShowForm(true)}
+                              className="relative inline-flex mx-auto w-fit bg-gradient-to-r from-amber-500 to-red-600 px-6 md:px-8 lg:px-12 py-2 md:py-3 text-xs md:text-sm overflow-hidden text-white font-medium border border-orange-400 rounded-lg hover:text-orange-500 group"
+                            >
+                              <span className="absolute left-0 block w-full h-0 transition-all bg-white opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease-in-out"></span>
+                              <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
+                                <IoIosArrowRoundForward size={30} />
+                              </span>
+                              <span className="relative text-nowrap">
+                                Enroll Now
+                              </span>
+                            </button>
+                          )}
+                        </div>
                       </div>
-                    </div>
                     </div>
                   </>
                 );
@@ -331,7 +360,12 @@ const CourseDetailsPage = ({showForm, setShowForm} ) => {
       {/* Related Courses */}
       {courseData?.related_courses && (
         <div className="my-8 px-4 lg:px-8 xl:px-24 w-full h-full relative">
-          <h2 className="text-3xl font-semibold text-center">Related <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">Courses</span></h2>
+          <h2 className="text-3xl font-semibold text-center">
+            Related{" "}
+            <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
+              Courses
+            </span>
+          </h2>
           <Swiper
             modules={[Navigation]}
             spaceBetween={0} // Adjust the space between cards
@@ -363,31 +397,38 @@ const CourseDetailsPage = ({showForm, setShowForm} ) => {
             }}
           >
             {courseData?.related_courses.map((o, i) => {
-              return <SwiperSlide key={i}>
-                <div className="h-80 overflow-hidden dark:bg-indigo-900 dark:border shadow-md rounded-xl m-2">
-                  <div className="relative h-[50%]">
-                    <img
-                      src={o.thumbnail_image}
-                      alt={o.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute top-3 left-4 flex">
-
-                      <span className="text-xs mr-3 bg-gradient-to-r from-orange-600 to-amber-500 text-white rounded-lg px-3 py-1">
-                        Premium
-                      </span>
-                      <span className="bg-slate-200 text-gray-800 rounded-lg text-xs px-3 py-1">
-                        Plus
-                      </span>
+              return (
+                <SwiperSlide key={i}>
+                  <div className="h-80 overflow-hidden dark:bg-indigo-900 dark:border shadow-md rounded-xl m-2">
+                    <div className="relative h-[50%]">
+                      <img
+                        src={o.thumbnail_image}
+                        alt={o.title}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute top-3 left-4 flex">
+                        <span className="text-xs mr-3 bg-gradient-to-r from-orange-600 to-amber-500 text-white rounded-lg px-3 py-1">
+                          Premium
+                        </span>
+                        <span className="bg-slate-200 text-gray-800 rounded-lg text-xs px-3 py-1">
+                          Plus
+                        </span>
+                      </div>
+                    </div>
+                    <div className="h-fit flex flex-col justify-between px-4">
+                      <Link
+                        to={`/courseData/${o?.slug}/${o?.id}`}
+                        className="text-lg font-semibold my-2"
+                      >
+                        {o.title}{" "}
+                      </Link>
+                      <p className="text-sm pr-3 text-slate-600">
+                        {o.description.slice(0, 60) + "..."}
+                      </p>
                     </div>
                   </div>
-                  <div className="h-fit flex flex-col justify-between px-4">
-                    <Link to={`/courseData/${o?.slug}/${o?.id}`} className="text-lg font-semibold my-2">{o.title} </Link>
-                    <p className="text-sm pr-3 text-slate-600">{o.description.slice(0, 60) + "..."}</p>
-
-                  </div>
-                </div>
-              </SwiperSlide>
+                </SwiperSlide>
+              );
             })}
           </Swiper>
           <div className="absolute top-[60%] left-14 transform z-10">
@@ -400,7 +441,7 @@ const CourseDetailsPage = ({showForm, setShowForm} ) => {
       )}
 
       <ToastContainer />
-    </div >
+    </div>
   );
 };
 

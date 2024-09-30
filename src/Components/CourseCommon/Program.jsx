@@ -59,12 +59,12 @@ const Program = ({ title, data }) => {
   }, []);
 
   return (
-    <div className="p-5 mx-auto lg:w-11/12 mt-10 sm:px-4 xs:px-4" id="courses">
+    <div className="p-5 mx-auto lg:w-11/12" id="courses">
       <h1
         ref={titleRef}
-        className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4"
+        className="text-xl sm:text-2xl md:text-3xl font-semibold"
       >
-        {title} Programs
+        {title}
       </h1>
       <div className="">
         <Swiper
@@ -82,7 +82,7 @@ const Program = ({ title, data }) => {
           }}
           onSlideChange={() => console.log("Slide changed")}
           onSwiper={(swiper) => console.log("Swiper initialized")}
-          className="md:h-[350px] w-full py-4 m-auto flex flex-col justify-center items-center gap-4"
+          className="  w-full py-4 flex flex-col justify-center items-center"
         >
           {data?.map((course, index) =>(
             <SwiperSlide key={index}>

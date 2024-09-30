@@ -7,6 +7,7 @@ import { swiperData } from "../../Components/OurTeam Components/teamData";
 import { FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import {
   Autoplay,
   Pagination,
@@ -65,29 +66,30 @@ const TeamComponent = () => {
             768: { slidesPerView: 3 },
             1024: { slidesPerView: 4 },
           }}
-          onSlideChange={() => console.log("Slide changed")}
-          onSwiper={(swiper) => console.log("Swiper initialized")}
+          // onSlideChange={() => console.log("Slide changed")}
+          // onSwiper={(swiper) => console.log("Swiper initialized")}
           className="md:h-[350px] w-full md:w-[90%] m-auto flex flex-col justify-center items-center gap-4"
         >
           {data?.map((el, index) => (
             <SwiperSlide
               key={el.id}
               ref={(el) => (cardsRef.current[index] = el)} // Assigning ref to each card
-              className="group rounded-xl flip-card w-96 h-72 overflow-hidden"
+              className="group rounded-xl border shadow-md flip-card w-96 h-72 overflow-hidden"
             >
               <div className="flip-card-inner">
                 {/* Front Side (Image) */}
-                <div className="flip-card-front">
+                <div className="flip-card-front ">
                   <img
                     className="h-full w-full rounded-md object-cover"
-                    src={el.image}
+                    src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsoEAMYKHiwI5JH_IlxayW3-9UurHlASFy9A&s"}
                     alt={el.name}
                   />
+                  
                 </div>
 
                 {/* Back Side (Details) */}
                 <div className="flip-card-back bg-black/90 text-white rounded-md flex flex-col justify-center items-center">
-                  <h3 className="text-center font-sans font-bold text-xl text-indigo-500">
+                  <h3 className="text-center font-sans font-bold text-xl bg-gradient-to-r bg-clip-text text-transparent from-pink-500 via-amber-500 to-violet-400">
                     {el.name}
                   </h3>
                   <p className="text-center italic text-sm">({el.role})</p>
@@ -96,7 +98,7 @@ const TeamComponent = () => {
                     <FaXTwitter className="" />
                   </div>
                   <p className="text-xs text-center px-4">
-                    {el.desc}
+                    {/* {el.desc} */} ...
                   </p>
                 </div>
               </div>

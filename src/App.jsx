@@ -100,7 +100,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
 
           {/* Courses */}
-          <Route path="/course/:name/:id" element={<CourseDetailsPage />} />
+          <Route path="/course/:name/:id" element={<CourseDetailsPage  showForm={showForm} setShowForm={setShowForm} />} />
 
           {/* Blog */}
           <Route path="/Blog_detail/:id" element={<Blog_detail />} />
