@@ -25,7 +25,7 @@ const ContactForm = () => {
     e.preventDefault();
 
     setLoading(true);
-    console.log("before submit:", formData);
+    // console.log("before submit:", formData);
     try {
       const data1 = {
         first_name: formData.first_name,
@@ -44,8 +44,8 @@ const ContactForm = () => {
         `${apiUrl}/api/contact-gcep/`,
         data1
       );
-      console.log("GCEP form: ", data);
-      // if (data.status === "success") setShowPopup(true);
+      // console.log("GCEP form: ", data);
+      if (data.status === "success") setShowPopup(true);
       // else toast.error("An error occurred");
       setLoading(false);
       setFormData({
@@ -73,7 +73,7 @@ const ContactForm = () => {
         contact_type: "",
         message: "",
       });
-      console.log(e.stack);
+      // console.log(e.stack);
     }
   };
   return (
