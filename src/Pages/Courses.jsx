@@ -33,7 +33,6 @@ import introImg from "./../assets/Blogs/b10.png";
 import BrandMarquee from "../Components/Marquee/BrandMarquee";
 import { IoIosArrowRoundForward } from "react-icons/io";
 
-
 const Courses = () => {
   document.title = "Baoiam Innovations | Courses";
   const [data, setData] = useState(swiperData);
@@ -77,13 +76,16 @@ const Courses = () => {
                 <Typewriter
                   options={{
                     strings: [
-                      "Art and craft (DIY) ",
-                      "Life skills",
-                      "Creative writing",
-                      "Finance education",
-                      "Photography & editing skills",
+                      "Data Science & Analytics",
+                      "Digital Marketing & SEO",
                       "Entrepreneurship & Innovation",
-                      "Social media & digital marketing",
+                      "Artificial Intelligence & Machine Learning",
+                      "UI/UX Design & Product Management",
+                      "Finance & Investment Strategies",
+                      "Critical Thinking & Problem Solving",
+                      "Leadership & Teamwork",
+                      "Communication & Public Speaking",
+                      "Emotional Intelligence",
                     ],
                     autoStart: true,
                     loop: true,
@@ -284,11 +286,12 @@ const Courses = () => {
         <div className=" relative z-50 h-full max-w-4xl mx-auto flex flex-col justify-center items-center text-center px-6 py-12">
           <div className="max-w-3xl mx-auto text-center">
             <h3 className="text-white lg:text-5xl md:text-3xl text-2xl font-bold">
-            Ready to elevate your skills and advance your career?
-            
+              Ready to elevate your skills and advance your career?
             </h3>
             <p className="text-gray-300 text-lg px-10 mt-4">
-            Take the Next Step in Your Career Journey! Enroll in our courses and Become <span className=" text-yellow-500 font-semibold">
+              Take the Next Step in Your Career Journey! Enroll in our courses
+              and Become{" "}
+              <span className=" text-yellow-500 font-semibold">
                 {" "}
                 One In A Million
               </span>

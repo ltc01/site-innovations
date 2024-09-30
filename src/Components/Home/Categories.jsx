@@ -17,7 +17,6 @@ const Categories = () => {
     "Time Management",
     "Adaptability & Flexibility",
     "Creative Writing & Content Creation",
-    
     "Project Management",
     "Strategic Thinking & Planning",
   ];
