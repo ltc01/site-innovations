@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import ProfileComp from "../Components/Profile/ProfileComp";
 import Logo from "../Components/Home/Logo";
 import { LogoDark } from "../assets/assets";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { setProfile1 } from "../Redux/user/userSlice";
+import { setProfile1, deleteUserData1 } from "../Redux/user/userSlice";
 import { Link, useNavigate } from "react-router-dom";
 import Courses from "../Components/StudentDasboard/Courses";
 import Achievements from "../Components/StudentDasboard/Achievements";
@@ -14,9 +14,11 @@ import { FaGraduationCap, FaTrophy, FaUser } from "react-icons/fa6";
 import { RiSecurePaymentFill } from "react-icons/ri";
 import { FaCog, FaHome, FaSignOutAlt } from "react-icons/fa";
 import axiosInstance from "../axiosInstance";
+import { logout } from "../Redux/auth/authSlice";
 const apiUrl = import.meta.env.VITE_API_URL;
-
+console.log('profile loaded')
 const Profile = () => {
+  document.title = "Baoiam Innovations | User Dashboard";
   const sideBarLink = [
     { id: 1, name: "Profile", tab: "profile", icon: <FaUser /> },
     { id: 2, name: "Courses", tab: "courses", icon: <FaGraduationCap /> },
@@ -29,6 +31,7 @@ const Profile = () => {
   const [userInfo, setUserInfo] = useState({});
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const authData = useSelector((state) => state.auth);
   const getUserDetails = async () => {
     try {
       // Use axiosInstance, no need to set Authorization manually
@@ -51,7 +54,7 @@ const Profile = () => {
   };
   useEffect(() => {
     window.scrollTo(0, 0);
-    if (localStorage.getItem("access_token")) {
+    if (authData && authData.isLoggedIn) {
       getUserDetails();
       console.log(userInfo);
       localStorage.setItem("userInfo", JSON.stringify(userInfo));
@@ -61,10 +64,21 @@ const Profile = () => {
   }, []);
 
   const handleLogoutClick = () => {
+    alert("hmmmm");
+    console.log("Logout clicked"); // Debugging log
+
     // Perform any logout logic here (e.g., clearing authentication tokens)
-    localStorage.removeItem("access_token");
+    localStorage.removeItem("refresh_token");
     localStorage.removeItem("userInfo");
+    localStorage.removeItem("profileImage");
+    // Dispatch logout action from Redux
+    dispatch(logout()); // This updates both Redux state and localStorage
+
+    // Check if logout was successful
+    console.log("After logout:", localStorage.getItem("login"));
+
     navigate("/login", { replace: true });
+    dispatch(deleteUserData1());
   };
 
   if (
@@ -85,7 +99,19 @@ const Profile = () => {
 
           <ul className="mt-4 lg:mt-12 pl-4">
             {sideBarLink.map((l, i) => {
-              return <li onClick={() => setActiveTab(l.tab)} key={i} className={`flex items-center gap-2 py-3 px-4 my-2 rounded-l-xl cursor-pointer ${activeTab === l.tab ? 'text-black bg-blue-100' : 'text-white hover:bg-blue-50/40 hover:text-black'}`}>{l.icon} <span className='hidden lg:block'>{l.name}</span></li>
+              return (
+                <li
+                  onClick={() => setActiveTab(l.tab)}
+                  key={i}
+                  className={`flex items-center gap-2 py-3 px-4 my-2 rounded-l-xl cursor-pointer ${
+                    activeTab === l.tab
+                      ? "text-black bg-blue-100"
+                      : "text-white hover:bg-blue-50/40 hover:text-black"
+                  }`}
+                >
+                  {l.icon} <span className="hidden lg:block">{l.name}</span>
+                </li>
+              );
             })}
             <li
               onClick={handleLogoutClick}

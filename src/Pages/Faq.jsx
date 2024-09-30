@@ -172,7 +172,7 @@ const FaqItem = ({ question, answer }) => {
 
 
 const Faq = () => {
-
+  document.title = "Baoiam Innovations | Faqs";
   useEffect(() => {
     gsap.fromTo('.en12',{opacity:0,y:30},{
       opacity:1,

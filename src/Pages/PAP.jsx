@@ -47,7 +47,7 @@ import { Link } from "react-router-dom";
 import gsap from "gsap";
 
 const PAP = () => {
-  document.title = "Baoiam - PAP";
+  document.title = "Baoiam Innovations | Pay After Placement";
   const slides = [
     {
       imgSrc: Prasun,

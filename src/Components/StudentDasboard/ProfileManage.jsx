@@ -3,6 +3,7 @@ import axios from "axios";
 import { FaCheckCircle } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { setProfile1 } from "../../Redux/user/userSlice.js";
+import axiosInstance from "../../axiosInstance.js";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -135,12 +136,7 @@ const ProfileManage = () => {
 
         console.log("Other Info Data:", transformedData);
 
-        await axios.put(`${apiUrl}/api/profile/`, transformedData, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `JWT ${localStorage.getItem("access_token")}`,
-          },
-        });
+        await axiosInstance.put(`${apiUrl}/api/profile/`, transformedData);
 
         // dispatching updated data to Redux
         dispatch(setProfile1({ ...userInfo, ...transformedData }));

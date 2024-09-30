@@ -10,7 +10,7 @@ import BrandMarquee from "../Components/Marquee/BrandMarquee";
 import gsap from "gsap";
 
 const GCEP = ({dark}) => {
-  document.title = 'Baoiam - GCEP'
+  document.title = "Baoiam Innovations | Global Collabo Education Partnership";
   useEffect(() => {
     window.scrollTo(0, 0);
     return () => {};

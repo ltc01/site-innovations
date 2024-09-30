@@ -17,6 +17,7 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const ContactUs = () => {
+  document.title = "Baoiam Innovations | Contact us";
   const [loading, setLoading] = useState(false);
   const [animatePing, setAnimatePing] = useState(false);
 
@@ -35,51 +36,59 @@ const ContactUs = () => {
     Email: "",
     Phone: "",
     CountryCode: "+91",
-    Course: "",
-    Consent: false,
+    inquiryType: "",
+    message: "",
   });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    // Prepare the data to be sent in the POST request
-    console.log("formData: ", formData.Name);
-    const data = {
-      Name: formData.Name,
-      Email: formData.Email,
-      Phone: formData.Phone,
-      CountryCode: formData.CountryCode,
-      Course: formData.Course,
-      Consent: formData.Consent,
-    };
+    const nameParts = formData.Name.trim().split(" ");
 
-    console.log("Form Data:", data);
+    if (nameParts.length < 2 || nameParts[0] === "" || nameParts[1] === "") {
+      toast.error("Please enter your full name");
+    } else {
+      setLoading(true);
+      // Prepare the data to be sent in the POST request
+      console.log("formData: ", formData);
+      const data = {
+        fullName: formData.Name,
+        email: formData.Email,
+        countryCode: formData.CountryCode,
+        phone: formData.Phone,
+        inquiryType: formData.inquiryType,
+        message: formData.message,
+        newsletter: false,
+      };
 
-    try {
-      const response = await axios.post(
-        "https://script.google.com/macros/s/AKfycbyrM_x9q5m5qMwJ814X2g9rdKYWGne8bmZ5nzIZ0xY0ppGnzTOl5jsUGKlALnPgnEEI/exec",
-        data,
-        {
-          headers: { "Content-Type": "multipart/form-data" },
-        }
-      );
+      console.log("Form Data:", data);
 
-      console.log("Form successfully submitted:", response.data);
-      // toast.success("Form submitted successfully");
-      setShowPopup(true);
-      setLoading(false);
-      setFormData({
-        Name: "",
-        Email: "",
-        Phone: "",
-        CountryCode: "+91",
-        Course: "",
-        Consent: false,
-      });
-    } catch (error) {
-      setLoading(false);
-      toast.error("An error occurred");
-      console.error("Error submitting form", error);
+      try {
+        const response = await axios.post(
+          "https://proxy-server-baoiam.vercel.app/contact-form ",
+          // "http://localhost:3000/contact-form",
+          data
+        );
+        if (response.status == 200) {
+          console.log("Form successfully submitted:", response.data);
+          // toast.success("Form submitted successfully");
+          setShowPopup(true);
+          // alert(response.status);
+        } else toast.error("An error occurred");
+        setLoading(false);
+
+        setFormData({
+          Name: "",
+          Email: "",
+          Phone: "",
+          CountryCode: "+91",
+          inquiryType: "",
+          message: "",
+        });
+      } catch (error) {
+        setLoading(false);
+        toast.error("An error occurred");
+        console.error("Error submitting form", error);
+      }
     }
   };
   const handleChange = (e) => {
@@ -152,7 +161,7 @@ const ContactUs = () => {
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-6 lg:gap-10 justify-center">
           <div className="lg:w-2/4 xl:w-2/5 dark:text-white p-4 md:p-6 lg:p-8 rounded-lg border lg:py-6  ">
             <h2 className="text-xl md:text-3xl lg:text-3xl text-center font-bold md:mb-8 mb-4">
-            Contact Us
+              Contact Us
             </h2>
             <form
               id="form1"
@@ -249,18 +258,24 @@ const ContactUs = () => {
               {/* Inquiry Type */}
               <div className="relative inline-block w-full">
                 <select
-                  id="courses"
-                  name="Course"
+                  id="inquiryType"
+                  name="inquiryType"
                   className="border px-3 py-2 pr-10 dark:bg-slate-800 rounded focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer text-sm"
                   required
-                  value={formData.Course}
+                  value={formData.inquiryType}
                   onChange={handleChange}
                 >
-                  <option value="" className="bg-gray-300">Select Inquiry Type</option>
+                  <option value="" className="bg-gray-300">
+                    Select Inquiry Type
+                  </option>
                   <option value="General Inquiry">General Inquiry</option>
                   <option value="Technical Support">Technical Support</option>
-                  <option value="Course-Related Query">Course-Related Query</option>
-                  <option value="Partnership Opportunities">Partnership Opportunities</option>
+                  <option value="Course-Related Query">
+                    Course-Related Query
+                  </option>
+                  <option value="Partnership Opportunities">
+                    Partnership Opportunities
+                  </option>
                   <option value="Others">Others</option>
                 </select>
                 <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
@@ -270,12 +285,18 @@ const ContactUs = () => {
 
               {/* message box */}
               <div>
-                <label htmlFor="message" className="block text-gray-700 dark:text-slate-300 mb-2 text-sm">Message</label>
+                <label
+                  htmlFor="message"
+                  className="block text-gray-700 dark:text-slate-300 mb-2 text-sm"
+                >
+                  Message
+                </label>
                 <textarea
                   id="message"
                   onChange={handleChange}
-                  name="Message"
+                  name="message"
                   rows="4"
+                  value={formData.message}
                   className="w-full p-3 border border-gray-300 rounded-md"
                   placeholder="Your message here..."
                 ></textarea>

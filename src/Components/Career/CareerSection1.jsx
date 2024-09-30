@@ -11,6 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 export const CareerSection1 = () => {
   const textRef = useRef(null);
   const imageRef = useRef(null);
+  const navigate = useNavigate();
   
   useEffect(() => {
     // Animation for the text

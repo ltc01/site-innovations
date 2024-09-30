@@ -153,7 +153,7 @@ const authors_info = [
 ];
 
 const Blog = () => {
-  document.title = "Baoiam - Blogs";
+  document.title = "Baoiam Innovations | Blogs";
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState(blog_list);
 
