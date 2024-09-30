@@ -6,6 +6,8 @@ import { CourseDesc2, CourseOverview } from "../assets/assets";
 import CourseHighlights from "../Components/CourseDetails/CourseHighlights";
 import Loader from "../Components/Loader";
 import Brochure from "../Brochure.txt";
+import { IoIosArrowRoundForward } from "react-icons/io";
+
 import {
   CollegeCourseData,
   Highlights,
@@ -27,11 +29,12 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation } from "swiper/modules";
 const apiUrl = import.meta.env.VITE_API_URL;
+import { toggleEnrollForm } from "../Redux/slices/enrollFormSlice";
 
-const CourseDetailsPage = ({showForm, setShowForm} ) => {
+const CourseDetailsPage = () => {
   const { id } = useParams();
   const [courseDetails, setCourseDetails] = useState({});
-  const [showTab, setShowTab] = useState("premium");
+  const [showTab, setShowTab] = useState("plus");
   const [otherCourses, setOtherCourses] = useState();
   const [fixed, setFixed] = useState(false);
   const [coursePlusContent, setCoursePlusContent] = useState([
@@ -43,90 +46,30 @@ const CourseDetailsPage = ({showForm, setShowForm} ) => {
     "Mentor Feedback",
     "Regular Quizzes & Assessment",
   ]);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
-  const EnrollNow = ({ showForm, setShowForm }) => {
-    const [animatePing, setAnimatePing] = useState(false);
+  // const EnrollNow = ({ showForm, setShowForm }) => {
+  //   const [animatePing, setAnimatePing] = useState(false);
 
-    // Function to toggle the popup
-    const togglePopup = () => {
-      console.log(showForm);
-      setShowForm(true);
-      setAnimatePing(true);
+  //   // Function to toggle the popup
+  //   const togglePopup = () => {
+  //     console.log(showForm);
+  //     setShowForm(true);
+  //     setAnimatePing(true);
 
-      // Remove ping animation after a short duration
-      setTimeout(() => {
-        setAnimatePing(false);
-      }, 1000); // Adjust duration as needed
-    };
-  };
+  //     // Remove ping animation after a short duration
+  //     setTimeout(() => {
+  //       setAnimatePing(false);
+  //     }, 1000); // Adjust duration as needed
+  //   };
+  // }
 
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   const getCourseDetails = async () => {
-  //     // setCourseDetails(data[0]);
-  //     try {
-  //       setLoading(true);
-  //       const { data } = await axios.get(
-  //         `https://api.baoiam.com/api/courses?subcategory=${id}`
-  //       );
-  //       // console.log(data);
-  //       setCourseDetails(data[0]);
-  //       console.log(data[0], "live");
-  //       console.log(data, "all");
-
-  //       setLoading(false);
-  //     } catch (error) {
-  //       console.log(error.stack);
-  //       setLoading(true);
-  //     }
-  //   };
-  //   getCourseDetails()
-  // },[id])
-  // console.log("course details: ", courseDetails);
-  // document.title = `Baoiam - ${courseDetails.title}`;
-
-  // useEffect(() => {
-  //   if (id >= 1 && id <= 10) {
-  //     // setCoursePlusContent(schoolCoursePlusContent);
-  //     // console.log("school is : ", school[0].id);
-  //     const d = School.filter((data) => data.id == id);
-  //     console.log("d is:", d);
-  //     setCourseDetails(School[0].subCate.filter((data) => data.id == id)[0]);
-  //     console.log("course details:", courseDetails);
-  //   } else if (id >= 11 && id <= 22) {
-  //     // setCoursePlusContent(collegeCoursePlusContent);
-  //     setCourseDetails(
-  //       CollegeCourseData[0].subCate.filter((data) => data.id == id)[0]
-  //     );
-  //   } else {
-  //     // setCoursePlusContent(otherCoursePlusContent);
-  //     setCourseDetails(
-  //       OtherCourseData[0].subCate.filter((data) => data.id == id)[0]
-  //     );
-  //   }
-
-  //   return () => {};
-  // }, [id]);
-
-  // } else if (id >= 11 && id <= 22) {
-  //   // setCoursePlusContent(collegeCoursePlusContent);
-  //   setCourseDetails(
-  //     CollegeCourseData[0].subCate.filter((data) => data.id == id)[0]
-  //   );
-  // } else {
-  //   // setCoursePlusContent(otherCoursePlusContent);
-  //   setCourseDetails(
-  //     OtherCourseData[0].subCate.filter((data) => data.id == id)[0]
-  //   );
-  // }
 
   const planRef = useRef();
   const enrollNowScroll = () => {
     planRef.current?.scrollIntoView({ behavior: "smooth" });
   };
-
-  // console.log("id is:", id);
 
   // redux start
 
@@ -134,44 +77,34 @@ const CourseDetailsPage = ({showForm, setShowForm} ) => {
     (state) => state.courseDetails
   );
   const dispatch = useDispatch();
-  const course = courses[id]; // Retrieve the course from the store by its id
-
-  const fetchCourseCategory = async (CourseId) => {
-    const response = await axios.get(
-      `${apiUrl}/api/courses/?category=${CourseId}`
-    );
-    // return response.data;
-    // console.log(response.data, "fetchCourseCategory");
-    setOtherCourses(response.data);
-  };
+  const courseData = courses[id]; // Retrieve the courseData from the store by its id
 
   const otherCou = otherCourses?.filter(
-    (other) => other?.title !== course?.title
+    (other) => other?.title !== courseData?.title
   );
   console.log(otherCou, "Filtered");
 
   useEffect(() => {
-    // If the course is not in the store, fetch it
-    if (!course && status !== "loading") {
+    // If the courseData is not in the store, fetch it
+    if (!courseData && status !== "loading") {
       dispatch(fetchCourseDetails(id));
     }
-  }, [dispatch, id, course, status]);
-  const handleScroll = () => {
-    if (window.scrollY > 1200) {
-      setFixed(false);
-    } else if (window.scrollY > 500) {
-      setFixed(true);
-    } else {
-      setFixed(false);
-    }
-  };
-  fetchCourseCategory(course?.category);
+    const handleScroll = () => {
+      if (window.scrollY > 1200) {
+        setFixed(false);
+      } else if (window.scrollY > 500) {
+        setFixed(true);
+      } else {
+        setFixed(false);
+      }
+    };
+    // fetchCourseCategory(courseData?.category);
 
-  window.addEventListener("scroll", handleScroll);
-
-  console.log(course, " course action");
+    window.addEventListener("scroll", handleScroll);
+  }, [dispatch, id, courseData, status]);
+  console.log(courseData, " courseData action");
   // console.log(courses, ' courses dkdkdkdk action')
-  if (status === "loading" && !course) {
+  if (status === "loading" && !courseData) {
     return (
       <div className="flex justify-center items-center h-screen">
         <BeatLoader color="#4F46E5" loading={true} size={15} />
@@ -225,20 +158,18 @@ const CourseDetailsPage = ({showForm, setShowForm} ) => {
   };
 
   return (
-    <div>
+    <div className="mx-auto w-full">
       {/* Hero Section */}
       <CourseHero
-      showForm={showForm} setShowForm={setShowForm}
-        course={course}
+        course={courseData?.course}
         downloadBrochure={downloadBrochure}
-        enrollNowScroll={enrollNowScroll}
       />
 
-      {/* Course Details */}
-      <div className="flex flex-col w-full lg:gap-11 p-5 md:flex-row ">
-        <div className="md:w-[60%] w-full space-y-4 ">
+      {/* courseData Details */}
+      <div className="flex flex-col gap-4 md:flex-row mx-auto justify-center w-[90%]">
+        <div className="md:w-[68%] items-start pr-10 py-10 flex flex-col space-y-14">
           {/* Course Details */}
-          <div className="w-full md:w-[95%] p-8 shadow-md dark:shadow-slate-100 rounded-xl">
+          <div className="p-8 shadow-md border dark:shadow-slate-100 rounded-xl">
             <h2 className="text-xl lg:text-2xl font-semibold">
               Course{" "}
               <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
@@ -247,12 +178,12 @@ const CourseDetailsPage = ({showForm, setShowForm} ) => {
             </h2>
             <hr className="my-2" />
             <p className="text-sm leading-snug lg:text-[1rem] text-left">
-              {course?.description}
+              {courseData?.course?.description}
             </p>
           </div>
 
           {/* Course Overview */}
-          <div className="w-full  md:w-[95%] p-8 shadow-md dark:shadow-slate-100 rounded-xl">
+          <div className=" p-8 shadow-md border dark:shadow-slate-100 rounded-xl">
             <h2 className="text-xl lg:text-2xl font-semibold">
               Course{" "}
               <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
@@ -261,12 +192,12 @@ const CourseDetailsPage = ({showForm, setShowForm} ) => {
             </h2>
             <hr className="my-2" />
             <p className="text-sm leading-snug lg:text-[1rem] text-left">
-              {course?.program_overview}
+              {courseData?.course?.program_overview}
             </p>
           </div>
 
           {/* Course Curriculum */}
-          <div className="w-full md:w-[95%] p-8 shadow-md dark:shadow-slate-100 rounded-xl">
+          <div className="p-8 shadow-md border dark:shadow-slate-100 rounded-xl">
             <h2 className="text-xl lg:text-2xl font-semibold">
               Course{" "}
               <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
@@ -275,7 +206,7 @@ const CourseDetailsPage = ({showForm, setShowForm} ) => {
             </h2>
             <hr className="my-2" />
             <ul className="list-inside list-disc marker:text-orange-600 mt-4">
-              {course?.curriculum?.split(";").map((o, i) => (
+              {courseData?.course?.curriculum?.split(";").map((o, i) => (
                 <li
                   className="py-1 text-sm leading-snug lg:text-[1rem] text-left"
                   key={i}
@@ -288,22 +219,22 @@ const CourseDetailsPage = ({showForm, setShowForm} ) => {
         </div>
 
         {/* Plans Section */}
-        <div className="relative mx-auto w-[90%] md:w-[40%]">
+        <div className="relative top-7 mx-auto">
           {/* Plans Section */}
           <div
-            className={` mt-5 lg:w-80 md:w-72  ${
-              fixed ? "md:fixed md:top-16" : ""
+            className={` mt-5 ${
+              fixed ? "md:fixed md:top-20 right-[10%] absolute " : ""
             } bg-white dark:bg-black shadow-md rounded-xl p-4`}
           >
             <div className="flex items-center justify-center gap-8 mb-4">
-              {course?.plans?.map((p, i) => {
+              {courseData?.course?.plans?.map((p, i) => {
                 return (
                   <p
                     key={i}
                     onClick={() => setShowTab(p.name)}
-                    className={`capitalize text-lg md:text-xl cursor-pointer ${
+                    className={`capitalize font-bold text-lg md:text-xl cursor-pointer ${
                       showTab === p.name
-                        ? "text-orange-500 border rounded-md border-orange-500 px-3 py-1"
+                        ? "text-orange-500 underline rounded-md px-3 py-1"
                         : "text-gray-800 dark:text-white"
                     }`}
                   >
@@ -313,19 +244,19 @@ const CourseDetailsPage = ({showForm, setShowForm} ) => {
               })}
             </div>
 
-            {course?.plans?.map((p, i) => {
+            {courseData?.course?.plans?.map((p, i) => {
               if (p.name === showTab) {
                 return (
                   <>
                     <div
                       key={i}
-                      className={`flex flex-col w-full items-center justify-center rounded-lg border ${
-                        p.name === "premium"
+                      className={`flex flex-col mt-6  w-full items-center justify-center rounded-lg border ${
+                        p.name === "plus"
                           ? "border-orange-500"
                           : "border-stone-500 dark:border-white"
-                      } relative p-4 pt-6`}
+                      } relative py-5 text-nowrap`}
                     >
-                      {p.name === "premium" && (
+                      {p.name != "premium" && (
                         <div className="absolute inset-x-0 -top-3 mb-4 flex justify-center">
                           <span className="flex h-6 items-center justify-center rounded-full bg-orange-500 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-white">
                             most popular
@@ -337,41 +268,47 @@ const CourseDetailsPage = ({showForm, setShowForm} ) => {
                         {p.name}
                       </div> */}
                       <div className="">
+                        <p className="mx-auto my-2 px-8 text-center text-lg md:text-base dark:text-white text-gray-500 font-medium">
+                          {courseData.title}
+                        </p>
 
-                      <p className="mx-auto mb-2 px-8 text-center text-lg md:text-base dark:text-white text-gray-500 font-medium">
-                        {course.title}
-                      </p>
+                        <p className="text-sm md:text-base mx-auto mb-2 px-8 text-center dark:text-white text-gray-500 font-medium">
+                          {p.name === "plus"
+                            ? "Project Based Learning"
+                            : "Coming soon..."}
+                        </p>
+                        <p className="text-sm md:text-base mx-auto mb-2 px-8 text-center dark:text-white text-gray-500 font-medium">
+                          {p.name === "plus" ? " Personal Mentorship" : ""}
+                        </p>
+                        <p className="text-sm md:text-base mx-auto mb-2 px-8 text-center dark:text-white text-gray-500 font-medium">
+                          {p.name === "plus" ? " Experts Counseling" : ""}
+                        </p>
+                        <p className="text-sm md:text-base mx-auto mb-2 px-8 text-center dark:text-white text-gray-500 font-medium">
+                          {p.name === "plus" ? "Live Projects" : ""}
+                        </p>
+                        <p className="text-sm md:text-base  mx-auto mb-2 px-8 text-center dark:text-white text-gray-500 font-medium">
+                          {p.name === "plus" ? " Dedicated Placement Cell" : ""}
+                        </p>
 
-                      <p className="text-sm md:text-base mx-auto mb-2 px-8 text-center dark:text-white text-gray-500 font-medium">
-                        All Contents of Plus
-                      </p>
-                      <p className="text-sm md:text-base mx-auto mb-2 px-8 text-center dark:text-white text-gray-500 font-medium">
-                        Personal Mentorship
-                      </p>
-                      <p className="text-sm md:text-base mx-auto mb-2 px-8 text-center dark:text-white text-gray-500 font-medium">
-                        Experts Counseling
-                      </p>
-                      <p className="text-sm md:text-base mx-auto mb-2 px-8 text-center dark:text-white text-gray-500 font-medium">
-                        Live Projects
-                      </p>
-                      <p className="text-sm md:text-base  mx-auto mb-2 px-8 text-center dark:text-white text-gray-500 font-medium">
-                        Dedicated Placement Cell
-                      </p>
+                        <div className="mt-7 mx-auto flex flex-col gap-5">
+                          {p.name === "plus" && (
+                            <div className="flex items-center justify-center gap-1">
+                              <span className="self-start dark:text-white text-gray-600">
+                                ₹
+                              </span>
+                              <span className="text-2xl md:text-xl dark:text-white font-bold text-gray-800">
+                                {p.price}
+                              </span>
+                              <span className="text-gray-500 dark:text-white text-xs md:text-sm">
+                                /
+                                {p.name !== "premium"
+                                  ? '12 months'
+                                  : "Unlimited"}
+                              </span>
+                            </div>
+                          )}
 
-                      <div className="mt-auto flex flex-col gap-8">
-                        <div className="flex items-center justify-center gap-1">
-                          <span className="self-start dark:text-white text-gray-600">
-                            ₹
-                          </span>
-                          <span className="text-2xl md:text-xl dark:text-white font-bold text-gray-800">
-                            {p.price}
-                          </span>
-                          <span className="text-gray-500 dark:text-white text-xs md:text-sm">
-                            /{p.name !== "premium" ? p.duration : "Unlimited"}
-                          </span>
-                        </div>
-
-                        <button
+                          {/* <button
                           onClick={() => {
                             if (localStorage.getItem("access_token"))
                               navigate(
@@ -388,9 +325,23 @@ const CourseDetailsPage = ({showForm, setShowForm} ) => {
                           } px-8 py-3 mt-4 text-center text-sm md:text-base font-semibold text-gray-200 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 hover:text-gray-500 focus-visible:ring active:text-gray-700`}
                         >
                           Enroll Now
-                        </button>
+                        </button> */}
+                          {p.name === "plus" && (
+                            <button
+                              onClick={() => dispatch(toggleEnrollForm())}
+                              className="relative inline-flex mx-auto w-fit bg-gradient-to-r from-amber-500 to-red-600 px-6 md:px-8 lg:px-12 py-2 md:py-3 text-xs md:text-sm overflow-hidden text-white font-medium border border-orange-400 rounded-lg hover:text-orange-500 group"
+                            >
+                              <span className="absolute left-0 block w-full h-0 transition-all bg-white opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease-in-out"></span>
+                              <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
+                                <IoIosArrowRoundForward size={30} />
+                              </span>
+                              <span className="relative text-nowrap">
+                                Enroll Now
+                              </span>
+                            </button>
+                          )}
+                        </div>
                       </div>
-                    </div>
                     </div>
                   </>
                 );
@@ -405,7 +356,7 @@ const CourseDetailsPage = ({showForm, setShowForm} ) => {
       {/* <Testimonials /> */}
 
       {/* Related Courses */}
-      {otherCou && (
+      {courseData?.related_courses && (
         <div className="my-8 px-4 lg:px-8 xl:px-24 w-full h-full relative">
           <h2 className="text-3xl font-semibold text-center">
             Related{" "}
@@ -443,7 +394,7 @@ const CourseDetailsPage = ({showForm, setShowForm} ) => {
               },
             }}
           >
-            {otherCou.map((o, i) => {
+            {courseData?.related_courses.map((o, i) => {
               return (
                 <SwiperSlide key={i}>
                   <div className="h-80 overflow-hidden dark:bg-indigo-900 dark:border shadow-md rounded-xl m-2">
@@ -464,7 +415,7 @@ const CourseDetailsPage = ({showForm, setShowForm} ) => {
                     </div>
                     <div className="h-fit flex flex-col justify-between px-4">
                       <Link
-                        to={`/course/${o?.slug}/${o?.id}`}
+                        to={`/courseData/${o?.slug}/${o?.id}`}
                         className="text-lg font-semibold my-2"
                       >
                         {o.title}{" "}

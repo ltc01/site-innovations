@@ -14,10 +14,11 @@ export const fetchEnrolledCourses = createAsyncThunk(
 );
 
 // Async thunk to fetch program list of courses ->
-export const fetchProgramCourses = createAsyncThunk(
-  "courses/fetchProgramCourses",
+export const fetchFeaturedCourses = createAsyncThunk(
+  'courses/fetchFeaturedCourses', 
   async () => {
-    const response = await axios.get(`${apiUrl}/api/courses/?category=1`);
+    const response = await axios.get(`${apiUrl}/api/courses/featured/`); 
+    // console.log(response.data, 'featured courses')
     return response.data;
   }
 );
@@ -27,7 +28,7 @@ export const fetchAllCourses = createAsyncThunk(
   "courses/fetchAllCourses",
   async () => {
     const response = await axios.get(`${apiUrl}/api/categories/`);
-    console.log(response, "response thunk");
+    // console.log(response, "response thunk");
     return response.data;
   }
 );
@@ -36,7 +37,7 @@ const coursesSlice = createSlice({
   name: "courses",
   initialState: {
     enrolledCourses: [],
-    programCourses: [],
+    featuredCourses: [],
     allCourses: [],
     status: "idle",
     error: null,
@@ -57,16 +58,16 @@ const coursesSlice = createSlice({
         state.error = action.error.message;
       });
 
-    // Handle fetchProgramCourses
-    builder
-      .addCase(fetchProgramCourses.pending, (state) => {
+      // Handle fetchFeaturedCourses
+      builder
+      .addCase(fetchFeaturedCourses.pending, (state) => {
         state.status = 'loading';
       })
-      .addCase(fetchProgramCourses.fulfilled, (state, action) => {
+      .addCase(fetchFeaturedCourses.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.programCourses = action.payload;
+        state.featuredCourses = action.payload;
       })
-      .addCase(fetchProgramCourses.rejected, (state, action) => {
+      .addCase(fetchFeaturedCourses.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
       });
