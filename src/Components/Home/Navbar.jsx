@@ -129,7 +129,7 @@ const Navbar = ({ theme}) => {
         ></div>
       )}
       <div
-        className={`flex z-[90] text-slate-600 dark:text-slate-200 md:h-24 items-center justify-between pt-5 sm:pt-0 lg:px-8 px-4 w-full fixed top-0 ${
+        className={`flex z-[90] text-slate-600 dark:text-slate-200 md:h-20 h-16 items-center justify-between px-4 md:px-10 w-full fixed top-0 ${
           isTransparent
             ? "bg-white dark:bg-black"
             : "bg-white/70 backdrop-blur dark:bg-black/30 "
@@ -141,7 +141,7 @@ const Navbar = ({ theme}) => {
 
         {/* NavLinks */}
         <div
-          className={`hidden lg:flex md:ml-2 items-center font-medium text-sm justify-between `}
+          className={`hidden lg:flex md:ml-2 lg:gap-2 font-semibold items-center text-sm justify-between `}
         > 
           <Link
             to={"/"}
@@ -216,7 +216,7 @@ const Navbar = ({ theme}) => {
         {/* Last */}
         <div>
           <div className="flex items-center gap-2 lg:gap-4 text-black dark:text-white">
-            <div className="flex items-center gap-3 xl:gap-10 ">
+            <div className="flex items-center gap-3 xl:gap-7 ">
               <SearchBox courses={courses} />
 
               <div ref={userhandleDropDownRef}>

@@ -30,13 +30,13 @@ const Hero = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-[#010203] dark:text-white flex flex-col-reverse md:flex-row px-8 lg:px-20 lg:-mt-16 items-center">
+    <div className="bg-white md:py-10 dark:bg-[#010203] dark:text-white flex flex-col-reverse md:flex-row px-8 lg:px-20 lg:-mt-16 items-center">
       {/* Left Side: Heading and Content */}
       <div
         ref={leftRef}
-        className="w-full flex mx-auto md:pr-4 md:pl-5 gap-y-1 pb-10 md:pb-0 flex-col lg:w-1/2 text-center md:text-left"
+        className="w-full flex mx-auto md:pl-5 gap-y-1 pb-10 md:pb-0 flex-col lg:w-1/2 text-center md:text-left"
       >
-        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold">
           Your{" "}
           <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
             Success,
@@ -45,7 +45,7 @@ const Hero = () => {
           Mission </span>
         </h1>
 
-        <p className="mt-5 text-slate-600 dark:text-slate-300">
+        <p className="mt-5 md:text-lg font-medium text-slate-700 dark:text-slate-300">
           We give you the opportunity to stand out among millions and shine in
           the crowd. With our advanced courses and expert guidance live this
           excellent journey.
@@ -60,7 +60,7 @@ const Hero = () => {
               <IoIosArrowRoundForward size={30} />
             </span>
             <span className="relative text-sm lg:text-base">
-              Discover Your Path
+              Explore now
             </span>
           </button>
         </div>
@@ -69,9 +69,9 @@ const Hero = () => {
       {/* Right Side: Slider */}
       <div
         ref={rightRef}
-        className="w-full flex justify-center lg:items-center h-72 md:h-full lg:w-1/2"
+        className="w-full flex md:p-7 justify-center lg:items-center h-72 md:h-full lg:w-1/2"
       >
-        <img className="object-cover" src={Herobg} alt="Right image" />
+        <img className="object-cover w-full h-full" src={Herobg} alt="Right image" />
       </div>
     </div>
   );
