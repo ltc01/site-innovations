@@ -16,7 +16,7 @@ import { FaCog, FaHome, FaSignOutAlt } from "react-icons/fa";
 import axiosInstance from "../axiosInstance";
 import { logout } from "../Redux/auth/authSlice";
 const apiUrl = import.meta.env.VITE_API_URL;
-console.log('profile loaded')
+console.log("profile loaded");
 const Profile = () => {
   document.title = "Baoiam Innovations | User Dashboard";
   const sideBarLink = [
@@ -64,9 +64,7 @@ const Profile = () => {
   }, []);
 
   const handleLogoutClick = () => {
-    alert("hmmmm");
     console.log("Logout clicked"); // Debugging log
-
     // Perform any logout logic here (e.g., clearing authentication tokens)
     localStorage.removeItem("refresh_token");
     localStorage.removeItem("userInfo");
