@@ -42,7 +42,7 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <div className="mb-12 mt-3 relative z-10">
+    <div className="pb-12 pt-3 relative z-10 dark:bg-black">
       <div className="text-center max-w-3xl mx-auto flex flex-col gap-2">
         <h2 className="font-extrabold dark:text-white text-2xl md:text-4xl xl:text-4xl lg:text-3xl sm:text-4xl text-black p-3 ">
           What Our{" "}
