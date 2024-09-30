@@ -1,5 +1,6 @@
 // src/axiosInstance.js
 import axios from "axios";
+
 const apiUrl = import.meta.env.VITE_API_URL;
 const axiosInstance = axios.create({
   baseURL: apiUrl,
@@ -34,20 +35,37 @@ axiosInstance.interceptors.response.use(
 
       if (refreshToken) {
         try {
-          const response = await axios.post("/api/auth/jwt/refresh", {
+          console.log("Attempting to refresh token...");
+
+          const response = await axiosInstance.post("/api/auth/jwt/refresh", {
             refresh: refreshToken,
           });
 
+          // Check if the response contains the access token
           const newAccessToken = response.data.access;
-          localStorage.setItem("access_token", newAccessToken);
-          localStorage.setItem("refresh_token", response.data.refresh);
-          originalRequest.headers["Authorization"] = `JWT ${newAccessToken}`;
+          if (newAccessToken) {
+            console.log("New access token obtained:", newAccessToken);
+            localStorage.setItem("access_token", newAccessToken);
+            originalRequest.headers["Authorization"] = `JWT ${newAccessToken}`;
+          } else {
+            console.error("No new access token received");
+          }
+
+          // Ensure refresh token exists in the response before saving it
+          if (response.data.refresh) {
+            console.log("New refresh token obtained:", response.data.refresh);
+            localStorage.setItem("refresh_token", response.data.refresh);
+          } else {
+            console.warn("No refresh token in response, keeping the old one");
+          }
 
           return axiosInstance(originalRequest);
         } catch (err) {
           console.error("Token refresh failed", err);
           // Handle token refresh failure (e.g., logout the user)
         }
+      } else {
+        console.warn("No refresh token found in localStorage");
       }
     }
 
