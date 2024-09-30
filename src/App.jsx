@@ -52,9 +52,12 @@ import AuthNavigator from "./Pages/auth/AuthNavigator";
 import { useSelector } from "react-redux";
 
 const App = () => {
+  const apiUrl = import.meta.env.VITE_API_URL;
+  console.log(apiUrl, 'api url vite checking test')
   const [dark, setDark] = useState(false);
   const {showForm} = useSelector(state=>state);
   const location = useLocation();
+
   const theme = () => {
     setDark((old) => !old);
     document.body.classList.toggle("dark");
