@@ -242,7 +242,7 @@ const dispatch=useDispatch();
 
               {/* Continue Button */}
               <button
-                onClick={() => setShowPopup(false)} // Manually close the popup
+                onClick={handleCloseForm} // Manually close the popup
                 className="bg-gradient-to-br from-purple-600 via-indigo-500 to-indigo-700 text-white px-6 py-2 rounded-full hover:bg-indigo-700 focus:outline-none transition-all text-sm md:text-base"
               >
                 Continue
