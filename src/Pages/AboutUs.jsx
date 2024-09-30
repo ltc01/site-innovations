@@ -249,157 +249,157 @@ const AboutUs = () => {
   //   );
   // }, []);
 
-  useEffect(() => {
-    gsap.fromTo(
-      ".heading",
-      {
-        opacity: 0,
-        y: 30,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power1.out",
-        stagger: 0.2,
-      }
-    );
+  // useEffect(() => {
+  //   gsap.fromTo(
+  //     ".heading",
+  //     {
+  //       opacity: 0,
+  //       y: 30,
+  //     },
+  //     {
+  //       opacity: 1,
+  //       y: 0,
+  //       duration: 1,
+  //       ease: "power1.out",
+  //       stagger: 0.2,
+  //     }
+  //   );
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".secdiv1",
-        start: "top 70%",
-        end: "bottom 90%",
-      },
-    });
+  //   const tl = gsap.timeline({
+  //     scrollTrigger: {
+  //       trigger: ".secdiv1",
+  //       start: "top 70%",
+  //       end: "bottom 90%",
+  //     },
+  //   });
 
-    tl.fromTo(
-      ".sec1h",
-      {
-        opacity: 0,
-        y: 30,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.5,
-        ease: "power1.out",
-      }
-    );
+  //   tl.fromTo(
+  //     ".sec1h",
+  //     {
+  //       opacity: 0,
+  //       y: 30,
+  //     },
+  //     {
+  //       opacity: 1,
+  //       y: 0,
+  //       duration: 0.5,
+  //       ease: "power1.out",
+  //     }
+  //   );
 
-    tl.fromTo(
-      ".sec1",
-      {
-        opacity: 0,
-        x: -20,
-      },
-      {
-        opacity: 1,
-        x: 0,
-        duration: 0.5,
-        ease: "power1.out",
-        stagger: 0.2,
-      }
-    );
+  //   tl.fromTo(
+  //     ".sec1",
+  //     {
+  //       opacity: 0,
+  //       x: -20,
+  //     },
+  //     {
+  //       opacity: 1,
+  //       x: 0,
+  //       duration: 0.5,
+  //       ease: "power1.out",
+  //       stagger: 0.2,
+  //     }
+  //   );
 
-    tl.fromTo(
-      ".sec1img",
-      {
-        opacity: 0,
-        y: -20,
-        x: -20,
-      },
-      {
-        opacity: 1,
-        x: 0,
-        y: 0,
-        duration: 0.6,
-        ease: "power1.out",
-      },
-      "-=0.7"
-    );
+  //   tl.fromTo(
+  //     ".sec1img",
+  //     {
+  //       opacity: 0,
+  //       y: -20,
+  //       x: -20,
+  //     },
+  //     {
+  //       opacity: 1,
+  //       x: 0,
+  //       y: 0,
+  //       duration: 0.6,
+  //       ease: "power1.out",
+  //     },
+  //     "-=0.7"
+  //   );
 
-    const te = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".secdiv2",
-        start: "top 70%",
-        end: "bottom 90%",
-      },
-    });
+  //   const te = gsap.timeline({
+  //     scrollTrigger: {
+  //       trigger: ".secdiv2",
+  //       start: "top 70%",
+  //       end: "bottom 90%",
+  //     },
+  //   });
 
-    te.fromTo(
-      ".sec2h",
-      {
-        opacity: 0,
-        y: 30,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.5,
-        ease: "power1.out",
-      }
-    );
+  //   te.fromTo(
+  //     ".sec2h",
+  //     {
+  //       opacity: 0,
+  //       y: 30,
+  //     },
+  //     {
+  //       opacity: 1,
+  //       y: 0,
+  //       duration: 0.5,
+  //       ease: "power1.out",
+  //     }
+  //   );
 
-    te.fromTo(
-      ".sec2",
-      {
-        opacity: 0,
-        x: -20,
-      },
-      {
-        opacity: 1,
-        x: 0,
-        duration: 0.5,
-        ease: "power1.out",
-        stagger: 0.2,
-      }
-    );
+  //   te.fromTo(
+  //     ".sec2",
+  //     {
+  //       opacity: 0,
+  //       x: -20,
+  //     },
+  //     {
+  //       opacity: 1,
+  //       x: 0,
+  //       duration: 0.5,
+  //       ease: "power1.out",
+  //       stagger: 0.2,
+  //     }
+  //   );
 
-    te.fromTo(
-      ".sec2img",
-      {
-        opacity: 0,
-        y: 20,
-        x: 20,
-      },
-      {
-        opacity: 1,
-        x: 0,
-        y: 0,
-        duration: 0.6,
-        ease: "power1.out",
-      },
-      "-=0.7"
-    );
+  //   te.fromTo(
+  //     ".sec2img",
+  //     {
+  //       opacity: 0,
+  //       y: 20,
+  //       x: 20,
+  //     },
+  //     {
+  //       opacity: 1,
+  //       x: 0,
+  //       y: 0,
+  //       duration: 0.6,
+  //       ease: "power1.out",
+  //     },
+  //     "-=0.7"
+  //   );
 
-    gsap.fromTo(
-      ".sec3",
-      {
-        opacity: 0,
-        y: 30,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power1.out",
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: ".secdiv3",
-          start: "top 70%",
-          end: "bottom 80%",
-        },
-      }
-    );
-  }, []);
+  //   gsap.fromTo(
+  //     ".sec3",
+  //     {
+  //       opacity: 0,
+  //       y: 30,
+  //     },
+  //     {
+  //       opacity: 1,
+  //       y: 0,
+  //       duration: 1,
+  //       ease: "power1.out",
+  //       stagger: 0.2,
+  //       scrollTrigger: {
+  //         trigger: ".secdiv3",
+  //         start: "top 70%",
+  //         end: "bottom 80%",
+  //       },
+  //     }
+  //   );
+  // }, []);
 
   return (
     <div>
       {/* Section - 1 */}
       <div className="flex mt-20 gap-8 lg:gap-0 justify-center flex-col-reverse lg:flex-row items-center mx-auto w-full ">
         <div className="relative w-full">
-          <div className="h-[400px] w-full image-container">
+          <div className="h-[450px] w-full image-container">
             <img
               className="w-full h-full opacity-90 object-cover"
               src={aboutus4}
@@ -412,18 +412,18 @@ const AboutUs = () => {
           >
             <div className="flex justify-center items-center flex-col h-full text-white">
               <p className="heading rounded-3xl mb-3 py-1 px-4 w-fit bg-gradient-to-r from-pink-500 text-center to-violet-600 z-10">
-                <span className="text-[0.55rem] md:text-sm font-medium">
+                <span className="text-[0.55rem] md:text-sm mb-2 font-medium">
                   Redefining education with advance edtech learning
                 </span>
               </p>
-              <h1 className="heading text-3xl md:px-28 font-extrabold mb-3 text-center lg:text-5xl">
+              <h1 className="heading text-3xl md:w-[50%] mb-9 font-extrabold text-center lg:text-5xl">
                 Join Us on a Journey to Be{" "}
                 <span className="bg-gradient-to-r from-teal-300 italic to-amber-300 bg-clip-text text-transparent">
                   One In A Million!
                 </span>
               </h1>
 
-              <p className="text-xs md:text-base w-[90%] md:w-[70%] text-slate-300 ">
+              <p className="heading text-xs md:text-base w-[90%] md:w-[60%] text-slate-300 ">
                 Our platform is committed to delivering high standards and
                 skills sharpening courses. We believe in empowering every
                 individual who connects with us on this industry driven journey,
