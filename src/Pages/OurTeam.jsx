@@ -7,7 +7,7 @@ import JoinUs from "../Components/OurTeam Components/JoinUs";
 import gsap from 'gsap'
 
 export const OurTeam = () => {
-  document.title = "Baoiam - Our Team";
+  document.title = "Baoiam Innovations | Our Team";
 
 
 

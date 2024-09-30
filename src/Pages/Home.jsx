@@ -21,7 +21,7 @@ import ExploreSubjects from "../Components/College/ExploreSubjects";
 import TeamCard from "../Components/Home/TeamCard";
 import { TeamSwiper } from "../Components/OurTeam Components/TeamSwiper";
 const Home = ({ dark }) => {
-  document.title = "Baoiam - Home";
+  document.title = "Baoiam Innovations | Home";
   const navigate = useNavigate();
 
   return (
@@ -34,8 +34,8 @@ const Home = ({ dark }) => {
         <ServicesTab />
         <Partners />
         <Courses />
+        <Categories />
         <UniversityPartners />
-        {/* <Categories /> */}
 
         <Protocol />
         {/* <JoinNow /> */}
