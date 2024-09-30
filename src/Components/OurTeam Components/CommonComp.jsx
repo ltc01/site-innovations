@@ -55,7 +55,7 @@ const CommonComp = ({ heading, para, dataArray = [] }) => {
         <h1 className=" t3  text-center col-span-1 text-lg lg:text-2xl px-4 py-2 tracking-wide font-bold ">
           {heading}
         </h1>
-        <p className="t3 ">{para.slice(0, 100) + "..." }</p>
+        {/* <p className="t3 ">{para.slice(0, 100) + "..." }</p> */}
       </div>
       <div className=" md:col-span-3 col-span-1">
        

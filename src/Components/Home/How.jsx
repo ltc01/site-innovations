@@ -38,7 +38,7 @@ const How = () => {
 
   return (
     <>
-      <div className="flex justify-center lg:-mt-16">
+      <div className="flex justify-center xl:-mt-10">
         <div className="w-[80%] text-center">
           <h1 className="text-3xl sm:text-4xl my-5 font-extrabold">
             Our {" "}

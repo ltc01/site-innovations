@@ -18,6 +18,7 @@ import { logout } from "../Redux/auth/authSlice";
 const apiUrl = import.meta.env.VITE_API_URL;
 console.log('profile loaded')
 const Profile = () => {
+  document.title = "Baoiam Innovations | User Dashboard";
   const sideBarLink = [
     { id: 1, name: "Profile", tab: "profile", icon: <FaUser /> },
     { id: 2, name: "Courses", tab: "courses", icon: <FaGraduationCap /> },

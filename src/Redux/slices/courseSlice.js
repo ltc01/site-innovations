@@ -18,7 +18,7 @@ export const fetchFeaturedCourses = createAsyncThunk(
   'courses/fetchFeaturedCourses', 
   async () => {
     const response = await axios.get(`${apiUrl}/api/courses/featured/`); 
-    console.log(response.data, 'featured courses')
+    // console.log(response.data, 'featured courses')
     return response.data;
   }
 );
@@ -28,7 +28,7 @@ export const fetchAllCourses = createAsyncThunk(
   "courses/fetchAllCourses",
   async () => {
     const response = await axios.get(`${apiUrl}/api/categories/`);
-    console.log(response, "response thunk");
+    // console.log(response, "response thunk");
     return response.data;
   }
 );

@@ -91,10 +91,13 @@ const App = () => {
           <Route path="/" element={<Home dark={dark} />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/gcep" element={<GCEP dark={dark} />} />
-          <Route path="/pap" element={<PAP />} />
+          {/* <Route path="/pap" element={<PAP />} /> */}
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/blogs" element={<Blogs />} />
-          <Route path="/ITIE" element={<ITIE />} />
+          <Route path="/ITIE" element={
+            // <ITIE />
+            <Maintenance />
+            } />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
 
@@ -115,25 +118,38 @@ const App = () => {
           <Route path="/team" element={<OurTeam />} />
 
           {/* PAP */}
-          <Route path="/pap" element={<PAP />} />
+          <Route path="/pap" element={
+            // <PAP />
+            <Maintenance />
+            } />
 
           {/* Entrepreneurship */}
-          <Route path="/entrepreneurship" element={<Enterpunership />} />
+          <Route path="/entrepreneurship" element={
+            // <Enterpunership />
+            <Maintenance />
+            } />
 
           {/* Terms and Conditions */}
-          <Route path="/terms-conditions" element={<TermsConditions />} />
+          <Route path="/terms-conditions" element={
+            // <TermsConditions />
+            <Maintenance />
+            } />
 
           {/* Privacy policy */}
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/privacy-policy" element={
+            // <PrivacyPolicy />
+            <Maintenance />
+            } />
 
           {/* Checkout */}
 
           <Route
             path="/checkout/:id/:plan"
             element={
-              <AuthNavigator>
-                <Checkout />
-              </AuthNavigator>
+              // <AuthNavigator>
+              //   <Checkout />
+              // </AuthNavigator>
+              <Maintenance />
             }
           />
           <Route path="/courses" element={<Courses />} />
@@ -143,9 +159,10 @@ const App = () => {
           <Route
             path="/instructor-dashboard"
             element={
-              <AuthNavigator>
-                <TeacherDashboard />
-              </AuthNavigator>
+              // <AuthNavigator>
+              //   <TeacherDashboard />
+              // </AuthNavigator>
+              <Maintenance />
             }
           />
 
@@ -161,18 +178,30 @@ const App = () => {
           />
           {/* Help */}
           {/* <Route path='/help' element={<HelpCenter />} /> */}
+
           {/* Hire */}
-          <Route path="/hire" element={<HireFromUs />} />
+          <Route path="/hire" element={
+            // <HireFromUs />
+           <Maintenance />} />
+
           {/* <Route path='/instructor' element={<InstructorCard />} /> */}
-          <Route path="/hire" element={<HireFromUs />} />
-          <Route path="/instructor" element={<InstructorCard />} />
+  
+       
           {/*FAQ*/}
-          <Route path="/FAQ" element={<FAQS />} />
+          <Route path="/FAQ" element={
+            // <FAQS />
+            <Maintenance />
+            } />
 
           {/*Refund Policy */}
-          <Route path="/refund" element={<Refund />} />
+          <Route path="/refund" element={
+            // <Refund />
+            <Maintenance />
+            } />
 
-          <Route path="/ReferAndEarn" element={<ReferAndEarn />} />
+          <Route path="/ReferAndEarn" element={
+            <ReferAndEarn />
+            } />
           {/* Book a demo */}
 
           <Route path="/book-a-demo/:name/:courseId" element={<BookADemo />} />

@@ -43,7 +43,7 @@ const showForm = useSelector(state=>state.showForm);
         {showForm ? null : <button
           ref={buttonRef}
           onClick={() => dispatch(toggleEnrollForm())}
-          className="fixed bottom-28 right-0 z-[100] inline-flex lg:hidden items-center justify-center text-base font-medium disabled:opacity-50 border  rounded-l-3xl w-35 px-5 py-3 bg-gradient-to-r from-pink-500 to-violet-600 m-0 cursor-pointer border-gray-200 text-white normal-case"
+          className="fixed top-20 right-0 z-[100] text-sm inline-flex lg:hidden items-center justify-center font-medium disabled:opacity-50 border rounded-l-3xl px-3 py-1 bg-gradient-to-r from-teal-500 to-violet-600 m-0 cursor-pointer border-gray-200 text-white normal-case"
         >
           Enroll Now
         </button>}
