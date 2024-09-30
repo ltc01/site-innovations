@@ -37,7 +37,7 @@ axiosInstance.interceptors.response.use(
         try {
           console.log("Attempting to refresh token...");
 
-          const response = await axios.post("/api/auth/jwt/refresh", {
+          const response = await axiosInstance.post("/api/auth/jwt/refresh", {
             refresh: refreshToken,
           });
 
