@@ -25,7 +25,7 @@ const ContactForm = () => {
     e.preventDefault();
 
     setLoading(true);
-    console.log("before submit:", formData);
+    // console.log("before submit:", formData);
     try {
       const data1 = {
         first_name: formData.first_name,
@@ -44,9 +44,9 @@ const ContactForm = () => {
         `${apiUrl}/api/contact-gcep/`,
         data1
       );
-      console.log("GCEP form: ", data);
+      // console.log("GCEP form: ", data);
       if (data.status === "success") setShowPopup(true);
-      else toast.error("An error occurred");
+      // else toast.error("An error occurred");
       setLoading(false);
       setFormData({
         first_name: "",
@@ -60,7 +60,20 @@ const ContactForm = () => {
         message: "",
       });
     } catch (e) {
-      console.log(e.stack);
+      toast.error("Some error occurred");
+      setLoading(false);
+      setFormData({
+        first_name: "",
+        last_name: "",
+        institute: "",
+        designation: "",
+        email: "",
+        phone: "",
+        job_title: "",
+        contact_type: "",
+        message: "",
+      });
+      // console.log(e.stack);
     }
   };
   return (
@@ -118,9 +131,9 @@ const ContactForm = () => {
         <div className="flex flex-col w-full">
           <div className="flex items-center justify-between gap-8 w-full max-sm:flex-col max-sm:gap-4">
             <div className="w-1/2 flex flex-col max-sm:w-full">
-          <label className=" font-medium max-sm:text-base dark:text-white">
-            First Name <span className="text-red-600">*</span>
-          </label>
+              <label className=" font-medium max-sm:text-base dark:text-white">
+                First Name <span className="text-red-600">*</span>
+              </label>
               <input
                 value={formData.first_name}
                 onChange={(e) => {
@@ -137,9 +150,9 @@ const ContactForm = () => {
               </label> */}
             </div>
             <div className="w-1/2 flex flex-col max-sm:w-full">
-            <label className=" font-medium max-sm:text-base dark:text-white">
-            Last Name <span className="text-red-600">*</span>
-          </label>
+              <label className=" font-medium max-sm:text-base dark:text-white">
+                Last Name <span className="text-red-600">*</span>
+              </label>
               <input
                 value={formData.last_name}
                 onChange={(e) => {
@@ -160,10 +173,7 @@ const ContactForm = () => {
         {/* Email & Phone */}
         <div className="flex gap-8 w-full max-sm:flex-col max-sm:gap-4">
           <div className="flex-col flex w-1/2 max-sm:w-full">
-            <label
-              className=" font-medium dark:text-white"
-              htmlFor="email"
-            >
+            <label className=" font-medium dark:text-white" htmlFor="email">
               Email <span className="text-red-600">*</span>
             </label>
             <input
@@ -180,10 +190,7 @@ const ContactForm = () => {
           </div>
 
           <div className="flex-col flex w-1/2 max-sm:w-full">
-            <label
-              className=" font-medium dark:text-white"
-              htmlFor="phone"
-            >
+            <label className=" font-medium dark:text-white" htmlFor="phone">
               Phone <span className="text-red-600">*</span>
             </label>
             <input
@@ -204,10 +211,7 @@ const ContactForm = () => {
         {/* Company */}
         <div className="flex gap-8 w-full max-sm:flex-col max-sm:gap-4">
           <div className="flex-col flex w-1/2 max-sm:w-full">
-            <label
-              className=" font-medium dark:text-white"
-              htmlFor="industry"
-            >
+            <label className=" font-medium dark:text-white" htmlFor="industry">
               Type
             </label>
             <select
@@ -227,10 +231,7 @@ const ContactForm = () => {
             </select>
           </div>
           <div className="flex-col flex w-1/2 max-sm:w-full">
-            <label
-              className=" font-medium dark:text-white"
-              htmlFor="company"
-            >
+            <label className=" font-medium dark:text-white" htmlFor="company">
               Institute <span className="text-red-600">*</span>
             </label>
             <input
@@ -252,10 +253,7 @@ const ContactForm = () => {
         </div>
 
         <div className="flex-col flex md:w-1/2 max-sm:w-full  ">
-          <label
-            className=" font-medium dark:text-white"
-            htmlFor="agency"
-          >
+          <label className=" font-medium dark:text-white" htmlFor="agency">
             Designation
           </label>
           <input
@@ -293,7 +291,7 @@ const ContactForm = () => {
         {/* Textarea */}
         <div className="w-full">
           <label className=" font-medium dark:text-white" htmlFor="help">
-            Message {' '}<span className="text-slate-400">(optional)</span>
+            Message <span className="text-slate-400">(optional)</span>
           </label>
           <textarea
             value={formData.message}

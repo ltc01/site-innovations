@@ -19,53 +19,53 @@ const Program = ({ title, data }) => {
   const titleRef = useRef(null);
   const buttonRefs = useRef([]);
 
-  useEffect(() => {
-    // Animation for the title
-    gsap.fromTo(
-      titleRef.current,
-      { opacity: 0, y: -30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: titleRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
+  // useEffect(() => {
+  //   // Animation for the title
+  //   gsap.fromTo(
+  //     titleRef.current,
+  //     { opacity: 0, y: -30 },
+  //     {
+  //       opacity: 1,
+  //       y: 0,
+  //       duration: 0.8,
+  //       ease: "power3.out",
+  //       scrollTrigger: {
+  //         trigger: titleRef.current,
+  //         start: "top 80%",
+  //         toggleActions: "play none none reverse",
+  //       },
+  //     }
+  //   );
 
-    // Animation for each button
-    buttonRefs.current.forEach((button, index) => {
-      gsap.fromTo(
-        button,
-        { opacity: 0, y: 20 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: button,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-            delay: index * 0.1, // Stagger the animations
-          },
-        }
-      );
-    });
-  }, []);
+  //   // Animation for each button
+  //   buttonRefs.current.forEach((button, index) => {
+  //     gsap.fromTo(
+  //       button,
+  //       { opacity: 0, y: 20 },
+  //       {
+  //         opacity: 1,
+  //         y: 0,
+  //         duration: 0.6,
+  //         ease: "power3.out",
+  //         scrollTrigger: {
+  //           trigger: button,
+  //           start: "top 80%",
+  //           toggleActions: "play none none reverse",
+  //           delay: index * 0.1, // Stagger the animations
+  //         },
+  //       }
+  //     );
+  //   });
+  // }, []);
 
   return (
     <div className="p-5 mx-auto lg:w-11/12" id="courses">
-      <h1
+      <h2
         ref={titleRef}
-        className="text-xl sm:text-2xl md:text-3xl font-semibold"
+        className="text-xl sm:text-2xl md:text-3xl  font-bold"
       >
         {title}
-      </h1>
+      </h2>
       <div className="">
         <Swiper
           keyboard={{ enabled: true }}
@@ -80,8 +80,8 @@ const Program = ({ title, data }) => {
             1024: { slidesPerView: 3.5 },
             1200: { slidesPerView: 4 },
           }}
-          onSlideChange={() => console.log("Slide changed")}
-          onSwiper={(swiper) => console.log("Swiper initialized")}
+          // onSlideChange={() => console.log("Slide changed")}
+          // onSwiper={(swiper) => console.log("Swiper initialized")}
           className="  w-full py-4 flex flex-col justify-center items-center"
         >
           {data?.map((course, index) =>(

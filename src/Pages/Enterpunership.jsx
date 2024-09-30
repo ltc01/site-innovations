@@ -96,7 +96,7 @@ const cards = [
 ];
 
 const Enterpunership = () => {
-  document.title = "Baoiam - Entrepreneurship";
+  document.title = "Baoiam Innovations | Careers";
   useEffect(() => {
     window.scrollTo(0, 0);
 

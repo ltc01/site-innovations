@@ -177,7 +177,7 @@ const testimonials = [
 ];
 
 const ITIE = () => {
-  document.title = "Baoiam - ITIE";
+  document.title = "Baoiam Innovations | Intern Teach Intern Earn";
   const navigate = useNavigate();
 
   //  gsap

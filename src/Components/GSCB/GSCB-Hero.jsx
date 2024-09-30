@@ -69,7 +69,7 @@ const HeroSection = () => {
 
           <div className="text-xl  hero-tail text-left md:text-4xl xl:text-5xl ">
             <h2 className="anime2">Global Collabo </h2>  
-            <h2 className="text-nowrap anime2 ">Educational Partnership </h2> </div> 
+            <h2 className="text-nowrap anime2 ">Education Partnership </h2> </div> 
       </div>
       </div>
     </div>   

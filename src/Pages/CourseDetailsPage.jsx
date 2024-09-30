@@ -29,8 +29,9 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation } from "swiper/modules";
 const apiUrl = import.meta.env.VITE_API_URL;
+import { toggleEnrollForm } from "../Redux/slices/enrollFormSlice";
 
-const CourseDetailsPage = ({ showForm, setShowForm }) => {
+const CourseDetailsPage = () => {
   const { id } = useParams();
   const [courseDetails, setCourseDetails] = useState({});
   const [showTab, setShowTab] = useState("plus");
@@ -162,9 +163,6 @@ const CourseDetailsPage = ({ showForm, setShowForm }) => {
       <CourseHero
         course={courseData?.course}
         downloadBrochure={downloadBrochure}
-        // enrollNowScroll={enrollNowScroll}
-        showForm={showForm}
-        setShowForm={setShowForm}
       />
 
       {/* courseData Details */}
@@ -330,7 +328,7 @@ const CourseDetailsPage = ({ showForm, setShowForm }) => {
                         </button> */}
                           {p.name === "plus" && (
                             <button
-                              onClick={() => setShowForm(true)}
+                              onClick={() => dispatch(toggleEnrollForm())}
                               className="relative inline-flex mx-auto w-fit bg-gradient-to-r from-amber-500 to-red-600 px-6 md:px-8 lg:px-12 py-2 md:py-3 text-xs md:text-sm overflow-hidden text-white font-medium border border-orange-400 rounded-lg hover:text-orange-500 group"
                             >
                               <span className="absolute left-0 block w-full h-0 transition-all bg-white opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease-in-out"></span>

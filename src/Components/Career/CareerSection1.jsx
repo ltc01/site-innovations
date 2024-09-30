@@ -3,6 +3,8 @@ import { FiBarChart2 } from "react-icons/fi";
 import image10 from "../../assets/ITIE&Entre/teamwork6.webp";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useNavigate } from "react-router-dom";
+import { FaArrowRight } from 'react-icons/fa6';
 
 // Register ScrollTrigger with GSAP
 gsap.registerPlugin(ScrollTrigger);
@@ -10,6 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 export const CareerSection1 = () => {
   const textRef = useRef(null);
   const imageRef = useRef(null);
+  const navigate = useNavigate();
   
   useEffect(() => {
     // Animation for the text
@@ -67,7 +70,7 @@ export const CareerSection1 = () => {
             shaping the future of learning .
           </p>
           {/* Search Bar */}
-          <form className="relative" onSubmit={(e) => e.preventDefault()}>
+          {/* <form className="relative" onSubmit={(e) => e.preventDefault()}>
             <div className="max-w-lg mx-auto bg-white flex rounded-full text-left mt-12 border focus-within:border-gray-900 border-gray-500 h-[30px] lg:h-[50px] md:h-[50px] md:w-[90%] lg:mr-20 ">
               <input
                 type="text"
@@ -82,7 +85,13 @@ export const CareerSection1 = () => {
                 Search
               </button>
             </div>
-          </form>
+          </form> */}
+          <button onClick={()=> navigate('/contact')} className='pap10 rounded-full mt-5 gap-2 flex items-center px-6 py-2 justify-center font-medium text-white group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-black dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800'>
+                    <p className='relative transition-all ease-in duration-75 group-hover:bg-opacity-0'> 
+                    Join us
+                </p>
+                    <FaArrowRight />
+                    </button>
         </div>
         {/* Image and Stats Section */}
         <div ref={imageRef} className="relative aspect-square px-4 lg:w-1/2 h-96 flex justify-center">

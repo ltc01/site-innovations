@@ -19,6 +19,7 @@ import gsap from 'gsap';
 import Split  from 'split-type';
 
 const ContactUs = () => {
+  document.title = "Baoiam Innovations | Contact us";
   const [loading, setLoading] = useState(false);
   const [animatePing, setAnimatePing] = useState(false);
 
