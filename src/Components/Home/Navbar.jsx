@@ -26,6 +26,7 @@ import Enroll from "./EnrollNow";
 import EnrollNow from "./EnrollNow";
 import { BiLogIn } from "react-icons/bi";
 import { FaRegCircleUser } from "react-icons/fa6";
+import ProfileImageIcon from "../Miscellaneous/ProfileImageIcon";
 
 const Navbar = ({ theme }) => {
   const [show, setShow] = useState(false);
@@ -98,6 +99,7 @@ const Navbar = ({ theme }) => {
   // redux start
   const { allCourses, status, error } = useSelector((state) => state.courses);
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const user = useSelector((state) => state.user);
 
   // useEffect(()=>{
   //   // console.log("user",isLoggedIn),
@@ -233,7 +235,7 @@ const Navbar = ({ theme }) => {
                   onClick={() => setUserDrop(!userDrop)}
                   size={20}
                   className=" z-10 relative cursor-pointer"
-                /> */}
+                /> */} 
                 {/* <p
                   onClick={() => setUserDrop(!userDrop)}
                   size={15}
@@ -249,19 +251,16 @@ const Navbar = ({ theme }) => {
                     </span>
                   </button>
                 </Link> */}
+                <div onClick={() => navigate("/login")}>
                 {!isLoggedIn ? (
                   <BiLogIn
-                    onClick={() => navigate("/login")}
                     size={20}
                     className=" z-10 relative text-slate-700 dark:text-slate-200  cursor-pointer"
                   />
                 ) : (
-                  <FaRegCircleUser
-                    onClick={() => navigate("/login")}
-                    size={20}
-                    className=" z-10 relative text-slate-700 dark:text-slate-200  cursor-pointer"
-                  />
+                  <ProfileImageIcon/>
                 )}
+                </div>
               </div>
 
               {userDrop && (
