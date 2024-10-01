@@ -184,7 +184,7 @@ export default function SliderSection() {
                     {/* View More Button */}
                     <div className="self-end mb-6">
                       <button
-                        onClick={() => navigate(`/course/${slide.title}/${slide.id}`)}
+                        onClick={() => navigate(`/course/${slide.slug}/${slide.id}`)}
                         className="bg-gradient-to-r w-fit rounded-md text-xs from-indigo-700 to-indigo-400 text-white px-4 py-2 font-semibold hover:bg-gradient-to-l transition-all ease-in-out duration-300"
                       >
                         View More
