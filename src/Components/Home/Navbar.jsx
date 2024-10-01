@@ -26,6 +26,7 @@ import Enroll from "./EnrollNow";
 import EnrollNow from "./EnrollNow";
 import { BiLogIn } from "react-icons/bi";
 import { FaRegCircleUser } from "react-icons/fa6";
+import ProfileIcon from "../Miscellaneous/ProfileIcon";
 
 const Navbar = ({ theme }) => {
   const [show, setShow] = useState(false);
@@ -257,10 +258,7 @@ const Navbar = ({ theme }) => {
                     className=" z-10 relative text-slate-700 dark:text-slate-200  cursor-pointer"
                   />
                 ) : (
-                  <FaRegCircleUser
-                    size={20}
-                    className=" z-10 relative text-slate-900  dark:text-slate-200  cursor-pointer"
-                />
+                  <ProfileIcon/>
                 )}
                 </div>
               </div>
