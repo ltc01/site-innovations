@@ -71,7 +71,7 @@ const TeamComponent = () => {
         >
           {data?.map((el, index) => (
             <SwiperSlide
-              key={el.id}
+              key={index}
               ref={(el) => (cardsRef.current[index] = el)} // Assigning ref to each card
               className="group rounded-xl border shadow-md flip-card w-96 h-72 overflow-hidden"
             >

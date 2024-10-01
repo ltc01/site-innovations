@@ -71,10 +71,10 @@ const App = () => {
     }, 3000);
   }, []);
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" });
-    return () => {};
-  }, [location.pathname]);
+  // useEffect(() => {
+  //   window.scrollTo({ top: 0, behavior: "instant" });
+  //   return () => {};
+  // }, [location.pathname]);
 
   if (loading) {
     return <Loader />;
