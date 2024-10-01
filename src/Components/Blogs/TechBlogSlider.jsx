@@ -84,12 +84,12 @@ export const TechBlogSlider = () => {
   };
 
   return (
-    <div className='my-14'>
+    <div className="my-14">
       <div>
         {" "}
-        <h1 className='m-6 text-3xl font-bold text-center'>Recent Blogs</h1>
+        <h1 className="m-6 text-3xl font-bold text-center">Recent Blogs</h1>
       </div>
-      <div className='mb-6 md:px-10'>
+      <div className="mb-6 md:px-10">
         <Swiper
           keyboard={{
             enabled: true,
@@ -109,33 +109,33 @@ export const TechBlogSlider = () => {
           }}
           // onSlideChange={() => console.log("hi")}
           // onSwiper={(swiper) => console.log("")}
-          className='b4 w-full  p-6  m-auto rounded-lg  flex flex-col justify-center items-center gap-4'
+          className="b4 w-full  p-6  m-auto rounded-lg  flex flex-col justify-center items-center gap-4"
         >
           {blog_slider?.map((item, i) => {
             return (
               <SwiperSlide
-                className='p-4 cursor-pointer hover:shadow-indigo-400 hover:shadow-md duration-200 hover:scale-105 dark:bg-zinc-900 bg-zinc-100 rounded-md  flex flex-col justify-center items-center gap-4'
+                className="p-4 cursor-pointer hover:shadow-indigo-400 hover:shadow-md duration-200 hover:scale-105 dark:bg-zinc-900 bg-zinc-100 rounded-md  flex flex-col justify-center items-center gap-4"
                 key={item.id}
               >
                 <Link to={`/Blog-detail/${i}`}>
-                  <div className='relative'>
+                  <div className="relative">
                     <img
-                      className='w-full h-48 object-cover'
+                      className="w-full h-48 object-cover"
                       src={item.imgSrc}
                       alt={`${item.title}`}
                     />
                     {/* Button positioned over the image */}
                     <button
-                      type='button'
-                      className='absolute bottom-2 left-3  bg-slate-400 transition-all text-black text-xs font-medium rounded-lg p-2'
+                      type="button"
+                      className="absolute bottom-2 left-3 dark:bg-slate-300 bg-slate-400 transition-all text-black text-xs font-medium rounded-lg p-2"
                     >
                       {item.category}
                     </button>
                   </div>
-                  <div className='p-4 flex-grow '>
-                    <h2 className='text-lg font-bold my-2'>{item.text}</h2>
+                  <div className="p-4 flex-grow ">
+                    <h2 className="text-lg font-bold my-2">{item.text}</h2>
                     <span
-                      className='text-sm text-slate-700 dark:text-slate-300 font-semibold'
+                      className="text-sm text-slate-700 dark:text-slate-300 font-semibold"
                       style={{
                         display: "-webkit-box",
                         WebkitBoxOrient: "vertical",
@@ -145,7 +145,7 @@ export const TechBlogSlider = () => {
                     >
                       {item.des}
                     </span>
-                    <p className='text-xs text-slate-500  font-medium mt-2'>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 font-medium mt-2">
                       {item.info}
                     </p>
                   </div>
@@ -155,11 +155,11 @@ export const TechBlogSlider = () => {
           })}
           {/* Swiper navigation buttons */}
           <div
-            className='swiper-button-prev bg-gray-800 p-2 rounded-full'
+            className="swiper-button-prev bg-gray-800 p-2 rounded-full"
             onClick={handlePrev}
           ></div>
           <div
-            className='swiper-button-next bg-gray-800 p-2 rounded-full'
+            className="swiper-button-next bg-gray-800 p-2 rounded-full"
             onClick={handleNext}
           ></div>
         </Swiper>
