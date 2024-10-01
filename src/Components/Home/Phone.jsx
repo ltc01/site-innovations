@@ -230,7 +230,7 @@ tl.fromTo('.txt2',{
                 ref={emailRef}
                 placeholder="Enter your email..."
                 required
-                className="w-full outline-none bg-transparent text-sm text-gray-800 px-4 py-1"
+                className="w-full outline-none bg-transparent text-sm text-gray-800 dark:text-gray-200 px-4 py-1"
               />
               <button // Change to 'submit'
                 className="bg-gradient-to-r from-indigo-700 to-indigo-500 hover:bg-gradient-to-l transition-all text-white tracking-wide text-sm rounded-full px-6 py-2"
