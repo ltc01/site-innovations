@@ -6,6 +6,7 @@ import {
   AiOutlineCheckCircle,
   AiOutlineExclamationCircle,
 } from "react-icons/ai";
+import { CircleLoader, FadeLoader } from "react-spinners";
 import { BsPerson, BsPersonCircle } from "react-icons/bs";
 import {
   FaCheck,
@@ -17,7 +18,7 @@ import {
   FaUserCircle,
   FaUserFriends,
 } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa6";
+import { FaGithub, FaSpinner } from "react-icons/fa6";
 import { HiOutlineCheck, HiOutlineCheckCircle, HiUser } from "react-icons/hi2";
 import {
   MdCheck,
@@ -142,13 +143,14 @@ const ProfileComp = ({ userInfo }) => {
       )}
       <div className="grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-5 gap-8 p-4 w-full h-full overflow-auto lg:h-screen">
         {/* Personal Details */}
-        <div
-          className="bg-white lg:col-span-2 lg:row-span-2 rounded-xl px-4 md:px-10 w-full  pb-5 lg:h-full flex max-xs:gap-0 max-xs:flex-col
+        {Object.keys(userInfo).length > 0 ? (
+          <div
+            className="bg-white lg:col-span-2 lg:row-span-2 rounded-xl px-4 md:px-10 w-full  pb-5 lg:h-full flex max-xs:gap-0 max-xs:flex-col
        items-center gap-8"
-        >
-          <div className="size-28 md:size-40 rounded-full overflow-hidden group relative">
-            <MdPerson className="text-indigo-600 w-full h-full max-xs:w-3/4 max-sm:h-3/4 mt-0" />
-            {/* <img
+          >
+            <div className="size-28 md:size-40 rounded-full overflow-hidden group relative">
+              <MdPerson className="text-indigo-600 w-full h-full max-xs:w-3/4 max-sm:h-3/4 mt-0" />
+              {/* <img
             src={profileImage}
             className="w-full h-full object-cover"
             alt=""
@@ -166,77 +168,87 @@ const ProfileComp = ({ userInfo }) => {
             className="hidden"
             onChange={handleChangeProfile}
           /> */}
-          </div>
-          <div className="flex flex-col">
-            <h1 className="text-indigo-600 font-semibold md:text-2xl mb-2">
-              {userInfo.first_name} {userInfo.last_name}
-            </h1>
-            <div className="my-1 text-xs md:text-base">
-              {userInfo.is_email_verified ? (
-                <div className="text-green-700 flex items-center gap-3">
-                  <AiOutlineCheckCircle size={17} /> <p>Email is verified</p>
+            </div>
+            <div className="flex flex-col">
+              <h1 className="text-indigo-600 font-semibold md:text-2xl mb-2">
+                {userInfo.first_name} {userInfo.last_name}
+              </h1>
+              <div className="my-1 text-xs md:text-base">
+                {userInfo.is_email_verified ? (
+                  <div className="text-green-700 flex items-center gap-3">
+                    <AiOutlineCheckCircle size={17} /> <p>Email is verified</p>
+                  </div>
+                ) : (
+                  <div className="text-red-500 flex items-center gap-2">
+                    <AiOutlineExclamationCircle size={17} />{" "}
+                    <p>Email is not verified</p>
+                    <button
+                      className="bg-indigo-600 text-white px-3 cursor-pointer py-1 rounded text-sm"
+                      onClick={() => verifyEmail()}
+                    >
+                      {verifyEmailLoading ? "Loading..." : "Verify Email"}{" "}
+                    </button>
+                  </div>
+                )}
+              </div>
+              <div className="my-1 text-xs md:text-base">
+                Email:
+                <span className="text-indigo-600"> {userInfo.email}</span>
+              </div>
+              {userInfo.mobile_number && (
+                <div className="my-1 text-xs md:text-base">
+                  Mobile:
+                  <span className="text-indigo-600">
+                    {" "}
+                    {userInfo.mobile_number}
+                  </span>
                 </div>
-              ) : (
-                <div className="text-red-500 flex items-center gap-2">
-                  <AiOutlineExclamationCircle size={17} />{" "}
-                  <p>Email is not verified</p>
-                  <button
-                    className="bg-indigo-600 text-white px-3 cursor-pointer py-1 rounded text-sm"
-                    onClick={() => verifyEmail()}
-                  >
-                    {verifyEmailLoading ? "Loading..." : "Verify Email"}{" "}
-                  </button>
+              )}
+              {userInfo.college_name && (
+                <div className="my-1 text-xs md:text-base">
+                  College:
+                  <span className="text-indigo-600">
+                    {" "}
+                    {userInfo.college_name}
+                  </span>
                 </div>
               )}
-            </div>
-            <div className="my-1 text-xs md:text-base">
-              Email:
-              <span className="text-indigo-600"> {userInfo.email}</span>
-            </div>
-            {userInfo.mobile_number && (
-              <div className="my-1 text-xs md:text-base">
-                Mobile:
-                <span className="text-indigo-600">
-                  {" "}
-                  {userInfo.mobile_number}
-                </span>
-              </div>
-            )}
-            {userInfo.college_name && (
-              <div className="my-1 text-xs md:text-base">
-                College:
-                <span className="text-indigo-600">
-                  {" "}
-                  {userInfo.college_name}
-                </span>
-              </div>
-            )}
-            {userInfo.school_name && (
-              <div className="my-1 text-xs md:text-base">
-                School
-                <span className="text-indigo-600"> {userInfo.school_name}</span>
-              </div>
-            )}
-            <div className="flex items-center gap-2 mt-4 max-xs:mt-2">
-              {userInfo.linkedin && (
-                <Link to={userInfo.linkedin}>
-                  <FaLinkedin className="bg-indigo-500 size-6 p-1 rounded-full text-white" />
-                </Link>
+              {userInfo.school_name && (
+                <div className="my-1 text-xs md:text-base">
+                  School:
+                  <span className="text-indigo-600">
+                    {" "}
+                    {userInfo.school_name}
+                  </span>
+                </div>
               )}
-              {userInfo.github && (
-                <Link to={userInfo.github}>
-                  <FaGithub className="bg-indigo-500 size-6 p-1 rounded-full text-white" />
-                </Link>
-              )}
-              {userInfo.instagram && (
-                <Link to={userInfo.instagram}>
-                  <FaInstagram className="bg-indigo-500 size-6 p-1 rounded-full text-white" />
-                </Link>
-              )}
+              <div className="flex items-center gap-2 mt-4 max-xs:mt-2">
+                {userInfo.linkedin && (
+                  <Link to={userInfo.linkedin}>
+                    <FaLinkedin className="bg-indigo-500 size-6 p-1 rounded-full text-white" />
+                  </Link>
+                )}
+                {userInfo.github && (
+                  <Link to={userInfo.github}>
+                    <FaGithub className="bg-indigo-500 size-6 p-1 rounded-full text-white" />
+                  </Link>
+                )}
+                {userInfo.instagram && (
+                  <Link to={userInfo.instagram}>
+                    <FaInstagram className="bg-indigo-500 size-6 p-1 rounded-full text-white" />
+                  </Link>
+                )}
+              </div>
             </div>
           </div>
-        </div>
-
+        ) : (
+          <div
+            className="bg-white justify-center lg:col-span-2 lg:row-span-2 rounded-xl px-4 md:px-10 w-full  pb-5 lg:h-full flex max-xs:gap-0 max-xs:flex-col
+       items-center gap-8"
+          >
+            <FadeLoader />{" "}
+          </div>
+        )}
         {/* Notifications */}
         <div className="bg-white lg:col-span-1 lg:row-span-2 p-4 rounded-xl flex flex-col justify-between">
           <h2 className="text-2xl text-indigo-600 font-semibold">
