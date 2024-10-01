@@ -20,6 +20,7 @@ import { RxCross2 } from "react-icons/rx";
 const apiUrl = import.meta.env.VITE_API_URL;
 import { useDispatch } from "react-redux";
 import { toggleEnrollForm } from "../../Redux/slices/enrollFormSlice";
+import thumbsUp from "../../assets/Images/thumbs-up (1).gif";
 
 const ContactUs = () => {
   // const togglePopup = () => {
@@ -124,7 +125,7 @@ const ContactUs = () => {
           </div>
         </div>
       </section>
-    </div> 
+    </div>
   );
 };
 
@@ -142,8 +143,8 @@ export const ContactFormComponent = () => {
     Course: "",
     Consent: false,
   });
-  
-const dispatch=useDispatch();
+
+  const dispatch = useDispatch();
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Prepare the data to be sent in the POST request
@@ -209,44 +210,51 @@ const dispatch=useDispatch();
           {/* Overlay */}
           <div
             className="fixed inset-0 bg-gray-600 bg-opacity-50 transition-opacity"
-            // Click outside to close
+            onClick={() => setShowPopup(false)} // Click outside to close
           ></div>
 
           {/* Modal Content */}
-          <div className="relative bg-white rounded-lg p-8 shadow-2xl z-10 text-center">
+          <div className="relative bg-white rounded-lg p-8 shadow-2xl z-10 text-center md:w-[400px] w-[250px] dark:bg-gray-700">
+            {/* Gradient Top Section */}
+            {/* bg-gradient-to-r from-orange-500 to-pink-400*/}
+            {/*bg-gradient-to-r from-green-500 to-yellow-400 */}
+            {/*bg-gradient-to-r from-indigo-900 to-purple-800 */}
+            <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-r from-green-400 to-indigo-500 rounded-t-lg"></div>
+
             {/* Success Icon */}
-            <FaCheckCircle
-              size={50}
-              className={`text-green-500 mx-auto mb-4 ${
-                animatePing ? "animate-ping" : ""
-              }`}
-            />
+            <div className="relative top-[80px] bg-white  rounded-full shadow-lg inline-block ">
+              {/* <FaCheckCircle size={50} className="text-black mx-auto mb-4" /> */}
+              <img
+                src={thumbsUp} // Replace with your image path
+                alt="Success"
+                className="w-20 h-20 mx-auto flex items-center p-2 rounded-full  " // Adjust the width and height as needed
+              />
+            </div>
 
-            <h2 className="md:text-2xl font-bold text-indigo-600 mb-4 transition-all duration-300 ease-in-out">
-              Data submitted successfully
-            </h2>
-            {/* <p className="text-gray-700 mb-6">
-              Your enrollment was successful. We’re excited to have you on
-              board!
-            </p> */}
+            {/* Success Message */}
+            <div className=" pt-24">
+              <h2 className="text-3xl font-bold text-black mb-4 dark:text-white">
+                Success!
+              </h2>
+              <p className="text-gray-700 mb-6 dark:text-gray-300">
+                Yay! You have successfully enrolled.
+              </p>
 
-            {/* Decorative Element */}
-            <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-green-400 to-blue-500 rounded-t-md"></div>
-
-            {/* Close Button */}
-            <button
-              onClick={handleCloseForm}
-              className="bg-gradient-to-br from-purple-600 via-indigo-500 to-indigo-700 text-white px-6 py-2 rounded-full hover:bg-indigo-700 focus:outline-none transition-all text-sm md:text-base"
-            >
-              Close
-            </button>
+              {/* Continue Button */}
+              <button
+                onClick={handleCloseForm} // Manually close the popup
+                className="bg-gradient-to-br from-purple-600 via-indigo-500 to-indigo-700 text-white px-6 py-2 rounded-full hover:bg-indigo-700 focus:outline-none transition-all text-sm md:text-base"
+              >
+                Continue
+              </button>
+            </div>
           </div>
         </div>
       )}
       {
         <div className="fixed inset-0 flex justify-center items-center z-[200] bg-black/50">
-            <div className=" w-[95%] md:w-[70%] lg:w-[38%] my-10  dark:bg-black  bg-white p-4 px-6 rounded-lg border relative flex flex-col items-center justify-center overflow-y-auto ">
-               <span
+          <div className=" w-[95%] md:w-[70%] lg:w-[38%] my-10  dark:bg-black  bg-white p-4 px-6 rounded-lg border relative flex flex-col items-center justify-center overflow-y-auto ">
+            <span
               onClick={() => dispatch(toggleEnrollForm())}
               className="absolute top-7 right-6 text-2xl"
             >
@@ -406,7 +414,9 @@ const dispatch=useDispatch();
                     <option value="Graphic Designing">Graphic Designing</option>
                     <option value="Human Resource">Human Resource</option>
                     <option value="Data Analytics">Data Analytics</option>
-                    <option value="Product Management">Product Management</option>
+                    <option value="Product Management">
+                      Product Management
+                    </option>
                     <option value="Android Development">
                       Android Development
                     </option>
