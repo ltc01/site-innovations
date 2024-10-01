@@ -35,7 +35,6 @@ const CourseDetailsPage = () => {
   const { id } = useParams();
   const [courseDetails, setCourseDetails] = useState({});
   const [showTab, setShowTab] = useState("plus");
-  const [otherCourses, setOtherCourses] = useState();
   const [fixed, setFixed] = useState(false);
   const [coursePlusContent, setCoursePlusContent] = useState([
     "Doubt clearing sessions",
@@ -78,11 +77,6 @@ const CourseDetailsPage = () => {
   );
   const dispatch = useDispatch();
   const courseData = courses[id]; // Retrieve the courseData from the store by its id
-
-  const otherCou = otherCourses?.filter(
-    (other) => other?.title !== courseData?.title
-  );
-  console.log(otherCou, "Filtered");
 
   useEffect(() => {
     // If the courseData is not in the store, fetch it
@@ -356,7 +350,7 @@ const CourseDetailsPage = () => {
       {/* <Testimonials /> */}
 
       {/* Related Courses */}
-      {courseData?.related_courses && (
+      {courseData?.related_courses?.length > 0 && (
         <div className="my-8 px-4 lg:px-8 xl:px-24 w-full h-full relative">
           <h2 className="text-3xl font-semibold text-center">
             Related{" "}
@@ -415,7 +409,7 @@ const CourseDetailsPage = () => {
                     </div>
                     <div className="h-fit flex flex-col justify-between px-4">
                       <Link
-                        to={`/courseData/${o?.slug}/${o?.id}`}
+                        to={`/course/${o?.slug}/${o?.id}`}
                         className="text-lg font-semibold my-2"
                       >
                         {o.title}{" "}

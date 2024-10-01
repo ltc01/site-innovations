@@ -201,10 +201,10 @@ export const CareerSection7 = () => {
               </span>
             </h2>
             <p className="text-sm lg:text-base text-slate-600 mt-4 mb-4 text-center md:text-left dark:text-gray-400">
-              At BAOIAM, we create pathways to success, offering limitless
-              opportunities where innovation and creativity thrive. Join our
-              dynamic, inclusive team dedicated to making a difference in your
-              career and the world.
+              We provide a great opportunity to grow with the company and to
+              work in friendly teams. In addition to offering competitive
+              initiatives, we ask about work-life balance, and your achievements
+              and success are important here.
             </p>
           </div>
         </div>
@@ -223,7 +223,7 @@ export const CareerSection7 = () => {
                 className="w-[90%] h-full rounded-lg object-cover transition-transform duration-300 hover:scale-105"
               />
             </div> */}
-            <div className="w-full md:w-[40%] h-[250px] pl-6 pr-2 lg:pr-2 relative "> 
+            <div className="w-full md:w-[40%] h-[250px] pl-6 pr-2 lg:pr-2 relative ">
               <img
                 src={work1}
                 alt="mission-image"
@@ -244,11 +244,10 @@ export const CareerSection7 = () => {
                 </span>
               </h2>
               <p className="text-sm lg:text-base text-slate-600 mt-4 text-center md:text-left lg:pl-2 dark:text-gray-400">
-                At BAOIAM, we offer an inspiring environment where creativity
-                thrives and collaboration drives innovation. Our inclusive
-                culture celebrates diverse perspectives, fostering teamwork that
-                sparks fresh ideas. With flexible working options, a focus on
-                work-life balance, and a commitment to continuous learning.
+                Our work environment is centered around collaboration,
+                innovation, and respect. We believe in fostering a supportive
+                and inclusive atmosphere where everyone’s ideas are valued, and
+                creativity is encouraged.
               </p>
             </div>
           </div>
