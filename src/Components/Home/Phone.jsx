@@ -6,33 +6,40 @@ import { toast } from "react-toastify";
 import gsap from "gsap";
 
 const Phone = () => {
-  const [inputValue, setInputValue] = useState("Email");
   const [animatePing, setAnimatePing] = useState(false);
   const emailRef = useRef();
   const [showPopup, setShowPopup] = useState(false);
   const [loading, setLoading] = useState(false);
   const submit = async () => {
     setLoading(true);
+    const data = {
+      fullName: "",
+      email: emailRef.current.value,
+      countryCode: "",
+      phone: "",
+      inquiryType: "",
+      message: "",
+      newsletter: true,
+    };
     try {
-      const { data } = await axios.post(
-        "https://proxy-server-baoiam.vercel.app/contact-form ",
-        {
-          fullName: "",
-          email: emailRef.current.value,
-          countryCode: "",
-          phone: "",
-          inquiryType: "",
-          message: "",
-          newsletter: true,
-        }
+      const response = await axios.post(
+        "https://proxy-server-baoiam.vercel.app/contact-form",
+        // "http://localhost:3000/contact-form",
+        data
       );
-      console.log("res is:", data);
+      if (response.status == 200) {
+        console.log("Form successfully submitted:", response.data);
+        // toast.success("Form submitted successfully");
+        setShowPopup(true);
+        // alert(response.status);
+      } else toast.error("An error occurred");
       setLoading(false);
-      setShowPopup(true);
+      emailRef.current.value = "";
     } catch (e) {
+      emailRef.current.value = "";
       setLoading(false);
       toast.error("Some error occurred");
-      console.log(e.stack);
+      console.log("Phone error: ", e.stack);
     }
     // fullName: formData.Name,
     //     email: formData.Email,
@@ -151,7 +158,7 @@ tl.fromTo('.txt2',{
           <p className="txt1 text-3xl md:text-4xl font-bold">
             Seize the{" "}
             <span className="bg-gradient-to-r from-pink-500  to-violet-600 bg-clip-text text-transparent">
-              Opportunity 
+              Opportunity
             </span>{" "}
             - Begin Your Journey Now!
           </p>

@@ -66,7 +66,7 @@ const ContactUs = () => {
 
       try {
         const response = await axios.post(
-          "https://proxy-server-baoiam.vercel.app/contact-form ",
+          "https://proxy-server-baoiam.vercel.app/contact-form",
           // "http://localhost:3000/contact-form",
           data
         );
@@ -87,6 +87,14 @@ const ContactUs = () => {
           message: "",
         });
       } catch (error) {
+        setFormData({
+          Name: "",
+          Email: "",
+          Phone: "",
+          CountryCode: "+91",
+          inquiryType: "",
+          message: "",
+        });
         setLoading(false);
         toast.error("An error occurred");
         console.error("Error submitting form", error);
