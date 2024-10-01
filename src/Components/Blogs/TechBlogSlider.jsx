@@ -54,7 +54,7 @@ export const TechBlogSlider = () => {
 
   useEffect(() => {
     gsap.fromTo(
-      ".b4",
+      ".b5",
       { opacity: 0, y: 30 },
       {
         opacity: 1,
@@ -63,7 +63,7 @@ export const TechBlogSlider = () => {
         ease: "back.inOut",
         stagger: 0.3,
         scrollTrigger: {
-          trigger: ".bdiv3",
+          trigger: ".bdiv5",
           start: "top 90%",
           end: "bottom 80%",
         },
@@ -84,12 +84,12 @@ export const TechBlogSlider = () => {
   };
 
   return (
-    <div className="my-14">
+    <div className='my-14 bdiv5'>
       <div>
         {" "}
-        <h1 className="m-6 text-3xl font-bold text-center">Recent Blogs</h1>
+        <h1 className='m-6 b5 text-3xl font-bold text-center'>Recent Blogs</h1>
       </div>
-      <div className="mb-6 md:px-10">
+      <div className='mb-6 md:px-10 b5'>
         <Swiper
           keyboard={{
             enabled: true,

@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchFeaturedCourses } from '../../Redux/slices/courseSlice'; // Adjust the import path as necessary
 import { BeatLoader } from "react-spinners";
+import gsap from "gsap";
 
 
 export default function SliderSection() {
@@ -61,13 +62,36 @@ export default function SliderSection() {
   // console.log(featuredCourses, 'program courses')
   // redux end
 
+
+useEffect(() => {
+
+gsap.fromTo('.slide1',{
+  opacity:0,
+  y:30
+},
+{
+  opacity:1,
+  y:0,
+  duration:0.6,
+  ease:'power1.out',
+  stagger:0.2,
+  scrollTrigger:{
+    trigger:'.sectiondiv2',
+    start:'top 80%',
+    end:'bottom 80%'
+  }
+})
+
+
+},[])
+
   return (
-    <div className="slider-section dark:bg-[#010203] w-full relative py-12 overflow-hidden ">
+    <div className="sectiondiv2 slider-section dark:bg-[#010203] w-full relative py-12 overflow-hidden ">
       <div className="text-center mb-0 lg:mb-8">
-        <h2 className="text-4xl font-extrabold mb-8">Featured <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent" >Courses</span></h2>
+        <h2 className="slide1 text-4xl font-extrabold mb-8">Featured <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent" >Courses</span></h2>
       </div>
 
-      <div className="mx-4 mt-8 md:mx-14">
+      <div className="slide1 mx-4 mt-8 md:mx-14">
         <Swiper
           modules={[Navigation]}
           spaceBetween={0} // Adjust the space between cards
