@@ -126,14 +126,13 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     const toastId = toast.loading("Processing your login...");
-
     try {
       const response = await axios.post(
         `${apiUrl}/api/auth/jwt/create/`,
         { email, password },
         { withCredentials: true }
       );
-      console.log(response);
+      console.log("from login: ", response);
       if (response.status === 200) {
         localStorage.setItem("access_token", response.data.access);
         toast.update(toastId, {
@@ -142,10 +141,11 @@ const Login = () => {
           isLoading: false,
           autoClose: 2000,
         });
-        dispatch(login(response.data.access));
         localStorage.setItem("login", true);
+        localStorage.setItem("refresh_token", response.data.refresh);
         setTimeout(() => {
-          navigate(from, { state: { ...parentState }, replace: true });
+          // navigate(from, { state: { ...parentState }, replace: true });
+          dispatch(login(response.data.access));
         }, 2000);
       } else {
         throw new Error(response.data?.detail || "Login failed.");

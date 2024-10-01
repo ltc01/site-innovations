@@ -57,7 +57,7 @@ const Courses = () => {
       {/* <TypewriterText /> */}
       <div className="flex mt-20 gap-8 lg:gap-0 justify-center flex-col-reverse lg:flex-row items-center mx-auto w-full ">
         <div className="relative w-full">
-          <div className="h-[400px] w-full image-container">
+          <div className="h-[450px] w-full image-container">
             <img
               className="w-full h-full opacity-90 object-cover"
               src={introImg}
@@ -66,13 +66,13 @@ const Courses = () => {
           </div>
           <div
             ref={textRef}
-            className="absolute left-0 bg-black/60 right-0 top-0 w-full h-full text-center"
+            className="absolute left-0 bg-black/70 right-0 top-0 w-full h-full text-center"
           >
             <div className="flex justify-center items-center flex-col h-full text-white">
-              <h1 className="text-3xl w-[90%] md:pt-0 md:mx-40 md:text-5xl md:w-[50%] font-semibold mb-4">
-                Level up your skills with top-tier courses
+              <h1 className="text-3xl w-[90%] md:pt-0 md:mx-40 md:text-4xl md:w-[50%] font-bold mb-4">
+              Discover New Skills in
               </h1>
-              <h2 className="text-amber-500 text-3xl md:text-5xl font-bold mb-3 md:mb-10">
+              <h2 className="text-amber-400 text-3xl w-[90%] md:w-[50%] md:text-5xl font-bold mb-3 md:mb-10">
                 <Typewriter
                   options={{
                     strings: [
@@ -93,7 +93,7 @@ const Courses = () => {
                   }}
                 />
               </h2>
-              <p className="text-xs md:text-base w-[90%] md:w-[70%] text-slate-300 ">
+              <p className="text-xs md:text-base w-[90%] md:w-[60%] text-slate-200 ">
                 At BAOIAM, we offer a wide range of courses designed for
                 students from schools and colleges. Whether you're preparing for
                 board exams or pursuing a degree, our courses provide

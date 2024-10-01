@@ -3,8 +3,7 @@ import { FiBarChart2 } from "react-icons/fi";
 import image10 from "../../assets/ITIE&Entre/teamwork6.webp";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useNavigate } from "react-router-dom";
-import { FaArrowRight } from 'react-icons/fa6';
+import { Link } from "react-router-dom";
 
 // Register ScrollTrigger with GSAP
 gsap.registerPlugin(ScrollTrigger);
@@ -12,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 export const CareerSection1 = () => {
   const textRef = useRef(null);
   const imageRef = useRef(null);
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   
   useEffect(() => {
     // Animation for the text
@@ -53,21 +52,26 @@ export const CareerSection1 = () => {
   }, []);
 
   return (
-
     <div className="dark:bg-black dark:text-zinc-200 bg-[#fcfdff] px-6 py-12 flex flex-col items-center justify-center lg:flex-row w-full relative overflow-hidden lg:px-2 xl:px-6">
       <main className="flex flex-col lg:flex-row items-center gap-4 justify-center w-11/12">
         {/* Text Section */}
-        <div ref={textRef} className="text-center p-4 lg:w-1/2 lg:text-left">
+        <div
+          ref={textRef}
+          className="text-center p-4 lg:w-1/2 lg:text-left lg:pl-8 "
+        >
           <h3 className="text-4xl dark:text-zinc-100 sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl font-bold text-[#0a0a0a]">
-            Career Opportunities at
+            Career
             <span className="bg-gradient-to-r from-pink-500 to-violet-600 text-transparent bg-clip-text leading-[1.3]">
-              {" "}BAOIAM
+              {" "}
+              Opportunities
             </span>
           </h3>
           <p className="text-sm mt-2 sm:text-lg md:text-base dark:text-gray-400 text-[#0a0a0a] pt-5 ">
-            At BAOIAM, we're dedicated to transforming education through
-            innovative solutions. Join our dynamic team and contribute to
-            shaping the future of learning .
+            Our company allows employees to switch between different
+            departments, within web development and marketing, to leadership
+            positions. For those starting their careers, and for those seeking
+            to progress, BAOIAM offers the opportunity to get where you want to
+            be.
           </p>
           {/* Search Bar */}
           {/* <form className="relative" onSubmit={(e) => e.preventDefault()}>
@@ -86,17 +90,20 @@ export const CareerSection1 = () => {
               </button>
             </div>
           </form> */}
-          <button onClick={()=> navigate('/contact')} className='pap10 rounded-full mt-5 gap-2 flex items-center px-6 py-2 justify-center font-medium text-white group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-black dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800'>
-                    <p className='relative transition-all ease-in duration-75 group-hover:bg-opacity-0'> 
-                    Join us
-                </p>
-                    <FaArrowRight />
-                    </button>
+          <Link to="/contact">
+            <button className="relative overflow-hidden mt-12 bg-[#6c09ed] text-white font-semibold py-2 px-8 rounded-full hover:text-[#6c09ed] focus:outline-none  transition-all duration-300 hover:border-2 hover:border-[#6c09ed] dark:border-white group cursor-pointer ">
+              <span className="absolute inset-0 bg-white transition-transform duration-500 ease-out transform scale-x-0 group-hover:scale-x-100 origin-center"></span>
+              <span className="relative z-10">Join us</span>
+            </button>
+          </Link>
         </div>
         {/* Image and Stats Section */}
-        <div ref={imageRef} className="relative aspect-square px-4 lg:w-1/2 h-96 flex justify-center">
+        <div
+          ref={imageRef}
+          className="relative aspect-square px-4 lg:w-1/2 h-96 flex justify-center"
+        >
           {/* Main Image */}
-          <div className="relative rounded-md overflow-hidden h-full w-[90%] flex justify-center">
+          <div className="relative rounded-md overflow-hidden h-full w-[90%]  ">
             <img
               src={image10} // Replace with your image source
               alt="Job Finder Illustration"
@@ -107,8 +114,12 @@ export const CareerSection1 = () => {
           <div className="absolute z-30 bottom-4 right-1/2 translate-x-1/2 py-2 px-4 transition duration-150 mx-auto bg-white rounded-lg shadow-lg flex items-center hover:scale-105">
             <FiBarChart2 className="text-orange-500 w-8 h-8" />
             <div>
-              <p className="lg:text-xl md:text-xl text-lg font-bold text-gray-800">20K+</p>
-              <p className="lg:text-sm md:text-sm text-xs text-gray-500">People got hired</p>
+              <p className="lg:text-xl md:text-xl text-lg font-bold text-gray-800">
+                20K+
+              </p>
+              <p className="lg:text-sm md:text-sm text-xs text-gray-500">
+                People got hired
+              </p>
             </div>
           </div>
         </div>

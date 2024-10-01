@@ -27,16 +27,16 @@ const showForm=useSelector(state=>state.showForm);
       <div className="hidden md:block">
         {/* Enroll Now Button */}
         <Link to={"#"} className="relative group">
-              <button
-                onClick={() =>togglePopup()}
-                type="button"
-                className="hidden z-10 lg:flex group text-black bg-gradient-to-r from-amber-500 to-red-600 shadow-sm shadow-amber-600 font-semibold rounded-lg text-sm px-0.5 py-0.5 text-center"
-              >
-                <span className="flex items-center dark:text-white  text-white transition-all group-hover:bg-black/30 text-nowrap justify-center w-full h-full  rounded-md px-4 py-1.5 ">
-                  Enroll Now
-                </span>
-              </button>
-            </Link>
+          <button
+            onClick={() => togglePopup()}
+            type="button"
+            className="hidden z-10 lg:flex group text-black bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:bg-gradient-to-br focus:outline-none focus:ring-amber-300 dark:focus:ring-amber-800 shadow-base shadow-amber-500/50 dark:shadow-base dark:shadow-amber-800/80 font-semibold rounded-lg text-sm px-4 py-2 text-center text-white "
+          >
+            {/* <span className="flex items-center dark:text-white dark:bg-black/70 group-hover:text-white transition-all group-hover:bg-black/30 text-nowrap justify-center w-full h-full bg-white rounded-md px-4 py-1.5 "> */}
+            Enroll Now
+            {/* </span> */}
+          </button>
+        </Link>
       </div>
     );
 };
