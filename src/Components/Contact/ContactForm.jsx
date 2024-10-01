@@ -232,12 +232,13 @@ const dispatch=useDispatch();
             </div>
 
             {/* Success Message */}
-            <div className=" pt-24">
+            <div className="pt-24">
               <h2 className="text-3xl font-bold text-black mb-4 dark:text-white">
-                Success!
+                Congratulations!
               </h2>
               <p className="text-gray-700 mb-6 dark:text-gray-300">
-                Yay! You have successfully enrolled.
+                🎉 You’ve successfully enrolled! Welcome to our community;
+                exciting adventures await you!
               </p>
 
               {/* Continue Button */}

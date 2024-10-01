@@ -6,7 +6,10 @@ import { ToastContainer, toast } from "react-toastify";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { FaCheckCircle } from "react-icons/fa";
 import { useSelector } from "react-redux";
+import laptop1 from "../../assets/Images/laptop5.jpg";
+
 const apiUrl = import.meta.env.VITE_API_URL;
+
 
 const SignUp = () => {
   document.title = "Baoiam - Sign Up";
@@ -237,18 +240,18 @@ const SignUp = () => {
       <ToastContainer />
       <div
         ref={Anime1}
-        className=" w-[400px] h-[400px] top-[-10%] left-[-5%]  rounded-full bg-[#1D64DD] absolute"
+        className=" w-[400px] h-[400px] top-[-10%] left-[-5%]  rounded-full  bg-gradient-to-br from-fuchsia-900 via-pink-400 to-amber-300  filter blur-3xl opacity-40   absolute"
       ></div>
       <div
         ref={Anime2}
-        className=" w-[600px] h-[600px] bottom-[-15%] right-[-5%]   rounded-full bg-[#1D64DD]  absolute"
+        className=" w-[600px] h-[600px] bottom-[-15%] right-[-5%]   rounded-full  bg-gradient-to-tl from-[#00ff99] via-[#00e6b3] to-[#33ccff]  filter blur-3xl opacity-40  absolute"
       ></div>
       <div className="py-5">
         <div className="mx-auto my-auto px-4 sm:px-1 lg:px-8 ">
           <div className="flex justify-center  lg:px-[6rem]  ">
-            <div className="relative  bg-[#3A80F6] overflow-hidden w-[40vw] lg:w-[32vw] hidden md:block md:rounded-l-2xl">
+            <div className="relative  bg-[#3A80F6] overflow-hidden w-[40vw] lg:w-[32vw] hidden md:block md:rounded-l-2xl bg-gradient-to-br from-fuchsia-500 to-cyan-500 ">
               {/* Animated Circles in Background */}
-              <ul className="absolute inset-0  z-0">
+              {/* <ul className="absolute inset-0  z-0">
                 {[...Array(10)].map((_, i) => (
                   <li
                     key={i}
@@ -264,8 +267,13 @@ const SignUp = () => {
                     }}
                   />
                 ))}
-              </ul>
-
+              </ul> */}
+              <img
+                src={laptop1}
+                alt="Background"
+                className="absolute top-0 left-0 w-full h-full object-cover rounded-r-2xl opacity-70"
+              />
+              <div className="absolute inset-0 bg-black opacity-30" />
               {/* Centered Text */}
               <div className="relative z-10 flex flex-col text-black items-center justify-evenly py-[5rem] h-full text-center ">
                 <h1 className="font-bold text-[2vw] text-white">One of us ?</h1>
@@ -275,15 +283,15 @@ const SignUp = () => {
                 </p>
                 <Link
                   to={"/Login"}
-                  className="px-16 md:py-[3px] md:text-[1.4vw]  bg-black sm:px-10 sm:py-2 sm:text-[1.5vw] text-white py-2.5 border rounded-full  border-black mt-5"
+                  className="px-16 md:py-[3px] md:text-[1.4vw]  bg-white sm:px-10 sm:py-2 sm:text-[1.5vw] text-white py-2.5 rounded-full  mt-5 text-[#5b21b6]"
                 >
                   Login
                 </Link>
               </div>
             </div>
 
-            <div className="bg-slate-100 p-8 lg:p-11 rounded-2xl  md:rounded-r-2xl md:rounded-l-none  z-10">
-              <h2 className="text-blue-500 font-manrope text-3xl md:text-[2.5vw] text-center font-semibold leading-10 mb-8">
+            <div className="bg-white p-8 lg:p-11 rounded-2xl  md:rounded-r-2xl md:rounded-l-none  z-10 shadow-[12px_-12px_#09090b]">
+              <h2 className="text-[#6d28d9] font-manrope text-3xl md:text-[2.5vw] text-center font-semibold leading-10 mb-8 ">
                 Sign Up
               </h2>
 
@@ -438,7 +446,7 @@ const SignUp = () => {
 
                 <button
                   type="submit"
-                  className="text-white text-xs md:text-sm  bg-black border border-black hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg w-full px-5 py-2.5 text-center col-span-2"
+                  className="text-white text-xs md:text-sm  bg-[#5b21b6]  hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg w-full px-5 py-2.5 text-center col-span-2"
                 >
                   Submit
                 </button>
