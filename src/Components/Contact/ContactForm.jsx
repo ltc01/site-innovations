@@ -161,7 +161,7 @@ export const ContactFormComponent = () => {
     console.log("Form Data:", data);
     try {
       setLoading(true);
-      const { response, status } = await axios.post(
+      const response = await axios.post(
         // "https://script.google.com/macros/s/AKfycbyrM_x9q5m5qMwJ814X2g9rdKYWGne8bmZ5nzIZ0xY0ppGnzTOl5jsUGKlALnPgnEEI/exec",
         `${apiUrl}/api/enrollment-query-save/`,
         data
@@ -169,7 +169,7 @@ export const ContactFormComponent = () => {
         //   headers: { "Content-Type": "multipart/form-data" },
         // }
       );
-      if (status === 201) {
+      if (response.status === 201) {
         console.log("Form successfully submitted:", response.data);
         setShowPopup(true);
 
