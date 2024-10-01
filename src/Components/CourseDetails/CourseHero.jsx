@@ -5,11 +5,20 @@ import { CourseDesc2 } from "../../assets/assets";
 import { FaDownload } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import EnrollNow from "../Home/EnrollNow";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleEnrollForm } from "../../Redux/slices/enrollFormSlice";
 
-const CourseHero = ({ course, downloadBrochure, setShowForm, showForm }) => {
+const CourseHero = ({ course, downloadBrochure }) => {
   // console.log(course);
 
-  const navigate = useNavigate();
+  const dispatch = useDispatch()
+  const showForm = useSelector(state => state.showForm);
+
+  const toggleForm = () => {
+    dispatch(toggleEnrollForm());
+  }
+
+  // const navigate = useNavigate();
   return (
     <div className="pb-12 pt-4 px-4 md:px-20 dark:bg-zinc-800 dark:bg-none bg-gradient-to-t from-orange-100 to-transparent">
       <div className="flex items-center gap-2 text-xs">
@@ -38,7 +47,7 @@ const CourseHero = ({ course, downloadBrochure, setShowForm, showForm }) => {
             <div className="mt-8 flex items-center justify-between w-full">
               <div className="flex justify-center items-center gap-2">
                 <button
-                  onClick={() => setShowForm(true)}
+                  onClick={toggleForm}
                   className="relative mr-4 inline-flex items-center bg-gradient-to-r from-amber-500 to-red-600 px-6 md:px-8 lg:px-12 py-2 md:py-3 text-xs md:text-sm overflow-hidden text-white font-medium border border-orange-400 rounded-lg hover:text-orange-500 group"
                 >
                   <span className="absolute left-0 block w-full h-0 transition-all bg-white opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease-in-out"></span>
