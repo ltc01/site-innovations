@@ -53,7 +53,7 @@ export const StatupSlider = () => {
   const swiperRef = useRef(null);
   useEffect(() => {
     gsap.fromTo(
-      ".b3",
+      ".b4",
       { opacity: 0, y: 30 },
       {
         opacity: 1,
@@ -62,12 +62,13 @@ export const StatupSlider = () => {
         ease: "back.inOut",
         stagger: 0.3,
         scrollTrigger: {
-          trigger: ".bdiv2",
+          trigger: ".bdiv4",
           start: "top 90%",
           end: "bottom 80%",
         },
       }
     );
+
   }, []);
 
   const handlePrev = () => {
@@ -83,12 +84,12 @@ export const StatupSlider = () => {
   };
 
   return (
-    <div className="my-12">
+    <div className='my-12 bdiv4'>
       <div>
         {" "}
-        <h1 className="m-6 text-3xl font-bold text-center">Featured Blogs</h1>
+        <h1 className='b4 m-6 text-3xl font-bold text-center'>Featured Blogs</h1>
       </div>
-      <div className="mb-6 md:px-10">
+      <div className='mb-6 md:px-10 b4'>
         <Swiper
           keyboard={{
             enabled: true,
@@ -113,7 +114,7 @@ export const StatupSlider = () => {
           {blog_slider?.map((item, i) => {
             return (
               <SwiperSlide
-                className="p-4 cursor-pointer hover:shadow-indigo-400 hover:shadow-md duration-200 hover:scale-105 dark:bg-zinc-900 bg-zinc-100 rounded-md  flex flex-col justify-center items-center gap-4"
+                className=' p-4 cursor-pointer hover:shadow-indigo-400 hover:shadow-md duration-200 hover:scale-105 dark:bg-zinc-900 bg-zinc-100 rounded-md  flex flex-col justify-center items-center gap-4'
                 key={item.id}
               >
                 <Link to={`/Blogdetail/${i}`}>
