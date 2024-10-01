@@ -161,33 +161,34 @@ const Blog = () => {
     window.scrollTo(0, 0);
 
     gsap.fromTo(
-      ".b1",
-      { opacity: 0, y: -60 },
-      {
-        opacity: 1,
-        duration: 1,
-        y: 0,
-        ease: "power1.inOut",
-        stagger: 0.3,
-      }
-    );
-
-    gsap.fromTo(
       ".b2",
       { opacity: 0, y: 30 },
       {
         opacity: 1,
-        duration: 1,
         y: 0,
-        ease: "back.inOut",
-        stagger: 0.3,
+        duration: 0.6,
+        ease: "power1.out",
+        stagger: 0.2,
+      }
+    );
+
+    gsap.fromTo(
+      ".b3",
+      { opacity: 0, x: 30 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.6,
+        ease: "power1.out",
+        stagger: 0.2,
         scrollTrigger: {
-          trigger: ".bdiv1",
-          start: "top 70%",
-          end: "bottom 80%",
+          trigger: ".blogdiv1",
+          start: "top 88%",
+          end: "bottom 85%",
         },
       }
     );
+
     return () => {};
   }, []);
 
@@ -281,7 +282,7 @@ const Blog = () => {
         blog_list={blog_list}
       />
       <div className='max-w-7xl dark:bg-black dark:text-white mx-auto py-8 px-4 sm:px-6 lg:px-8'>
-        <h1 className='text-3xl font-bold text-center'>
+        <h1 className='b2 text-3xl font-bold text-center'>
           Our Latest Highlights
         </h1>
         <h2 className='b2 text-lg text-center dark:text-slate-300 mt-2 mb-6'>
@@ -289,10 +290,10 @@ const Blog = () => {
         </h2>
 
         <div className=' p-6'></div>
-        <div className='px-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10'>
+        <div className='blogdiv1 px-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10'>
           {searchResults.map((item, i) => (
-            <Link key={i} to={`/Blog_detail/${i}`}>
-              <div className='bg-white flex flex-col h-full dark:bg-zinc-900 dark:hover:shadow-indigo-400 dark:text-white shadow-lg dark:hover:shadow-md rounded-lg overflow-hidden transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-300 '>
+            <Link className='b3' key={i} to={`/Blog_detail/${i}`}>
+              <div className='bg-white flex flex-col h-full dark:bg-black dark:text-white shadow-lg dark:hover:shadow-gray-300 dark:hover:shadow-md rounded-lg overflow-hidden transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-300 '>
                 <div className='relative'>
                   <img
                     className='w-full h-48 object-cover'
@@ -302,7 +303,7 @@ const Blog = () => {
                   {/* Button positioned over the image */}
                   <button
                     type='button'
-                    className='absolute bottom-2 left-3  bg-slate-400 transition-all text-black text-xs font-medium rounded-lg p-2'
+                    className='absolute bottom-2 left-3 dark:bg-slate-300 bg-slate-400 transition-all text-black text-xs font-medium rounded-lg p-2'
                   >
                     {item.category}
                   </button>
@@ -320,7 +321,7 @@ const Blog = () => {
                   >
                     {item.des}
                   </span>
-                  <p className='text-xs text-slate-500 font-medium mt-2'>
+                  <p className='text-xs text-slate-500 dark:dark:text-slate-400 font-medium mt-2'>
                     {item.info}
                   </p>
                 </div>

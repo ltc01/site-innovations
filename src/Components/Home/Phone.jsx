@@ -1,37 +1,45 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { App_phone } from "../../assets/assets";
 import { FaCheckCircle } from "react-icons/fa";
 import axios from "axios";
 import { toast } from "react-toastify";
+import gsap from "gsap";
 
 const Phone = () => {
-  const [inputValue, setInputValue] = useState("Email");
   const [animatePing, setAnimatePing] = useState(false);
   const emailRef = useRef();
   const [showPopup, setShowPopup] = useState(false);
   const [loading, setLoading] = useState(false);
   const submit = async () => {
     setLoading(true);
+    const data = {
+      fullName: "",
+      email: emailRef.current.value,
+      countryCode: "",
+      phone: "",
+      inquiryType: "",
+      message: "",
+      newsletter: true,
+    };
     try {
-      const { data } = await axios.post(
-        "https://proxy-server-baoiam.vercel.app/contact-form ",
-        {
-          fullName: "",
-          email: emailRef.current.value,
-          countryCode: "",
-          phone: "",
-          inquiryType: "",
-          message: "",
-          newsletter: true,
-        }
+      const response = await axios.post(
+        "https://proxy-server-baoiam.vercel.app/contact-form",
+        // "http://localhost:3000/contact-form",
+        data
       );
-      console.log("res is:", data);
+      if (response.status == 200) {
+        console.log("Form successfully submitted:", response.data);
+        // toast.success("Form submitted successfully");
+        setShowPopup(true);
+        // alert(response.status);
+      } else toast.error("An error occurred");
       setLoading(false);
-      setShowPopup(true);
+      emailRef.current.value = "";
     } catch (e) {
+      emailRef.current.value = "";
       setLoading(false);
       toast.error("Some error occurred");
-      console.log(e.stack);
+      console.log("Phone error: ", e.stack);
     }
     // fullName: formData.Name,
     //     email: formData.Email,
@@ -45,6 +53,62 @@ const Phone = () => {
     e.preventDefault();
     submit();
   };
+
+
+useEffect(() => {
+
+  const tl = gsap.timeline({
+    scrollTrigger:{
+      trigger:'.sectionEnd',
+      start:'top 60%',
+      end:'bottom 80%'
+    }
+  })
+
+
+  tl.fromTo('.txtimg',{
+    opacity:0,
+    scale:0.7,
+  },
+  {
+    opacity:1,
+    scale:1,
+    duration:0.6,
+    ease:'power1.out',
+    stagger:0.2,
+  }
+)
+
+tl.fromTo('.txt1',{
+  opacity:0,
+  y:30
+},
+{
+  opacity:1,
+  y:0,
+  duration:0.6,
+  ease:'power1.out',
+  stagger:0.2,
+},
+'-=0.5')
+
+tl.fromTo('.txt2',{
+  opacity:0,
+  scale:0.7,
+},
+{
+  opacity:1,
+  scale:1,
+  duration:0.4,
+  ease:'power1.out',
+  stagger:0.2,
+}
+)
+
+
+},[])
+
+
   return (
     <>
       {showPopup && (
@@ -86,19 +150,19 @@ const Phone = () => {
           </div>
         </div>
       )}
-      <div className="flex w-full gap-8 pb-20 py-10 dark:bg-[#010203] dark:text-white items-center mx-auto justify-center flex-col md:flex-row">
-        <div className="w-40 md:w-[23%]">
+      <div className="sectionEnd flex w-full gap-8 pb-20 py-10 dark:bg-[#010203] dark:text-white items-center mx-auto justify-center flex-col md:flex-row">
+        <div className="txtimg w-40 md:w-[23%]">
           <img src={App_phone} className="w-full" alt="Android app-Baoiam" />
         </div>
         <div className="md:w-1/3 w-[80%]">
-          <p className="text-3xl md:text-4xl font-bold">
+          <p className="txt1 text-3xl md:text-4xl font-bold">
             Seize the{" "}
             <span className="bg-gradient-to-r from-pink-500  to-violet-600 bg-clip-text text-transparent">
-              Opportunity 
+              Opportunity
             </span>{" "}
             - Begin Your Journey Now!
           </p>
-          <p className="font-medium mt-4 pl-2 text-slate-600 dark:text-slate-300">
+          <p className="txt1 font-medium mt-4 pl-2 text-slate-600 dark:text-slate-300">
             Join now to Maximize your growth with our transformative courses.
           </p>
 
@@ -160,13 +224,13 @@ const Phone = () => {
               Join now
             </button>
           </div> */}
-            <div className="w-fit flex p-1 rounded-full text-left border focus-within:border-gray-700">
+            <div className="txt2 w-fit flex p-1 rounded-full text-left border focus-within:border-gray-700">
               <input
                 type="email"
                 ref={emailRef}
                 placeholder="Enter your email..."
                 required
-                className="w-full outline-none bg-transparent text-sm text-gray-800 px-4 py-1"
+                className="w-full outline-none bg-transparent text-sm text-gray-800 dark:text-gray-200 px-4 py-1"
               />
               <button // Change to 'submit'
                 className="bg-gradient-to-r from-indigo-700 to-indigo-500 hover:bg-gradient-to-l transition-all text-white tracking-wide text-sm rounded-full px-6 py-2"
