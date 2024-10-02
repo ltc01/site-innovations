@@ -93,23 +93,54 @@ const Courses = () => {
           </span>
         </h2>
         <p className="trig4 text-base dark:text-gray-300 sm:text-lg text-gray-600">
-          Our commitment to quality, dedication and achievement oriented mindset sets us apart
+          Our commitment to quality, dedication and achievement oriented mindset
+          sets us apart
         </p>
       </div>
 
-      <div className="trig4 flex flex-col mx-auto justify-center md:flex-row gap-8">
+      {/* <div className="trig4 flex flex-col mx-auto justify-center md:flex-row gap-8 ">
         {data.map((stat, i) => {
-          return <div className="w-60 shadow-[7px_7px_#4338CA] border border-[#515050] p-4 rounded-xl">
-            <div className="flex items-center mx-auto justify-start gap-4 mb-3">
-              <span className="">{stat.icon}</span>
+          return (
+            <div className="w-60 shadow-[7px_7px_#4338CA] border border-[#515050] p-4 rounded-xl">
+              <div className="flex items-center mx-auto justify-start gap-4 mb-3">
+                <span className="">{stat.icon}</span>
+                <h2 className="text-xl font-semibold text-gray-800 dark:text-white">
+                  {stat.title}
+                </h2>
+              </div>
+              <p
+                className={`text-gray-600 dark:text-white text-sm ${
+                  i === 4 && "mt-4"
+                }`}
+              >
+                {stat.description}
+              </p>
+            </div>
+          );
+        })}
+      </div> */}
+
+      <div className="trig4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 xl:px-20">
+        {data.map((stat, i) => (
+          <div
+            key={i}
+            className="w-full p-4 shadow-[7px_7px_#4338CA] border border-[#515050] rounded-xl bg-white dark:bg-gray-800"
+          >
+            <div className="flex items-center justify-start gap-4 mb-3">
+              <span>{stat.icon}</span>
               <h2 className="text-xl font-semibold text-gray-800 dark:text-white">
                 {stat.title}
               </h2>
             </div>
-            <p className={`text-gray-600 dark:text-white text-sm ${i === 4 && "mt-4"}`}>{stat.description}</p>
-
+            <p
+              className={`text-gray-600 dark:text-white text-sm ${
+                i === 4 && "mt-4"
+              }`}
+            >
+              {stat.description}
+            </p>
           </div>
-        })}
+        ))}
       </div>
 
       {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">

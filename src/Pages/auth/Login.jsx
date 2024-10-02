@@ -254,22 +254,17 @@ iwIDAQAB
       <ToastContainer />
 
       <div className="flex items-center justify-center h-screen w-screen py-2 bg-transparent relative overflow-hidden z-3 dark:text-black ">
-        
-
-  
-       
-       
         {/* <div className="relative flex flex-col m-6 space-y-8 md:mx-20 shadow-lg lg:shadow-xl rounded-2xl md:flex-row md:space-y-0 bg-black ">
          */}
         <div
-         ref={Anime1}
-         className="w-[600px] h-[600px] top-[-10%] left-[-5%] rounded-full bg-gradient-to-tl from-[#00ff99] via-[#00e6b3] to-[#33ccff] absolute  filter blur-3xl opacity-40 " // Green-blue circle with blur
-       ></div>
+          ref={Anime1}
+          className="w-[600px] h-[600px] top-[-10%] left-[-5%] rounded-full bg-gradient-to-tl from-[#00ff99] via-[#00e6b3] to-[#33ccff] absolute  filter blur-3xl opacity-40 " // Green-blue circle with blur
+        ></div>
 
-       <div
-         ref={Anime2}
-         className="w-[400px] h-[400px] bottom-[-15%] right-[-5%] rounded-full bg-gradient-to-br from-fuchsia-900 via-pink-400 to-amber-300 absolute filter blur-3xl  opacity-40  " // Pink-amber circle with blur
-       ></div>
+        <div
+          ref={Anime2}
+          className="w-[400px] h-[400px] bottom-[-15%] right-[-5%] rounded-full bg-gradient-to-br from-fuchsia-900 via-pink-400 to-amber-300 absolute filter blur-3xl  opacity-40  " // Pink-amber circle with blur
+        ></div>
 
         <div className="relative flex flex-col m-6 space-y-8  md:mx-20 shadow-lg lg:shadow-xl rounded-2xl md:flex-row md:space-y-0  ">
           {" "}
@@ -283,7 +278,7 @@ iwIDAQAB
               Please enter your details
             </span>
             <form onSubmit={handleLogin}>
-              <div className="py-4 md:py-0 animate-slideInUp">
+              <div className="py-2 md:py-0 animate-slideInUp">
                 <span className="mb-2 text-sm md:text-[1.4vw] lg:text-[1.3vw]">
                   Email
                 </span>
@@ -297,11 +292,11 @@ iwIDAQAB
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
-              <div className="py-4 animate-slideInUp">
+              <div className="py-2 animate-slideInUp">
                 <span className="mb-2 text-sm md:text-[1.4vw] lg:text-[1.3vw]">
                   Password
                 </span>
-                <div className="flex items-center p-2 border border-gray-300 rounded-md">
+                <div className="flex items-center p-2  border border-gray-300 rounded-md">
                   <input
                     type={pass ? "text" : "password"}
                     name="password"
@@ -322,18 +317,18 @@ iwIDAQAB
               <div className="flex justify-between mb-4 w-full animate-fadeIn">
                 <div className="md:mr-24 flex items-center">
                   <input type="checkbox" name="ch" id="ch" className="mr-2" />
-                  <span className="text-[3.5vw] md:text-[1vw]">Remember</span>
+                  <span className="text-xs md:text-xs">Remember</span>
                 </div>
                 <Link
                   to={"/forget-password"}
-                  className="font-bold text-[3.5vw] md:text-[1vw] cursor-pointer"
+                  className="font-bold text-xs md:text-xs cursor-pointer"
                 >
                   Forgot password
                 </Link>
               </div>
               <button
                 type="submit"
-                className="w-full bg-[#5b21b6] text-white text-[4.4vw] md:text-[1vw] p-1 md:p-2 rounded-lg mb-6 hover:bg-white hover:text-black hover:border hover:border-gray-300 transform hover:scale-105 transition-all duration-300 animate-slideInUp"
+                className="w-full bg-[#5b21b6] text-white text-sm  p-1 md:p-2 rounded-lg mb-6 hover:bg-white hover:text-black hover:border hover:border-gray-300 transform hover:scale-105 transition-all duration-300 animate-slideInUp "
               >
                 Sign in
               </button>
@@ -349,7 +344,7 @@ iwIDAQAB
             />
             Sign in with Google
           </button> */}
-            <div className="text-center text-[3vw] md:text-[1vw] text-gray-500 animate-fadeIn">
+            <div className="text-center text-xs md:text-sm text-gray-500 animate-fadeIn">
               Don't have an account?{" "}
               <Link
                 to="/signup"
