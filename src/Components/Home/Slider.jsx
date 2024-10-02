@@ -52,9 +52,9 @@ export default function SliderSection() {
     if (status === 'idle') {
       dispatch(fetchFeaturedCourses());
     }
-    gsap.fromTo('.slide1', {
+    gsap.fromTo('.Homeanime-slide', {
       opacity: 0,
-      y: 30
+      y: 40,
     },
       {
         opacity: 1,
@@ -63,9 +63,8 @@ export default function SliderSection() {
         ease: 'power1.out',
         stagger: 0.2,
         scrollTrigger: {
-          trigger: '.sectiondiv2',
-          start: 'top 80%',
-          end: 'bottom 80%'
+          trigger: '.Homesliderdiv',
+          start: 'top 70%',
         }
       })
   }, [dispatch, status]);
@@ -79,12 +78,12 @@ export default function SliderSection() {
   // redux end
 
   return (
-    <div className="sectiondiv2 slider-section dark:bg-[#010203] w-full relative py-12 overflow-hidden ">
-      <div className="text-center mb-0 lg:mb-8">
-        <h2 className="slide1 text-4xl font-extrabold mb-8">Featured <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent" >Courses</span></h2>
+    <div className="Homesliderdiv dark:bg-[#010203] w-full h-full relative py-12 overflow-hidden ">
+      <div className="text-center Homeanime-slide mb-0 lg:mb-8">
+        <h2 className="text-4xl font-extrabold mb-8">Featured <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent" >Courses</span></h2>
       </div>
 
-      <div className="slide1 mx-4 mt-8 md:mx-14">
+      <div className="Homeanime-slide mx-4 mt-8 md:mx-14">
         <Swiper
           modules={[Navigation]}
           spaceBetween={0} // Adjust the space between cards

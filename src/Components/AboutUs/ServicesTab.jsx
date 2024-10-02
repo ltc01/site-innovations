@@ -10,9 +10,9 @@ const ServicesTab = () => {
 
     useEffect(() => {
 
-      gsap.fromTo('.trig6', {
+      gsap.fromTo('.ServiceTab', {
         opacity: 0,
-        y: 30
+        y: 40,
       },
         {
           opacity: 1,
@@ -21,9 +21,8 @@ const ServicesTab = () => {
           ease: 'power1.out',
           stagger: 0.2,
           scrollTrigger: {
-            trigger: '.sectiondiv-2',
-            start: 'top 80%',
-            end: 'bottom 80%'
+            trigger: '.ServiceTabdiv',
+            start: 'top 50%',
           }
         })
 
@@ -32,8 +31,8 @@ const ServicesTab = () => {
     switch (activeTab) {
       case "services":
         return (
-          <div className="p-4 sectiondiv-2">
-            <div className="container mx-auto ">
+          <div className="p-4">
+            <div className="container mx-auto">
               <div className="text-start ">
                 <h1 className="text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-4">
                   Expand your{" "}
@@ -370,8 +369,8 @@ const ServicesTab = () => {
 
   return (
     <div>
-      <div className="p-4 mx-4 sm:mx-10 ">
-        <div className="trig6 flex flex-col mb-2 sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8">
+      <div className="p-4 mx-4 sm:mx-10 ServiceTabdiv w-full h-full">
+        <div className="ServiceTab flex flex-col mb-2 sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8">
           <button
             className={`text-sm md:text-base font-bold ${activeTab === "services"
               ? "text-indigo-600 dark:text-indigo-400"
@@ -411,7 +410,7 @@ const ServicesTab = () => {
         </div>
 
         {/* Render content based on selected tab */}
-        <div className="trig6">{renderContent()}</div>
+        <div className="ServiceTab">{renderContent()}</div>
       </div>
     </div>
   );

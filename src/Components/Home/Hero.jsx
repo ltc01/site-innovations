@@ -38,7 +38,7 @@ tl.fromTo('.heroimg',{opacity:0,scale:0.9},
   };
 
   return (
-    <div className="bg-white md:py-10 dark:bg-[#010203] dark:text-white flex flex-col-reverse md:flex-row px-8 lg:px-20 lg:-mt-16 items-center">
+    <div className="HomeHero bg-white md:py-10 dark:bg-[#010203] dark:text-white flex flex-col-reverse md:flex-row px-8 lg:px-20 lg:-mt-16 items-center">
       {/* Left Side: Heading and Content */}
       <div
         className="w-full flex mx-auto md:pl-5 gap-y-1 pb-10 md:pb-0 flex-col lg:w-1/2 text-center md:text-left"

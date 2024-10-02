@@ -59,7 +59,7 @@ useEffect(() => {
 
   const tl = gsap.timeline({
     scrollTrigger:{
-      trigger:'.sectionEnd',
+      trigger:'.Phonediv',
       start:'top 60%',
       end:'bottom 80%'
     }
@@ -150,7 +150,7 @@ tl.fromTo('.txt2',{
           </div>
         </div>
       )}
-      <div className="sectionEnd flex w-full gap-8 pb-20 py-10 dark:bg-[#010203] dark:text-white items-center mx-auto justify-center flex-col md:flex-row">
+      <div className="Phonediv flex w-full gap-8 pb-20 py-10 dark:bg-[#010203] dark:text-white items-center mx-auto justify-center flex-col md:flex-row">
         <div className="txtimg w-40 md:w-[23%]">
           <img src={App_phone} className="w-full" alt="Android app-Baoiam" />
         </div>

@@ -58,7 +58,7 @@ const Partners = () => {
 
   useEffect(() => {
 
-    gsap.fromTo('.trig1',{
+    gsap.fromTo('.patneranime',{
       opacity:0,
       y:30
     },
@@ -69,9 +69,10 @@ const Partners = () => {
       ease:'power1.out',
       stagger:0.2,
       scrollTrigger:{
-        trigger:'.marqdiv1',
-        start:'top 80%',
-        end:'bottom 80%'
+        trigger:'.partnersdiv',
+        start:'top 70%',
+        end:'bottom 80%',
+        markers:true,
       }
     })
     
@@ -80,10 +81,10 @@ const Partners = () => {
 
 
   return (
-    <div className="dark:bg-[#010203] marqdiv1">
+    <div className="dark:bg-[#010203] partnersdiv">
       <div className="my-20">
         <h2
-          className="trig1 text-3xl px-2 text-center md:text-4xl dark:text-white font-extrabold text-gray-900"
+          className="patneranime text-3xl px-2 text-center md:text-4xl dark:text-white font-extrabold text-gray-900"
         >
           Our thriving {" "}
           <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
@@ -91,7 +92,7 @@ const Partners = () => {
           </span>
         </h2>
         <p
-          className="trig1 text-center px-4 text-slate-600 dark:text-slate-300 w-full md:w-[60%] mx-auto mb-14 mt-6 md:mt-10"
+          className="patneranime text-center px-4 text-slate-600 dark:text-slate-300 w-full md:w-[60%] mx-auto mb-14 mt-6 md:mt-10"
         >
           We collaborate with organizations, from startups to multinational firms, including diverse range of business and nonprofits
         </p>
@@ -146,7 +147,7 @@ export const UniversityPartners = () => {
 
   useEffect(() => {
 
-    gsap.fromTo('.trig2',{
+    gsap.fromTo('.Patneranime-2',{
       opacity:0,
       y:30
     },
@@ -157,8 +158,8 @@ export const UniversityPartners = () => {
       ease:'power1.out',
       stagger:0.2,
       scrollTrigger:{
-        trigger:'.marqdiv2',
-        start:'top 80%',
+        trigger:'.Partnerdiv2',
+        start:'top 70%',
         end:'bottom 80%'
       }
     })
@@ -168,9 +169,9 @@ export const UniversityPartners = () => {
 
 
   return (
-    <div className="my-20 marqdiv2">
+    <div className="my-20 Partnerdiv2">
       <h2
-        className="trig2 text-3xl text-center md:text-4xl px-2 dark:text-white font-extrabold text-gray-900"
+        className="Patneranime-2 text-3xl text-center md:text-4xl px-2 dark:text-white font-extrabold text-gray-900"
       >
         Shaping Future with{" "}
         <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
@@ -178,7 +179,7 @@ export const UniversityPartners = () => {
         </span>
       </h2>
       <p
-        className="trig2 text-center px-4 text-slate-600 dark:text-slate-300 w-full md:w-[60%] mx-auto mb-14 mt-6 md:mt-10"
+        className="Patneranime-2 text-center px-4 text-slate-600 dark:text-slate-300 w-full md:w-[60%] mx-auto mb-14 mt-6 md:mt-10"
       >
         Partnering with top universities to provide quality education and access
         to advanced resources, ensuring students are prepared for future

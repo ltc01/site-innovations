@@ -37,14 +37,14 @@ const Protocol = () => {
 
 const tl = gsap.timeline({
   scrollTrigger:{
-    trigger:'.sectiondiv4',
+    trigger:'.Protocoldiv',
     start:'top 70%',
   }
 })
 
-tl.fromTo('.section4',{
+tl.fromTo('.Protocolanime',{
   opacity:0,
-  y:30
+  y:40
 },
 {
   opacity:1,
@@ -55,7 +55,7 @@ tl.fromTo('.section4',{
 })
 
 
-tl.fromTo('.sec4-anime1',{
+tl.fromTo('.protocol-anime1',{
   opacity:0,
   y:30,
 },
@@ -67,7 +67,7 @@ tl.fromTo('.sec4-anime1',{
 
 },'-=0.5')
 
-tl.fromTo('.sec4-anime2',{
+tl.fromTo('.protocol-anime2',{
   opacity:0,
   y:30,
 },
@@ -80,7 +80,7 @@ tl.fromTo('.sec4-anime2',{
 },
 '-=0.4')
 
-tl.fromTo('.sec4-anime3',{
+tl.fromTo('.protocol-anime3',{
   opacity:0,
   y:30,
 },
@@ -99,9 +99,9 @@ tl.fromTo('.sec4-anime3',{
   }, []);
 
   return (
-    <div className="md:px-16 sectiondiv4">
+    <div className="md:px-16 Protocoldiv">
       <div className="md:mt-[6rem]">
-        <h1 className="section4 text-3xl md:text-4xl my-2 text-center font-extrabold">
+        <h1 className="Protocolanime text-3xl md:text-4xl my-2 text-center font-extrabold">
           The ethics{" "}
           <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
             Baoiam
@@ -114,12 +114,12 @@ tl.fromTo('.sec4-anime3',{
         <div
           className="flex flex-col items-center"
         >
-          <MdHeadsetMic className="sec4-anime1 text-[4rem] text-indigo-700" />
+          <MdHeadsetMic className="protocol-anime1 text-[4rem] text-indigo-700" />
           <div className="text-center p-3">
-            <h2 className="sec4-anime2 font-bold sm:text-[1.2rem] lg:text-[1.1rem] my-2">
+            <h2 className="protocol-anime2 font-bold sm:text-[1.2rem] lg:text-[1.1rem] my-2">
               Continuous Support
             </h2>
-            <p className="sec4-anime3 text-sm tracking-tight">
+            <p className="protocol-anime3 text-sm tracking-tight">
               Our excellent team is ready to serve you full time at every stage of your learning journey. We contribute to half of your success, believing that the right guidance can pave the way to achieving your goals
             </p>
           </div>
@@ -128,12 +128,12 @@ tl.fromTo('.sec4-anime3',{
         <div
           className="flex flex-col items-center"
         >
-          <BsPersonVideo className="sec4-anime1 text-[4rem] text-indigo-700" />
+          <BsPersonVideo className="protocol-anime1 text-[4rem] text-indigo-700" />
           <div className="text-center p-3">
-            <h2 className="sec4-anime2 font-bold lg:text-[1.1rem] sm:text-[1.2rem] my-2">
+            <h2 className="protocol-anime2 font-bold lg:text-[1.1rem] sm:text-[1.2rem] my-2">
               Highly Experienced Trainers
             </h2>
-            <p className="sec4-anime3 text-sm tracking-tight">
+            <p className="protocol-anime3 text-sm tracking-tight">
               The guidance and experience you revive from our top tier mentors will benefit you at every stage of your learning journey. With their extensive expertise, our mentors ensure you're equipped for success.
             </p>
           </div>
@@ -142,12 +142,12 @@ tl.fromTo('.sec4-anime3',{
         <div
           className="flex flex-col items-center"
         >
-          <MdOutlinePhonelink className="sec4-anime1 text-[3.6rem] text-indigo-700" />
+          <MdOutlinePhonelink className="protocol-anime1 text-[3.6rem] text-indigo-700" />
           <div className="text-center p-3">
-            <h2 className="sec4-anime2 font-bold sm:text-[1.2rem] lg:text-[1.1rem] my-2">
+            <h2 className="protocol-anime2 font-bold sm:text-[1.2rem] lg:text-[1.1rem] my-2">
               Seamless To Use
             </h2>
-            <p className="sec4-anime3 text-sm tracking-tight">
+            <p className="protocol-anime3 text-sm tracking-tight">
               Our platform is designed to be easily operated by anyone, with no complex fundamentals. We have implemented simple navigation that is easy for every age group to follow.
             </p>
           </div>
