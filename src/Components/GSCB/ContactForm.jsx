@@ -77,7 +77,7 @@ const ContactForm = () => {
     }
   };
   return (
-    <div className="mt-20 w-[70%] p-4 mx-auto h-full max-lg:w-[80%] max-md:w-[90%] max-sm:w-[95%] max-xs:w-full max-xs:p-4 max-xs:mt-10">
+    <div className="mt-20 w-full md:w-[90%] lg:w-[85%] p-4 mx-auto h-full max-xs:p-4 max-xs:mt-10">
       {showPopup && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
           {/* Overlay */}
