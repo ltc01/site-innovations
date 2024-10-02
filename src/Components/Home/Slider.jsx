@@ -17,36 +17,11 @@ import gsap from "gsap";
 
 export default function SliderSection() {
   const navigate = useNavigate();
-  const [selectedCategory, setSelectedCategory] = useState("Category1");
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const categoryKeys = Object.keys(categories);
-  // console.log(categoryKeys, 'category keys')
-
-  useEffect(() => {
-    if (categories[selectedCategory] === undefined) {
-      setSelectedCategory(categoryKeys[0]); // Fallback to the first category if the current category is undefined
-    }
-    // console.log(categories,'cate')
-
-    if (currentIndex >= categories[selectedCategory]?.length) {
-      const nextCategoryIndex =
-        (categoryKeys.indexOf(selectedCategory) + 1) % categoryKeys.length;
-      setSelectedCategory(categoryKeys[nextCategoryIndex]);
-      setCurrentIndex(0);
-    }
-  }, [currentIndex, selectedCategory]);
-
-  const handleSlideChange = (swiper) => {
-    setCurrentIndex(swiper.realIndex);
-  };
-
-
 
   // redux start
   const dispatch = useDispatch();
   const { featuredCourses, status, error } = useSelector((state) => state.courses);
-
+      
   useEffect(() => {
     // console.log("Component rendered, current status:", status);
     if (status === 'idle') {
@@ -74,7 +49,6 @@ export default function SliderSection() {
       <BeatLoader color="#4F46E5" loading={true} size={15} />
     </div>;;
   }
-  // console.log(featuredCourses, 'program courses')
   // redux end
 
   return (
@@ -192,23 +166,21 @@ export default function SliderSection() {
                   </div>
                 </div>
               </SwiperSlide>
-
-
-
             ))
-          }
+            }
 
 
-        </Swiper>
-      </div>
+          </Swiper>
+        </div>
 
-      {/* Custom Navigation Buttons Positioned on the Sliders */}
-      <div className="absolute top-[60%] left-2 transform z-10">
-        <button className="swiper-button-prev text-indigo-600 transition"></button>
+        {/* Custom Navigation Buttons Positioned on the Sliders */}
+        <div className="absolute top-[60%] left-2 transform z-10">
+          <button className="swiper-button-prev text-indigo-600 transition"></button>
+        </div>
+        <div className="absolute top-[60%] right-2 transform z-10">
+          <button className="swiper-button-next text-indigo-500 transition"></button>
+        </div>
       </div>
-      <div className="absolute top-[60%] right-2 transform z-10">
-        <button className="swiper-button-next text-indigo-500 transition"></button>
-      </div>
-    </div>
-  );
+    );
+  }
 }

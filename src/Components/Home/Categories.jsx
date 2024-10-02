@@ -1,6 +1,7 @@
 import gsap from "gsap";
 import React, { useEffect } from "react";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const Categories = () => {
@@ -23,7 +24,10 @@ const Categories = () => {
   ];
   const navigate = useNavigate();
 
-
+  // const dispatch = useDispatch()
+  // const {allCourses} = useSelector(state => state.courses);
+  // console.log(allCourses, "CourseCate");
+  
 
   useEffect(() => {
 
@@ -52,8 +56,8 @@ const Categories = () => {
     <div className="Categoriediv text-center dark:bg-black px-4 pt-16 md:pb-10 mx-auto max-w-7xl">
       <h1 className="Categorieanime text-3xl md:text-4xl font-extrabold px-6 sm:px-20 lg:px-48 mx-auto mb-6">
         Advance Your  <span className="bg-gradient-to-r from-pink-500 to-indigo-600 bg-clip-text text-transparent">
-        Career</span> with Top  <span className="bg-gradient-to-r from-pink-500 to-indigo-600 bg-clip-text text-transparent">
-        Leading Skills</span>
+          Career</span> with Top  <span className="bg-gradient-to-r from-pink-500 to-indigo-600 bg-clip-text text-transparent">
+          Leading Skills</span>
       </h1>
       <p className="Categorieanime text-base px-6 sm:px-20 lg:px-48 mb-5 dark:text-gray-300 text-gray-600">
       Empower your professional journey with the skills that matter most in today's evolving job market.</p>
