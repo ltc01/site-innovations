@@ -22,7 +22,11 @@ const CourseHero = ({ course, downloadBrochure }) => {
   return (
     <div className="pb-12 pt-4 px-4 md:px-20 dark:bg-zinc-800 dark:bg-none bg-gradient-to-t from-orange-100 to-transparent">
       <div className="flex items-center gap-2 text-xs">
-        <Link to={`/courses`}>Courses</Link>
+        <Link to={`/courses`}>
+          {course?.category === 1 && "Junior Courses"}
+          {course?.category === 2 && "University Courses"}
+          {course?.category === 3 && "Other Courses"}
+        </Link>
         {/* <span><IoIosArrowForward /></span> */}
         {/* <Link to={`/${course?.category}`}></Link> */}
         <span>
