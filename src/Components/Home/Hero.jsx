@@ -31,6 +31,7 @@ const Hero = () => {
 
   return (
     <div className="bg-white md:py-10 dark:bg-[#010203] dark:text-white flex flex-col-reverse md:flex-row px-8 lg:px-20 lg:-mt-16 items-center">
+      <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-br from-indigo-300 via-pink-200 to-violet-300 opacity-30 rounded-full transform -translate-x-1/3 -translate-y-1/4 blur-[80px] pointer-events-none"></div>
       {/* Left Side: Heading and Content */}
       <div
         ref={leftRef}
