@@ -253,13 +253,14 @@ const Navbar = ({ theme }) => {
                   <BiLogIn
                     onClick={() => navigate("/login")}
                     size={20}
-                    className=" z-10 relative text-slate-700 dark:text-slate-200  cursor-pointer"
+                    fill="linear-gradient(#e66465, #9198e5)"
+                    className=" z-10 relative  dark:text-slate-200  cursor-pointer"
                   />
                 ) : (
                   <FaRegCircleUser
                     onClick={() => navigate("/login")}
                     size={20}
-                    className=" z-10 relative text-slate-700 dark:text-slate-200  cursor-pointer"
+                    className="z-10 relative bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent dark:text-slate-200  cursor-pointer"
                   />
                 )}
               </div>

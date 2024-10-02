@@ -46,9 +46,9 @@ tl.fromTo('.heroimg',{opacity:0,scale:0.9},
         <h1 className="hero1 text-3xl md:text-4xl lg:text-5xl font-extrabold">
           Your{" "}
           <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
-            Success,
-          </span>{" "}
-          Our <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
+            Success
+          </span>
+          ,{" "}Our <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
           Mission </span>
         </h1>
 
