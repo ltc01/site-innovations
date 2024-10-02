@@ -125,7 +125,7 @@ const ContactUs = () => {
           </div>
         </div>
       </section>
-    </div> 
+    </div>
   );
 };
 
@@ -143,8 +143,8 @@ export const ContactFormComponent = () => {
     Course: "",
     Consent: false,
   });
-  
-const dispatch=useDispatch();
+
+  const dispatch = useDispatch();
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Prepare the data to be sent in the POST request

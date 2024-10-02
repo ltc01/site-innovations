@@ -91,7 +91,7 @@ const Sidebar = () => {
 
   if (
     localStorage.getItem("access_token") ||
-    localStorage.getItem("userInfo") === null
+    localStorage.getItem("userInfo") !== null
   ) {
     return (
       <div className="flex relativez-40 h-full pt-8 my-8 transition duration-500">

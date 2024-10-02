@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { RiStarSFill, RiStarSLine } from "react-icons/ri";
@@ -51,6 +52,7 @@ const CourseCard = () => {
       }
     );
   }, []);
+  const navigate = useNavigate();
 
   return (
     <div className="container mx-auto px-4 my-10 md:my-10">
@@ -91,10 +93,10 @@ const CourseCard = () => {
                 </div>
               </div>
               <div className="mt-8 mb-3 flex items-center">
-                <div className="inline-block bg-blue-200 border-2 border-indigo-600 rounded-lg px-3 py-1 text-sm font-semibold text-indigo-700 mx-2">
+                <div onClick={() => navigate("/Maintenance")} className="inline-block bg-blue-200 cursor-pointer border-2 border-indigo-600 rounded-lg px-3 py-1 text-sm font-semibold text-indigo-700 mx-2">
                   Plus
                 </div>
-                <div className="inline-block bg-blue-200 border-2 border-indigo-600 rounded-lg px-2 py-1 text-sm font-semibold text-indigo-700">
+                <div onClick={() => navigate("/Maintenance")} className="inline-block bg-blue-200 cursor-pointer border-2 border-indigo-600 rounded-lg px-2 py-1 text-sm font-semibold text-indigo-700">
                   Premium
                 </div>
               </div>
