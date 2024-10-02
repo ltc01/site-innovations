@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { App_phone } from "../../assets/assets";
 import { FaCheckCircle } from "react-icons/fa";
 import axios from "axios";
@@ -55,12 +55,15 @@ const Phone = () => {
   };
 
 
-useEffect(() => {
+useLayoutEffect(() => {
+
+let cntxt = gsap.context(() => {
+
 
   const tl = gsap.timeline({
     scrollTrigger:{
       trigger:'.Phonediv',
-      start:'top 60%',
+      start:'top 70%',
       end:'bottom 80%'
     }
   })
@@ -87,26 +90,30 @@ tl.fromTo('.txt1',{
   opacity:1,
   y:0,
   duration:0.6,
-  ease:'power1.out',
   stagger:0.2,
+  ease:'power1.out',
 },
 '-=0.5')
 
 tl.fromTo('.txt2',{
   opacity:0,
-  scale:0.7,
+  scale:0.8,
 },
 {
   opacity:1,
   scale:1,
   duration:0.4,
   ease:'power1.out',
-  stagger:0.2,
-}
+},
+'-=0.3'
 )
 
 
-},[])
+})
+
+return () => cntxt.revert()
+
+})
 
 
   return (

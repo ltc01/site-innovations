@@ -25,7 +25,7 @@ const Home = ({ dark }) => {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div className="w-full">
       {/* <div className="max-w-11/12 mx-auto"> */}
       <Hero />
       <How />
