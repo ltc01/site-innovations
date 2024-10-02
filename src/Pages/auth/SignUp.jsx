@@ -9,17 +9,19 @@ import { useSelector } from "react-redux";
 import laptop1 from "../../assets/Images/laptop5.jpg";
 
 const apiUrl = import.meta.env.VITE_API_URL;
-
-
+import JSEncrypt from "jsencrypt";
+import axios from "axios";
 const SignUp = () => {
   document.title = "Baoiam - Sign Up";
   const navigate = useNavigate();
   const authData = useSelector((state) => state.auth);
 
+  const [publicKey, setPublicKey] = useState('');
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
-    re_password: "",
+    // re_password: "",
     first_name: "",
     last_name: "",
   });
@@ -44,16 +46,54 @@ const SignUp = () => {
     }, 1000); // Adjust duration as needed
   };
 
+  // get public key
+
+  useEffect(() => {
+    // Fetch the public key from the .pem file
+    const fetchPublicKey = async () => {
+      try {
+        const response = await axios.get(`${apiUrl}/static/public_key.pem`,
+        
+        ); // Adjust the path based on your STATIC_URL
+        if (response.status === 200) {
+          const key = await response.data;
+          console.log('successfully fetched')
+          setPublicKey(key);
+        } else {
+          console.error('Failed to fetch public key');
+        }
+      } catch (error) {
+        console.error('Error fetching public key:', error);
+      }
+    };
+
+    fetchPublicKey();
+  }, []);
+
+    const encryptPassword = (password) => {
+    const encrypt = new JSEncrypt();
+    encrypt.setPublicKey(publicKey); // Use the fetched public key
+    console.log("inside method:", password, publicKey);
+    const encryptedPassword = encrypt.encrypt(password);
+    return encryptedPassword;
+  };
+  // end public key
+
+
+
   const onSubmit = async (e) => {
     e.preventDefault();
     const toastId = toast.loading("Processing your login...");
     try {
+    
       const response = await fetch(`${apiUrl}/api/auth/users/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+        ...formData, password:encryptPassword(formData.password)
+        }),
       });
 
       if (!response.ok) {
@@ -335,6 +375,7 @@ const SignUp = () => {
                     First name
                   </label>
                 </div>
+
                 <div className="relative z-0 w-full mb-5 group">
                   <input
                     type="text"
@@ -353,6 +394,7 @@ const SignUp = () => {
                     Last name
                   </label>
                 </div>
+                
                 <div className="relative z-0 w-full mb-5 col-span-2 group">
                   <input
                     type="email"
@@ -371,7 +413,7 @@ const SignUp = () => {
                     Email address
                   </label>
                 </div>
-                <div className="relative z-0 w-full mb-5 group">
+                <div className="relative z-0 w-full col-span-2 mb-5 group">
                   <input
                     type={pass ? "text" : "password"}
                     name="password"
@@ -395,7 +437,7 @@ const SignUp = () => {
                     Password
                   </label>
                 </div>
-                <div className="relative z-0 w-full mb-5 group">
+                {/* <div className="relative z-0 w-full mb-5 group">
                   <input
                     type={conPass ? "text" : "password"}
                     name="re_password"
@@ -418,7 +460,7 @@ const SignUp = () => {
                   >
                     Confirm password
                   </label>
-                </div>
+                </div> */}
 
                 <div className="flex items-center mb-5 col-span-2">
                   <div className="flex items-center h-5">

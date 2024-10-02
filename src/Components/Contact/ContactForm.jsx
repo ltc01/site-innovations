@@ -132,6 +132,9 @@ const ContactUs = () => {
 export default ContactUs;
 
 export const ContactFormComponent = () => {
+  const [category, setCategory] = useState("");
+  const [courses, setCourses] = useState([]);
+  const [isCourseDisabled, setIsCourseDisabled] = useState(true);
   const [loading, setLoading] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [animatePing, setAnimatePing] = useState(false);
@@ -143,6 +146,53 @@ export const ContactFormComponent = () => {
     Course: "",
     Consent: false,
   });
+
+  const categoryOptions = {
+    "Junior Courses": [
+      "Creative Writing",
+      "Public Speaking",
+      "Life Skills",
+      "Social Media and Digital Marketing",
+      "Photography & Editing Skills",
+      "Critical Thinking & Problem Solving",
+      "Technology Development with AI & Coding",
+      "Arts & Crafts (DIY)",
+      "Entrepreneurship and Innovation",
+      "Financial Education",
+    ],
+    "University Courses": [
+      "Product Management",
+      "Data Science",
+      "Machine Learning with AI",
+      "Data Analytics",
+      "UI/UX Design",
+      "Android Development",
+      "Digital Marketing",
+      "Graphic Designing",
+      "Human Resource",
+      "Web Development",
+      "Software Testing",
+      "Finance Education",
+      "International Business",
+      "Entrepreneurship and Innovation",
+      "SEO Development",
+    ],
+    "Other Courses": [
+      "Emotional Intelligence",
+      "Machine Learning with AI",
+      "International Business",
+      "Data Analytics",
+      "Executive and Public Relations Content Writing",
+      "Data Science",
+    ],
+  };
+
+  // Handle category selection
+  const handleCategoryChange = (e) => {
+    const selectedCategory = e.target.value;
+    setCategory(selectedCategory); // Update category
+    setCourses(categoryOptions[selectedCategory] || []); // Set courses based on selected category
+  };
 
   const dispatch = useDispatch();
   const handleSubmit = async (e) => {
@@ -281,7 +331,7 @@ export const ContactFormComponent = () => {
                 <div>
                   <label
                     htmlFor="fullname"
-                    className="block dark:text-gray-300 text-gray-700 mb-1 text-xs md:text-sm"
+                    className="block dark:text-gray-300 text-gray-700 mb-1 text-xs"
                   >
                     Full Name
                   </label>
@@ -299,7 +349,7 @@ export const ContactFormComponent = () => {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block dark:text-gray-300 text-gray-700 mb-2 text-xs md:text-sm"
+                    className="block dark:text-gray-300 text-gray-700 mb-2 text-xs"
                   >
                     Email
                   </label>
@@ -330,7 +380,7 @@ export const ContactFormComponent = () => {
                       Country Code
                     </label> */}
                       {/* <div className="flex items-center gap-4"> */}
-                      <div className="flex gap-1 items-center dark:bg-slate-800 border py-1 px-2 rounded-lg focus:outline-none focus:border-gray-300 w-full bg-white cursor-pointer text-xs md:text-sm">
+                      <div className="flex gap-1 items-center dark:bg-slate-800 border py-1 px-2 lg:py-2 rounded-lg focus:outline-none focus:border-gray-300 w-full bg-white cursor-pointer text-xs">
                         <p className="font-medium">+91</p>
                         <div className="min-w-4 lg:w-6 h-4 rounded-lg lg:h-4">
                           <img
@@ -366,7 +416,7 @@ export const ContactFormComponent = () => {
                         id="phone"
                         name="Phone"
                         type="tel"
-                        className="w-full dark:bg-slate-800 py-1 px-2 sm:px-2.5 lg:py-2 border border-gray-300 rounded-md sm:rounded-lg text-xs md:text-sm"
+                        className="w-full dark:bg-slate-800 py-1 px-2 sm:px-2.5 lg:py-2 border border-gray-300 rounded-md sm:rounded-lg text-xs"
                         placeholder="Enter your phone number"
                         pattern="[0-9]{10}"
                         minLength="10"
@@ -377,8 +427,52 @@ export const ContactFormComponent = () => {
                     </div>
                   </div>
                 </div>
-                {/* Inquiry Type */}
+
+                {/* Category Dropdown */}
                 <div className="relative inline-block my-2 w-full">
+                  <select
+                    id="category"
+                    name="category"
+                    className="border dark:bg-slate-800 mt-1 py-1 lg:py-2 px-2 rounded-md sm:rounded-lg focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer text-xs"
+                    required
+                    onChange={handleCategoryChange}
+                  >
+                    <option value="">Select Category</option>
+                    <option value="Junior Courses">Junior Courses</option>
+                    <option value="University Courses">
+                      University Courses
+                    </option>
+                    <option value="Other Courses">Other Courses</option>
+                  </select>
+                  <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+                    <IoIosArrowDown className="dark:text-gray-300 text-gray-500" />
+                  </div>
+                </div>
+
+                {/* Course Dropdown */}
+                <div className="relative inline-block my-2 w-full">
+                  <select
+                    id="courses"
+                    name="Course"
+                    className="border dark:bg-slate-800 mt-1 py-1 lg:py-2 px-2 rounded-md sm:rounded-lg focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer text-xs"
+                    required
+                  >
+                    <option value="">
+                      {category ? "Select Course" : "Please select a category"}
+                    </option>
+                    {courses.map((course, index) => (
+                      <option key={index} value={course}>
+                        {course}
+                      </option>
+                    ))}
+                  </select>
+                  <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+                    <IoIosArrowDown className="dark:text-gray-300 text-gray-500" />
+                  </div>
+                </div>
+
+                {/* Inquiry Type */}
+                {/* <div className="relative inline-block my-2 w-full">
                   <select
                     id="courses"
                     name="Course"
@@ -445,7 +539,7 @@ export const ContactFormComponent = () => {
                   <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
                     <IoIosArrowDown className="dark:text-gray-300 text-gray-500" />
                   </div>
-                </div>
+                </div> */}
               </div>
 
               {/* <div className="relative inline-block w-full">

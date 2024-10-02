@@ -27,22 +27,22 @@ const Home = ({ dark }) => {
   return (
     <>
       {/* <div className="max-w-11/12 mx-auto"> */}
-        <Hero />
-        <How />
-        {/* <ExploreSubjects /> */}
-        <Slider />
-        <ServicesTab />
-        <Partners />
-        <Courses />
-        <Categories />
-        <UniversityPartners />
+      <Hero />
+      <How />
+      {/* <ExploreSubjects /> */}
+      <Slider />
+      <ServicesTab />
+      <Partners />
+      <Courses />
+      <Categories />
+      <UniversityPartners />
 
-        <Protocol />
-        {/* <JoinNow /> */}
-        <OurTeam />
-        {/* <TeamCard /> */}
-        {/* <TeamSwiper /> */}
-        <Phone />
+      <Protocol />
+      {/* <JoinNow /> */}
+      <OurTeam />
+      {/* <TeamCard /> */}
+      {/* <TeamSwiper /> */}
+      <Phone />
       {/* </div> */}
     </>
   );

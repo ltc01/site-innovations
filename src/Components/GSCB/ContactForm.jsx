@@ -77,7 +77,7 @@ const ContactForm = () => {
     }
   };
   return (
-    <div className="mt-20 w-[70%] p-4 mx-auto h-full max-lg:w-[80%] max-md:w-[90%] max-sm:w-[95%] max-xs:w-full max-xs:p-4 max-xs:mt-10">
+    <div className="mt-20 w-full md:w-[90%] lg:w-[85%] p-4 mx-auto h-full max-xs:p-4 max-xs:mt-10">
       {showPopup && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
           {/* Overlay */}
@@ -129,8 +129,8 @@ const ContactForm = () => {
       >
         {/* Name */}
         <div className="flex flex-col w-full">
-          <div className="flex items-center justify-between gap-8 w-full max-sm:flex-col max-sm:gap-4">
-            <div className="w-1/2 flex flex-col max-sm:w-full">
+          <div className="flex items-center justify-between gap-8 w-full flex-col md:flex-row">
+            <div className="md:w-1/2 flex flex-col w-full">
               <label className=" font-medium max-sm:text-base dark:text-white">
                 First Name <span className="text-red-600">*</span>
               </label>
@@ -149,7 +149,7 @@ const ContactForm = () => {
                 First
               </label> */}
             </div>
-            <div className="w-1/2 flex flex-col max-sm:w-full">
+            <div className="md:w-1/2 flex flex-col w-full">
               <label className=" font-medium max-sm:text-base dark:text-white">
                 Last Name <span className="text-red-600">*</span>
               </label>
@@ -171,8 +171,8 @@ const ContactForm = () => {
           </div>
         </div>
         {/* Email & Phone */}
-        <div className="flex gap-8 w-full max-sm:flex-col max-sm:gap-4">
-          <div className="flex-col flex w-1/2 max-sm:w-full">
+        <div className="flex gap-8 w-full flex-col md:flex-row">
+          <div className="md:w-1/2 flex flex-col w-full">
             <label className=" font-medium dark:text-white" htmlFor="email">
               Email <span className="text-red-600">*</span>
             </label>
@@ -189,7 +189,7 @@ const ContactForm = () => {
             />
           </div>
 
-          <div className="flex-col flex w-1/2 max-sm:w-full">
+          <div className="md:w-1/2 flex flex-col w-full">
             <label className=" font-medium dark:text-white" htmlFor="phone">
               Phone <span className="text-red-600">*</span>
             </label>
@@ -209,8 +209,8 @@ const ContactForm = () => {
         </div>
 
         {/* Company */}
-        <div className="flex gap-8 w-full max-sm:flex-col max-sm:gap-4">
-          <div className="flex-col flex w-1/2 max-sm:w-full">
+        <div className="flex gap-8 w-full flex-col md:flex-row">
+          <div className="md:w-1/2 flex flex-col w-full">
             <label className=" font-medium dark:text-white" htmlFor="industry">
               Type
             </label>
@@ -230,7 +230,7 @@ const ContactForm = () => {
               ))}
             </select>
           </div>
-          <div className="flex-col flex w-1/2 max-sm:w-full">
+          <div className="md:w-1/2 flex flex-col w-full">
             <label className=" font-medium dark:text-white" htmlFor="company">
               Institute <span className="text-red-600">*</span>
             </label>
@@ -269,7 +269,7 @@ const ContactForm = () => {
         </div>
         {/* Job & Industry
         <div className="flex gap-8 w-full max-sm:flex-col max-sm:gap-4">
-          <div className="flex-col flex w-1/2 max-sm:w-full">
+          <div className="md:w-1/2 flex flex-col w-full">
             <label
               className=" font-medium dark:text-white"
               htmlFor="job"

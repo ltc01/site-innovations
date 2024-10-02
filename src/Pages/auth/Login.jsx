@@ -27,8 +27,12 @@ const Login = () => {
   const [pass, setPass] = useState(false);
   const [parentState, setParentState] = useState(location);
   const dispatch = useDispatch();
+
+  const [publicKey, setPublicKey] = useState('');
+
   const authData = useSelector((state) => state.auth);
   console.log(parentState);
+
   useEffect(() => {
     console.log("authData:", authData);
     if (authData && authData.isLoggedIn) {
@@ -124,20 +128,33 @@ const Login = () => {
       toast.error(error.message);
     }
   };
+
+  useEffect(() => {
+    // Fetch the public key from the .pem file
+    const fetchPublicKey = async () => {
+      try {
+        const response = await axios.get(`${apiUrl}/static/public_key.pem`,
+        
+        ); // Adjust the path based on your STATIC_URL
+        if (response.status === 200) {
+          const key = await response.data;
+          console.log('successfully fetched')
+          setPublicKey(key);
+        } else {
+          console.error('Failed to fetch public key');
+        }
+      } catch (error) {
+        console.error('Error fetching public key:', error);
+      }
+    };
+
+    fetchPublicKey();
+  }, []);
+
   const encryptPassword = (password) => {
-    const publicKey = `-----BEGIN PUBLIC KEY-----
-MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3Vd1BPejqLK5Cv2FiIl2
-2fSGOE9UhctpIlydD9wlQMMoA1oE71ELqJXIpN10hNowa1Am7WgpCqqcNhWH3Nxi
-csMXhOi39cxPsZhhIfry+LekOJKRwhG4legK+tm5QjLSZeASmu9iHALpchBQqzho
-MS3VnHbjErJtLNprzbPlSGU0/8czTKoRWw9lMX9qKzDoIneU8wHpmBefKS2bT8yX
-iN81rPTzzjB2zz/nTBGYDdrswkmDj9UrldierJLt1OXJKHrgY9DTK9ws6GWZAg+i
-/bc4bZ3ACNjyPRZiTRS2w9RGMgp4k+8Skb47hQmztj7knTKjgG7FojH9f1LaqhOv
-iwIDAQAB
------END PUBLIC KEY-----
-`;
     const encrypt = new JSEncrypt();
-    encrypt.setPublicKey(publicKey);
-    console.log("inside method:", password);
+    encrypt.setPublicKey(publicKey); // Use the fetched public key
+    console.log("inside method:", password, publicKey);
     const encryptedPassword = encrypt.encrypt(password);
     return encryptedPassword;
   };
@@ -148,7 +165,7 @@ iwIDAQAB
       const encryptedPassword = encryptPassword(password);
       const response = await axios.post(
         `${apiUrl}/api/auth/jwt/create/`,
-        { email, password },
+        { email, password:encryptedPassword },
         { withCredentials: true }
       );
       console.log("from login: ", response);
