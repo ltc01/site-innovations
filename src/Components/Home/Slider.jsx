@@ -52,7 +52,6 @@ export default function SliderSection() {
           trigger: '.Homeslidediv',
           start: 'top 70%',
           end: 'bottom 80%',
-          markers:true,
         }
       })
     })     
