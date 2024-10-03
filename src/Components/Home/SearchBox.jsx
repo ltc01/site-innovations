@@ -64,15 +64,20 @@ const SearchBox = ({ courses }) => {
     setSearchQuery(e.target.value);
   };
 
+  // useEffect(() => {
+  //   if (searchQuery) {
+  //     setIsExpanded(false);
+  //   }
+  // }, [searchQuery]);
   useEffect(() => {
-    if (searchQuery) {
-      setIsExpanded(false);
-    }
-  }, [searchQuery]);
+    console.log(isExpanded)
+  
+  }, [isExpanded])
+  
 
   const handleLinkClick = (course) => {
     // () => {
-    console.log("course.title", course.title);
+    console.log("course.title");
     setIsExpanded(false);
     setSearchQuery("");
     // }
@@ -89,7 +94,7 @@ const SearchBox = ({ courses }) => {
           value={searchQuery}
           onChange={handleSearchChange}
           onFocus={() => setIsExpanded(true)}
-          onBlur={() => setIsExpanded(false)}
+          // onBlur={() => setIsExpanded(false)}
         />
         <RiSearch2Line size={16} className="text-slate-500" />
       </div>
@@ -99,22 +104,14 @@ const SearchBox = ({ courses }) => {
       {isExpanded && !searchQuery && (
         <div className="absolute top-7 -right-2 bg-white text-black w-80 z-30 max-h-80 overflow-auto shadow-lg rounded-md mt-2">
           {staticSuggestions.map((course) => (
-            <div onClick={handleLinkClick(course)}>
               <Link
                 key={course.id}
                 to={`/course/${course.title}/${course.id}`}
                 className="py-2 px-4 block hover:bg-gray-200"
-                // onClick={handleLinkClick}
-                // () => {
-                // console.log("course.title", course.title);
-                // setIsExpanded(false);
-                // setSearchQuery("");
-                // }
-                // }
+                onClick={()=>handleLinkClick(course)}
               >
-                {course.title} abcd
+                {course.title}Hello All
               </Link>
-            </div>
           ))}
         </div>
       )}
