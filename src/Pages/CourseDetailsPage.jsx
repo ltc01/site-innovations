@@ -44,6 +44,10 @@ const CourseDetailsPage = () => {
     "Mentorship & Evaluation",
     "Mentor Feedback",
     "Regular Quizzes & Assessment",
+    `Personnal Mentorship`,
+    `Experts councelling`,
+    `Live Projects`,
+    `Dedicated Placement cell`,
   ]);
   // const [loading, setLoading] = useState(true);
 
@@ -171,9 +175,14 @@ const CourseDetailsPage = () => {
               </span>
             </h2>
             <hr className="my-2" />
-            <p className="text-sm leading-snug lg:text-[1rem] text-left">
-              {courseData?.course?.description}
-            </p>
+
+            {courseData?.course?.description.split("<br/>").map((ele, id) => {
+              return (
+                <p className="text-sm mb-1 leading-snug lg:text-[1rem] text-left">
+                  {ele}
+                </p>
+              );
+            })}
           </div>
 
           {/* Course Overview */}
@@ -185,9 +194,15 @@ const CourseDetailsPage = () => {
               </span>
             </h2>
             <hr className="my-2" />
-            <p className="text-sm leading-snug lg:text-[1rem] text-left">
-              {courseData?.course?.program_overview}
-            </p>
+            {courseData?.course?.program_overview
+              .split("<br/>")
+              .map((ele, id) => {
+                return (
+                  <p className="text-sm mb-1 leading-snug lg:text-[1rem] text-left">
+                    {ele}
+                  </p>
+                );
+              })}
           </div>
 
           {/* Course Curriculum */}
@@ -213,8 +228,7 @@ const CourseDetailsPage = () => {
         </div>
 
         {/* Plans Section */}
-        <div className="relative top-7 mx-auto">
-          {/* Plans Section */}
+        {/* <div className="relative top-7 mx-auto">
           <div
             className={` mt-5 ${
               fixed ? "md:fixed md:top-20 right-[10%] absolute " : ""
@@ -258,9 +272,6 @@ const CourseDetailsPage = () => {
                         </div>
                       )}
 
-                      {/* <div className="mb-2 text-center capitalize text-2xl md:text-xl dark:text-white font-extrabold text-gray-800">
-                        {p.name}
-                      </div> */}
                       <div className="">
                         <p className="mx-auto my-2 px-8 text-center text-lg md:text-base dark:text-white text-gray-500 font-medium">
                           {courseData.title}
@@ -301,25 +312,6 @@ const CourseDetailsPage = () => {
                               </span>
                             </div>
                           )}
-
-                          {/* <button
-                          onClick={() => {
-                            if (localStorage.getItem("access_token"))
-                              navigate(
-                                `/checkout/${id}/${
-                                  p.name === "premium" ? "Premium" : "Plus"
-                                }`
-                              );
-                            else navigate("/login");
-                          }}
-                          className={`block rounded-lg ${
-                            p.name === "premium"
-                              ? "bg-orange-500 text-white"
-                              : "bg-gray-500"
-                          } px-8 py-3 mt-4 text-center text-sm md:text-base font-semibold text-gray-200 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 hover:text-gray-500 focus-visible:ring active:text-gray-700`}
-                        >
-                          Enroll Now
-                        </button> */}
                           {p.name === "plus" && (
                             <button
                               onClick={() => dispatch(toggleEnrollForm())}
@@ -341,6 +333,42 @@ const CourseDetailsPage = () => {
                 );
               }
             })}
+          </div>
+        </div> */}
+        <div className="relative top-7 mx-auto">
+          {/* Plans Section */}
+          <div
+            className={` mt-5 ${
+              fixed
+                ? "md:fixed md:top-20 right-[10%] flex justify-center flex-col absolute "
+                : ""
+            } bg-white dark:bg-black shadow-md rounded-xl p-4`}
+          >
+            <div className="flex items-center justify-center gap-2 mb-4 flex-col">
+              {coursePlusContent.map((course, id) => {
+                return (
+                  <p
+                    key={id}
+                    className="text-sm md:text-base mx-auto mb-2 px-8 text-center dark:text-white text-gray-500 font-medium"
+                  >
+                    {course}
+                  </p>
+                );
+              })}
+            </div>
+
+            <div className="flex w-full justify-center">
+              <button
+                onClick={() => dispatch(toggleEnrollForm())}
+                className="relative inline-flex mx-auto w-fit bg-gradient-to-r from-amber-500 to-red-600 px-6 md:px-8 lg:px-12 py-2 md:py-3 text-xs md:text-sm overflow-hidden text-white font-medium border border-orange-400 rounded-lg hover:text-orange-500 group"
+              >
+                <span className="absolute left-0 block w-full h-0 transition-all bg-white opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease-in-out"></span>
+                <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
+                  <IoIosArrowRoundForward size={30} />
+                </span>
+                <span className="relative text-nowrap">Enroll Now</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
