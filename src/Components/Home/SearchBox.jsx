@@ -85,6 +85,7 @@ const SearchBox = ({ courses }) => {
 
   return (
     <div className="relative">
+      {/* <div className={isExpanded?"fixed w-full h-full inset-0 bottom-0 bg-black/40":"hidden"} onClick={()=>setIsExpanded(false)}></div> */}
       <div className="hidden md:flex items-center border focus:outline focus:outline-orange-500 bg-slate-100 dark:bg-slate-200 dark:text-white border-slate-400 rounded-3xl w-40">
         <input
           type="text"
@@ -94,7 +95,7 @@ const SearchBox = ({ courses }) => {
           value={searchQuery}
           onChange={handleSearchChange}
           onFocus={() => setIsExpanded(true)}
-          // onBlur={() => setIsExpanded(false)}
+          
         />
         <RiSearch2Line size={16} className="text-slate-500" />
       </div>
@@ -102,7 +103,7 @@ const SearchBox = ({ courses }) => {
       {/* Show Suggestions when the input is focused and no query is entered */}
 
       {isExpanded && !searchQuery && (
-        <div className="absolute top-7 -right-2 bg-white text-black w-80 z-30 max-h-80 overflow-auto shadow-lg rounded-md mt-2">
+        <div className="absolute top-7 hidden md:block -right-2 bg-white text-black w-80 z-30 max-h-80 overflow-auto shadow-lg rounded-md mt-2">
           {staticSuggestions.map((course) => (
               <Link
                 key={course.id}
@@ -169,7 +170,6 @@ const SearchBox = ({ courses }) => {
                     value={searchQuery}
                     onChange={handleSearchChange}
                     onFocus={() => setIsExpanded(true)}
-                    onBlur={() => setIsExpanded(false)}
                   />
                   <RiSearch2Line size={20} />
                 </div>
@@ -184,6 +184,8 @@ const SearchBox = ({ courses }) => {
                         onClick={() => {
                           setIsExpanded(false);
                           setSearchQuery("");
+                          setIsMobilePopupOpen(false);
+                            setSearchQuery("");
                         }}
                       >
                         {course.title}
