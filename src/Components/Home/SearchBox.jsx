@@ -22,7 +22,7 @@ const SearchBox = ({ courses }) => {
     { id: 2, title: "Creative Writing" },
     { id: 1, title: "Public Speaking" },
     { id: 3, title: "Arts & Crafts (DIY)" },
-    { id: 25, title: "UI/UX Design" },
+    { id: 30, title: "Digital Marketing" },
     { id: 29, title: "Web Development" },
     { id: 9, title: "Entrepreneurship and Innovation" },
     { id: 14, title: "Data Analytics" },
@@ -70,10 +70,8 @@ const SearchBox = ({ courses }) => {
   //   }
   // }, [searchQuery]);
   useEffect(() => {
-    console.log(isExpanded)
-  
-  }, [isExpanded])
-  
+    console.log(isExpanded);
+  }, [isExpanded]);
 
   const handleLinkClick = (course) => {
     // () => {
@@ -95,7 +93,6 @@ const SearchBox = ({ courses }) => {
           value={searchQuery}
           onChange={handleSearchChange}
           onFocus={() => setIsExpanded(true)}
-          
         />
         <RiSearch2Line size={16} className="text-slate-500" />
       </div>
@@ -105,14 +102,14 @@ const SearchBox = ({ courses }) => {
       {isExpanded && !searchQuery && (
         <div className="absolute top-7 hidden md:block -right-2 bg-white text-black w-80 z-30 max-h-80 overflow-auto shadow-lg rounded-md mt-2">
           {staticSuggestions.map((course) => (
-              <Link
-                key={course.id}
-                to={`/course/${course.title}/${course.id}`}
-                className="py-2 px-4 block hover:bg-gray-200"
-                onClick={()=>handleLinkClick(course)}
-              >
-                {course.title}Hello All
-              </Link>
+            <Link
+              key={course.id}
+              to={`/course/${course.title}/${course.id}`}
+              className="py-2 px-4 block hover:bg-gray-200"
+              onClick={() => handleLinkClick(course)}
+            >
+              {course.title}
+            </Link>
           ))}
         </div>
       )}
