@@ -151,7 +151,7 @@ const Courses = () => {
                     <FaHandsHelping className="h-8 w-8 text-white" />
                   )}
                 </div>
-                <h3 className="text-xl font-bold">{title}</h3>
+                <h3 className="text-xl text-center font-bold">{title}</h3>
                 <p className="mt-2 text-center">
                   {index === 0 &&
                     "Courses led by experienced teachers and professionals."}
