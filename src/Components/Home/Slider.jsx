@@ -41,9 +41,11 @@ export default function SliderSection() {
     gsap.fromTo('.Homeslideranime', {
       opacity: 0,
       y: 40,
+      filter:'blur(10px)'
     },
       {
         opacity: 1,
+        filter:'blur(0px)',
         y: 0,
         duration: 1,
         ease: 'power1.out',
