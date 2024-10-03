@@ -1,4 +1,5 @@
 import React from "react";
+import { MdKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const FooterLinks = ({ title, links, hiddenOnSmall }) => {
@@ -8,8 +9,8 @@ const FooterLinks = ({ title, links, hiddenOnSmall }) => {
       <ul>
         {links.map((link, index) => (
           <li className="mb-2" key={index}>
-            <Link to={link.to} className="hover:underline">
-              {link.name}
+            <Link to={link.to} className="hover:underline flex items-start gap-1">
+            {link.icon || <MdKeyboardArrowRight className=" min-w-6 text-xl aspect-square" /> }{link.name}
             </Link>
           </li>
         ))}
