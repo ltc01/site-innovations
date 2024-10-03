@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -13,7 +13,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchFeaturedCourses } from '../../Redux/slices/courseSlice'; // Adjust the import path as necessary
 import { BeatLoader } from "react-spinners";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
 
 export default function SliderSection() {
   const navigate = useNavigate();
@@ -27,23 +29,36 @@ export default function SliderSection() {
     if (status === 'idle') {
       dispatch(fetchFeaturedCourses());
     }
-    gsap.fromTo('.slide1', {
+  }, [dispatch, status]);
+
+
+ useLayoutEffect(() => {
+
+  let context = gsap.context(() => {
+
+  
+
+    gsap.fromTo('.Homeslideranime', {
       opacity: 0,
-      y: 30
+      y: 40,
     },
       {
         opacity: 1,
         y: 0,
-        duration: 0.6,
+        duration: 1,
         ease: 'power1.out',
         stagger: 0.2,
         scrollTrigger: {
-          trigger: '.sectiondiv2',
-          start: 'top 80%',
-          end: 'bottom 80%'
+          trigger: '.Homeslidediv',
+          start: 'top 70%',
+          end: 'bottom 80%',
         }
       })
-  }, [dispatch, status]);
+    })     
+
+    return () => context.revert()
+
+  },)
 
   if (status === 'loading') {
     return <div className="flex justify-center items-center h-[90vh]">
@@ -54,12 +69,12 @@ export default function SliderSection() {
 
   if (featuredCourses) {
     return (
-      <div className="sectiondiv2 slider-section dark:bg-[#010203] w-full relative py-12 overflow-hidden ">
+      <div className="slider-section Homeslidediv dark:bg-[#010203] w-full relative py-12 overflow-hidden ">
         <div className="text-center mb-0 lg:mb-8">
-          <h2 className="slide1 text-4xl font-extrabold mb-8">Featured <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent" >Courses</span></h2>
+          <h2 className="Homeslideranime text-4xl font-extrabold mb-8">Featured <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent" >Courses</span></h2>
         </div>
 
-        <div className="slide1 mx-4 mt-8 md:mx-14">
+        <div className="Homeslideanime mx-4 mt-8 md:mx-14">
           <Swiper
             modules={[Navigation]}
             spaceBetween={0} // Adjust the space between cards
@@ -70,7 +85,7 @@ export default function SliderSection() {
               prevEl: ".swiper-button-prev",
             }}
             pagination={{ clickable: true }}
-            className="swiper-container lg:px-6"
+            className="swiper-container lg:px-6 Homeslideranime"
             breakpoints={{
               320: {
                 slidesPerView: 1,
@@ -92,7 +107,7 @@ export default function SliderSection() {
           >
             {featuredCourses?.map((slide, index) => (
               <SwiperSlide key={index}>
-                <div className="h-[400px] max-h-[400px] overflow-hidden dark:bg-white/10 dark:border shadow-md rounded-3xl m-2 flex flex-col justify-between">
+                <div className="Homeslideranime h-[400px] max-h-[400px] overflow-hidden dark:bg-white/10 dark:border shadow-md rounded-3xl m-2 flex flex-col justify-between">
                   {/* Image Container */}
                   <div className="relative h-[50%]">
                     <img
@@ -146,6 +161,6 @@ export default function SliderSection() {
           <button className="swiper-button-next text-indigo-500 transition"></button>
         </div>
       </div>
-    );
+    )
   }
 }
