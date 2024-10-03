@@ -52,10 +52,12 @@ let context = gsap.context(() => {
   
   tl.fromTo('.Protocolanime',{
     opacity:0,
-    y:30
+    y:30,
+    filter:'blur(10px)'
   },
   {
     opacity:0.8,
+    filter:'blur(0px)',
     y:0,
     duration:0.6,
     ease:'power1.out',
@@ -66,9 +68,11 @@ let context = gsap.context(() => {
   tl.fromTo('.Protocol-anime1',{
     opacity:0,
     y:30,
+    filter:'blur(10px)'
   },
   {
     opacity:0.6,
+    filter:'blur(0px)',
     y:0,
     duration:1,
     ease:'power1.out',
@@ -78,10 +82,12 @@ let context = gsap.context(() => {
   tl.fromTo('.Protocol-anime2',{
     opacity:0,
     y:30,
+    filter:'blur(10px)'
   },
   {
     opacity:1,
     y:0,
+    filter:'blur(0px)',
     duration:0.6,
     ease:'power1.out',
   
@@ -91,9 +97,11 @@ let context = gsap.context(() => {
   tl.fromTo('.Protocol-anime3',{
     opacity:0,
     y:30,
+    filter:'blur(10px)'
   },
   {
     opacity:1,
+    filter:'blur(0px)',
     y:0,
     duration:0.6,
     ease:'power1.out',

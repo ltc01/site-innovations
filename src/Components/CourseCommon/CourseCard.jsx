@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaChevronRight } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 
@@ -9,15 +9,15 @@ function CourseCard({ course }) {
   }
   const navigate = useNavigate();
   return (
-    <div className="h-[28rem] md:my-4 m-4 mx-auto shadow-md shadow-slate-500 dark:bg-white/10 border rounded-xl flex flex-col" >
+    <div className="h-[28rem] md:my-4 m-4 mx-auto shadow-md shadow-slate-500 dark:bg-white/10 border overflow-hidden rounded-xl flex flex-col" >
   {/* Image */}
-  <div className="relative h-[50%] bottom-4  px-4 flex-shrink-0">
+  <div className="relative h-[50%]  flex-shrink-0">
     <img
       src={course?.thumbnail_image ? course.thumbnail_image : "https://i.pinimg.com/474x/d4/d3/c0/d4d3c02f855019b7357b6c46da2124da.jpg"}
       alt={course.title}
-      className="w-full flex h-full rounded-t-3xl object-cover"
+      className="w-full flex h-full  object-cover"
     />
-    <div className="absolute bottom-3 left-8 flex">
+    {/* <div className="absolute bottom-3 left-8 flex">
       <span
         onClick={() => handlePlanSelect(0)}
         className={`rounded-lg px-3 py-1 cursor-pointer text-sm mr-3 flex-1 ${
@@ -39,7 +39,7 @@ function CourseCard({ course }) {
       >
         Premium
       </span>
-    </div>
+    </div> */}
   </div>
 
   {/* Content */}
@@ -50,12 +50,12 @@ function CourseCard({ course }) {
       {course.description}
     </p>
 
-    <hr className="my-2" />
+    {/* <hr className="my-2" /> */}
 
     {/* Price and Button */}
     <div className="mt-auto flex justify-between items-center">
       <p className="font-bold text-indigo-800 text-base mb-6 dark:text-amber-500">
-        ₹{course.plans[planIndex].price}
+        ₹{course.plans[0].price}
       </p>
       <button
         onClick={() => navigate(`/course/${course.title}/${course.id}`)}
