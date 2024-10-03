@@ -290,45 +290,51 @@ const Blog = () => {
         </h2>
 
         <div className=' p-6'></div>
-        <div className='blogdiv1 px-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10'>
-          {searchResults.map((item, i) => (
-            <Link className='b3' key={i} to={`/Blog_detail/${i}`}>
-              <div className='bg-white flex flex-col h-full dark:bg-black dark:text-white shadow-lg dark:hover:shadow-gray-300 dark:hover:shadow-md rounded-lg overflow-hidden transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-300 '>
-                <div className='relative'>
-                  <img
-                    className='w-full h-48 object-cover'
-                    src={item.imgSrc}
-                    alt={`${item.title}`}
-                  />
-                  {/* Button positioned over the image */}
-                  <button
-                    type='button'
-                    className='absolute bottom-2 left-3 dark:bg-slate-300 bg-slate-400 transition-all text-black text-xs font-medium rounded-lg p-2'
-                  >
-                    {item.category}
-                  </button>
+        {searchResults.length === 0 ? (
+          <div className='text-center text-black text-lg mb-[15%] md:text-3xl  font-semibold dark:text-slate-300'>
+            No blog available
+          </div>
+        ) : (
+          <div className='blogdiv1 border-2 border-red-500 px-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10'>
+            {searchResults.map((item, i) => (
+              <Link className='b3' key={i} to={`/Blog_detail/${i}`}>
+                <div className='bg-white flex flex-col h-full dark:bg-black dark:text-white shadow-lg dark:hover:shadow-gray-300 dark:hover:shadow-md rounded-lg overflow-hidden transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-300 '>
+                  <div className='relative'>
+                    <img
+                      className='w-full h-48 object-cover'
+                      src={item.imgSrc}
+                      alt={`${item.title}`}
+                    />
+                    {/* Button positioned over the image */}
+                    <button
+                      type='button'
+                      className='absolute bottom-2 left-3 dark:bg-slate-300 bg-slate-400 transition-all text-black text-xs font-medium rounded-lg p-2'
+                    >
+                      {item.category}
+                    </button>
+                  </div>
+                  <div className='p-4 flex-grow '>
+                    <h2 className='text-lg font-bold my-2'>{item.text}</h2>
+                    <span
+                      className='text-sm text-slate-700 dark:text-slate-300 font-semibold'
+                      style={{
+                        display: "-webkit-box",
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden",
+                        WebkitLineClamp: 2, // Limit to 2 lines
+                      }}
+                    >
+                      {item.des}
+                    </span>
+                    <p className='text-xs text-slate-500 dark:dark:text-slate-400 font-medium mt-2'>
+                      {item.info}
+                    </p>
+                  </div>
                 </div>
-                <div className='p-4 flex-grow '>
-                  <h2 className='text-lg font-bold my-2'>{item.text}</h2>
-                  <span
-                    className='text-sm text-slate-700 dark:text-slate-300 font-semibold'
-                    style={{
-                      display: "-webkit-box",
-                      WebkitBoxOrient: "vertical",
-                      overflow: "hidden",
-                      WebkitLineClamp: 2, // Limit to 2 lines
-                    }}
-                  >
-                    {item.des}
-                  </span>
-                  <p className='text-xs text-slate-500 dark:dark:text-slate-400 font-medium mt-2'>
-                    {item.info}
-                  </p>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
+              </Link>
+            ))}
+          </div>
+        )}
 
         {/* slider */}
 

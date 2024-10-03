@@ -64,15 +64,21 @@ const Blog_detail = () => {
 
   return (
     <>
-      <div className='h-[auto] w-[90%] sm:text-[1.6vw] mx-[2%] px-4 py-4 flex-col my-[2rem] bg-purple-100'>
+      <div className='h-[auto] w-[90%] sm:text-[1.6vw] mx-[2%] px-4 py-4 flex-col my-[2rem]'>
         <p className='font-bold text-sm md:text-lg dark:text-black'>
-          <Link className='text-blue-600 hover:underline' to='/'>
+          <Link
+            className='text-blue-600 dark:text-blue-200 hover:underline'
+            to='/'
+          >
             HOME
           </Link>{" "}
-          <Link className='text-blue-600 hover:underline' to='/blogs'>
+          <Link
+            className='text-blue-600 dark:text-blue-200 hover:underline'
+            to='/blogs'
+          >
             / BLOGS /
           </Link>
-          <span className='text-blue-600 ml-2'>
+          <span className='text-blue-600 dark:text-blue-200 ml-2'>
             {content_data[id]?.Category}
           </span>
         </p>

@@ -33,7 +33,7 @@ function Footer({ dark }) {
             />
           </div>
 
-          <div className="flex flex-col justify-evenly gap-4 md:pl-8 md:flex-row md:w-[85%] dark:text-white">
+          <div className="flex flex-col justify-around md:pl-8 md:flex-row md:w-[80%] dark:text-white">
             {/* Quick Links */}
             <div className=" sm:text-left">
               <p className="text-lg font-medium text-black dark:text-white text-nowrap">
@@ -41,6 +41,19 @@ function Footer({ dark }) {
               </p>
 
               <div className="mt-4  flex flex-col gap-2 text-xs">
+
+                <Link
+                  to={"/gcep"}
+                  className="text-black dark:text-white text-nowrap flex items-center"
+                >
+                  <MdKeyboardArrowRight size={20} className=" min-w-6 text-xl aspect-square" />
+                  {/* <p>
+                    Global Collabo Educational Partnership
+                    
+                  </p> */}
+                  GCEP
+                </Link>
+
                 <Link
                   to={"/team"}
                   className="text-black dark:text-white text-nowrap flex items-center"
@@ -55,13 +68,7 @@ function Footer({ dark }) {
                   <MdKeyboardArrowRight className=" min-w-6 text-xl aspect-square" />
                   About Us
                 </Link>
-                <Link
-                  to={"/career"}
-                  className="text-black text-nowrap dark:text-white flex items-center"
-                >
-                  <MdKeyboardArrowRight className=" min-w-6 text-xl aspect-square" />
-                  Careers
-                </Link>
+                
                 <Link
                   to={"/courses"}
                   className="text-black dark:text-white text-nowrap flex items-center"
@@ -81,21 +88,13 @@ function Footer({ dark }) {
             </div>
 
             {/* Program & Partnership */}
-            <div className=" sm:text-left">
+            {/* <div className=" sm:text-left">
               <p className="text-lg font-medium text-black dark:text-white text-wrap xl:text-nowrap">
                 Programs & Partnerships
               </p>
 
               <div className="mt-4 flex flex-col gap-2 text-xs">
-                <Link
-                  to={"/gcep"}
-                  className="text-black text-nowrap max-w-fit hover:text-wrap dark:text-white group flex items-center"
-                >
-                  <MdKeyboardArrowRight size={20} />
-                  <p className="truncate group-hover:text-wrap">
-                    Global Collabo Educational Partnership
-                  </p>
-                </Link>
+                
                 <Link
                   to={"/Maintenance"}
                   className="text-black text-nowrap max-w-fit  hover:text-wrap group dark:text-white flex items-center"
@@ -122,7 +121,7 @@ function Footer({ dark }) {
                   <MdKeyboardArrowRight size={20} /> Entrepreneurship
                 </Link>
               </div>
-            </div>
+            </div> */}
 
             {/* Help & Support */}
             <div className=" sm:text-left">
@@ -131,11 +130,18 @@ function Footer({ dark }) {
               </p>
 
               <div className="mt-4 flex flex-col gap-2 text-xs">
-                <Link
+                {/* <Link
                   to={"/hire"}
                   className="text-black text-nowrap dark:text-white  flex items-center"
                 >
                   <MdKeyboardArrowRight size={20} /> Hire from us
+                </Link> */}
+                <Link
+                  to={"/career"}
+                  className="text-black text-nowrap dark:text-white flex items-center"
+                >
+                  <MdKeyboardArrowRight size={20} />
+                  Careers
                 </Link>
                 <Link
                   to={"/contact"}
