@@ -295,7 +295,7 @@ const Blog = () => {
             No blog available
           </div>
         ) : (
-          <div className='blogdiv1 border-2 border-red-500 px-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10'>
+          <div className='blogdiv1 px-4 md:px-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10'>
             {searchResults.map((item, i) => (
               <Link className='b3' key={i} to={`/Blog_detail/${i}`}>
                 <div className='bg-white flex flex-col h-full dark:bg-black dark:text-white shadow-lg dark:hover:shadow-gray-300 dark:hover:shadow-md rounded-lg overflow-hidden transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-300 '>
