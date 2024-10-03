@@ -235,7 +235,7 @@ function Footer({ dark }) {
                       d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                     />
                   </svg>
-
+                  
                   <address className="-mt-0.5 flex-1 dark:text-white not-italic text-black">
                     H Block, Sector 62 <br />
                     201301
