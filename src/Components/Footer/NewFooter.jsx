@@ -25,7 +25,7 @@ const NewFooter = ({ dark }) => {
                     </div>
 
                     {/* Links container - wraps all the link sections */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 flex-1 px-4 text-black dark:text-white">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 flex-1 px-4 lg:mr-8 xl:mr-0 text-black dark:text-white">
                         {/* Links section */}
                         <FooterLinks title="Quick Links" links={[
                             { name: "Our Team", to: "/team" },
@@ -45,24 +45,26 @@ const NewFooter = ({ dark }) => {
                         ]}
                         />
 
-                        {/* These sections only appear on large screens */}
+
+
                         <FooterLinks
                             title="Contact Us"
                             links={[
-                                {  name: "Hire from us", to: "/hire" },
-                                {  name: "Contact", to: "/contact" },
-                                {  name: "FAQs", to: "/FAQ" },
+                                { name: "Hire from us", to: "/hire" },
+                                { name: "Contact", to: "/contact" },
+                                { name: "FAQs", to: "/FAQ" },
                             ]}
                         />
 
-                        <FooterLinks
-                            title="Help & Support"
-                            links={[
-                                { name: "support@baoiam.com", to: "https://mail.google.com/mail/?view=cm&fs=1&to=support@baoiam.com", icon: <MdOutlineEmail className="min-w-6 text-xl aspect-square mt-1" /> },
-                                { name: "08069640635", to: "tel:+91 8069640635", icon: <FiPhone className="min-w-6 text-xl aspect-square mt-1"  /> },
-                                { name: "H Block, Sector 62 201301 UP Noida, India.", to: "https://maps.app.goo.gl/wCB4YVBmkBdCbY3A9", icon: <HiOutlineLocationMarker className="min-w-6 text-xl aspect-square mt-1" /> }
-                            ]}
-                        />
+                            <FooterLinks
+                                title="Help & Support"
+                                links={[
+                                    { name: "support@baoiam.com", to: "https://mail.google.com/mail/?view=cm&fs=1&to=support@baoiam.com", icon: <MdOutlineEmail className="min-w-6 text-xl aspect-square mt-1" /> },
+                                    { name: "08069640635", to: "tel:+91 8069640635", icon: <FiPhone className="min-w-6 text-xl aspect-square mt-1" /> },
+                                    { name: "H Block, Sector 62 201301 UP Noida, India.", to: "https://maps.app.goo.gl/wCB4YVBmkBdCbY3A9", icon: <HiOutlineLocationMarker className="min-w-6 text-xl aspect-square mt-1" /> }
+                                ]}
+                            />
+
 
                     </div>
                 </div>
