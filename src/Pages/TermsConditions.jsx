@@ -44,7 +44,7 @@ const TermsAndConditions = () => {
           You are responsible for maintaining the confidentiality of your account credentials.
           </li>
           <li>
-          ou must provide accurate and complete information when creating an account and keep this information updated.
+          You must provide accurate and complete information when creating an account and keep this information updated.
           </li>
           <li>
           Baoiam reserves the right to terminate accounts at its discretion, including but not limited to cases where the user violates these Terms and Conditions.
