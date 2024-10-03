@@ -185,7 +185,6 @@ const SearchBox = ({ courses }) => {
                           setIsExpanded(false);
                           setSearchQuery("");
                           setIsMobilePopupOpen(false);
-                            setSearchQuery("");
                         }}
                       >
                         {course.title}
