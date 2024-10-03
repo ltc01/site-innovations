@@ -45,8 +45,6 @@ const NewFooter = ({ dark }) => {
                         ]}
                         />
 
-
-
                         <FooterLinks
                             title="Help & Support"
                             links={[
@@ -56,14 +54,14 @@ const NewFooter = ({ dark }) => {
                             ]}
                         />
 
-                            <FooterLinks
-                                title="Contact Us"
-                                links={[
-                                    { name: "support@baoiam.com", to: "https://mail.google.com/mail/?view=cm&fs=1&to=support@baoiam.com", icon: <MdOutlineEmail className="min-w-6 text-xl aspect-square mt-1" /> },
-                                    { name: "08069640635", to: "tel:+91 8069640635", icon: <FiPhone className="min-w-6 text-xl aspect-square mt-1" /> },
-                                    { name: "H Block, Sector 62 201301 UP Noida, India.", to: "https://maps.app.goo.gl/wCB4YVBmkBdCbY3A9", icon: <HiOutlineLocationMarker className="min-w-6 text-xl aspect-square mt-1" /> }
-                                ]}
-                            />
+                        <FooterLinks
+                            title="Contact Us"
+                            links={[
+                                { name: "support@baoiam.com", to: "https://mail.google.com/mail/?view=cm&fs=1&to=support@baoiam.com", icon: <MdOutlineEmail className="min-w-6 text-xl aspect-square mt-1" /> },
+                                { name: "08069640635", to: "tel:+91 8069640635", icon: <FiPhone className="min-w-6 text-xl aspect-square mt-1" /> },
+                                { name: "H Block, Sector 62 201301 UP Noida, India.", to: "https://maps.app.goo.gl/wCB4YVBmkBdCbY3A9", icon: <HiOutlineLocationMarker className="min-w-6 text-xl aspect-square mt-1" /> }
+                            ]}
+                        />
 
 
                     </div>
