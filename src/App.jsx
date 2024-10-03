@@ -118,7 +118,7 @@ const App = () => {
           <Route path="/career" element={<Career />} />
 
           {/* Our Team */}
-          <Route path="/team" element={<OurTeam />} />
+          <Route path="/team" element={<Maintenance />} />
 
           {/* PAP */}
           <Route path="/pap" element={
