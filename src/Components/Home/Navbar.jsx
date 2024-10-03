@@ -255,7 +255,8 @@ const Navbar = ({ theme }) => {
                 {!isLoggedIn ? (
                   <BiLogIn
                     size={20}
-                    className=" z-10 relative text-slate-700 dark:text-slate-200  cursor-pointer"
+                    fill="linear-gradient(#e66465, #9198e5)"
+                    className=" z-10 relative  dark:text-slate-200  cursor-pointer"
                   />
                 ) : (
                   <ProfileIcon/>

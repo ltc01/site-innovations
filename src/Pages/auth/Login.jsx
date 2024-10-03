@@ -12,7 +12,7 @@ import gsap from "gsap";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../Redux/auth/authSlice";
-
+import JSEncrypt from "jsencrypt";
 const Login = () => {
   document.title = "Baoiam - Login";
   axios.defaults.withCredentials = true;
@@ -25,8 +25,12 @@ const Login = () => {
   const [pass, setPass] = useState(false);
   const [parentState, setParentState] = useState(location);
   const dispatch = useDispatch();
+
+  const [publicKey, setPublicKey] = useState('');
+
   const authData = useSelector((state) => state.auth);
   console.log(parentState);
+
   useEffect(() => {
     console.log("authData:", authData);
     if (authData && authData.isLoggedIn) {
@@ -123,13 +127,43 @@ const Login = () => {
     }
   };
 
+  useEffect(() => {
+    // Fetch the public key from the .pem file
+    const fetchPublicKey = async () => {
+      try {
+        const response = await axios.get(`${apiUrl}/static/public_key.pem`,
+        
+        ); // Adjust the path based on your STATIC_URL
+        if (response.status === 200) {
+          const key = await response.data;
+          console.log('successfully fetched')
+          setPublicKey(key);
+        } else {
+          console.error('Failed to fetch public key');
+        }
+      } catch (error) {
+        console.error('Error fetching public key:', error);
+      }
+    };
+
+    fetchPublicKey();
+  }, []);
+
+  const encryptPassword = (password) => {
+    const encrypt = new JSEncrypt();
+    encrypt.setPublicKey(publicKey); // Use the fetched public key
+    console.log("inside method:", password, publicKey);
+    const encryptedPassword = encrypt.encrypt(password);
+    return encryptedPassword;
+  };
   const handleLogin = async (e) => {
     e.preventDefault();
     const toastId = toast.loading("Processing your login...");
     try {
+      const encryptedPassword = encryptPassword(password);
       const response = await axios.post(
         `${apiUrl}/api/auth/jwt/create/`,
-        { email, password },
+        { email, password:encryptedPassword },
         { withCredentials: true }
       );
       console.log("from login: ", response);

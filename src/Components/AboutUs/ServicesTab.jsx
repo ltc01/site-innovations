@@ -1,15 +1,45 @@
-import React from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import { useState } from "react";
 import { SiTicktick } from "react-icons/si";
 import { Career, Perks, Review, Service } from "../../assets/assets";
+import gsap from "gsap";
 
 const ServicesTab = () => {
   const [activeTab, setActiveTab] = useState("services");
   const renderContent = () => {
+
+   
+  useLayoutEffect(() => {
+
+  let context = gsap.context(() => {
+
+  gsap.fromTo('.ServicesTabanime', {
+    opacity: 0,
+    y: 30
+  },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: 'power1.out',
+      stagger: 0.2,
+      scrollTrigger: {
+        trigger: '.ServicesTabdiv',
+        start: 'top 80%',
+        end: 'bottom 80%'
+      }
+    })
+
+})
+
+return () => context.revert()
+
+  })
+
     switch (activeTab) {
       case "services":
         return (
-          <div className="p-4">
+          <div className="p-4 ">
             <div className="container mx-auto ">
               <div className="text-start ">
                 <h1 className="text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-4">
@@ -99,10 +129,10 @@ const ServicesTab = () => {
               <div className="text-start">
                 <h1 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4 dark:text-white">
                   Ignite your  <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
-                  professional path
+                    professional path
                   </span>, aim for {" "}
                   <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
-                  highest achievements
+                    highest achievements
                   </span>
                 </h1>
                 <p className="text-gray-500 text-sm dark:text-gray-400">
@@ -304,10 +334,10 @@ const ServicesTab = () => {
                     <SiTicktick className="text-indigo-600 text-8xl pb-16 " />
                     <div>
                       <div className="text-lg font-bold text-gray-800 mb-2 dark:text-gray-200">
-                      Mentoring 
+                        Mentoring
                       </div>
                       <p className="text-gray-600 text-sm dark:text-gray-400">
-                      Receive expert advice tailored to your domain and make a lasting impact on your career
+                        Receive expert advice tailored to your domain and make a lasting impact on your career
                       </p>
                     </div>
                   </div>
@@ -316,10 +346,10 @@ const ServicesTab = () => {
                     <SiTicktick className="text-indigo-600 text-8xl pb-16 " />
                     <div>
                       <div className="text-lg font-bold text-gray-800 mb-2 dark:text-gray-200">
-                      Guidance 
+                        Guidance
                       </div>
                       <p className="text-gray-500 text-sm dark:text-gray-400">
-                      Gain valuable insights to create a clear career roadmap and reach your destination safely with our guidance.
+                        Gain valuable insights to create a clear career roadmap and reach your destination safely with our guidance.
                       </p>
                     </div>
                   </div>
@@ -328,10 +358,10 @@ const ServicesTab = () => {
                     <SiTicktick className="text-indigo-600 text-8xl pb-16 " />
                     <div>
                       <div className="text-lg font-bold text-gray-800 mb-2 dark:text-gray-200">
-                      Encouragement 
+                        Encouragement
                       </div>
                       <p className="text-gray-500 text-sm dark:text-gray-400">
-                      Motivation is key, but encouragement makes it possible to stay motivated. Cultivate a positive study spirit at every stage with us.
+                        Motivation is key, but encouragement makes it possible to stay motivated. Cultivate a positive study spirit at every stage with us.
                       </p>
                     </div>
                   </div>
@@ -347,8 +377,8 @@ const ServicesTab = () => {
 
   return (
     <div>
-      <div className="p-4 mx-4 sm:mx-10 ">
-        <div className="flex flex-col mb-2 sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8">
+      <div className="p-4 mx-4 sm:mx-10 ServicesTabdiv">
+        <div className="ServicesTabanime flex flex-col mb-2 sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8">
           <button
             className={`text-sm md:text-base font-bold ${activeTab === "services"
               ? "text-indigo-600 dark:text-indigo-400"
@@ -388,7 +418,7 @@ const ServicesTab = () => {
         </div>
 
         {/* Render content based on selected tab */}
-        <div>{renderContent()}</div>
+        <div className="ServicesTabanime">{renderContent()}</div>
       </div>
     </div>
   );
