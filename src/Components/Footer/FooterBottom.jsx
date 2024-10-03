@@ -7,6 +7,7 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaSquareXTwitter } from "react-ico
 
 const FooterBottom = () => {
     return (
+        <div>
         <div className="border-t border-gray-700 mt-8 pt-4 flex flex-col md:flex-row justify-between items-center">
             {/* Social Links */}
             <div className="flex space-x-4 mb-4 md:mb-0">
@@ -61,6 +62,35 @@ const FooterBottom = () => {
                 </Link>
                 {/* </div> */}
             </div>
+        </div>
+        {/* <hr className="h-[1.4px] my-4 bg-gray-700" /> */}
+          <div className="flex flex-col gap-2 md:gap-0 mt-4 md:flex-row items-center justify-between text-left">
+            <div className="text-[0.6rem] md:text-xs flex items-center gap-4 text-black">
+              <Link
+                to={"/terms-conditions"}
+                className="text-black dark:text-white text-nowrap flex items-center"
+              >
+                Terms & Conditions
+              </Link>
+              <Link
+                to={"/refund"}
+                className="text-black dark:text-white text-nowrap flex items-center"
+              >
+                Refund policy
+              </Link>
+              <Link
+                to={"/privacy-policy"}
+                className="text-black dark:text-white text-nowrap flex items-center"
+              >
+                Privacy policy
+              </Link>
+            </div>
+
+            <p className="text-xs dark:text-white text-black order-first">
+              BAOIAM &copy; 2023{" "}
+              <span className="dark:text-white">All rights reserved.</span>
+            </p>
+          </div>
         </div>
     );
 };
