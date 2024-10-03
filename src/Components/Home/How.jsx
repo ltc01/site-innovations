@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { GoGear, GoProjectRoadmap, GoGlobe } from "react-icons/go";
@@ -11,95 +11,104 @@ const How = () => {
   // const iconBoxesRef = useRef([]);
 
 
-  useEffect(() => {
-    // Ensure GSAP targets are correctly referenced
-    // if (iconBoxesRef.current.length > 0) {
-    //   iconBoxesRef.current.forEach((el, index) => {
-    //     gsap.fromTo(
-    //       el,
-    //       { opacity: 0, y: 50 }, // Initial state
-    //       {
-    //         opacity: 1,
-    //         y: 0,
-    //         duration: 1.2,
-    //         ease: "power3.out",
-    //         scrollTrigger: {
-    //           trigger: el, // Each icon box will be triggered when it comes into view
-    //           start: "top 80%", // When 85% of the element is in view
-    //           end: "bottom 60%", // Animation completes when 60% of the element is in view
-    //           toggleActions: "play none none reverse", // Trigger actions
-    //           markers: false, // Set to true for debugging markers
-    //         },
-    //       }
-    //     );
-    //   });
-    // }
+//   useEffect(() => {
+//     // Ensure GSAP targets are correctly referenced
+//     // if (iconBoxesRef.current.length > 0) {
+//     //   iconBoxesRef.current.forEach((el, index) => {
+//     //     gsap.fromTo(
+//     //       el,
+//     //       { opacity: 0, y: 50 }, // Initial state
+//     //       {
+//     //         opacity: 1,
+//     //         y: 0,
+//     //         duration: 1.2,
+//     //         ease: "power3.out",
+//     //         scrollTrigger: {
+//     //           trigger: el, // Each icon box will be triggered when it comes into view
+//     //           start: "top 80%", // When 85% of the element is in view
+//     //           end: "bottom 60%", // Animation completes when 60% of the element is in view
+//     //           toggleActions: "play none none reverse", // Trigger actions
+//     //           markers: false, // Set to true for debugging markers
+//     //         },
+//     //       }
+//     //     );
+//     //   });
+//     // }
+
+//  }, []);
 
 
 
+useLayoutEffect(() => {
 
+let context = gsap.context(() => {
 
+  const tl = gsap.timeline({
+    scrollTrigger:{
+      trigger:'.Howdiv',
+      start:'top 70%',
+      end:'bottom 85%',
+    }
+  })
+  
+  tl.fromTo('.Howanime',{
+    opacity:0,
+    y:30
+  },
+  {
+    opacity:1,
+    y:0,
+    duration:0.6,
+    ease:'power1.out',
+    stagger:0.2,
+  })
+  
+  
+  tl.fromTo('.How-anime1',{
+    opacity:0,
+    y:30,
+  },
+  {
+    opacity:1,
+    y:0,
+    duration:0.6,
+    ease:'power1.out',
+  
+  },'-=0.5')
+  
+  tl.fromTo('.How-anime2',{
+    opacity:0,
+    y:30,
+  },
+  {
+    opacity:1,
+    y:0,
+    duration:0.6,
+    ease:'power1.out',
+  
+  },
+  '-=0.4')
+  
+  tl.fromTo('.How-anime3',{
+    opacity:0,
+    y:30,
+  },
+  {
+    opacity:1,
+    y:0,
+    duration:0.6,
+    ease:'power1.out',
+  },
+  '-=0.3'
+  )
 
-const tl = gsap.timeline({
-  scrollTrigger:{
-    trigger:'.Howdiv',
-    start:'top 50%',
-    end:'bottom 85%'
-  }
 })
 
-tl.fromTo('.Howanime',{
-  opacity:0,
-  y:30
-},
-{
-  opacity:1,
-  y:0,
-  duration:0.6,
-  ease:'power1.out',
-  stagger:0.2,
+return () => context.revert()
+
 })
 
 
-tl.fromTo('.How-anime1',{
-  opacity:0,
-  y:30,
-},
-{
-  opacity:1,
-  y:0,
-  duration:0.6,
-  ease:'power1.out',
-
-},'-=0.5')
-
-tl.fromTo('.How-anime2',{
-  opacity:0,
-  y:30,
-},
-{
-  opacity:1,
-  y:0,
-  duration:0.6,
-  ease:'power1.out',
-
-},
-'-=0.4')
-
-tl.fromTo('.How-anime3',{
-  opacity:0,
-  y:30,
-},
-{
-  opacity:1,
-  y:0,
-  duration:0.6,
-  ease:'power1.out',
-},
-'-=0.3'
-)
-
- }, []);
 
   return (
     <>
