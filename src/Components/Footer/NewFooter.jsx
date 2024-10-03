@@ -37,10 +37,10 @@ const NewFooter = ({ dark }) => {
                         />
 
                         <FooterLinks title="Programs & Partnerships" links={[
-                            { name: "GCEP", to: "/gcep" },
+                            { name: "Global Collabo Educational Partnership", to: "/gcep" },
                             { name: "Bridge", to: "/bridge" },
-                            { name: "ITEI", to: "/itei" },
-                            { name: "PAP", to: "/pap" },
+                            { name: "Intern Teach Intern Earn", to: "/itei" },
+                            { name: "Pay After Placement", to: "/pap" },
                             { name: "Entrepreneurship", to: "/entrepreneurship" }
                         ]}
                         />
@@ -48,7 +48,7 @@ const NewFooter = ({ dark }) => {
 
 
                         <FooterLinks
-                            title="Contact Us"
+                            title="Help & Support"
                             links={[
                                 { name: "Hire from us", to: "/hire" },
                                 { name: "Contact", to: "/contact" },
@@ -57,7 +57,7 @@ const NewFooter = ({ dark }) => {
                         />
 
                             <FooterLinks
-                                title="Help & Support"
+                                title="Contact Us"
                                 links={[
                                     { name: "support@baoiam.com", to: "https://mail.google.com/mail/?view=cm&fs=1&to=support@baoiam.com", icon: <MdOutlineEmail className="min-w-6 text-xl aspect-square mt-1" /> },
                                     { name: "08069640635", to: "tel:+91 8069640635", icon: <FiPhone className="min-w-6 text-xl aspect-square mt-1" /> },
