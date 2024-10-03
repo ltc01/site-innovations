@@ -1,13 +1,11 @@
 import React, { useEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import data from "./testimonialsData.json";
+import data from "./TestimonalAboutus.json";
 
-import testimonals2 from "../../assets/Images/testimonals2.jpg";
-
-import testimonals4 from "../../assets/Images/testimonals4.jpg";
-
-import testimonals6 from "../../assets/Images/testimonals6.jpg";
+import testimonals from "../assets/Images/testimonals7.jpg"
+import testimonals1 from "../assets/Images/testimonal10.AVIF";
+import testimonals2 from "../assets/Images/testimonals8.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -60,14 +58,13 @@ const Testimonials = () => {
     );
   }, []);
 
-
   const images = [
     {
-      imgSrc: testimonals6,
+      imgSrc: testimonals,
       name: "Atharv Ingale",
     },
     {
-      imgSrc: testimonals4,
+      imgSrc: testimonals1,
       name: "Aishwarya Kamble",
     },
     {
@@ -104,7 +101,7 @@ const Testimonials = () => {
             <img
               src={images[index].imgSrc}
               className="w-14 h-14 rounded-full absolute -top-7 left-1/2 transform -translate-x-1/2"
-              alt={images[index].name}
+              alt={testimonial.name}
             />
             {/* Testimonial Quote */}
             <div className="mt-8 text-center">
