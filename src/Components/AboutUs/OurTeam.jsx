@@ -3,7 +3,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { swiperData } from "../../Components/OurTeam Components/teamData";
 import { FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -19,8 +18,8 @@ import {
 // Register ScrollTrigger with GSAP
 // gsap.registerPlugin(ScrollTrigger);
 
-const TeamComponent = () => {
-  const [data, setData] = useState(swiperData);
+const TeamComponent = ( {data}) => {
+  // const [data, setData] = useState(data);
   const cardsRef = useRef([]);
 
   useLayoutEffect(() => {
@@ -31,11 +30,11 @@ const TeamComponent = () => {
         {
           opacity:0,
           y:30,
-          filter:'blur(10px)'
+         
         },
         {
           opacity:1,
-          filter:'blur(0px)',
+        
           y:0,
           duration:0.6,
           ease:'power1.out',

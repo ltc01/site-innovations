@@ -16,11 +16,11 @@ const ServicesTab = () => {
   gsap.fromTo('.ServicesTabanime', {
     opacity: 0,
     y: 30,
-    filter:'blur(10px)'
+   
   },
     {
       opacity: 1,
-      filter:'blur(0px)',
+     
       y: 0,
       duration: 0.6,
       ease: 'power1.out',
@@ -55,7 +55,7 @@ return () => context.revert()
                   </span>
                 </h1>
                 <p className="text-gray-500 dark:text-gray-200">
-                  Instead of results speak louder than words we can use we don't deliver promises, we believe in achievements.
+                  we don't deliver promises, we believe in achievements.
                 </p>
               </div>
 
@@ -383,7 +383,7 @@ return () => context.revert()
         <div className="ServicesTabanime flex flex-col mb-2 sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8">
           <button
             className={`text-sm md:text-base font-bold ${activeTab === "services"
-              ? "text-indigo-600 dark:text-indigo-400"
+              ? "text-indigo-600 underline dark:text-indigo-400"
               : "text-blue-950 dark:text-white"
               }`}
             onClick={() => setActiveTab("services")}
@@ -392,7 +392,7 @@ return () => context.revert()
           </button>
           <button
             className={`text-sm md:text-base font-bold ${activeTab === "features"
-              ? "text-indigo-600 dark:text-indigo-400"
+              ? "text-indigo-600 underline dark:text-indigo-400"
               : "text-blue-950 dark:text-white"
               }`}
             onClick={() => setActiveTab("features")}
@@ -401,7 +401,7 @@ return () => context.revert()
           </button>
           <button
             className={`text-sm md:text-base font-bold ${activeTab === "perks"
-              ? "text-indigo-600 dark:text-indigo-400"
+              ? "text-indigo-600 underline dark:text-indigo-400"
               : "text-blue-950 dark:text-white"
               }`}
             onClick={() => setActiveTab("perks")}
@@ -410,7 +410,7 @@ return () => context.revert()
           </button>
           <button
             className={`text-sm md:text-base font-bold ${activeTab === "reviews"
-              ? "text-indigo-600 dark:text-indigo-400"
+              ? "text-indigo-600 underline dark:text-indigo-400"
               : "text-blue-950 dark:text-white"
               }`}
             onClick={() => setActiveTab("reviews")}

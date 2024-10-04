@@ -72,11 +72,11 @@ let cntxt = gsap.context(() => {
   tl.fromTo('.txtimg',{
     opacity:0,
     scale:0.7,
-    filter:'blur(10px)'
+   
   },
   {
     opacity:1,
-    filter:'blur(0px)',
+   
     scale:1,
     duration:0.6,
     ease:'power1.out',
@@ -87,11 +87,11 @@ let cntxt = gsap.context(() => {
 tl.fromTo('.txt1',{
   opacity:0,
   y:30,
-  filter:'blur(10px)'
+ 
 },
 {
   opacity:1,
-  filter:'blur(0px)',
+
   y:0,
   duration:0.6,
   stagger:0.2,
@@ -102,12 +102,11 @@ tl.fromTo('.txt1',{
 tl.fromTo('.txt2',{
   opacity:0,
   scale:0.8,
-  filter:'blur(10px)'
+
 },
 {
   opacity:1,
   scale:1,
-  filter:'blur(0px)',
   duration:0.4,
   ease:'power1.out',
 },

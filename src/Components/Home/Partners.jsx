@@ -15,46 +15,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Partners = () => {
   const titleRef = useRef([]);
-  // const descriptionRef = useRef([]);
-
-  // useEffect(() => {
-  //   titleRef.current.forEach((title, index) => {
-  //     gsap.fromTo(
-  //       title,
-  //       { opacity: 0, y: -20 },
-  //       {
-  //         opacity: 1,
-  //         y: 0,
-  //         duration: 0.8,
-  //         ease: "power2.out",
-  //         scrollTrigger: {
-  //           trigger: title,
-  //           start: "top 80%",
-  //           toggleActions: "play none none reverse",
-  //         },
-  //       }
-  //     );
-  //   });
-
-  //   descriptionRef.current.forEach((desc, index) => {
-  //     gsap.fromTo(
-  //       desc,
-  //       { opacity: 0, y: 20 },
-  //       {
-  //         opacity: 1,
-  //         y: 0,
-  //         duration: 0.8,
-  //         ease: "power2.out",
-  //         scrollTrigger: {
-  //           trigger: desc,
-  //           start: "top 80%",
-  //           toggleActions: "play none none reverse",
-  //         },
-  //       }
-  //     );
-  //   });
-  // }, []);
-
 
 useLayoutEffect(() => {
 
@@ -63,11 +23,11 @@ let context = gsap.context(() => {
   gsap.fromTo('.Partneranime',{
     opacity:0,
     y:30,
-    filter:'blur(10px)'
+    
   },
   {
     opacity:1,
-    filter:'blur(0px)',
+   
     y:0,
     duration:0.6,
     ease:'power1.out',
@@ -108,46 +68,7 @@ return () => context.revert()
 
 export const UniversityPartners = () => {
   const titleRef = useRef([]);
-  // const descriptionRef = useRef([]);
-
-  // useEffect(() => {
-  //   titleRef.current.forEach((title, index) => {
-  //     gsap.fromTo(
-  //       title,
-  //       { opacity: 0, y: -20 },
-  //       {
-  //         opacity: 1,
-  //         y: 0,
-  //         duration: 0.8,
-  //         ease: "power2.out",
-  //         scrollTrigger: {
-  //           trigger: title,
-  //           start: "top 80%",
-  //           toggleActions: "play none none reverse",
-  //         },
-  //       }
-  //     );
-  //   });
-
-  //   descriptionRef.current.forEach((desc, index) => {
-  //     gsap.fromTo(
-  //       desc,
-  //       { opacity: 0, y: 20 },
-  //       {
-  //         opacity: 1,
-  //         y: 0,
-  //         duration: 0.8,
-  //         ease: "power2.out",
-  //         scrollTrigger: {
-  //           trigger: desc,
-  //           start: "top 80%",
-  //           toggleActions: "play none none reverse",
-  //         },
-  //       }
-  //     );
-  //   });
-  // }, []);
-
+ 
 
   useLayoutEffect(() => {
 
@@ -156,12 +77,11 @@ export const UniversityPartners = () => {
   gsap.fromTo('.Partneranime-1',{
     opacity:0,
     y:30,
-    filter:'blur(10px)'
+
   },
   {
     opacity:1,
     y:0,
-    filter:'blur(0px)',
     duration:0.6,
     ease:'power1.out',
     stagger:0.2,

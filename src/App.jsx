@@ -230,8 +230,8 @@ const App = () => {
         )}
       </div>
 
-      {/* <Footer dark={dark} /> */}
-      <NewFooter dark={dark} />
+      <Footer dark={dark} />
+      {/* <NewFooter dark={dark} /> */}
     </div>
   );
 };
