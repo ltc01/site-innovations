@@ -252,7 +252,7 @@ tl.fromTo('.icon3',{opacity:0,x:30},
             </h2>
             <form
               id="form1"
-              className="space-y-4"
+              className="space-y-3"
               onSubmit={(e) => {
                 handleSubmit(e);
               }}
