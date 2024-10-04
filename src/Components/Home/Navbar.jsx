@@ -26,9 +26,9 @@ import Enroll from "./EnrollNow";
 import EnrollNow from "./EnrollNow";
 import { BiLogIn } from "react-icons/bi";
 import { FaRegCircleUser } from "react-icons/fa6";
+import ProfileIcon from "../Miscellaneous/ProfileIcon";
 
- 
-const Navbar = ({ theme}) => {
+const Navbar = ({ theme }) => {
   const [show, setShow] = useState(false);
   const [showmenu, setShowmenu] = useState(false);
   const [delayHide, setDelayHide] = useState(null);
@@ -48,7 +48,7 @@ const Navbar = ({ theme}) => {
     theme();
   };
 
-  const showForm = useSelector(state=>state.showForm)
+  const showForm = useSelector((state) => state.showForm);
 
   const handleLinkClick = (link) => {
     setLinkActive(link);
@@ -98,11 +98,12 @@ const Navbar = ({ theme}) => {
 
   // redux start
   const { allCourses, status, error } = useSelector((state) => state.courses);
-  const isLoggedIn = useSelector((state) => state.user.profile);
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const user = useSelector((state) => state.user);
 
-// useEffect(()=>{
-//   // console.log("user",isLoggedIn),
-// }, [isLoggedIn])
+  // useEffect(()=>{
+  //   // console.log("user",isLoggedIn),
+  // }, [isLoggedIn])
   // console.log("in navbar:", allCourses);
   // console.log(allCourses, 'all courses navbar')
 
@@ -132,7 +133,7 @@ const Navbar = ({ theme}) => {
         className={`flex z-[90] text-slate-600 dark:text-slate-200 md:h-20 h-16 items-center justify-between px-4 md:px-10 w-full fixed top-0 ${
           isTransparent
             ? "bg-white dark:bg-black"
-            : "bg-white/70 backdrop-blur dark:bg-black/30 "
+            : "bg-white/70 backdrop-blur dark:bg-black/60 "
         }`}
       >
         {/* Logo */}
@@ -142,7 +143,7 @@ const Navbar = ({ theme}) => {
         {/* NavLinks */}
         <div
           className={`hidden lg:flex md:ml-2 lg:gap-2 font-semibold items-center text-sm justify-between `}
-        > 
+        >
           <Link
             to={"/"}
             onClick={() => handleLinkClick("Home")}
@@ -156,7 +157,7 @@ const Navbar = ({ theme}) => {
           </Link>
 
           <Link
-            to={"/about-us"} 
+            to={"/about-us"}
             onClick={() => handleLinkClick("About")}
             className={`mx-2 xl:mx-4 text-nowrap hover:text-orange-600 ${
               location.pathname === "/about-us" && linkActive === "About"
@@ -170,11 +171,21 @@ const Navbar = ({ theme}) => {
           <li
             className={`mx-2 xl:mx-4 cursor-pointer flex gap-1 items-center `}
           >
-            <Link to="/courses" className="hover:text-orange-600">Courses</Link>
+            <Link to="/courses" className="hover:text-orange-600">
+              Courses
+            </Link>
             {show ? (
-              <IoIosArrowUp className="hover:text-orange-600" size={18} onClick={() => setShow(!show)} />
+              <IoIosArrowUp
+                className="hover:text-orange-600"
+                size={18}
+                onClick={() => setShow(!show)}
+              />
             ) : (
-              <IoIosArrowDown className="hover:text-orange-600" size={18} onClick={() => setShow(!show)} />
+              <IoIosArrowDown
+                className="hover:text-orange-600"
+                size={18}
+                onClick={() => setShow(!show)}
+              />
             )}
           </li>
 
@@ -224,7 +235,7 @@ const Navbar = ({ theme}) => {
                   onClick={() => setUserDrop(!userDrop)}
                   size={20}
                   className=" z-10 relative cursor-pointer"
-                /> */}
+                /> */} 
                 {/* <p
                   onClick={() => setUserDrop(!userDrop)}
                   size={15}
@@ -240,16 +251,17 @@ const Navbar = ({ theme}) => {
                     </span>
                   </button>
                 </Link> */}
-                {!isLoggedIn?<BiLogIn
-                  onClick={() => navigate('/login')}
-                  size={20}
-                  className=" z-10 relative text-slate-700 dark:text-slate-200  cursor-pointer"
-                />:
-                <FaRegCircleUser 
-                  onClick={() => navigate('/login')}
-                  size={20}
-                  className=" z-10 relative text-slate-700 dark:text-slate-200  cursor-pointer"
-                />}
+                <div onClick={() => navigate("/login")}>
+                {!isLoggedIn ? (
+                  <BiLogIn
+                    size={20}
+                    
+                    className=" z-10 relative dark:text-slate-300 text-slate-500 cursor-pointer"
+                  />
+                ) : (
+                  <ProfileIcon/>
+                )}
+                </div>
               </div>
 
               {userDrop && (
@@ -281,7 +293,7 @@ const Navbar = ({ theme}) => {
                         <NavLink to="/signup">Sign Up</NavLink>
                       </Link>
                     ) : (
-                      <p 
+                      <p
                         onClick={() => {
                           localStorage.removeItem("access_token");
                           localStorage.removeItem("userInfo");
@@ -302,11 +314,15 @@ const Navbar = ({ theme}) => {
               onClick={darkTheme}
               className="text-base hidden lg:block cursor-pointer "
             >
-              {isDark ? <BsSun className="text-slate-600 dark:text-slate-200 " /> : <BsMoonStars lassName="text-slate-600"/>}
+              {isDark ? (
+                <BsSun className="text-slate-600 dark:text-slate-100 " />
+              ) : (
+                <BsMoonStars className="text-slate-600" />
+              )}
             </span>
 
             {/* <Enroll /> */}
-            <EnrollNow/>
+            <EnrollNow />
             <Link to={"/gcep"} className="relative group">
               <button
                 type="button"

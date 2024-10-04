@@ -84,14 +84,13 @@ const Sidebar = () => {
 
   const handleLogoutClick = () => {
     // Perform any logout logic here (e.g., clearing authentication tokens)
-    localStorage.removeItem("access_token");
-    localStorage.removeItem("userInfo");
+    localStorage.clear();
     navigate("/login", { replace: true });
   };
 
   if (
     localStorage.getItem("access_token") ||
-    localStorage.getItem("userInfo") === null
+    localStorage.getItem("userInfo") !== null
   ) {
     return (
       <div className="flex relativez-40 h-full pt-8 my-8 transition duration-500">

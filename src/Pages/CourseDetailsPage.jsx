@@ -7,6 +7,7 @@ import CourseHighlights from "../Components/CourseDetails/CourseHighlights";
 import Loader from "../Components/Loader";
 import Brochure from "../Brochure.txt";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import { HiMiniCheckCircle } from "react-icons/hi2";
 
 import {
   CollegeCourseData,
@@ -35,7 +36,6 @@ const CourseDetailsPage = () => {
   const { id } = useParams();
   const [courseDetails, setCourseDetails] = useState({});
   const [showTab, setShowTab] = useState("plus");
-  const [otherCourses, setOtherCourses] = useState();
   const [fixed, setFixed] = useState(false);
   const [coursePlusContent, setCoursePlusContent] = useState([
     "Doubt clearing sessions",
@@ -45,6 +45,10 @@ const CourseDetailsPage = () => {
     "Mentorship & Evaluation",
     "Mentor Feedback",
     "Regular Quizzes & Assessment",
+    `Personnal Mentorship`,
+    `Experts councelling`,
+    `Live Projects`,
+    `Dedicated Placement cell`,
   ]);
   // const [loading, setLoading] = useState(true);
 
@@ -78,11 +82,6 @@ const CourseDetailsPage = () => {
   );
   const dispatch = useDispatch();
   const courseData = courses[id]; // Retrieve the courseData from the store by its id
-
-  const otherCou = otherCourses?.filter(
-    (other) => other?.title !== courseData?.title
-  );
-  console.log(otherCou, "Filtered");
 
   useEffect(() => {
     // If the courseData is not in the store, fetch it
@@ -158,7 +157,7 @@ const CourseDetailsPage = () => {
   };
 
   return (
-    <div className="mx-auto w-full">
+    <div className="mx-auto w-full pb-14 ">
       {/* Hero Section */}
       <CourseHero
         course={courseData?.course}
@@ -166,34 +165,45 @@ const CourseDetailsPage = () => {
       />
 
       {/* courseData Details */}
-      <div className="flex flex-col gap-4 md:flex-row mx-auto justify-center w-[90%]">
-        <div className="md:w-[68%] items-start pr-10 py-10 flex flex-col space-y-14">
+      <div className="flex items-center flex-col gap-4 md:flex-row mx-auto justify-center w-[90%]">
+        <div className="md:w-[68%] items-center mx-auto px-2 md:pr-10 py-10 flex flex-col space-y-14">
           {/* Course Details */}
           <div className="p-8 shadow-md border dark:shadow-slate-100 rounded-xl">
-            <h2 className="text-xl lg:text-2xl font-semibold">
+            <h2 className="md:text-xl lg:text-2xl font-semibold">
               Course{" "}
               <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
                 Details
               </span>
             </h2>
             <hr className="my-2" />
-            <p className="text-sm leading-snug lg:text-[1rem] text-left">
-              {courseData?.course?.description}
-            </p>
+
+            {courseData?.course?.description.split("<br/>").map((ele, id) => {
+              return (
+                <p className="text-xs md:text-sm mb-1 leading-snug lg:text-[1rem] text-left">
+                  {ele}
+                </p>
+              );
+            })}
           </div>
 
           {/* Course Overview */}
           <div className=" p-8 shadow-md border dark:shadow-slate-100 rounded-xl">
-            <h2 className="text-xl lg:text-2xl font-semibold">
+            <h2 className="md:text-xl lg:text-2xl font-semibold">
               Course{" "}
               <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
                 Overview
               </span>
             </h2>
             <hr className="my-2" />
-            <p className="text-sm leading-snug lg:text-[1rem] text-left">
-              {courseData?.course?.program_overview}
-            </p>
+            {courseData?.course?.program_overview
+              .split("<br/>")
+              .map((ele, id) => {
+                return (
+                  <p className="text-xs md:text-sm mb-1 leading-snug lg:text-[1rem] text-left">
+                    {ele}
+                  </p>
+                );
+              })}
           </div>
 
           {/* Course Curriculum */}
@@ -219,8 +229,7 @@ const CourseDetailsPage = () => {
         </div>
 
         {/* Plans Section */}
-        <div className="relative top-7 mx-auto">
-          {/* Plans Section */}
+        {/* <div className="relative top-7 mx-auto">
           <div
             className={` mt-5 ${
               fixed ? "md:fixed md:top-20 right-[10%] absolute " : ""
@@ -264,9 +273,6 @@ const CourseDetailsPage = () => {
                         </div>
                       )}
 
-                      {/* <div className="mb-2 text-center capitalize text-2xl md:text-xl dark:text-white font-extrabold text-gray-800">
-                        {p.name}
-                      </div> */}
                       <div className="">
                         <p className="mx-auto my-2 px-8 text-center text-lg md:text-base dark:text-white text-gray-500 font-medium">
                           {courseData.title}
@@ -307,25 +313,6 @@ const CourseDetailsPage = () => {
                               </span>
                             </div>
                           )}
-
-                          {/* <button
-                          onClick={() => {
-                            if (localStorage.getItem("access_token"))
-                              navigate(
-                                `/checkout/${id}/${
-                                  p.name === "premium" ? "Premium" : "Plus"
-                                }`
-                              );
-                            else navigate("/login");
-                          }}
-                          className={`block rounded-lg ${
-                            p.name === "premium"
-                              ? "bg-orange-500 text-white"
-                              : "bg-gray-500"
-                          } px-8 py-3 mt-4 text-center text-sm md:text-base font-semibold text-gray-200 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 hover:text-gray-500 focus-visible:ring active:text-gray-700`}
-                        >
-                          Enroll Now
-                        </button> */}
                           {p.name === "plus" && (
                             <button
                               onClick={() => dispatch(toggleEnrollForm())}
@@ -348,6 +335,42 @@ const CourseDetailsPage = () => {
               }
             })}
           </div>
+        </div> */}
+        <div className="relative px-3  md:top-7 mx-auto">
+          {/* Plans Section */}
+          <div
+            className={` md:mt-5 border border-slate-300 ${
+              fixed
+                ? "md:fixed md:top-20 right-[10%] flex justify-center flex-col absolute "
+                : ""
+            } bg-white dark:bg-black overflow-hidden shadow-md rounded-xl pb-4`}
+          > <h2 className="text-lg font-semibold bg-gradient-to-r p-2 mb-4 text-white from-pink-500 to-indigo-600 text-center w-full"> What you'll get</h2>
+            <div className="flex px-3 items-start justify-center md:items-center md:gap-2 mb-4 flex-col">
+              {coursePlusContent.map((course, id) => {
+                return (
+                  <p
+                    key={id}
+                    className="text-xs gap-2 flex md:text-sm mb-2 dark:text-white text-gray-500 font-medium"
+                  >
+                    <HiMiniCheckCircle size={15} className="text-green-600" />{" "}{course}
+                  </p>
+                );
+              })}
+            </div>
+
+            <div className="flex w-full justify-center">
+              <button
+                onClick={() => dispatch(toggleEnrollForm())}
+                className="relative inline-flex mx-auto w-fit bg-gradient-to-r from-amber-500 to-red-600 px-6 md:px-8 lg:px-12 py-2 md:py-3 text-xs md:text-sm overflow-hidden text-white font-medium border border-orange-400 rounded-lg hover:text-orange-500 group"
+              >
+                <span className="absolute left-0 block w-full h-0 transition-all bg-white opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease-in-out"></span>
+                <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
+                  <IoIosArrowRoundForward size={30} />
+                </span>
+                <span className="relative text-nowrap">Enroll Now</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -356,7 +379,7 @@ const CourseDetailsPage = () => {
       {/* <Testimonials /> */}
 
       {/* Related Courses */}
-      {courseData?.related_courses && (
+      {courseData?.related_courses?.length > 0 && (
         <div className="my-8 px-4 lg:px-8 xl:px-24 w-full h-full relative">
           <h2 className="text-3xl font-semibold text-center">
             Related{" "}
@@ -415,7 +438,7 @@ const CourseDetailsPage = () => {
                     </div>
                     <div className="h-fit flex flex-col justify-between px-4">
                       <Link
-                        to={`/courseData/${o?.slug}/${o?.id}`}
+                        to={`/course/${o?.slug}/${o?.id}`}
                         className="text-lg font-semibold my-2"
                       >
                         {o.title}{" "}

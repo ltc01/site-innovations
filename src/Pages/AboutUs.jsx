@@ -9,7 +9,7 @@ import ProgressBar from "../Components/AboutUs/ProgressBar";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { swiperData } from "../Components/OurTeam Components/teamData";
+// import { swiperData } from "../Components/OurTeam Components/teamData";
 import { FaLinkedin } from "react-icons/fa6";
 import { FaXTwitter } from "react-icons/fa6";
 import Subcription from "../Components/Home/Subcription";
@@ -18,6 +18,8 @@ import Subcription from "../Components/Home/Subcription";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { swiperData } from "./../Components/OurTeam Components/teamData";
+
 import {
   Autoplay,
   Pagination,
@@ -49,350 +51,353 @@ import { BiSupport } from "react-icons/bi";
 import { RiBarChartBoxLine } from "react-icons/ri";
 import OurTeam from "../Components/AboutUs/OurTeam";
 import { TeamSwiper } from "../Components/OurTeam Components/TeamSwiper";
-import Testimonials from "../Components/Testmonials/Testimonials";
+import Testimonials from "./TestimonalAboutus";
 import Timeline from "../Components/AboutUs/Timeline";
 import { Mission, Vision } from "../assets/assets";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+// import { Leaderteam1 } from "../../Components/OurTeam Components/teamData";
+
 
 const AboutUs = () => {
   document.title = "Baoiam Innovations | About Us";
-  const [data, setData] = useState(swiperData);
+  // const [data, setData] = useState(swiperData);
 
-  // useEffect(() => {
-  //   gsap.fromTo(
-  //     ".image-container img",
-  //     { opacity: 0 },
-  //     { opacity: 1, duration: 1.5, ease: "power3.inOut" }
-  //   );
+  useEffect(() => {
+    gsap.fromTo(
+      ".image-container img",
+      { opacity: 0 },
+      { opacity: 1, duration: 1, ease: "power3.inOut" }
+    );
 
-  //   gsap.fromTo(
-  //     ".content-overlay p",
-  //     { opacity: 0, y: 30 },
-  //     { opacity: 1, y: 0, duration: 1, delay: 0.3, ease: "power3.out" }
-  //   );
+    gsap.fromTo(
+      ".content-overlay p",
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 1, delay: 0.3, ease: "power3.out" }
+    );
 
-  //   gsap.fromTo(
-  //     ".content-overlay h2",
-  //     { opacity: 0, y: 30 },
-  //     { opacity: 1, y: 0, duration: 1, delay: 0.6, ease: "power3.out" }
-  //   );
+    gsap.fromTo(
+      ".content-overlay h2",
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 1, delay: 0.6, ease: "power3.out" }
+    );
 
-  //   gsap.fromTo(
-  //     ".content-overlay .lg\\:text-lg",
-  //     { opacity: 0, y: 30 },
-  //     { opacity: 1, y: 0, duration: 1, delay: 0.9, ease: "power3.out" }
-  //   );
-  //   gsap.fromTo(
-  //     ".animediv1 h2",
-  //     { opacity: 0, y: 30 },
-  //     {
-  //       opacity: 1,
-  //       y: 0,
-  //       duration: 0,
-  //       ease: "power3.out",
-  //       scrollTrigger: {
-  //         trigger: ".animediv1 h2",
-  //         start: "top 80%", // Starts when the top of h2 is 80% of the viewport
-  //         toggleActions: "play none none reverse", // Play when entering, reverse when leaving
-  //       },
-  //     }
-  //   );
+    gsap.fromTo(
+      ".content-overlay .lg\\:text-lg",
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 1, delay: 0.9, ease: "power3.out" }
+    );
+    gsap.fromTo(
+      ".animediv1 h2",
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".animediv1 h2",
+          start: "top 80%",
+          end:'bottom 80%', 
+          // toggleActions: "play none none reverse", // Play when entering, reverse when leaving
+        },
+      }
+    );
 
-  //   // Animate the image
-  //   gsap.fromTo(
-  //     ".animediv1 img",
-  //     { opacity: 0, x: -50 },
-  //     {
-  //       opacity: 1,
-  //       x: 0,
-  //       duration: 1.2,
-  //       delay: 0.3,
-  //       ease: "power3.out",
-  //       scrollTrigger: {
-  //         trigger: ".animediv1 img",
-  //         start: "top 80%", // Starts when the image comes into view
-  //         toggleActions: "play none none reverse",
-  //       },
-  //     }
-  //   );
+    // Animate the image
+    gsap.fromTo(
+      ".animediv1 img",
+      { opacity: 0, x: -50 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1.2,
+        delay: 0.3,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".animediv1 img",
+          start: "top 80%", // Starts when the image comes into view
+          // toggleActions: "play none none reverse",
+        },
+      }
+    );
 
-  //   // Animate the text elements (h4, p, span) with stagger
-  //   gsap.fromTo(
-  //     ".animediv1 h4, .animediv1 p, .animediv1 span",
-  //     { opacity: 0, y: 30 },
-  //     {
-  //       opacity: 1,
-  //       y: 0,
-  //       duration: 1,
-  //       delay: 0.3,
-  //       ease: "power3.out",
-  //       stagger: 0.3,
-  //       scrollTrigger: {
-  //         trigger: ".animediv1 h4",
-  //         start: "top 80%",
-  //         toggleActions: "play none none reverse",
-  //       },
-  //     }
-  //   );
+    // Animate the text elements (h4, p, span) with stagger
+    gsap.fromTo(
+      ".animediv1 h4, .animediv1 p, .animediv1 span",
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.3,
+        ease: "power3.out",
+        stagger: 0.3,
+        scrollTrigger: {
+          trigger: ".animediv1 h4",
+          start: "top 80%",
+          // toggleActions: "play none none reverse",
+        },
+      }
+    );
 
-  //   gsap.fromTo(
-  //     ".animediv1 img",
-  //     { opacity: 0, x: 50 },
-  //     {
-  //       opacity: 1,
-  //       x: 0,
-  //       duration: 1.2,
-  //       delay: 0.3,
-  //       ease: "power3.out",
-  //       scrollTrigger: {
-  //         trigger: ".animediv1 img",
-  //         start: "top 80%",
-  //         toggleActions: "play none none reverse",
-  //       },
-  //     }
-  //   );
+    gsap.fromTo(
+      ".animediv1 img",
+      { opacity: 0, x: 50 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1.2,
+        delay: 0.3,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".animediv1 img",
+          start: "top 80%",
+          // toggleActions: "play none none reverse",
+        },
+      }
+    );
 
-  //   gsap.fromTo(
-  //     ".animediv1 h4, .animediv1 p, .animediv1 span",
-  //     { opacity: 0, y: 30 },
-  //     {
-  //       opacity: 1,
-  //       y: 0,
-  //       duration: 1,
-  //       delay: 0.6,
-  //       ease: "power3.out",
-  //       stagger: 0.3,
-  //       scrollTrigger: {
-  //         trigger: ".animediv1 h4",
-  //         start: "top 80%",
-  //         toggleActions: "play none none reverse",
-  //       },
-  //     }
-  //   );
+    gsap.fromTo(
+      ".animediv1 h4, .animediv1 p, .animediv1 span",
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.6,
+        ease: "power3.out",
+        stagger: 0.3,
+        scrollTrigger: {
+          trigger: ".animediv1 h4",
+          start: "top 80%",
+          // toggleActions: "play none none reverse",
+        },
+      }
+    );
 
-  //   gsap.fromTo(
-  //     ".core-values-heading",
-  //     { opacity: 0, y: 30 },
-  //     {
-  //       opacity: 1,
-  //       y: 0,
-  //       duration: 1,
-  //       ease: "power3.out",
-  //       scrollTrigger: {
-  //         trigger: ".core-values-heading",
-  //         start: "top 80%",
-  //         toggleActions: "play none none reverse",
-  //       },
-  //     }
-  //   );
+    gsap.fromTo(
+      ".core-values-heading",
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".core-values-heading",
+          start: "top 80%",
+          // toggleActions: "play none none reverse",
+        },
+      }
+    );
 
-  //   gsap.fromTo(
-  //     ".value-card-1",
-  //     { opacity: 0, x: -100 },
-  //     {
-  //       opacity: 1,
-  //       x: 0,
-  //       duration: 1,
-  //       ease: "power3.out",
-  //       scrollTrigger: {
-  //         trigger: ".value-card-1",
-  //         start: "top 80%",
-  //         toggleActions: "play none none reverse",
-  //       },
-  //     }
-  //   );
-  //   gsap.fromTo(
-  //     ".value-card-2",
-  //     { opacity: 0, y: 100 },
-  //     {
-  //       opacity: 1,
-  //       y: 0,
-  //       duration: 1,
-  //       ease: "power3.out",
-  //       scrollTrigger: {
-  //         trigger: ".value-card-3",
-  //         start: "top 80%",
-  //         toggleActions: "play none none reverse",
-  //       },
-  //     }
-  //   );
-  //   gsap.fromTo(
-  //     ".value-card-3",
-  //     { opacity: 0, y: 100 },
-  //     {
-  //       opacity: 1,
-  //       y: 0,
-  //       duration: 1,
-  //       ease: "power3.out",
-  //       scrollTrigger: {
-  //         trigger: ".value-card-3",
-  //         start: "top 80%",
-  //         toggleActions: "play none none reverse",
-  //       },
-  //     }
-  //   );
-  //   gsap.fromTo(
-  //     ".value-card-4",
-  //     { opacity: 0, x: 100 },
-  //     {
-  //       opacity: 1,
-  //       x: 0,
-  //       duration: 1,
-  //       ease: "power3.out",
-  //       scrollTrigger: {
-  //         trigger: ".value-card-2",
-  //         start: "top 80%",
-  //         toggleActions: "play none none reverse",
-  //       },
-  //     }
-  //   );
-  // }, []);
+    gsap.fromTo(
+      ".value-card-1",
+      { opacity: 0, x: -100 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".value-card-1",
+          start: "top 80%",
+          // toggleActions: "play none none reverse",
+        },
+      }
+    );
+    gsap.fromTo(
+      ".value-card-2",
+      { opacity: 0, y: 100 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".value-card-3",
+          start: "top 80%",
+          // toggleActions: "play none none reverse",
+        },
+      }
+    );
+    gsap.fromTo(
+      ".value-card-3",
+      { opacity: 0, y: 100 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".value-card-3",
+          start: "top 80%",
+          // toggleActions: "play none none reverse",
+        },
+      }
+    );
+    gsap.fromTo(
+      ".value-card-4",
+      { opacity: 0, x: 100 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".value-card-2",
+          start: "top 80%",
+          // toggleActions: "play none none reverse",
+        },
+      }
+    );
+  }, []);
 
-  // useEffect(() => {
-  //   gsap.fromTo(
-  //     ".heading",
-  //     {
-  //       opacity: 0,
-  //       y: 30,
-  //     },
-  //     {
-  //       opacity: 1,
-  //       y: 0,
-  //       duration: 1,
-  //       ease: "power1.out",
-  //       stagger: 0.2,
-  //     }
-  //   );
+  useEffect(() => {
+    gsap.fromTo(
+      ".heading",
+      {
+        opacity: 0,
+        y: 30,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power1.out",
+        stagger: 0.2,
+      }
+    );
 
-  //   const tl = gsap.timeline({
-  //     scrollTrigger: {
-  //       trigger: ".secdiv1",
-  //       start: "top 70%",
-  //       end: "bottom 90%",
-  //     },
-  //   });
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".secdiv1",
+        start: "top 70%",
+        end: "bottom 90%",
+      },
+    });
 
-  //   tl.fromTo(
-  //     ".sec1h",
-  //     {
-  //       opacity: 0,
-  //       y: 30,
-  //     },
-  //     {
-  //       opacity: 1,
-  //       y: 0,
-  //       duration: 0.5,
-  //       ease: "power1.out",
-  //     }
-  //   );
+    tl.fromTo(
+      ".sec1h",
+      {
+        opacity: 0,
+        y: 30,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "power1.out",
+      }
+    );
 
-  //   tl.fromTo(
-  //     ".sec1",
-  //     {
-  //       opacity: 0,
-  //       x: -20,
-  //     },
-  //     {
-  //       opacity: 1,
-  //       x: 0,
-  //       duration: 0.5,
-  //       ease: "power1.out",
-  //       stagger: 0.2,
-  //     }
-  //   );
+    tl.fromTo(
+      ".sec1",
+      {
+        opacity: 0,
+        x: -20,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.5,
+        ease: "power1.out",
+        stagger: 0.2,
+      }
+    );
 
-  //   tl.fromTo(
-  //     ".sec1img",
-  //     {
-  //       opacity: 0,
-  //       y: -20,
-  //       x: -20,
-  //     },
-  //     {
-  //       opacity: 1,
-  //       x: 0,
-  //       y: 0,
-  //       duration: 0.6,
-  //       ease: "power1.out",
-  //     },
-  //     "-=0.7"
-  //   );
+    tl.fromTo(
+      ".sec1img",
+      {
+        opacity: 0,
+        y: -20,
+        x: -20,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        duration: 0.6,
+        ease: "power1.out",
+      },
+      "-=0.7"
+    );
 
-  //   const te = gsap.timeline({
-  //     scrollTrigger: {
-  //       trigger: ".secdiv2",
-  //       start: "top 70%",
-  //       end: "bottom 90%",
-  //     },
-  //   });
+    const te = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".secdiv2",
+        start: "top 70%",
+        end: "bottom 90%",
+      },
+    });
 
-  //   te.fromTo(
-  //     ".sec2h",
-  //     {
-  //       opacity: 0,
-  //       y: 30,
-  //     },
-  //     {
-  //       opacity: 1,
-  //       y: 0,
-  //       duration: 0.5,
-  //       ease: "power1.out",
-  //     }
-  //   );
+    te.fromTo(
+      ".sec2h",
+      {
+        opacity: 0,
+        y: 30,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "power1.out",
+      }
+    );
 
-  //   te.fromTo(
-  //     ".sec2",
-  //     {
-  //       opacity: 0,
-  //       x: -20,
-  //     },
-  //     {
-  //       opacity: 1,
-  //       x: 0,
-  //       duration: 0.5,
-  //       ease: "power1.out",
-  //       stagger: 0.2,
-  //     }
-  //   );
+    te.fromTo(
+      ".sec2",
+      {
+        opacity: 0,
+        x: -20,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.5,
+        ease: "power1.out",
+        stagger: 0.2,
+      }
+    );
 
-  //   te.fromTo(
-  //     ".sec2img",
-  //     {
-  //       opacity: 0,
-  //       y: 20,
-  //       x: 20,
-  //     },
-  //     {
-  //       opacity: 1,
-  //       x: 0,
-  //       y: 0,
-  //       duration: 0.6,
-  //       ease: "power1.out",
-  //     },
-  //     "-=0.7"
-  //   );
+    te.fromTo(
+      ".sec2img",
+      {
+        opacity: 0,
+        y: 20,
+        x: 20,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        duration: 0.6,
+        ease: "power1.out",
+      },
+      "-=0.7"
+    );
 
-  //   gsap.fromTo(
-  //     ".sec3",
-  //     {
-  //       opacity: 0,
-  //       y: 30,
-  //     },
-  //     {
-  //       opacity: 1,
-  //       y: 0,
-  //       duration: 1,
-  //       ease: "power1.out",
-  //       stagger: 0.2,
-  //       scrollTrigger: {
-  //         trigger: ".secdiv3",
-  //         start: "top 70%",
-  //         end: "bottom 80%",
-  //       },
-  //     }
-  //   );
-  // }, []);
+    gsap.fromTo(
+      ".sec3",
+      {
+        opacity: 0,
+        y: 30,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power1.out",
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: ".secdiv3",
+          start: "top 70%",
+          end: "bottom 80%",
+        },
+      }
+    );
+  }, []);
 
   return (
     <div>
@@ -525,28 +530,28 @@ const AboutUs = () => {
         </div>
 
         <div className="flex justify-center items-center flex-wrap lg:flex-nowrap lg:flex-row gap-8">
-          <div className="sec3 value-card-1">
+          <div className="value-card-1">
             <ValueCard
               Icon={FaHandsHelping}
               title="Standard Education "
               description="Delivering standardized quality through expert professors."
             />
           </div>
-          <div className="sec3 value-card-2">
+          <div className="value-card-2">
             <ValueCard
               Icon={FaEye}
               title="Acceptance"
               description="Join us and enjoy lifetime access to out resources and educational benefits."
             />
           </div>
-          <div className="sec3 value-card-3">
+          <div className="value-card-3">
             <ValueCard
               Icon={FaLightbulb}
               title="Innovation with creativity"
               description="Continuously delivering and adapting to meet industry demand with innovative courses."
             />
           </div>
-          <div className="sec3 value-card-4">
+          <div className="value-card-4">
             <ValueCard
               Icon={FaChartLine}
               title="Students accomplishment"
@@ -563,7 +568,7 @@ const AboutUs = () => {
       {/* team */}
 
       {/* <TeamSwiper /> */}
-      <OurTeam />
+      <OurTeam data={swiperData} />
 
       {/* USP */}
 

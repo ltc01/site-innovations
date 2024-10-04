@@ -20,6 +20,9 @@ import { RxCross2 } from "react-icons/rx";
 const apiUrl = import.meta.env.VITE_API_URL;
 import { useDispatch } from "react-redux";
 import { toggleEnrollForm } from "../../Redux/slices/enrollFormSlice";
+import thumbsUp from "../../assets/Images/thumbs-up (1).gif";
+import { TbCircleCheckFilled } from "react-icons/tb";
+
 
 const ContactUs = () => {
   // const togglePopup = () => {
@@ -124,13 +127,16 @@ const ContactUs = () => {
           </div>
         </div>
       </section>
-    </div> 
+    </div>
   );
 };
 
 export default ContactUs;
 
 export const ContactFormComponent = () => {
+  const [category, setCategory] = useState("");
+  const [courses, setCourses] = useState([]);
+  const [isCourseDisabled, setIsCourseDisabled] = useState(true);
   const [loading, setLoading] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [animatePing, setAnimatePing] = useState(false);
@@ -142,8 +148,55 @@ export const ContactFormComponent = () => {
     Course: "",
     Consent: false,
   });
-  
-const dispatch=useDispatch();
+
+  const categoryOptions = {
+    "Junior Courses": [
+      "Creative Writing",
+      "Public Speaking",
+      "Life Skills",
+      "Social Media and Digital Marketing",
+      "Photography & Editing Skills",
+      "Critical Thinking & Problem Solving",
+      "Technology Development with AI & Coding",
+      "Arts & Crafts (DIY)",
+      "Entrepreneurship and Innovation",
+      "Financial Education",
+    ],
+    "University Courses": [
+      "Product Management",
+      "Data Science",
+      "Machine Learning with AI",
+      "Data Analytics",
+      "UI/UX Design",
+      "Android Development",
+      "Digital Marketing",
+      "Graphic Designing",
+      "Human Resource",
+      "Web Development",
+      "Software Testing",
+      "Finance Education",
+      "International Business",
+      "Entrepreneurship and Innovation",
+      "SEO Development",
+    ],
+    "Other Courses": [
+      "Emotional Intelligence",
+      "Machine Learning with AI",
+      "International Business",
+      "Data Analytics",
+      "Executive and Public Relations Content Writing",
+      "Data Science",
+    ],
+  };
+
+  // Handle category selection
+  const handleCategoryChange = (e) => {
+    const selectedCategory = e.target.value;
+    setCategory(selectedCategory); // Update category
+    setCourses(categoryOptions[selectedCategory] || []); // Set courses based on selected category
+  };
+
+  const dispatch = useDispatch();
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Prepare the data to be sent in the POST request
@@ -176,7 +229,7 @@ const dispatch=useDispatch();
       }
     } catch (error) {
       setLoading(false);
-      toast.error("An error occurred");
+      toast.error("An error occurred",error);
       console.error("Error submitting form", error);
     }
   };
@@ -209,44 +262,47 @@ const dispatch=useDispatch();
           {/* Overlay */}
           <div
             className="fixed inset-0 bg-gray-600 bg-opacity-50 transition-opacity"
-            // Click outside to close
+            onClick={() => setShowPopup(false)} // Click outside to close
           ></div>
 
           {/* Modal Content */}
-          <div className="relative bg-white rounded-lg p-8 shadow-2xl z-10 text-center">
+          <div className="relative bg-white rounded-lg p-8 shadow-2xl z-10 text-center md:w-[400px] w-[250px] dark:bg-gray-700">
+            {/* Gradient Top Section */}
+            {/* bg-gradient-to-r from-orange-500 to-pink-400*/}
+            {/*bg-gradient-to-r from-green-500 to-yellow-400 */}
+            {/*bg-gradient-to-r from-indigo-900 to-purple-800 */}
+            <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-r from-green-400 to-indigo-500 rounded-t-lg"></div>
+
             {/* Success Icon */}
-            <FaCheckCircle
-              size={50}
-              className={`text-green-500 mx-auto mb-4 ${
-                animatePing ? "animate-ping" : ""
-              }`}
-            />
+            <div className="relative top-[80px]  rounded-full inline-block ">
+  
+              <TbCircleCheckFilled className="w-20 h-20 text-green-600 bg-white mx-auto flex items-center p-2 rounded-full  " />
+            </div>
 
-            <h2 className="md:text-2xl font-bold text-indigo-600 mb-4 transition-all duration-300 ease-in-out">
-              Data submitted successfully
-            </h2>
-            {/* <p className="text-gray-700 mb-6">
-              Your enrollment was successful. We’re excited to have you on
-              board!
-            </p> */}
+            {/* Success Message */}
+            <div className="pt-20">
+              <h2 className="text-3xl font-bold text-black mb-4 dark:text-white">
+              Congratulations!
+              </h2>
+              <p className="text-gray-700 mb-6 dark:text-gray-300">
+              You’ve successfully enrolled. Our team will be in touch shortly.
+              </p>
 
-            {/* Decorative Element */}
-            <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-green-400 to-blue-500 rounded-t-md"></div>
-
-            {/* Close Button */}
-            <button
-              onClick={handleCloseForm}
-              className="bg-gradient-to-br from-purple-600 via-indigo-500 to-indigo-700 text-white px-6 py-2 rounded-full hover:bg-indigo-700 focus:outline-none transition-all text-sm md:text-base"
-            >
-              Close
-            </button>
+              {/* Continue Button */}
+              <button
+                onClick={handleCloseForm} // Manually close the popup
+                className="bg-gradient-to-r from-pink-400  to-indigo-600 text-white font-bold px-6 py-2 rounded-full hover:bg-indigo-700 focus:outline-none transition-all text-sm md:text-base"
+              >
+                Continue
+              </button>
+            </div>
           </div>
         </div>
       )}
       {
         <div className="fixed inset-0 flex justify-center items-center z-[200] bg-black/50">
-            <div className=" w-[95%] md:w-[70%] lg:w-[38%] my-10  dark:bg-black  bg-white p-4 px-6 rounded-lg border relative flex flex-col items-center justify-center overflow-y-auto ">
-               <span
+          <div className=" w-[95%] md:w-[70%] lg:w-[38%] my-10  dark:bg-black  bg-white p-4 px-6 rounded-lg border relative flex flex-col items-center justify-center overflow-y-auto ">
+            <span
               onClick={() => dispatch(toggleEnrollForm())}
               className="absolute top-7 right-6 text-2xl"
             >
@@ -272,7 +328,7 @@ const dispatch=useDispatch();
                 <div>
                   <label
                     htmlFor="fullname"
-                    className="block dark:text-gray-300 text-gray-700 mb-1 text-xs md:text-sm"
+                    className="block dark:text-gray-300 text-gray-700 mb-1 text-xs"
                   >
                     Full Name
                   </label>
@@ -290,7 +346,7 @@ const dispatch=useDispatch();
                 <div>
                   <label
                     htmlFor="email"
-                    className="block dark:text-gray-300 text-gray-700 mb-2 text-xs md:text-sm"
+                    className="block dark:text-gray-300 text-gray-700 mb-2 text-xs"
                   >
                     Email
                   </label>
@@ -321,7 +377,7 @@ const dispatch=useDispatch();
                       Country Code
                     </label> */}
                       {/* <div className="flex items-center gap-4"> */}
-                      <div className="flex gap-1 items-center dark:bg-slate-800 border py-1 px-2 rounded-lg focus:outline-none focus:border-gray-300 w-full bg-white cursor-pointer text-xs md:text-sm">
+                      <div className="flex gap-1 items-center dark:bg-slate-800 border py-1 px-2 lg:py-2 rounded-lg focus:outline-none focus:border-gray-300 w-full bg-white cursor-pointer text-xs">
                         <p className="font-medium">+91</p>
                         <div className="min-w-4 lg:w-6 h-4 rounded-lg lg:h-4">
                           <img
@@ -357,7 +413,7 @@ const dispatch=useDispatch();
                         id="phone"
                         name="Phone"
                         type="tel"
-                        className="w-full dark:bg-slate-800 py-1 px-2 sm:px-2.5 lg:py-2 border border-gray-300 rounded-md sm:rounded-lg text-xs md:text-sm"
+                        className="w-full dark:bg-slate-800 py-1 px-2 sm:px-2.5 lg:py-2 border border-gray-300 rounded-md sm:rounded-lg text-xs"
                         placeholder="Enter your phone number"
                         pattern="[0-9]{10}"
                         minLength="10"
@@ -368,8 +424,53 @@ const dispatch=useDispatch();
                     </div>
                   </div>
                 </div>
-                {/* Inquiry Type */}
+
+                {/* Category Dropdown */}
                 <div className="relative inline-block my-2 w-full">
+                  <select
+                    id="category"
+                    name="category"
+                    className="border dark:bg-slate-800 mt-1 py-1 lg:py-2 px-2 rounded-md sm:rounded-lg focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer text-xs"
+                    required
+                    onChange={handleCategoryChange}
+                  >
+                    <option value="">Select Category</option>
+                    <option value="Junior Courses">Junior Courses</option>
+                    <option value="University Courses">
+                      University Courses
+                    </option>
+                    <option value="Other Courses">Other Courses</option>
+                  </select>
+                  <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+                    <IoIosArrowDown className="dark:text-gray-300 text-gray-500" />
+                  </div>
+                </div>
+
+                {/* Course Dropdown */}
+                <div className="relative inline-block my-2 w-full">
+                  <select
+                    id="courses"
+                    name="Course"
+                    className="border dark:bg-slate-800 mt-1 py-1 lg:py-2 px-2 rounded-md sm:rounded-lg focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer text-xs"
+                    required
+                    onChange={handleChange}
+                  >
+                    <option value="">
+                      {category ? "Select Course" : "Please select a category"}
+                    </option>
+                    {courses.map((course, index) => (
+                      <option key={index} value={course}>
+                        {course}
+                      </option>
+                    ))}
+                  </select>
+                  <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+                    <IoIosArrowDown className="dark:text-gray-300 text-gray-500" />
+                  </div>
+                </div>
+
+                {/* Inquiry Type */}
+                {/* <div className="relative inline-block my-2 w-full">
                   <select
                     id="courses"
                     name="Course"
@@ -406,7 +507,9 @@ const dispatch=useDispatch();
                     <option value="Graphic Designing">Graphic Designing</option>
                     <option value="Human Resource">Human Resource</option>
                     <option value="Data Analytics">Data Analytics</option>
-                    <option value="Product Management">Product Management</option>
+                    <option value="Product Management">
+                      Product Management
+                    </option>
                     <option value="Android Development">
                       Android Development
                     </option>
@@ -434,7 +537,7 @@ const dispatch=useDispatch();
                   <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
                     <IoIosArrowDown className="dark:text-gray-300 text-gray-500" />
                   </div>
-                </div>
+                </div> */}
               </div>
 
               {/* <div className="relative inline-block w-full">

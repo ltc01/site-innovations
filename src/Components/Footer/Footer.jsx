@@ -25,7 +25,7 @@ function Footer({ dark }) {
     <footer className="bg-zinc-100 dark:bg-black dark:text-white">
       <div className="mx-auto px-4 pt-7 md:pt-14">
         <div className="flex md:px-10 flex-col gap-6 md:flex-row w-full">
-          <div onClick={() => navigate("/")} className={`w-[44%] md:w-[14%] `}>
+          <div onClick={() => navigate("/")} className={`w-[34%] md:w-[12%] `}>
             <img
               src={dark ? LogoDark : LogoLight}
               className="w-full"

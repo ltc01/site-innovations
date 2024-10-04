@@ -50,12 +50,13 @@ import Profile from "./Pages/Profile";
 import { ContactFormComponent } from "./Components/Contact/ContactForm";
 import AuthNavigator from "./Pages/auth/AuthNavigator";
 import { useSelector } from "react-redux";
+import NewFooter from "./Components/Footer/NewFooter";
 
 const App = () => {
   const apiUrl = import.meta.env.VITE_API_URL;
   console.log(apiUrl, 'api url vite checking test')
   const [dark, setDark] = useState(false);
-  const {showForm} = useSelector(state=>state);
+  const { showForm } = useSelector(state => state);
   const location = useLocation();
 
   const theme = () => {
@@ -71,10 +72,10 @@ const App = () => {
     }, 3000);
   }, []);
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" });
-    return () => {};
-  }, [location.pathname]);
+  // useEffect(() => {
+  //   window.scrollTo({ top: 0, behavior: "instant" });
+  //   return () => {};
+  // }, [location.pathname]);
 
   if (loading) {
     return <Loader />;
@@ -86,7 +87,7 @@ const App = () => {
 
   return (
     <div className="dark:bg-black w-full mx-auto overflow-hidden h-full dark:text-white ">
-      <Navbar theme={theme}/>
+      <Navbar theme={theme} />
 
       <div className="mt-24 max-w-[1660px] mx-auto">
         <Routes>
@@ -100,7 +101,7 @@ const App = () => {
           <Route path="/ITIE" element={
             // <ITIE />
             <Maintenance />
-            } />
+          } />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
 
@@ -109,7 +110,7 @@ const App = () => {
 
           {/* Blog */}
           <Route path="/Blog_detail/:id" element={<Blog_detail />} />
-          <Route path="/Blog_detail" element={<Blog_detail />} />
+          {/* <Route path="/Blog_detail" element={<Blog_detail />} /> */}
           <Route path="/Blogdetail/:id" element={<FeaturedBlogDetail />} />
           <Route path="/Blog-detail/:id" element={<RecentBlogDetail />} />
           <Route path="/Blogdetails/:id" element={<PopularBlogDetail />} />
@@ -118,31 +119,41 @@ const App = () => {
           <Route path="/career" element={<Career />} />
 
           {/* Our Team */}
-          <Route path="/team" element={<OurTeam />} />
+          <Route path="/team" element={<Maintenance />} />
+
+          {/*Bridge */}
+          <Route path="/bridge" element={<Maintenance />} />
 
           {/* PAP */}
           <Route path="/pap" element={
             // <PAP />
             <Maintenance />
-            } />
+          } />
 
           {/* Entrepreneurship */}
           <Route path="/entrepreneurship" element={
             // <Enterpunership />
             <Maintenance />
-            } />
+          } />
+
+          {/* ITEI */}
+          <Route path="/itei" element={
+            // <ITEI />
+            <Maintenance />
+          } />
+
 
           {/* Terms and Conditions */}
           <Route path="/terms-conditions" element={
             // <TermsConditions />
             <Maintenance />
-            } />
+          } />
 
           {/* Privacy policy */}
           <Route path="/privacy-policy" element={
             // <PrivacyPolicy />
             <Maintenance />
-            } />
+          } />
 
           {/* Checkout */}
 
@@ -185,26 +196,28 @@ const App = () => {
           {/* Hire */}
           <Route path="/hire" element={
             // <HireFromUs />
-           <Maintenance />} />
+             <Maintenance />
+          } />
 
           {/* <Route path='/instructor' element={<InstructorCard />} /> */}
-  
-       
+
+
           {/*FAQ*/}
           <Route path="/FAQ" element={
             // <FAQS />
             <Maintenance />
-            } />
+          } />
 
           {/*Refund Policy */}
           <Route path="/refund" element={
             // <Refund />
             <Maintenance />
-            } />
+          } />
 
           <Route path="/ReferAndEarn" element={
-            <ReferAndEarn />
-            } />
+            // <ReferAndEarn /> 
+            <Maintenance />
+          } />
           {/* Book a demo */}
 
           <Route path="/book-a-demo/:name/:courseId" element={<BookADemo />} />
@@ -219,6 +232,7 @@ const App = () => {
       </div>
 
       <Footer dark={dark} />
+      {/* <NewFooter dark={dark} /> */}
     </div>
   );
 };

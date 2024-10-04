@@ -1,5 +1,7 @@
+import { useEffect } from "react";
 import bhead from "../../assets/Blogs/bhead.jpg";
 import { toast } from "react-toastify";
+import gsap from "gsap";
 
 export const HeaderBlog = ({
   searchQuery,
@@ -37,6 +39,20 @@ export const HeaderBlog = ({
     }
   };
 
+  useEffect(() => {
+    gsap.fromTo(
+      ".b1",
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "power1.out",
+        stagger: 0.1,
+      }
+    );
+  }, []);
+
   return (
     <>
       <div className='relative font-[sans-serif]  before:absolute before:w-full before:h-full before:inset-0 before:bg-black/70 before:z-10'>
@@ -47,14 +63,14 @@ export const HeaderBlog = ({
         />
         <div className='min-h-[400px] relative z-50 h-full max-w-4xl mx-auto flex flex-col justify-center items-center text-center px-6 py-12'>
           <div className='max-w-3xl mx-auto text-center'>
-            <h3 className='text-white md:text-5xl text-4xl font-bold'>
+            <h3 className='b1 text-white md:text-5xl text-4xl font-bold'>
               Latest Insights and Updates on BAOIAM Blog
             </h3>
-            <p className='text-gray-300 text-sm mt-6'>
+            <p className='b1 text-gray-300 text-sm mt-6'>
               Explore our articles, news, and tips to stay informed and inspired
             </p>
 
-            <div className='max-w-lg mx-auto bg-gray-100 flex p-1 rounded-full text-left mt-12 border focus-within:border-gray-700'>
+            <div className='b1 max-w-lg mx-auto bg-gray-100 flex p-1 rounded-full text-left mt-12 border focus-within:border-gray-700'>
               <input
                 type='text'
                 placeholder='Search for articles...'

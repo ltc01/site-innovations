@@ -2,6 +2,11 @@ import React, { useEffect, useRef } from "react";
 import data from "./CareerTestimonal.json";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import testimonals from "../../assets/Images/testimonals.jpg"
+import testimonals2 from "../../assets/Images/testimonal11.jpeg";
+import testimonals3 from "../../assets/Images/testimonals5.jpg";
+
+
 
 // Register ScrollTrigger with GSAP
 gsap.registerPlugin(ScrollTrigger);
@@ -41,8 +46,23 @@ const Testimonials = () => {
     });
   }, []);
 
+   const images = [
+     {
+       imgSrc: testimonals,
+       name: "Atharv Ingale",
+     },
+     {
+       imgSrc: testimonals2,
+       name: "Aishwarya Kamble",
+     },
+     {
+       imgSrc: testimonals3,
+       name: "Kaushiki Dey",
+     },
+   ];
+
   return (
-    <div className="mb-12 mt-3 relative z-10">
+    <div className="pb-12 pt-3 relative z-10 dark:bg-black">
       <div className="text-center max-w-3xl mx-auto flex flex-col gap-2">
         <h2 className="font-extrabold dark:text-white text-2xl md:text-4xl xl:text-4xl lg:text-3xl sm:text-4xl text-black p-3 ">
           What Our{" "}
@@ -62,7 +82,7 @@ const Testimonials = () => {
           >
             {/* Profile Image */}
             <img
-              src={testimonial.image}
+              src={images[index].imgSrc}
               className="w-14 h-14 rounded-full absolute -top-7 left-1/2 transform -translate-x-1/2"
               alt={testimonial.name}
             />

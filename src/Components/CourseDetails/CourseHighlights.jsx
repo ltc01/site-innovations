@@ -12,25 +12,7 @@ import { Highlights } from "../../Data";
 gsap.registerPlugin(ScrollTrigger);
 
 const CourseHighlights = () => {
-  useEffect(() => {
-    // GSAP Animation for the highlight cards
-    gsap.fromTo(
-      ".highlight-card",
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        stagger: 0.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".highlight-card",
-          start: "top 85%", // Adjust when the animation should start
-          toggleActions: "play none none reverse", // play when in view and reverse on scroll up
-        },
-      }
-    );
-  }, []);
+
 
   // Dynamically mapping icons
   const highlightIcons = (icon) => {
@@ -53,7 +35,7 @@ const CourseHighlights = () => {
 
   return (
     <div className="py-8 px-8 xl:px-24 w-full h-full">
-      <h4 className="mb-8 text-3xl md:text-4xl text-center lg:mb-12 font-bold">
+      <h4 className="mb-8 text-2xl md:text-4xl text-center lg:mb-12 font-bold">
         Course{" "}
         <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
           Highlights
@@ -65,18 +47,18 @@ const CourseHighlights = () => {
           return (
             <div
               key={i}
-              className="bg-white group dark:bg-[#080529] hover:scale-105 overflow-hidden lg:h-[230px] justify-center shadow-2xl px-4 py-8 xl:py-0 md:h-[210px] rounded-xl flex flex-col gap-4 w-full sm:w-[21rem] lg:w-[30%] highlight-card"
+              className="bg-white group dark:bg-black/30 hover:scale-105 overflow-hidden lg:h-[230px] justify-center shadow-2xl px-4 py-8 xl:py-0 md:h-[210px] rounded-xl flex flex-col gap-4 w-full sm:w-[21rem] lg:w-[30%] highlight-card"
             >
               <p className="tracking-tighter dark:text-white flex items-center gap-2">
-                <span className="text-4xl drop-shadow-2xl group-hover:text-gradient-to-r from-pink-500 to-violet-600 group-hover:shadow-orange-600 group-hover:animate-bounce transition-all ease-in-out">
+                <span className="text-2xl md:text-4xl drop-shadow-2xl group-hover:text-gradient-to-r from-pink-500 to-violet-600 group-hover:shadow-orange-600 group-hover:animate-bounce transition-all ease-in-out">
                   {React.createElement(highlightIcons(h.icon))}
                 </span>
-                <span className="text-2xl font-semibold leading-tight tracking-tighter">
+                <span className="text-lg md:text-2xl font-semibold md:leading-tight md:tracking-tighter">
                   {h.head}
                 </span>
               </p>
               <p>
-                <span className="dark:text-slate-300">{h.desc}</span>
+                <span className="text-xs md:text-base dark:text-slate-300">{h.desc}</span>
               </p>
             </div>
           );
