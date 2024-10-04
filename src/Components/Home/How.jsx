@@ -8,36 +8,6 @@ import { HiOutlineRocketLaunch } from "react-icons/hi2";
 
 
 const How = () => {
-  // const iconBoxesRef = useRef([]);
-
-
-//   useEffect(() => {
-//     // Ensure GSAP targets are correctly referenced
-//     // if (iconBoxesRef.current.length > 0) {
-//     //   iconBoxesRef.current.forEach((el, index) => {
-//     //     gsap.fromTo(
-//     //       el,
-//     //       { opacity: 0, y: 50 }, // Initial state
-//     //       {
-//     //         opacity: 1,
-//     //         y: 0,
-//     //         duration: 1.2,
-//     //         ease: "power3.out",
-//     //         scrollTrigger: {
-//     //           trigger: el, // Each icon box will be triggered when it comes into view
-//     //           start: "top 80%", // When 85% of the element is in view
-//     //           end: "bottom 60%", // Animation completes when 60% of the element is in view
-//     //           toggleActions: "play none none reverse", // Trigger actions
-//     //           markers: false, // Set to true for debugging markers
-//     //         },
-//     //       }
-//     //     );
-//     //   });
-//     // }
-
-//  }, []);
-
-
 
 useLayoutEffect(() => {
 
@@ -54,11 +24,11 @@ let context = gsap.context(() => {
   tl.fromTo('.Howanime',{
     opacity:0,
     y:30,
-    filter:'blur(10px)'
+   
   },
   {
     opacity:1,
-    filter:'blur(0px)',
+  
     y:0,
     duration:0.6,
     ease:'power1.out',
@@ -69,11 +39,11 @@ let context = gsap.context(() => {
   tl.fromTo('.How-anime1',{
     opacity:0,
     y:30,
-    filter:'blur(10px)'
+    
   },
   {
     opacity:1,
-    filter:'blur(0px)',
+    
     y:0,
     duration:0.6,
     ease:'power1.out',
@@ -83,12 +53,12 @@ let context = gsap.context(() => {
   tl.fromTo('.How-anime2',{
     opacity:0,
     y:30,
-    filter:'blur(10px)',
+   
   },
   {
     opacity:1,
     y:0,
-    filter:'blur(0px)',
+  
     duration:0.6,
     ease:'power1.out',
   
@@ -98,11 +68,11 @@ let context = gsap.context(() => {
   tl.fromTo('.How-anime3',{
     opacity:0,
     y:30,
-    filter:'blur(10px)',
+    
   },
   {
     opacity:1,
-    filter:'blur(0px)',
+   
     y:0,
     duration:0.6,
     ease:'power1.out',

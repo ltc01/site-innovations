@@ -66,11 +66,11 @@ let context = gsap.context(() => {
   gsap.fromTo('.Courseanime',{
     opacity:0,
     y:30,
-    filter:'blur(10px)'
+   
   },
   {
     opacity:1,
-    filter:'blur(0px)',
+  
     y:0,
     duration:0.6,
     ease:'power1.out',

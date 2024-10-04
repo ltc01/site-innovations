@@ -10,33 +10,6 @@ import { BsPersonVideo } from "react-icons/bs";
 gsap.registerPlugin(ScrollTrigger);
 
 const Protocol = () => {
-  const itemsRef = useRef([]);
-
-  // useEffect(() => {
-  //   // itemsRef.current.forEach((el, index) => {
-  //   //   gsap.fromTo(
-  //   //     el,
-  //   //     { opacity: 0, y: 50 }, // Initial state
-  //   //     {
-  //   //       opacity: 1,
-  //   //       y: 0,
-  //   //       duration: 1.2,
-  //   //       ease: "power3.out",
-  //   //       stagger:0.2,
-  //   //       scrollTrigger: {
-  //   //         trigger: el,
-  //   //         start: "top 80%", // When the element is 80% in view
-  //   //         toggleActions: "play none none reverse",
-  //   //         markers: false, // Set to true for debugging markers
-  //   //       },
-  //   //     }
-  //   //   );
-  //   // });
-
-
-
-  // }, []);
-
 
 useLayoutEffect(() => {
 
@@ -53,11 +26,11 @@ let context = gsap.context(() => {
   tl.fromTo('.Protocolanime',{
     opacity:0,
     y:30,
-    filter:'blur(10px)'
+   
   },
   {
     opacity:0.8,
-    filter:'blur(0px)',
+    
     y:0,
     duration:0.6,
     ease:'power1.out',
@@ -68,11 +41,11 @@ let context = gsap.context(() => {
   tl.fromTo('.Protocol-anime1',{
     opacity:0,
     y:30,
-    filter:'blur(10px)'
+   
   },
   {
     opacity:0.6,
-    filter:'blur(0px)',
+  
     y:0,
     duration:1,
     ease:'power1.out',
@@ -82,12 +55,12 @@ let context = gsap.context(() => {
   tl.fromTo('.Protocol-anime2',{
     opacity:0,
     y:30,
-    filter:'blur(10px)'
+ 
   },
   {
     opacity:1,
     y:0,
-    filter:'blur(0px)',
+   
     duration:0.6,
     ease:'power1.out',
   
@@ -97,11 +70,11 @@ let context = gsap.context(() => {
   tl.fromTo('.Protocol-anime3',{
     opacity:0,
     y:30,
-    filter:'blur(10px)'
+  
   },
   {
     opacity:1,
-    filter:'blur(0px)',
+  
     y:0,
     duration:0.6,
     ease:'power1.out',
