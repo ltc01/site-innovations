@@ -7,6 +7,7 @@ import CourseHighlights from "../Components/CourseDetails/CourseHighlights";
 import Loader from "../Components/Loader";
 import Brochure from "../Brochure.txt";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import { HiMiniCheckCircle } from "react-icons/hi2";
 
 import {
   CollegeCourseData,
@@ -156,7 +157,7 @@ const CourseDetailsPage = () => {
   };
 
   return (
-    <div className="mx-auto w-full">
+    <div className="mx-auto w-full pb-14 ">
       {/* Hero Section */}
       <CourseHero
         course={courseData?.course}
@@ -164,11 +165,11 @@ const CourseDetailsPage = () => {
       />
 
       {/* courseData Details */}
-      <div className="flex flex-col gap-4 md:flex-row mx-auto justify-center w-[90%]">
-        <div className="md:w-[68%] items-start pr-10 py-10 flex flex-col space-y-14">
+      <div className="flex items-center flex-col gap-4 md:flex-row mx-auto justify-center w-[90%]">
+        <div className="md:w-[68%] items-center mx-auto px-2 md:pr-10 py-10 flex flex-col space-y-14">
           {/* Course Details */}
           <div className="p-8 shadow-md border dark:shadow-slate-100 rounded-xl">
-            <h2 className="text-xl lg:text-2xl font-semibold">
+            <h2 className="md:text-xl lg:text-2xl font-semibold">
               Course{" "}
               <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
                 Details
@@ -178,7 +179,7 @@ const CourseDetailsPage = () => {
 
             {courseData?.course?.description.split("<br/>").map((ele, id) => {
               return (
-                <p className="text-sm mb-1 leading-snug lg:text-[1rem] text-left">
+                <p className="text-xs md:text-sm mb-1 leading-snug lg:text-[1rem] text-left">
                   {ele}
                 </p>
               );
@@ -187,7 +188,7 @@ const CourseDetailsPage = () => {
 
           {/* Course Overview */}
           <div className=" p-8 shadow-md border dark:shadow-slate-100 rounded-xl">
-            <h2 className="text-xl lg:text-2xl font-semibold">
+            <h2 className="md:text-xl lg:text-2xl font-semibold">
               Course{" "}
               <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
                 Overview
@@ -198,7 +199,7 @@ const CourseDetailsPage = () => {
               .split("<br/>")
               .map((ele, id) => {
                 return (
-                  <p className="text-sm mb-1 leading-snug lg:text-[1rem] text-left">
+                  <p className="text-xs md:text-sm mb-1 leading-snug lg:text-[1rem] text-left">
                     {ele}
                   </p>
                 );
@@ -335,23 +336,23 @@ const CourseDetailsPage = () => {
             })}
           </div>
         </div> */}
-        <div className="relative top-7 mx-auto">
+        <div className="relative px-3  md:top-7 mx-auto">
           {/* Plans Section */}
           <div
-            className={` mt-5 ${
+            className={` md:mt-5 border border-slate-300 ${
               fixed
                 ? "md:fixed md:top-20 right-[10%] flex justify-center flex-col absolute "
                 : ""
-            } bg-white dark:bg-black shadow-md rounded-xl p-4`}
-          >
-            <div className="flex items-center justify-center gap-2 mb-4 flex-col">
+            } bg-white dark:bg-black overflow-hidden shadow-md rounded-xl pb-4`}
+          > <h2 className="text-lg font-semibold bg-gradient-to-r p-2 mb-4 text-white from-pink-500 to-indigo-600 text-center w-full"> What you'll get</h2>
+            <div className="flex px-3 items-start justify-center md:items-center md:gap-2 mb-4 flex-col">
               {coursePlusContent.map((course, id) => {
                 return (
                   <p
                     key={id}
-                    className="text-sm md:text-base mx-auto mb-2 px-8 text-center dark:text-white text-gray-500 font-medium"
+                    className="text-xs gap-2 flex md:text-sm mb-2 dark:text-white text-gray-500 font-medium"
                   >
-                    {course}
+                    <HiMiniCheckCircle size={15} className="text-green-600" />{" "}{course}
                   </p>
                 );
               })}

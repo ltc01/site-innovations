@@ -87,7 +87,7 @@ const ContactForm = () => {
           ></div>
 
           {/* Modal Content */}
-          <div className="relative bg-white rounded-lg p-8 shadow-2xl z-10 text-center">
+          <div className="relative w-[80%] sm:w-[60%] md:w-[50%] xl:w-[40%] bg-white rounded-lg p-8 shadow-2xl z-10 text-center">
             {/* Success Icon */}
             <FaCheckCircle
               size={50}
@@ -96,8 +96,8 @@ const ContactForm = () => {
               }`}
             />
 
-            <h2 className="text-2xl font-bold text-indigo-600 mb-4 transition-all duration-300 ease-in-out">
-              Thank you for submitting your details. We'll get back to you soon
+            <h2 className=" font-semibold text-indigo-600 mb-4 transition-all duration-300 ease-in-out">
+            Thank you! We’ve received your submission and will get back to you soon.
             </h2>
             {/* <p className="text-gray-700 mb-6">
               Your enrollment was successful. We’re excited to have you on
@@ -110,28 +110,28 @@ const ContactForm = () => {
             {/* Close Button */}
             <button
               onClick={() => setShowPopup(false)}
-              className="bg-gradient-to-br from-purple-600 via-indigo-500 to-indigo-700 text-white px-6 py-2 rounded-full hover:bg-indigo-700 focus:outline-none transition-all"
+              className="bg-gradient-to-br from-purple-600 via-indigo-500 to-indigo-700 text-white px-4 py-2 rounded-full hover:bg-indigo-700 focus:outline-none transition-all"
             >
               Close
             </button>
           </div>
         </div>
       )}
-      <h1 className="text-5xl font-semibold max-lg:text-4xl max-md:text-3xl max-sm:text-3xl max-xs:text-3xl max-xs:text-center">
+      <h1 className="md:text-3xl text-xl font-semibold">
         Contact
       </h1>
 
       <form
-        className="w-full h-full py-4 flex flex-col gap-4 text-black max-sm:gap-4"
+        className="w-full h-full py-4 px-4 flex flex-col gap-4 text-black max-sm:gap-4"
         onSubmit={(e) => {
           submitData(e);
         }}
       >
         {/* Name */}
         <div className="flex flex-col w-full">
-          <div className="flex items-center justify-between gap-8 w-full flex-col md:flex-row">
+          <div className="flex items-center justify-between gap-4 md:gap-8 w-full flex-col md:flex-row">
             <div className="md:w-1/2 flex flex-col w-full">
-              <label className=" font-medium max-sm:text-base dark:text-white">
+              <label className=" font-medium dark:text-white">
                 First Name <span className="text-red-600">*</span>
               </label>
               <input
@@ -305,7 +305,7 @@ const ContactForm = () => {
           ></textarea>
           <button
             contact_type="submit"
-            className="px-6 py-2 mt-4 uppercase rounded-full bg-indigo-500 text-white border-black hover:bg-indigo-600 max-sm:text-sm max-sm:px-4 max-sm:py-1"
+            className="px-6 py-2 mt-4 font-semibold rounded-full bg-black text-center text-white border-black hover:bg-indigo-600 max-sm:text-sm max-sm:px-4 max-sm:py-1"
           >
             {loading ? "Loading..." : "Submit"}
           </button>

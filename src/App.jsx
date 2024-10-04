@@ -99,8 +99,8 @@ const App = () => {
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/ITIE" element={
-            <ITIE />
-            // <Maintenance />
+            // <ITIE />
+            <Maintenance />
           } />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
@@ -110,7 +110,7 @@ const App = () => {
 
           {/* Blog */}
           <Route path="/Blog_detail/:id" element={<Blog_detail />} />
-          <Route path="/Blog_detail" element={<Blog_detail />} />
+          {/* <Route path="/Blog_detail" element={<Blog_detail />} /> */}
           <Route path="/Blogdetail/:id" element={<FeaturedBlogDetail />} />
           <Route path="/Blog-detail/:id" element={<RecentBlogDetail />} />
           <Route path="/Blogdetails/:id" element={<PopularBlogDetail />} />
@@ -145,14 +145,14 @@ const App = () => {
 
           {/* Terms and Conditions */}
           <Route path="/terms-conditions" element={
-            <TermsConditions />
-            // <Maintenance />
+            // <TermsConditions />
+            <Maintenance />
           } />
 
           {/* Privacy policy */}
           <Route path="/privacy-policy" element={
-            <PrivacyPolicy />
-            // <Maintenance />
+            // <PrivacyPolicy />
+            <Maintenance />
           } />
 
           {/* Checkout */}
@@ -173,10 +173,10 @@ const App = () => {
           <Route
             path="/instructor-dashboard"
             element={
-              <AuthNavigator>
-                <TeacherDashboard />
-              </AuthNavigator>
-              // <Maintenance />
+              // <AuthNavigator>
+              //   <TeacherDashboard />
+              // </AuthNavigator>
+              <Maintenance />
             }
           />
 
@@ -195,8 +195,8 @@ const App = () => {
 
           {/* Hire */}
           <Route path="/hire" element={
-            <HireFromUs />
-            //  <Maintenance />
+            // <HireFromUs />
+             <Maintenance />
           } />
 
           {/* <Route path='/instructor' element={<InstructorCard />} /> */}
@@ -204,18 +204,19 @@ const App = () => {
 
           {/*FAQ*/}
           <Route path="/FAQ" element={
-            <FAQS />
-            // <Maintenance />
+            // <FAQS />
+            <Maintenance />
           } />
 
           {/*Refund Policy */}
           <Route path="/refund" element={
-            <Refund />
-            // <Maintenance />
+            // <Refund />
+            <Maintenance />
           } />
 
           <Route path="/ReferAndEarn" element={
-            <ReferAndEarn />
+            // <ReferAndEarn /> 
+            <Maintenance />
           } />
           {/* Book a demo */}
 

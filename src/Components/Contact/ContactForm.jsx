@@ -21,6 +21,8 @@ const apiUrl = import.meta.env.VITE_API_URL;
 import { useDispatch } from "react-redux";
 import { toggleEnrollForm } from "../../Redux/slices/enrollFormSlice";
 import thumbsUp from "../../assets/Images/thumbs-up (1).gif";
+import { TbCircleCheckFilled } from "react-icons/tb";
+
 
 const ContactUs = () => {
   // const togglePopup = () => {
@@ -227,7 +229,7 @@ export const ContactFormComponent = () => {
       }
     } catch (error) {
       setLoading(false);
-      toast.error("An error occurred");
+      toast.error("An error occurred",error);
       console.error("Error submitting form", error);
     }
   };
@@ -272,29 +274,24 @@ export const ContactFormComponent = () => {
             <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-r from-green-400 to-indigo-500 rounded-t-lg"></div>
 
             {/* Success Icon */}
-            <div className="relative top-[80px] bg-white  rounded-full shadow-lg inline-block ">
-              {/* <FaCheckCircle size={50} className="text-black mx-auto mb-4" /> */}
-              <img
-                src={thumbsUp} // Replace with your image path
-                alt="Success"
-                className="w-20 h-20 mx-auto flex items-center p-2 rounded-full  " // Adjust the width and height as needed
-              />
+            <div className="relative top-[80px]  rounded-full inline-block ">
+  
+              <TbCircleCheckFilled className="w-20 h-20 text-green-600 bg-white mx-auto flex items-center p-2 rounded-full  " />
             </div>
 
             {/* Success Message */}
-            <div className="pt-24">
+            <div className="pt-20">
               <h2 className="text-3xl font-bold text-black mb-4 dark:text-white">
-                Congratulations!
+              Congratulations!
               </h2>
               <p className="text-gray-700 mb-6 dark:text-gray-300">
-                🎉 You’ve successfully enrolled! Welcome to our community;
-                exciting adventures await you!
+              You’ve successfully enrolled. Our team will be in touch shortly.
               </p>
 
               {/* Continue Button */}
               <button
                 onClick={handleCloseForm} // Manually close the popup
-                className="bg-gradient-to-br from-purple-600 via-indigo-500 to-indigo-700 text-white px-6 py-2 rounded-full hover:bg-indigo-700 focus:outline-none transition-all text-sm md:text-base"
+                className="bg-gradient-to-r from-pink-400  to-indigo-600 text-white font-bold px-6 py-2 rounded-full hover:bg-indigo-700 focus:outline-none transition-all text-sm md:text-base"
               >
                 Continue
               </button>
@@ -456,6 +453,7 @@ export const ContactFormComponent = () => {
                     name="Course"
                     className="border dark:bg-slate-800 mt-1 py-1 lg:py-2 px-2 rounded-md sm:rounded-lg focus:outline-none focus:border-gray-300 appearance-none w-full bg-white cursor-pointer text-xs"
                     required
+                    onChange={handleChange}
                   >
                     <option value="">
                       {category ? "Select Course" : "Please select a category"}

@@ -255,8 +255,8 @@ const Navbar = ({ theme }) => {
                 {!isLoggedIn ? (
                   <BiLogIn
                     size={20}
-                    fill="linear-gradient(#e66465, #9198e5)"
-                    className=" z-10 relative  dark:text-slate-200  cursor-pointer"
+                    
+                    className=" z-10 relative dark:text-slate-300 text-slate-500 cursor-pointer"
                   />
                 ) : (
                   <ProfileIcon/>
@@ -315,9 +315,9 @@ const Navbar = ({ theme }) => {
               className="text-base hidden lg:block cursor-pointer "
             >
               {isDark ? (
-                <BsSun className="text-slate-600 dark:text-slate-200 " />
+                <BsSun className="text-slate-600 dark:text-slate-100 " />
               ) : (
-                <BsMoonStars lassName="text-slate-600" />
+                <BsMoonStars className="text-slate-600" />
               )}
             </span>
 

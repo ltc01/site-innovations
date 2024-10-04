@@ -23,43 +23,6 @@ const Star = ({ filled }) => (
 );
 
 const Testimonials = () => {
-  useEffect(() => {
-    // Animating the heading
-    gsap.fromTo(
-      ".testimonials-heading",
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".testimonials-heading",
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
-
-    // Animating the testimonial cards
-    gsap.fromTo(
-      ".testimonial-card",
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power3.out",
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: ".testimonial-card",
-          start: "top 85%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
-  }, []);
-
 
   const images = [
     {

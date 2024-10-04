@@ -118,23 +118,7 @@ return () => context.revert()
         })}
       </div>
 
-      {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {data.map((stat, index) => (
-          <div
-            key={index}
-            ref={(el) => (cardsRef.current[index] = el)} // Store each card's ref in the array
-            className="bg-zinc-100 dark:bg-indigo-900 bg-opacity-60 backdrop-blur-sm border border-gray-200 rounded-lg shadow-lg p-4 text-center hover:shadow-xl transition-shadow duration-300 ease-in-out"
-          >
-            <div className="flex items-center justify-center mb-4">
-              {stat.icon}
-            </div>
-            <h2 className="text-2xl font-semibold text-gray-800 dark:text-white mb-4">
-              {stat.title}
-            </h2>
-            <p className="text-gray-600 dark:text-white">{stat.description}</p>
-          </div>
-        ))}
-      </div> */}
+      
     </div>
   );
 };

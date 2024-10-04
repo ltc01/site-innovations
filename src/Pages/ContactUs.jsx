@@ -187,7 +187,7 @@ tl.fromTo('.icon3',{opacity:0,x:30},
 
 
   return (
-    <div className="ContactUs my-8">
+    <div className="ContactUs my-8 pb-10">
       {showPopup && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
           {/* Overlay */}
@@ -229,7 +229,7 @@ tl.fromTo('.icon3',{opacity:0,x:30},
       )}
       <section className="relative dark:bg-black px-4 py-8 md:py-10 z-10 mt-4 md:mt-14 mb-6 md:mb-6 overflow-hidden">
         <div className="relative max-w-5xl mx-auto text-center z-10">
-          <h1 className="h1 m-0 overflow-hidden text-3xl md:text-5xl font-semibold dark:text-white text-gray-900">
+          <h1 className="h1 overflow-hidden text-3xl md:text-5xl font-semibold dark:text-white text-gray-900">
             <span className="bg-gradient-to-r from-pink-500  to-violet-600 bg-clip-text text-transparent">
               Get in Touch
             </span>{" "}
@@ -252,7 +252,7 @@ tl.fromTo('.icon3',{opacity:0,x:30},
             </h2>
             <form
               id="form1"
-              className="space-y-6"
+              className="space-y-4"
               onSubmit={(e) => {
                 handleSubmit(e);
               }}
@@ -384,13 +384,13 @@ tl.fromTo('.icon3',{opacity:0,x:30},
                   name="message"
                   rows="4"
                   value={formData.message}
-                  className="w-full p-3 border dark:bg-slate-800 border-gray-300 rounded-md"
+                  className="text-xs md:text-base w-full p-3 border dark:bg-slate-800 border-gray-300 rounded-md"
                   placeholder="Your message here..."
                 ></textarea>
               </div>
 
               {/* Consent Checkbox */}
-              <div className="flex items-center">
+              <div className="flex items-start">
                 <input
                   id="consent"
                   name="Consent"
@@ -402,7 +402,7 @@ tl.fromTo('.icon3',{opacity:0,x:30},
                 />
                 <label
                   htmlFor="consent"
-                  className="dark:text-slate-300 text-gray-700 text-xs"
+                  className="dark:text-slate-300 text-gray-700 text-[0.6rem] md:text-xs"
                 >
                   I consent to receiving updates and notifications from online
                   Baoiam and its affiliates via email, SMS, WhatsApp, and voice
