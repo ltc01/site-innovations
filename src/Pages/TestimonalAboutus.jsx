@@ -4,7 +4,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import data from "./TestimonalAboutus.json";
 
 import testimonals from "../assets/Images/testimonals7.jpg"
-import testimonals1 from "../assets/Images/testimonal10.AVIF";
+import testimonals1 from "../assets/Images/testimonal10.jpg";
 import testimonals2 from "../assets/Images/testimonals8.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
