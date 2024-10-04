@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import { useState } from "react";
 import { SiTicktick } from "react-icons/si";
 import { Career, Perks, Review, Service } from "../../assets/assets";
@@ -8,31 +8,40 @@ const ServicesTab = () => {
   const [activeTab, setActiveTab] = useState("services");
   const renderContent = () => {
 
-    useEffect(() => {
+   
+  useLayoutEffect(() => {
 
-      gsap.fromTo('.trig6', {
-        opacity: 0,
-        y: 30
-      },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          ease: 'power1.out',
-          stagger: 0.2,
-          scrollTrigger: {
-            trigger: '.sectiondiv-2',
-            start: 'top 80%',
-            end: 'bottom 80%'
-          }
-        })
+  let context = gsap.context(() => {
 
-    }, [])
+  gsap.fromTo('.ServicesTabanime', {
+    opacity: 0,
+    y: 30,
+   
+  },
+    {
+      opacity: 1,
+     
+      y: 0,
+      duration: 0.6,
+      ease: 'power1.out',
+      stagger: 0.2,
+      scrollTrigger: {
+        trigger: '.ServicesTabdiv',
+        start: 'top 80%',
+        end: 'bottom 80%'
+      }
+    })
+
+})
+
+return () => context.revert()
+
+  })
 
     switch (activeTab) {
       case "services":
         return (
-          <div className="p-4 sectiondiv-2">
+          <div className="p-4 ">
             <div className="container mx-auto ">
               <div className="text-start ">
                 <h1 className="text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-4">
@@ -46,7 +55,7 @@ const ServicesTab = () => {
                   </span>
                 </h1>
                 <p className="text-gray-500 dark:text-gray-200">
-                  Instead of results speak louder than words we can use we don't deliver promises, we believe in achievements.
+                  we don't deliver promises, we believe in achievements.
                 </p>
               </div>
 
@@ -370,11 +379,11 @@ const ServicesTab = () => {
 
   return (
     <div>
-      <div className="p-4 mx-4 sm:mx-10 ">
-        <div className="trig6 flex flex-col mb-2 sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8">
+      <div className="p-4 mx-4 sm:mx-10 ServicesTabdiv">
+        <div className="ServicesTabanime flex flex-col mb-2 sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8">
           <button
             className={`text-sm md:text-base font-bold ${activeTab === "services"
-              ? "text-indigo-600 dark:text-indigo-400"
+              ? "text-indigo-600 underline dark:text-indigo-400"
               : "text-blue-950 dark:text-white"
               }`}
             onClick={() => setActiveTab("services")}
@@ -383,7 +392,7 @@ const ServicesTab = () => {
           </button>
           <button
             className={`text-sm md:text-base font-bold ${activeTab === "features"
-              ? "text-indigo-600 dark:text-indigo-400"
+              ? "text-indigo-600 underline dark:text-indigo-400"
               : "text-blue-950 dark:text-white"
               }`}
             onClick={() => setActiveTab("features")}
@@ -392,7 +401,7 @@ const ServicesTab = () => {
           </button>
           <button
             className={`text-sm md:text-base font-bold ${activeTab === "perks"
-              ? "text-indigo-600 dark:text-indigo-400"
+              ? "text-indigo-600 underline dark:text-indigo-400"
               : "text-blue-950 dark:text-white"
               }`}
             onClick={() => setActiveTab("perks")}
@@ -401,7 +410,7 @@ const ServicesTab = () => {
           </button>
           <button
             className={`text-sm md:text-base font-bold ${activeTab === "reviews"
-              ? "text-indigo-600 dark:text-indigo-400"
+              ? "text-indigo-600 underline dark:text-indigo-400"
               : "text-blue-950 dark:text-white"
               }`}
             onClick={() => setActiveTab("reviews")}
@@ -411,7 +420,7 @@ const ServicesTab = () => {
         </div>
 
         {/* Render content based on selected tab */}
-        <div className="trig6">{renderContent()}</div>
+        <div className="ServicesTabanime">{renderContent()}</div>
       </div>
     </div>
   );

@@ -9,7 +9,7 @@ import ProgressBar from "../Components/AboutUs/ProgressBar";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { swiperData } from "../Components/OurTeam Components/teamData";
+// import { swiperData } from "../Components/OurTeam Components/teamData";
 import { FaLinkedin } from "react-icons/fa6";
 import { FaXTwitter } from "react-icons/fa6";
 import Subcription from "../Components/Home/Subcription";
@@ -18,6 +18,8 @@ import Subcription from "../Components/Home/Subcription";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { swiperData } from "./../Components/OurTeam Components/teamData";
+
 import {
   Autoplay,
   Pagination,
@@ -54,10 +56,12 @@ import Timeline from "../Components/AboutUs/Timeline";
 import { Mission, Vision } from "../assets/assets";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+// import { Leaderteam1 } from "../../Components/OurTeam Components/teamData";
+
 
 const AboutUs = () => {
   document.title = "Baoiam Innovations | About Us";
-  const [data, setData] = useState(swiperData);
+  // const [data, setData] = useState(swiperData);
 
   useEffect(() => {
     gsap.fromTo(
@@ -564,7 +568,7 @@ const AboutUs = () => {
       {/* team */}
 
       {/* <TeamSwiper /> */}
-      <OurTeam />
+      <OurTeam data={swiperData} />
 
       {/* USP */}
 
