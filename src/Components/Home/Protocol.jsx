@@ -44,7 +44,7 @@ let context = gsap.context(() => {
    
   },
   {
-    opacity:0.6,
+    opacity:0.9,
   
     y:0,
     duration:1,
@@ -106,7 +106,7 @@ return () => context.revert()
         <div
           className="flex flex-col items-center"
         >
-          <MdHeadsetMic className="Protocol-anime1 text-[4rem] text-indigo-700" />
+          <MdHeadsetMic className="Protocol-anime1 text-[4rem] dark:text-indigo-400 text-indigo-700" />
           <div className="text-center p-3">
             <h2 className="Protocol-anime2 font-bold sm:text-[1.2rem] lg:text-[1.1rem] my-2">
               Continuous Support
@@ -120,7 +120,7 @@ return () => context.revert()
         <div
           className="flex flex-col items-center"
         >
-          <BsPersonVideo className="Protocol-anime1 text-[4rem] text-indigo-700" />
+          <BsPersonVideo className="Protocol-anime1 text-[4rem] dark:text-indigo-400 text-indigo-700" />
           <div className="text-center p-3">
             <h2 className="Protocol-anime2 font-bold lg:text-[1.1rem] sm:text-[1.2rem] my-2">
               Highly Experienced Trainers
@@ -134,7 +134,7 @@ return () => context.revert()
         <div
           className="flex flex-col items-center"
         >
-          <MdOutlinePhonelink className="Protocol-anime1 text-[3.6rem] text-indigo-700" />
+          <MdOutlinePhonelink className="Protocol-anime1 text-[3.6rem] dark:text-indigo-400 text-indigo-700" />
           <div className="text-center p-3">
             <h2 className="Protocol-anime2 font-bold sm:text-[1.2rem] lg:text-[1.1rem] my-2">
               Seamless To Use

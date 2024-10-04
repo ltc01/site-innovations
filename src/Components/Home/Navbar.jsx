@@ -133,7 +133,7 @@ const Navbar = ({ theme }) => {
         className={`flex z-[90] text-slate-600 dark:text-slate-200 md:h-20 h-16 items-center justify-between px-4 md:px-10 w-full fixed top-0 ${
           isTransparent
             ? "bg-white dark:bg-black"
-            : "bg-white/70 backdrop-blur dark:bg-black/30 "
+            : "bg-white/70 backdrop-blur dark:bg-black/60 "
         }`}
       >
         {/* Logo */}
