@@ -278,14 +278,14 @@ const SignUp = () => {
       <ToastContainer />
       <div
         ref={Anime1}
-        className=" w-[600px] h-[600px] top-[-10%] left-[-5%]  rounded-full blur-lg bg-gradient-to-r from-amber-400 to-red-500 opacity-70 absolute "
+        className=" w-[600px] h-[600px] top-[-10%] left-[-5%]  rounded-full blur-3xl bg-gradient-to-r from-pink-400 to-indigo-500 opacity-40 absolute "
         ></div>
       <div
         ref={Anime2}
-        className=" w-[400px] h-[400px] bottom-[-15%] right-[-5%]  rounded-full blur-xl bg-gradient-to-r from-red-600 to-amber-400 opacity-70 absolute "
+        className=" w-[400px] h-[400px] bottom-[-15%] right-[-5%]  rounded-full blur-3xl bg-gradient-to-r from-indigo-600 to-teal-400 opacity-40 absolute "
         ></div>
       {/* <div className="py-5"> */}
-        <div className="mx-auto flex items-center justify-center w-full h-screen  my-auto px-4 sm:px-1 lg:px-8 ">
+        <div className="mx-auto  flex items-center justify-center w-full h-screen  my-auto px-4 sm:px-1 lg:px-8 ">
           <div className="flex justify-center  lg:px-[6rem]  ">
             <div className="relative  dark:bg-zinc-500  bg-zinc-200 overflow-hidden w-[40vw] lg:w-[32vw] hidden md:block md:rounded-l-2xl">
               {/* Animated Circles in Background */}
@@ -323,7 +323,7 @@ const SignUp = () => {
               </div>
             </div>
 
-            <div className="bg-white p-8 lg:p-11 rounded-2xl  md:rounded-r-2xl md:rounded-l-none  z-10">
+            <div className="bg-slate-100 p-8 lg:p-11 rounded-2xl  md:rounded-r-2xl md:rounded-l-none  z-10">
               <h2 className="text-black font-manrope text-3xl md:text-[2.5vw] text-center font-semibold leading-10 mb-8">
                 Sign Up
               </h2>

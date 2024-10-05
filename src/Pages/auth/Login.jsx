@@ -271,11 +271,11 @@ const Login = () => {
       <div className="flex items-center justify-center h-screen w-screen py-2 bg-transparent relative overflow-hidden z-3 dark:text-black">
         <div
           ref={Anime1}
-          className=" w-[600px] h-[600px] top-[-10%] left-[-5%]  rounded-full blur-lg bg-gradient-to-r from-amber-400 to-red-500 opacity-70 absolute "
+          className=" w-[600px] h-[600px] top-[-10%] left-[-5%]  rounded-full blur-3xl bg-gradient-to-r from-pink-400 to-indigo-500 opacity-40 absolute "
         ></div>
         <div
           ref={Anime2}
-          className=" w-[400px] h-[400px] bottom-[-15%] right-[-5%]  rounded-full blur-xl bg-gradient-to-r from-red-600 to-amber-400 opacity-70 absolute "
+          className=" w-[400px] h-[400px] bottom-[-15%] right-[-5%]  rounded-full blur-3xl bg-gradient-to-r from-indigo-600 to-pink-400 opacity-40 absolute "
         ></div>
 
         <div className="relative flex flex-col m-6 space-y-8 bg-white/80 md:mx-20 shadow-lg rounded-2xl md:flex-row md:space-y-0 ">
@@ -365,17 +365,17 @@ const Login = () => {
             </div>
           </div>
 
-          <div className="relative hidden md:flex dark:bg-zinc-500  bg-zinc-200 rounded-r-2xl items-center w-[35vw] lg:w-[32vw]">
+          <div className="relative hidden md:flex dark:bg-zinc-800  bg-zinc-100 rounded-r-2xl items-center w-[35vw] lg:w-[32vw]">
             {/* Background Animation */}
-            <div className="absolute  z-0 overflow-hidden w-full h-full rounded-r-2xl">
-              {[...Array(3)].map((_, i) => (
+            <div className="absolute z-0 overflow-hidden w-full h-full rounded-r-2xl">
+              {[...Array(10)].map((_, i) => (
                 <div
                   key={i}
                   ref={(el) => (cubeRefs.current[i] = el)}
-                  className="absolute w-[10px] h-[10px] border blur-sm  border-[#0035A8]"
+                  className="absolute w-[10px] h-[10px] border bg-pink/10 blur-sm  border-pink-300"
                   style={{
-                    top: `${(i + 2) * 10}%`,
-                    left: `${(i + 1) * 10}%`,
+                    top: `${(i + 2) *10}%`,
+                    left: `${(i + 1) * 1}%`,
                     borderColor: i % 2 === 0 ? "#0035A8" : "#004DCC",
                   }}
                 />
