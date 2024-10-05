@@ -55,72 +55,6 @@ const Phone = () => {
   };
 
 
-useLayoutEffect(() => {
-
-let cntxt = gsap.context(() => {
-
-
-  const tl = gsap.timeline({
-    scrollTrigger:{
-      trigger:'.Phonediv',
-      start:'top 70%',
-      end:'bottom 80%'
-    }
-  })
-
-
-  tl.fromTo('.txtimg',{
-    opacity:0,
-    scale:0.7,
-   
-  },
-  {
-    opacity:1,
-   
-    scale:1,
-    duration:0.6,
-    ease:'power1.out',
-    stagger:0.2,
-  }
-)
-
-tl.fromTo('.txt1',{
-  opacity:0,
-  y:30,
- 
-},
-{
-  opacity:1,
-
-  y:0,
-  duration:0.6,
-  stagger:0.2,
-  ease:'power1.out',
-},
-'-=0.5')
-
-tl.fromTo('.txt2',{
-  opacity:0,
-  scale:0.8,
-
-},
-{
-  opacity:1,
-  scale:1,
-  duration:0.4,
-  ease:'power1.out',
-},
-'-=0.3'
-)
-
-
-})
-
-return () => cntxt.revert()
-
-})
-
-
   return (
     <>
       {showPopup && (
@@ -236,7 +170,7 @@ return () => cntxt.revert()
               Join now
             </button>
           </div> */}
-            <div className="txt2 w-fit flex p-1 rounded-full text-left border focus-within:border-gray-700">
+            <div className="w-fit flex p-1 rounded-full text-left border focus-within:border-gray-700">
               <input
                 type="email"
                 ref={emailRef}

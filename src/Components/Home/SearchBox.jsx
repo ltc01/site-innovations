@@ -92,7 +92,7 @@ const SearchBox = ({ courses }) => {
           ref={inputRef}
           value={searchQuery}
           onChange={handleSearchChange}
-          onFocus={() => setIsExpanded(true)}
+          // onFocus={() => setIsExpanded(true)}
         />
         <RiSearch2Line size={16} className="text-slate-500" />
       </div>

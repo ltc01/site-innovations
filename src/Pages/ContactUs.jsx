@@ -109,81 +109,6 @@ const ContactUs = () => {
     }));
   };
 
-useEffect(() => {
-
-  const splitText = new Split('.h1',{
-    types:'lines'
-  })
-
- gsap.fromTo(splitText.lines,{
-  opacity:0,
-  yPercent:100
- },{
-  opacity:1,
-  yPercent:0,
-  duration:0.6,
- })
-
- gsap.fromTo('.con',{ opacity:0,y:50 },{
-  opacity:1,
-  y:0,
-  duration:0.7,
-  ease:'power1.out'
- })
-
- const tl = gsap.timeline()
-
- tl.fromTo('.con1',{opacity:0,y:30},{
-  opacity:1,
-  y:0,
-  duration:0.6,
-  ease:'power1.out'
- })
-
-tl.fromTo('.rvl',{opacity:0,y:30},
-  {
-    opacity:1,
-    duration:0.5,
-    y:0,
-    ease:'power1.out',
-  }
-)
-
-tl.fromTo('.icon',{opacity:0,scale:0.1},
-  {
-    opacity:1,
-    scale:1,
-    duration:1,
-    ease:'power1.out',
-    stagger:0.2,
-  },
-  '-=0.6'
-)
-tl.fromTo('.icon2',{opacity:0,x:30},
-  {
-    opacity:1,
-    x:0,
-    duration:1,
-    ease:'power1.out',
-    stagger:0.2,
-  },
-  '-=0.7'
-)
-
-tl.fromTo('.icon3',{opacity:0,x:30},
-  {
-    opacity:1,
-    x:0,
-    duration:1,
-    ease:'power1.out',
-    stagger:0.2,
-  },
-  '-=0.9'
-)
-
-
-},[])
-
 
 
   return (
@@ -192,12 +117,12 @@ tl.fromTo('.icon3',{opacity:0,x:30},
         <div className="fixed inset-0 flex items-center justify-center z-50">
           {/* Overlay */}
           <div
-            className="fixed inset-0 bg-gray-600 bg-opacity-50 transition-opacity"
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm transition-opacity"
             onClick={() => setShowPopup(false)} // Click outside to close
           ></div>
 
           {/* Modal Content */}
-          <div className="relative bg-white rounded-lg p-8 shadow-2xl z-10 text-center">
+          <div className="relative w-[25%] bg-white rounded-lg p-8 shadow-2xl z-10 text-center">
             {/* Success Icon */}
             <FaCheckCircle
               size={50}
@@ -207,12 +132,11 @@ tl.fromTo('.icon3',{opacity:0,x:30},
             />
 
             <h2 className="text-2xl font-bold text-indigo-600 mb-4 transition-all duration-300 ease-in-out">
-              Your details have been recorded successfully!!
+              Thank you!
             </h2>
-            {/* <p className="text-gray-700 mb-6">
-              Your enrollment was successful. We’re excited to have you on
-              board!
-            </p> */}
+            <p className="text-gray-700 mb-6">
+             We have received your query. Our team will reach out soon.
+            </p>
 
             {/* Decorative Element */}
             <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-green-400 to-blue-500 rounded-t-md"></div>
@@ -220,9 +144,9 @@ tl.fromTo('.icon3',{opacity:0,x:30},
             {/* Close Button */}
             <button
               onClick={() => setShowPopup(false)}
-              className="bg-gradient-to-br from-purple-600 via-indigo-500 to-indigo-700 text-white px-6 py-2 rounded-full hover:bg-indigo-700 focus:outline-none transition-all"
+              className="bg-indigo-500 text-white px-6 py-1 rounded hover:bg-indigo-700 focus:outline-none transition-all"
             >
-              Close
+             Close
             </button>
           </div>
         </div>

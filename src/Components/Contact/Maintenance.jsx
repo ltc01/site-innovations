@@ -11,7 +11,7 @@ const Maintenance = () => {
   };
 
   return (
-    <div className="flex w-full items-center justify-center min-h-screen bg-gray-50 dark:bg-black dark:text-white px-4">
+    <div className="flex pb-20 w-full items-center justify-center min-h-screen bg-gray-50 dark:bg-black dark:text-white px-4">
       <div className="flex flex-col w-full md:gap-8 mx-auto md:flex-row  justify-center items-center text-center">
         <img
           src={Error}

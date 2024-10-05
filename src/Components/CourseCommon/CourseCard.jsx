@@ -61,7 +61,7 @@ function CourseCard({ course }) {
         onClick={() => navigate(`/course/${course.title}/${course.id}`)}
         className="bg-gradient-to-r text-xs rounded-md from-amber-500 to-red-600 text-white mb-6 px-3 py-1 font-semibold hover:bg-gradient-to-l"
       >
-        Read More
+        View More
       </button>
     </div>
   </div>
