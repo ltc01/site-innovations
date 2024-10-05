@@ -51,7 +51,7 @@ const CourseHero = ({ course, downloadBrochure }) => {
               <div className="flex justify-start w-full flex-col md:flex-row  font-semibold items-center gap-2">
                 <button
                   onClick={toggleForm}
-                  className="relative text-nowrap mr-4 inline-flex items-center bg-gradient-to-r from-amber-500 to-red-600 px-4 lg:px-12 py-2 md:py-3 text-xs md:text-sm text-white border border-orange-400 rounded-lg hover:text-orange-500 group"
+                  className="relative text-nowrap mr-4 inline-flex items-center hover:bg-gradient-to-l bg-gradient-to-r from-amber-500 to-red-600 px-4 lg:px-12 py-2 md:py-3 text-xs md:text-sm text-white border border-orange-400 rounded-lg group"
                 >
                   
                 Enroll Now
