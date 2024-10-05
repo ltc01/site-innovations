@@ -378,12 +378,12 @@ const CourseDetailsPage = () => {
             <div className="flex w-full justify-center">
               <button
                 onClick={() => dispatch(toggleEnrollForm())}
-                className="relative inline-flex mx-auto w-fit bg-gradient-to-r from-amber-500 to-red-600 px-6 md:px-8 lg:px-12 py-2 md:py-3 text-xs md:text-sm overflow-hidden text-white font-medium border border-orange-400 rounded-lg hover:text-orange-500 group"
+                className="relative inline-flex mx-auto w-fit hover:bg-gradient-to-l bg-gradient-to-r from-amber-500 to-red-600 px-6 md:px-8 lg:px-12 py-2 md:py-3 text-xs md:text-sm overflow-hidden text-white font-medium border border-orange-400 rounded-lg group"
               >
-                <span className="absolute left-0 block w-full h-0 transition-all bg-white opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease-in-out"></span>
+                {/* <span className="absolute left-0 block w-full h-0 transition-all bg-white opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease-in-out"></span>
                 <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
                   <IoIosArrowRoundForward size={30} />
-                </span>
+                </span> */}
                 <span className="relative text-nowrap">Enroll Now</span>
               </button>
             </div>
