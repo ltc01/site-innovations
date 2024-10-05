@@ -46,7 +46,7 @@ const CourseDetailsPage = () => {
     "Mentor Feedback",
     "Regular Quizzes & Assessment",
     `Personnal Mentorship`,
-    `Experts councelling`,
+    `Experts counselling`,
     `Live Projects`,
     `Dedicated Placement cell`,
   ]);
@@ -165,21 +165,22 @@ const CourseDetailsPage = () => {
       />
 
       {/* courseData Details */}
-      <div className="flex items-center flex-col gap-4 md:flex-row mx-auto justify-center w-[90%]">
-        <div className="md:w-[68%] items-center mx-auto px-2 md:pr-10 py-10 flex flex-col space-y-14">
+      <div className="flex items-start flex-col  md:flex-row mx-auto justify-center px-6 md:px-20">
+        <div className="md:w-[70%] border rounded-xl py-3 px-2 space-y-4 items-center mx-auto flex flex-col">
+          
           {/* Course Details */}
-          <div className="p-8 shadow-md border dark:shadow-slate-100 rounded-xl">
-            <h2 className="md:text-xl lg:text-2xl font-semibold">
-              Course{" "}
-              <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
-                Details
+          <div className="py-2 px-4 border-b dark:shadow-slate-100">
+            <h2 className="md:text-xl mb-2 font-bold">
+              {/* Course{" "} */}
+              <span className="bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text text-transparent">
+                Introduction {" "}-
               </span>
             </h2>
-            <hr className="my-2" />
+            {/* <hr className="my-2" /> */}
 
             {courseData?.course?.description.split("<br/>").map((ele, id) => {
               return (
-                <p className="text-xs md:text-sm mb-1 leading-snug lg:text-[1rem] text-left">
+                <p className="text-xs md:text-sm mb-3 pl-2">
                   {ele}
                 </p>
               );
@@ -187,9 +188,9 @@ const CourseDetailsPage = () => {
           </div>
 
           {/* Course Overview */}
-          <div className=" p-8 shadow-md border dark:shadow-slate-100 rounded-xl">
-            <h2 className="md:text-xl lg:text-2xl font-semibold">
-              Course{" "}
+          <div className="py-2 px-4 border-b dark:shadow-slate-100">
+            <h2 className="md:text-xl mb-2 font-bold">
+              {/* Course{" "} */}
               <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
                 Overview
               </span>
@@ -207,10 +208,10 @@ const CourseDetailsPage = () => {
           </div>
 
           {/* Course Curriculum */}
-          <div className="p-8 shadow-md border dark:shadow-slate-100 rounded-xl">
-            <h2 className="text-xl lg:text-2xl font-semibold">
-              Course{" "}
-              <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
+          <div className="p-8 shadow border dark:shadow-slate-100 rounded-xl">
+            <h2 className="text-xl lg:text-2xl font-bold">
+              {/* Course{" "} */}
+              <span className="bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text text-transparent">
                 Curriculum
               </span>
             </h2>
@@ -336,15 +337,19 @@ const CourseDetailsPage = () => {
             })}
           </div>
         </div> */}
-        <div className="relative px-3  md:top-7 mx-auto">
+        <div className=" px-3 sticky top-0  mx-auto">
           {/* Plans Section */}
           <div
-            className={` md:mt-5 border border-slate-300 ${
-              fixed
-                ? "md:fixed md:top-20 right-[10%] flex justify-center flex-col absolute "
-                : ""
-            } bg-white dark:bg-black overflow-hidden shadow-md rounded-xl pb-4`}
-          > <h2 className="text-lg font-semibold bg-gradient-to-r p-2 mb-4 text-white from-pink-500 to-indigo-600 text-center w-full"> What you'll get</h2>
+            className={` md:mt-5 border border-slate-300 
+              
+          
+             bg-white dark:bg-black overflow-hidden shadow-md rounded-xl pb-4`}
+          >
+            {" "}
+            <h2 className="text-lg font-semibold bg-gradient-to-r p-2 mb-4 text-white from-pink-500 to-indigo-600 text-center w-full">
+              {" "}
+              What you'll get
+            </h2>
             <div className="flex px-3 items-start justify-center md:items-center md:gap-2 mb-4 flex-col">
               {coursePlusContent.map((course, id) => {
                 return (
@@ -352,12 +357,12 @@ const CourseDetailsPage = () => {
                     key={id}
                     className="text-xs gap-2 flex md:text-sm mb-2 dark:text-white text-gray-500 font-medium"
                   >
-                    <HiMiniCheckCircle size={15} className="text-green-600" />{" "}{course}
+                    <HiMiniCheckCircle size={15} className="text-green-600" />{" "}
+                    {course}
                   </p>
                 );
               })}
             </div>
-
             <div className="flex w-full justify-center">
               <button
                 onClick={() => dispatch(toggleEnrollForm())}
