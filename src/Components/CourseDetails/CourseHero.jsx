@@ -21,7 +21,7 @@ const CourseHero = ({ course, downloadBrochure }) => {
   // const navigate = useNavigate();
   return (
     <div className="pb-12 pt-4 px-4 md:px-20 dark:bg-gradient-to-b dark:from-indigo-300 bg-gradient-to-t from-orange-100 to-transparent">
-      <div className="flex items-center gap-2 pt-4 text-xs">
+      <div className="flex items-center font-semibold dark:text-slate-900 text-slate-500 text-[0.65rem] gap-1 md:gap-2 pt-4 md:text-sm">
         <Link to={`/courses`}>
           {course?.category === 1 && "Junior Courses"}
           {course?.category === 2 && "University Courses"}
@@ -40,27 +40,24 @@ const CourseHero = ({ course, downloadBrochure }) => {
 
       <div className="flex flex-col-reverse md:flex-row md:justify-between justify-center items-center md:items-center">
         <div className="md:w-[60%] w-[90%]">
-          <div className="mt-4 md:pr-32">
-            <h1 className="text-xl md:text-3xl lg:text-5xl font-bold mb-4">
+          <div className="md:mt-0 mt-4 text-center md:text-left md:pr-16 lg:pr-32">
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4">
               {course?.title}
             </h1>
-            <p className="font-medium mb-7">
+            <p className="font-medium text-xs md:text-base md:mb-7">
             Build industry-ready skills with expert guidance and take your career to the next level.
             </p>
             <div className="mt-8 flex items-center justify-between w-full">
-              <div className="flex justify-center  font-semibold items-center gap-2">
+              <div className="flex justify-start w-full flex-col md:flex-row  font-semibold items-center gap-2">
                 <button
                   onClick={toggleForm}
-                  className="relative mr-4 inline-flex items-center bg-gradient-to-r from-amber-500 to-red-600 px-6 md:px-8 lg:px-12 py-2 md:py-3 text-xs md:text-sm overflow-hidden text-white border border-orange-400 rounded-lg hover:text-orange-500 group"
+                  className="relative text-nowrap mr-4 inline-flex items-center bg-gradient-to-r from-amber-500 to-red-600 px-4 lg:px-12 py-2 md:py-3 text-xs md:text-sm text-white border border-orange-400 rounded-lg hover:text-orange-500 group"
                 >
-                  <span className="absolute left-0 block w-full h-0 transition-all bg-white opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease-in-out"></span>
-                  <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
-                    <IoIosArrowRoundForward size={30} />
-                  </span>
-                  <span className="relative text-nowrap">Enroll Now</span>
+                  
+                Enroll Now
                   
                 </button>
-                <p className="italic mt-2 text-slate-600 dark:text-red-400 font-medium">Seats are limited—secure yours now!</p>
+                <p className="italic mt-2 text-slate-600 text-xs md:text-base dark:text-red-400 font-medium">Seats are limited—secure yours now!</p>
             
 
                 {/* <button
@@ -97,12 +94,12 @@ const CourseHero = ({ course, downloadBrochure }) => {
             alt=""
             className="w-full h-full object-cover"
           />
-          <div className=" absolute left-1/2 font-semibold -translate-x-1/2 bottom-4">
+          <div className=" absolute text-center font-semibold w-full bottom-4">
             <button
               onClick={() => downloadBrochure(course?.brochure_file)}
-              className="hidden relative md:inline-flex items-center bg-white text-black border-amber-600 px-6 py-2 md:py-3 text-xs md:text-sm dark:border-white overflow-hidden dark:text-black border-2 rounded-lg hover:bg-amber-500 hover:text-white group"
+              className="relative inline-flex items-center bg-white text-black border-amber-600 text-xs px-4 py-2 md:py-3 md:text-sm dark:border-white overflow-hidden dark:text-black border-2 rounded-lg hover:bg-amber-500 hover:text-white group"
                 >
-                  <FaDownload size={15} className=" mr-2" />
+                  <FaDownload size={15} className="mr-2" />
               {/* <span className="absolute left-0 block w-full h-0 transition-all bg-white opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease-in-out"></span>
               <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
                 <FaDownload size={18} />

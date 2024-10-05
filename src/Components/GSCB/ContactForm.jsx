@@ -77,7 +77,7 @@ const ContactForm = () => {
     }
   };
   return (
-    <div className="mt-20 w-full md:w-[90%] lg:w-[85%] p-4 mx-auto h-full max-xs:p-4 max-xs:mt-10">
+    <div className="mt-20 w-full md:w-[80%] lg:w-[70%] p-4 mx-auto h-full max-xs:p-4 max-xs:mt-10">
       {showPopup && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
           {/* Overlay */}
@@ -117,7 +117,7 @@ const ContactForm = () => {
           </div>
         </div>
       )}
-      <h1 className="md:text-3xl text-xl font-semibold">
+      <h1 className="md:text-3xl text-xl mb-4 font-semibold">
         Contact
       </h1>
 
@@ -142,7 +142,7 @@ const ContactForm = () => {
                 contact_type="text"
                 id="first"
                 placeholder="Enter your First Name...."
-                className="px-4 py-2 dark:bg-slate-800 dark:text-white border-gray-300 border border-black/60 w-full max-sm:py-1"
+                className="px-4 text-sm py-2 rounded-lg mt-1 dark:bg-slate-800 dark:text-white border-gray-300 border border-black/60 w-full max-sm:py-1"
                 required
               />
               {/* <label htmlFor="first" className="text-sm dark:text-white">
@@ -161,7 +161,7 @@ const ContactForm = () => {
                 contact_type="text"
                 id="last"
                 placeholder="Enter your Last Name...." 
-                className="px-4 py-2 dark:bg-slate-800 border-gray-300 dark:text-white border border-black/60 w-full max-sm:py-1"
+                className="px-4 py-2  text-sm  rounded-lg mt-1 dark:bg-slate-800 border-gray-300 dark:text-white border border-black/60 w-full max-sm:py-1"
                 required
               />
               {/* <label htmlFor="last" className="text-sm dark:text-white">
@@ -184,7 +184,7 @@ const ContactForm = () => {
               contact_type="email"
               id="email"
               placeholder="Enter your email address...."
-              className="px-4 py-2 dark:bg-slate-800 border-gray-300 border dark:text-white border-black/60 w-full max-sm:py-1"
+              className="px-4 py-2  text-sm  rounded-lg mt-1 dark:bg-slate-800 border-gray-300 border dark:text-white border-black/60 w-full max-sm:py-1"
               required
             />
           </div>
@@ -203,7 +203,7 @@ const ContactForm = () => {
               inputMode="numeric"
               maxLength={10}
               placeholder="Enter your contact number..."
-              className="px-4 py-2 dark:bg-slate-800 border-gray-300 border dark:text-white border-black/60 w-full max-sm:py-1"
+              className="px-4 py-2  text-sm  rounded-lg mt-1 dark:bg-slate-800 border-gray-300 border dark:text-white border-black/60 w-full max-sm:py-1"
             />
           </div>
         </div>
@@ -220,7 +220,7 @@ const ContactForm = () => {
                 setFormData({ ...formData, contact_type: e.target.value });
               }}
               id="industry"
-              className="px-4 py-2 dark:bg-slate-800 border border-gray-300 dark:text-white border-black/60 w-full max-sm:py-1"
+              className="px-4 py-2  text-sm  rounded-lg mt-1 dark:bg-slate-800 border border-gray-300 dark:text-white border-black/60 w-full max-sm:py-1"
             >
               <option value="">Select a Type</option>
               {industry.map((i) => (
@@ -242,7 +242,7 @@ const ContactForm = () => {
               contact_type="text"
               id="company"
               placeholder="Enter your University...." 
-              className="px-4 py-2 border dark:bg-slate-800 border-gray-300 dark:text-white border-black/60 w-full max-sm:py-1"
+              className="px-4 py-2  text-sm  rounded-lg mt-1 border dark:bg-slate-800 border-gray-300 dark:text-white border-black/60 w-full max-sm:py-1"
               required
             />
 
@@ -264,7 +264,7 @@ const ContactForm = () => {
             contact_type="text"
             id="agency"
             placeholder="Enter your position...."
-            className="px-2 py-2 dark:bg-slate-800 border-gray-300 border dark:text-white border-black/60 w-full max-sm:py-1"
+            className="px-2 py-2 rounded-lg  text-sm  mt-1 dark:bg-slate-800 border-gray-300 border dark:text-white border-black/60 w-full max-sm:py-1"
           />
         </div>
         {/* Job & Industry
@@ -283,7 +283,7 @@ const ContactForm = () => {
               }}
               contact_type="text"
               id="job"
-              className="px-4 py-2 border border-black/60 w-full max-sm:py-1"
+              className="px-4 py-2 rounded-lg mt-1 border border-black/60 w-full max-sm:py-1"
             />
           </div>
         </div> */}
@@ -301,11 +301,11 @@ const ContactForm = () => {
             rows={4}
             id="help"
             placeholder="Write us to..."
-            className="px-4 py-2 border dark:bg-slate-800 border-gray-300 dark:text-white border-black/60 w-full mt-2 max-sm:py-1"
+            className="px-4 py-2 rounded-lg  text-sm  border dark:bg-slate-800 border-gray-300 dark:text-white border-black/60 w-full mt-2 max-sm:py-1"
           ></textarea>
           <button
             contact_type="submit"
-            className="px-6 py-2 mt-4 font-semibold rounded-full bg-black text-center text-white border-black hover:bg-indigo-600 max-sm:text-sm max-sm:px-4 max-sm:py-1"
+            className="px-6 py-2 mt-4 font-semibold rounded-full bg-black dark:bg-indigo-600 text-center text-white border-black hover:bg-indigo-600 max-sm:text-sm max-sm:px-4 max-sm:py-1"
           >
             {loading ? "Loading..." : "Submit"}
           </button>
