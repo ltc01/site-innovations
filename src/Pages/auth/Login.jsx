@@ -271,24 +271,24 @@ const Login = () => {
       <div className="flex items-center justify-center h-screen w-screen py-2 bg-transparent relative overflow-hidden z-3 dark:text-black">
         <div
           ref={Anime1}
-          className=" w-[600px] h-[600px] top-[-10%] left-[-5%]  rounded-full bg-[#1D64DD]  absolute "
+          className=" w-[600px] h-[600px] top-[-10%] left-[-5%]  rounded-full blur-3xl bg-gradient-to-r from-pink-400 to-indigo-500 opacity-40 absolute "
         ></div>
         <div
           ref={Anime2}
-          className=" w-[400px] h-[400px] bottom-[-15%] right-[-5%]  rounded-full bg-[#1D64DD]  absolute "
+          className=" w-[400px] h-[400px] bottom-[-15%] right-[-5%]  rounded-full blur-3xl bg-gradient-to-r from-indigo-600 to-pink-400 opacity-40 absolute "
         ></div>
 
-        <div className="relative flex flex-col m-6 space-y-8 bg-white md:mx-20 shadow-lg lg:shadow-xl rounded-2xl md:flex-row md:space-y-0 ">
+        <div className="relative flex flex-col m-6 space-y-8 bg-white/80 md:mx-20 shadow-lg rounded-2xl md:flex-row md:space-y-0 ">
           {/* Left Side */}
           <div className="flex flex-col justify-center px-6 py-6 lg:p-14 animate-slideInLeft">
-            <span className="mb-2 text-xl md:text-2xl font-bold text-blue-500">
+            <span className="mb-2 text-xl md:text-2xl font-bold ">
               Welcome back
             </span>
-            <span className="font-light text-gray-400 text-xs md:text-[1.4vw] lg:text-[1vw] mb-0 md:mb-6 animate-fadeIn">
+            <span className=" text-gray-400 dark:text-slate-800 font-medium text-xs md:text-[1.4vw] lg:text-[1vw] mb-0 md:mb-6 animate-fadeIn">
               Please enter your details
             </span>
             <form onSubmit={handleLogin}>
-              <div className="py-4 md:py-0 animate-slideInUp">
+              <div className="pt-4 md:py-0 animate-slideInUp">
                 <span className="mb-2 text-sm md:text-[1.4vw] lg:text-[1.3vw]">
                   Email
                 </span>
@@ -302,11 +302,11 @@ const Login = () => {
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
-              <div className="py-4 animate-slideInUp">
+              <div className="py-2 animate-slideInUp">
                 <span className="mb-2 text-sm md:text-[1.4vw] lg:text-[1.3vw]">
                   Password
                 </span>
-                <div className="flex items-center  p-2 border border-gray-300 rounded-md">
+                <div className="flex items-center bg-white  p-2 border border-gray-300 rounded-md">
                   <input
                     type={pass ? "text" : "password"}
                     name="password"
@@ -331,14 +331,14 @@ const Login = () => {
                 </div>
                 <Link
                   to={"/forget-password"}
-                  className="font-bold  text-[3.5vw] md:text-[1vw] cursor-pointer"
+                  className="font-semibold text-blue-600 text-[.6rem] md:text-xs cursor-pointer"
                 >
                   Forgot password
                 </Link>
               </div>
               <button
                 type="submit"
-                className="w-full bg-black text-white text-[4.4vw] md:text-[1vw] p-1 md:p-2 rounded-lg mb-6 hover:bg-white hover:text-black hover:border hover:border-gray-300 transform hover:scale-105 transition-all duration-300 animate-slideInUp"
+                className="w-full bg-gradient-to-r from-amber-400 font-semibold to-red-600 text-white text-[4.4vw] md:text-[1vw] p-1 md:p-2 rounded-lg mb-6 hover:bg-white hover:text-black hover:border hover:border-gray-300 transform hover:scale-105 transition-all duration-300 animate-slideInUp"
               >
                 Sign in
               </button>
@@ -354,8 +354,8 @@ const Login = () => {
               />
               Sign in with Google
             </button> */}
-            <div className="text-center text-[3vw] md:text-[1vw] text-gray-500 animate-fadeIn">
-              Don't have an account?{" "}
+            <div className="md:hidden text-center text-[3vw] md:text-[1vw] text-gray-600 animate-fadeIn">
+              Don't have an account ?{" "}
               <Link
                 to="/signup"
                 className="font-bold text-black cursor-pointer"
@@ -365,17 +365,17 @@ const Login = () => {
             </div>
           </div>
 
-          <div className="relative hidden md:flex items-center w-[35vw] lg:w-[32vw]">
+          <div className="relative hidden md:flex dark:bg-zinc-800  bg-zinc-100 rounded-r-2xl items-center w-[35vw] lg:w-[32vw]">
             {/* Background Animation */}
-            <div className="absolute  z-0 bg-[#3A80F6] overflow-hidden  w-full h-full rounded-r-2xl">
+            <div className="absolute z-0 overflow-hidden w-full h-full rounded-r-2xl">
               {[...Array(10)].map((_, i) => (
                 <div
                   key={i}
                   ref={(el) => (cubeRefs.current[i] = el)}
-                  className="absolute w-[10px] h-[10px] border border-[#0035A8]"
+                  className="absolute w-[10px] h-[10px] border bg-pink/10 blur-sm  border-pink-300"
                   style={{
-                    top: `${(i + 2) * 10}%`,
-                    left: `${(i + 1) * 10}%`,
+                    top: `${(i + 2) *10}%`,
+                    left: `${(i + 1) * 1}%`,
                     borderColor: i % 2 === 0 ? "#0035A8" : "#004DCC",
                   }}
                 />
@@ -383,7 +383,7 @@ const Login = () => {
             </div>
 
             {/* Foreground Text */}
-            <div className="relative z-10 flex flex-col text-white items-center justify-evenly py-[7rem] h-full">
+            <div className="relative z-10 flex flex-col text-black dark:text-white items-center justify-evenly py-[7rem] h-full">
               <h1 className="font-bold text-[2vw]">New Here?</h1>
               <p className="px-[3rem] font-light sm:text-[1.5vw] sm:leading-[2vw] text-center leading-[3vw]">
                 Those who see possibilities where others see limitations deserve
@@ -391,7 +391,7 @@ const Login = () => {
               </p>
               <Link
                 to={"/Signup"}
-                className="px-16 bg-black sm:py-1 sm:text-[1.2vw] py-2 border rounded-full border-black"
+                className="px-16 bg-black  font-semibold  text-white sm:py-1 sm:text-[1.2vw] py-2 rounded-full"
               >
                 Sign Up
               </Link>

@@ -51,7 +51,7 @@ import { BiSupport } from "react-icons/bi";
 import { RiBarChartBoxLine } from "react-icons/ri";
 import OurTeam from "../Components/AboutUs/OurTeam";
 import { TeamSwiper } from "../Components/OurTeam Components/TeamSwiper";
-import Testimonials from "../Components/Testmonials/Testimonials";
+import Testimonials from "./TestimonalAboutus";
 import Timeline from "../Components/AboutUs/Timeline";
 import { Mission, Vision } from "../assets/assets";
 import gsap from "gsap";

@@ -115,7 +115,7 @@ export default function SliderSection() {
               <SwiperSlide key={index}>
                 <div className="Homeslideranime h-[350px] md:h-[400px] max-h-[400px] overflow-hidden dark:bg-white/10 dark:border shadow-md rounded-3xl m-4 flex flex-col justify-between">
                   {/* Image Container */}
-                  <div className="relative h-[55%]">
+                  <div className="relative h-[60%]">
                     <img
                       src={slide.thumbnail_image}
                       alt={slide.title}
@@ -134,16 +134,16 @@ export default function SliderSection() {
                   <div className="px-4 h-[45%] flex flex-col justify-between">
                     {/* Title and Description */}
                     <div className="flex flex-col space-y-1">
-                      <h3 className="font-bold pt-2 text-base md:text-lg text-nowrap">{slide.title}</h3>
-                      <p className="text-xs md:text-sm pr-3 text-slate-600 dark:text-slate-200">
-                        {slide.description.slice(0, 98) + "..."}
+                      <h3 className="font-extrabold pt-2 text-base md:text-lg text-nowrap">{slide.title}</h3>
+                      <p className="text-xs md:text-sm pr-3 line-clamp-3 text-slate-600 dark:text-slate-200">
+                        {slide.description}
                       </p>
                     </div>
                     {/* View More Button */}
                     <div className="self-end mb-6">
                       <button
                         onClick={() => navigate(`/course/${slide.title}/${slide.id}`)}
-                        className="bg-gradient-to-r w-fit rounded-md text-xs from-indigo-700 to-indigo-400 text-white px-4 py-2 font-semibold hover:bg-gradient-to-l transition-all ease-in-out duration-300"
+                        className="bg-gradient-to-r w-fit rounded-md text-xs from-amber-500 to-red-600 text-white px-4 py-1 font-semibold hover:bg-gradient-to-l transition-all ease-in-out duration-300"
                       >
                         View More
                       </button>

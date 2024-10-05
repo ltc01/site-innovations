@@ -130,10 +130,10 @@ const Navbar = ({ theme }) => {
         ></div>
       )}
       <div
-        className={`flex z-[90] text-slate-600 dark:text-slate-200 md:h-20 h-16 items-center justify-between px-4 md:px-10 w-full fixed top-0 ${
+        className={`flex z-[90] text-slate-600 dark:text-slate-200 md:h-20 h-16 items-center justify-between px-4 md:px-8 w-full fixed top-0 ${
           isTransparent
             ? "bg-white dark:bg-black"
-            : "bg-white/70 backdrop-blur dark:bg-black/30 "
+            : "bg-white/70 backdrop-blur-xl dark:bg-white/10 "
         }`}
       >
         {/* Logo */}
@@ -142,7 +142,7 @@ const Navbar = ({ theme }) => {
 
         {/* NavLinks */}
         <div
-          className={`hidden lg:flex md:ml-2 lg:gap-2 font-semibold items-center text-sm justify-between `}
+          className={`hidden lg:flex md:ml-2 lg:gap-2 font-semibold items-center text-xs xl:text-sm justify-between `}
         >
           <Link
             to={"/"}
@@ -255,8 +255,8 @@ const Navbar = ({ theme }) => {
                 {!isLoggedIn ? (
                   <BiLogIn
                     size={20}
-                    fill="linear-gradient(#e66465, #9198e5)"
-                    className=" z-10 relative  dark:text-slate-200  cursor-pointer"
+                    
+                    className=" z-10 relative dark:text-slate-300 text-slate-500 cursor-pointer"
                   />
                 ) : (
                   <ProfileIcon/>
@@ -315,9 +315,9 @@ const Navbar = ({ theme }) => {
               className="text-base hidden lg:block cursor-pointer "
             >
               {isDark ? (
-                <BsSun className="text-slate-600 dark:text-slate-200 " />
+                <BsSun className="text-slate-600 dark:text-slate-100 " />
               ) : (
-                <BsMoonStars lassName="text-slate-600" />
+                <BsMoonStars className="text-slate-600" />
               )}
             </span>
 
@@ -328,7 +328,7 @@ const Navbar = ({ theme }) => {
                 type="button"
                 className="hidden group z-10 sm:flex text-indigo-950 bg-gradient-to-br from-pink-400 to-indigo-600 shadow-sm shadow-slate-300 dark:shadow-slate-600  font-semibold rounded-lg text-sm px-0.5 py-0.5 text-center"
               >
-                <span className="flex items-center justify-center h-full  bg-white dark:bg-black/60 dark:text-white rounded-md px-4 w-24 py-1.5 font-bold ">
+                <span className="flex items-center justify-center h-full  bg-white dark:bg-black/60 dark:text-white rounded-md px-6 py-1 text-sm font-semibold ">
                   GCEP
                 </span>
               </button>

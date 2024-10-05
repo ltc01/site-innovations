@@ -109,7 +109,7 @@ const Courses = () => {
       </div>
       <section
         ref={sectionRef}
-        className="pt-16 pb-16 px-14  dark:bg-black dark:text-white"
+        className="pt-16 pb-16 md:px-14  dark:bg-black dark:text-white"
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">

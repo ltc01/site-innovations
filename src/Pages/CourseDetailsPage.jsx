@@ -7,6 +7,7 @@ import CourseHighlights from "../Components/CourseDetails/CourseHighlights";
 import Loader from "../Components/Loader";
 import Brochure from "../Brochure.txt";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import { GiCheckMark } from "react-icons/gi";
 
 import {
   CollegeCourseData,
@@ -37,17 +38,16 @@ const CourseDetailsPage = () => {
   const [showTab, setShowTab] = useState("plus");
   const [fixed, setFixed] = useState(false);
   const [coursePlusContent, setCoursePlusContent] = useState([
-    "Doubt clearing sessions",
-    "Material & Assignment Management",
-    "Live Sessions",
-    "Project based learning",
-    "Mentorship & Evaluation",
+    "Doubt Clearing Sessions",
+    "Project-Based Learning",
+    "Mentorship and Evaluation",
     "Mentor Feedback",
-    "Regular Quizzes & Assessment",
-    `Personnal Mentorship`,
-    `Experts councelling`,
-    `Live Projects`,
-    `Dedicated Placement cell`,
+    "Live Sessions",
+    "Regular Quizzes and Assessments",
+    "Personal Mentorship",
+    "Expert Counseling",
+    "Live Projects",
+    "Dedicated Placement Cell",
   ]);
   // const [loading, setLoading] = useState(true);
 
@@ -156,7 +156,7 @@ const CourseDetailsPage = () => {
   };
 
   return (
-    <div className="mx-auto w-full">
+    <div className="mx-auto w-full pb-20 md:pb-28 ">
       {/* Hero Section */}
       <CourseHero
         course={courseData?.course}
@@ -164,67 +164,86 @@ const CourseDetailsPage = () => {
       />
 
       {/* courseData Details */}
-      <div className="flex flex-col gap-4 md:flex-row mx-auto justify-center w-[90%]">
-        <div className="md:w-[68%] items-start pr-10 py-10 flex flex-col space-y-14">
+      <div className="flex items-start flex-col md:flex-row px-3 lg:gap-x-6 lg:px-20  mt-10 justify-center">
+        <div className="md:w-[70%] border rounded-xl py-3 md:pb-14 pt-6 px-2 space-y-2 md:space-y-4 items-start mx-auto flex flex-col">
           {/* Course Details */}
-          <div className="p-8 shadow-md border dark:shadow-slate-100 rounded-xl">
-            <h2 className="text-xl lg:text-2xl font-semibold">
-              Course{" "}
-              <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
-                Details
+          <div className="py-2 px-2 md:px-6 dark:shadow-slate-100">
+            <h2 className="md:text-xl mb-3 font-bold">
+              {/* Course{" "} */}
+              <span className="bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text text-transparent">
+                Introduction
               </span>
             </h2>
-            <hr className="my-2" />
 
             {courseData?.course?.description.split("<br/>").map((ele, id) => {
-              return (
-                <p className="text-sm mb-1 leading-snug lg:text-[1rem] text-left">
-                  {ele}
-                </p>
-              );
+              return <p className="text-xs md:text-sm mb-3 pl-2 ">{ele}</p>;
             })}
           </div>
-
+          <hr className="w-[95%] bg-white" />
           {/* Course Overview */}
-          <div className=" p-8 shadow-md border dark:shadow-slate-100 rounded-xl">
-            <h2 className="text-xl lg:text-2xl font-semibold">
-              Course{" "}
+          <div className="py-2  px-2 md:px-6 dark:shadow-slate-100">
+            <h2 className="md:text-xl mb-3 font-bold">
+              {/* Course{" "} */}
               <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
                 Overview
               </span>
             </h2>
-            <hr className="my-2" />
+            {/* <hr className="my-2" /> */}
+
             {courseData?.course?.program_overview
               .split("<br/>")
               .map((ele, id) => {
-                return (
-                  <p className="text-sm mb-1 leading-snug lg:text-[1rem] text-left">
-                    {ele}
-                  </p>
-                );
+                return <p className="text-xs md:text-sm mb-3 pl-2">{ele}</p>;
               })}
           </div>
+          <hr className="w-[95%] bg-white" />
 
           {/* Course Curriculum */}
-          <div className="p-8 shadow-md border dark:shadow-slate-100 rounded-xl">
-            <h2 className="text-xl lg:text-2xl font-semibold">
-              Course{" "}
+          <div className="py-2 px-2 md:px-6 text-left dark:shadow-slate-100">
+            <h2 className="md:text-xl mb-3 font-bold">
+              {/* Course{" "} */}
               <span className="bg-gradient-to-r from-pink-500 to-violet-600 bg-clip-text text-transparent">
                 Curriculum
               </span>
             </h2>
-            <hr className="my-2" />
-            <ul className="list-inside list-disc marker:text-orange-600 mt-4">
-              {courseData?.course?.curriculum?.split(";").map((o, i) => (
-                <li
-                  className="py-1 text-sm leading-snug lg:text-[1rem] text-left"
-                  key={i}
-                >
-                  {o}
-                </li>
-              ))}
-            </ul>
+            {/* <hr className="my-2" /> */}
+            {/* <ol className="list-decimal px-8 marker:font-medium marker:text-slate-600 mt-4">
+            {courseData?.course?.curriculum?.split(";").map((o, i) => (
+  <li className="text-xs md:text-sm mb-2 pl-2" key={i}>
+    <ul>
+
+    {o?.split("-").map((sub, j) => (
+      <li key={j}>{sub}</li>
+    ))}
+    </ul>
+  </li>
+))}
+
+            </ol> */}
+            <ol className="list-decimal pl-6 md:px-8 marker:font-medium md:mt-4">
+              {courseData?.course?.curriculum
+                ?.split(";")
+                .map((section, index) => {
+                  const [title, ...subtopics] = section
+                    .split("~")
+                    .map((item) => item.trim());
+                  return (
+                    <li key={index} className="py-2">
+                      <h3 className="font-medium text-sm pb-2">{title}</h3>
+                      <ul className="list-disc pl-6 text-xs md:text-sm">
+                        {subtopics.map((subtopic, subIndex) => (
+                          <li key={subIndex} className=" py-0.5">
+                            {subtopic}
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  );
+                })}
+            </ol>
           </div>
+          <hr className="w-[95%] bg-white" />
+          <CourseHighlights />
         </div>
 
         {/* Plans Section */}
@@ -335,28 +354,27 @@ const CourseDetailsPage = () => {
             })}
           </div>
         </div> */}
-        <div className="relative top-7 mx-auto">
+        <div className=" md:w-[35%] mt-8 md:mt-0  px-3 sticky top-0  mx-auto">
           {/* Plans Section */}
           <div
-            className={` mt-5 ${
-              fixed
-                ? "md:fixed md:top-20 right-[10%] flex justify-center flex-col absolute "
-                : ""
-            } bg-white dark:bg-black shadow-md rounded-xl p-4`}
+            className={`border border-slate-300 bg-white dark:bg-black overflow-hidden shadow-md rounded-xl pb-4`}
           >
-            <div className="flex items-center justify-center gap-2 mb-4 flex-col">
+            <h2 className="text-lg font-semibold bg-gradient-to-r p-2 mb-4 text-white from-pink-500 to-indigo-600 text-center w-full">
+              Features
+            </h2>
+            <div className="flex pl-3 mx-2 items-start justify-center  md:gap-1 mb-4 flex-col">
               {coursePlusContent.map((course, id) => {
                 return (
                   <p
                     key={id}
-                    className="text-sm md:text-base mx-auto mb-2 px-8 text-center dark:text-white text-gray-500 font-medium"
+                    className="text-xs gap-2 flex items-start justify-center md:text-sm mb-2 dark:text-white text-slate-600 font-medium"
                   >
-                    {course}
+                    <GiCheckMark size={14} className="text-emerald-600" />{" "}
+                    <span>{course}</span>
                   </p>
                 );
               })}
             </div>
-
             <div className="flex w-full justify-center">
               <button
                 onClick={() => dispatch(toggleEnrollForm())}
@@ -373,7 +391,7 @@ const CourseDetailsPage = () => {
         </div>
       </div>
 
-      <CourseHighlights />
+      {/* <CourseHighlights /> */}
 
       {/* <Testimonials /> */}
 
@@ -398,53 +416,51 @@ const CourseDetailsPage = () => {
             pagination={{ clickable: true }}
             className="swiper-container lg:px-6 mt-4"
             breakpoints={{
-              320: {
-                slidesPerView: 1,
-                spaceBetween: 10,
-              },
-              620: {
-                slidesPerView: 2,
-                spaceBetween: 10,
-              },
-              740: {
-                slidesPerView: 3,
-                spaceBetween: 20,
-              },
-              1024: {
-                slidesPerView: 4,
-                spaceBetween: 10,
-              },
+              320: { slidesPerView: 1, spaceBetween: 10 },
+              640: { slidesPerView: 2, spaceBetween: 10 },
+              768: { slidesPerView: 2, spaceBetween: 20 },
+              1024: { slidesPerView: 3, spaceBetween: 20 },
+              1440: { slidesPerView: 4, spaceBetween: 20 },
             }}
           >
             {courseData?.related_courses.map((o, i) => {
               return (
                 <SwiperSlide key={i}>
-                  <div className="h-80 overflow-hidden dark:bg-indigo-900 dark:border shadow-md rounded-xl m-2">
+                  <div className="h-[22rem] md:my-4 md:mx-2 shadow shadow-slate-500 dark:bg-white/10 border overflow-hidden rounded-xl flex flex-col">
                     <div className="relative h-[50%]">
                       <img
                         src={o.thumbnail_image}
                         alt={o.title}
                         className="w-full h-full object-cover"
                       />
-                      <div className="absolute top-3 left-4 flex">
+                      {/* <div className="absolute top-3 left-4 flex">
                         <span className="text-xs mr-3 bg-gradient-to-r from-orange-600 to-amber-500 text-white rounded-lg px-3 py-1">
                           Premium
                         </span>
                         <span className="bg-slate-200 text-gray-800 rounded-lg text-xs px-3 py-1">
                           Plus
                         </span>
-                      </div>
+                      </div> */}
                     </div>
-                    <div className="h-fit flex flex-col justify-between px-4">
+                    <div className="px-4 h-[45%] flex flex-col">
                       <Link
                         to={`/course/${o?.slug}/${o?.id}`}
-                        className="text-lg font-semibold my-2"
+                        className="md:text-lg font-bold my-2"
                       >
                         {o.title}{" "}
                       </Link>
-                      <p className="text-sm pr-3 text-slate-600">
-                        {o.description.slice(0, 60) + "..."}
+                      <p className="text-sm line-clamp-3 pr-3 dark:text-slate-200 text-slate-600">
+                        {o.description}
                       </p>
+                    </div>
+                    <div className="mt-auto px-3 flex justify-between items-center">
+                      <p className="font-bold text-orange-600 text-base mb-6 dark:text-amber-500"></p>
+                      <button
+                        onClick={() => navigate(`/course/${o?.slug}/${o?.id}`)}
+                        className="bg-gradient-to-r text-xs rounded-md from-amber-500 to-red-600 text-white mb-6 px-3 py-1 font-semibold hover:bg-gradient-to-l"
+                      >
+                        View More
+                      </button>
                     </div>
                   </div>
                 </SwiperSlide>
