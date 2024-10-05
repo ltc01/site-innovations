@@ -200,7 +200,7 @@ export const ContactFormComponent = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Prepare the data to be sent in the POST request
-    console.log("formData: ", formData.Name);
+    // console.log("formData: ", formData.Name);
     const data = {
       student_full_name: formData.Name,
       student_email: formData.Email,
@@ -210,7 +210,7 @@ export const ContactFormComponent = () => {
       // Consent: formData.Consent,
     };
 
-    console.log("Form Data:", data);
+    // console.log("Form Data:", data);
     try {
       setLoading(true);
       const response = await axios.post(
@@ -261,7 +261,7 @@ export const ContactFormComponent = () => {
         <div className="fixed inset-0 flex items-center justify-center z-[201]">
           {/* Overlay */}
           <div
-            className="fixed inset-0 bg-gray-600 bg-opacity-50 transition-opacity"
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm transition-opacity"
             onClick={() => setShowPopup(false)} // Click outside to close
           ></div>
 
@@ -291,7 +291,7 @@ export const ContactFormComponent = () => {
               {/* Continue Button */}
               <button
                 onClick={handleCloseForm} // Manually close the popup
-                className="bg-gradient-to-r from-pink-400  to-indigo-600 text-white font-bold px-6 py-2 rounded-full hover:bg-indigo-700 focus:outline-none transition-all text-sm md:text-base"
+                className="bg-indigo-500 text-white font-bold px-6 py-2 rounded hover:bg-indigo-700 focus:outline-none transition-all text-sm md:text-base"
               >
                 Continue
               </button>

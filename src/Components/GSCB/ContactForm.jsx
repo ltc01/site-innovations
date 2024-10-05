@@ -82,7 +82,7 @@ const ContactForm = () => {
         <div className="fixed inset-0 flex items-center justify-center z-50">
           {/* Overlay */}
           <div
-            className="fixed inset-0 bg-gray-600 bg-opacity-50 transition-opacity"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
             onClick={() => setShowPopup(false)} // Click outside to close
           ></div>
 
@@ -110,7 +110,7 @@ const ContactForm = () => {
             {/* Close Button */}
             <button
               onClick={() => setShowPopup(false)}
-              className="bg-gradient-to-br from-purple-600 via-indigo-500 to-indigo-700 text-white px-4 py-2 rounded-full hover:bg-indigo-700 focus:outline-none transition-all"
+              className="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-700 focus:outline-none transition-all"
             >
               Close
             </button>
