@@ -377,7 +377,7 @@ const CourseDetailsPage = () => {
             </div>
             <div className="flex flex-col items-center w-full justify-center">
               <p className="font-bold text-orange-600 text-2xl mb-6 dark:text-amber-500">
-                {`at ₹ ${courseData?.course?.plans?.[0].price} /-`}
+                {`at ₹${courseData?.course?.plans?.[0].price}/-`}
               </p>
               <button
                 onClick={() => dispatch(toggleEnrollForm())}
